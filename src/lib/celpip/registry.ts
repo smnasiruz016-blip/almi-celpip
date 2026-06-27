@@ -31,9 +31,10 @@ export type TaskDef = {
 };
 
 // Listening + Reading ship live from Phase 0 (deterministic scoring + audio TTS).
-// Writing goes live in Phase 2 (Sonnet AI grader against the four CELPIP writing
-// criteria). Speaking stays live:false (shown as "Coming soon") until its AI grader
-// lands in Phase 3 — we never advertise a task we can't yet grade.
+// Writing goes live in Phase 2 and Speaking in Phase 3 — both Sonnet AI graders
+// against the four CELPIP criteria for their skill (Speaking grades the Whisper
+// transcript only, never accent or audio). All four skills are now live, so the
+// GENERAL and LS mock plans assemble in full automatically.
 const L = (taskType: CelpipTaskType, slug: string, label: string, blurb: string): TaskDef => ({
   taskType, subTest: "LISTENING", slug, label, scoringMode: "DETERMINISTIC", live: true, blurb,
 });
@@ -44,7 +45,7 @@ const W = (taskType: CelpipTaskType, slug: string, label: string, blurb: string)
   taskType, subTest: "WRITING", slug, label, scoringMode: "AI", live: true, blurb,
 });
 const S = (taskType: CelpipTaskType, slug: string, label: string, blurb: string): TaskDef => ({
-  taskType, subTest: "SPEAKING", slug, label, scoringMode: "AI", live: false, blurb,
+  taskType, subTest: "SPEAKING", slug, label, scoringMode: "AI", live: true, blurb,
 });
 
 export const CELPIP_TASKS: Record<CelpipTaskType, TaskDef> = {

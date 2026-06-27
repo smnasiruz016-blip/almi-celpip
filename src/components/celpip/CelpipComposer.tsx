@@ -459,7 +459,7 @@ function SpeakingComposer({ attemptId, prompt, payload }: { attemptId: string; p
       <p className="text-sm text-almi-text">{prompt}</p>
       <div className="rounded-xl border border-almi-bg-peach bg-almi-paper p-4">
         {p.taskPrompt && <p className="text-sm text-almi-text">{p.taskPrompt}</p>}
-        {p.imageUrl && (
+        {p.imageUrl ? (
           <div className="mt-3 overflow-hidden rounded-lg border border-almi-bg-peach">
             <Image
               src={p.imageUrl}
@@ -470,6 +470,15 @@ function SpeakingComposer({ attemptId, prompt, payload }: { attemptId: string; p
               unoptimized
             />
           </div>
+        ) : (
+          p.imageAlt && (
+            // No artwork yet: present the scene as a text description so the task
+            // is fully usable. The grader is given the same description as context.
+            <div className="mt-3 rounded-lg border border-dashed border-almi-bg-peach bg-almi-bg/40 p-3">
+              <p className="text-xs font-bold uppercase tracking-wider text-almi-text-muted">The scene</p>
+              <p className="mt-1 text-sm italic text-almi-text">{p.imageAlt}</p>
+            </div>
+          )
         )}
         <p className="mt-3 text-xs text-almi-text-muted">
           {p.prepSeconds ? `About ${p.prepSeconds}s to prepare, ` : ""}up to {Math.round(cap / 60) || 1} min to
