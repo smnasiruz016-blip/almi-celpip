@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* AlmiWorld family brand tokens (sunrise coral) — extracted from almiworld.com,
+ * shared verbatim across every product. Reused via Tailwind utilities
+ * (bg-almi-coral, text-almi-ink, …). */
+@theme {
+  --color-almi-coral: #FF7A6B;
+  --color-almi-coral-deep: #ff6b5b;
+  --color-almi-teal: #0d9488;
+  --color-almi-teal-light: #5EEAD4;
+  /* AlmiCELPIP secondary accent — amber-honey, keeps DET in the warm family
+   * palette while reading distinct from AlmiTOEFL's teal-led secondary. */
+  --color-almi-accent: #F4A340;
+  --color-almi-accent-deep: #e08e2a;
+  --color-almi-ink: #1a1a2e;
+  --color-almi-text: #334155;
+  --color-almi-text-muted: #475569;
+  --color-almi-gold: #C9A961;
+  --color-almi-gold-deep: #A88D44;
+
+  --color-almi-bg: #FFFBF5;
+  --color-almi-bg-peach: #FFE8D6;
+  --color-almi-paper: #FFFFFF;
+  --color-almi-on-dark: #f8fafc;
+
+  --font-sans: var(--font-inter), Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-script: var(--font-allura), "Allura", "Dancing Script", cursive;
+}
+
+:root {
+  --background: var(--color-almi-bg);
+  --foreground: var(--color-almi-ink);
+}
+
+body {
+  background: var(--background);
+  color: var(--color-almi-text);
+  font-family: var(--font-sans);
+}

@@ -1,0 +1,351 @@
+// AlmiCELPIP data model. The shared engine foundation (auth, billing, AI cost
+// ledger) is forked from AlmiDET. The practice layer is an ITEM-BANK: a single
+// CelpipItem ↔ CelpipAttempt pair carries every task type via a typed `payload` Json,
+// instead of one model per skill. Scoring is hybrid — deterministic for
+// objective tasks (Listening + Reading), AI trait-feedback for productive tasks
+// (Writing + Speaking) — and is reported as an honest practice RANGE on the
+// Canadian Language Benchmark (CLB 1-12), per skill. CELPIP reports a separate
+// level per skill with NO composite/overall, so we never compute one either. All
+// practice content is original to AlmiCELPIP; results are practice estimates only
+// — candidates are told to confirm the CLB they need with IRCC.
+//
+// The big structural fact vs OET: there is NO profession axis. CELPIP is general
+// English. The only axis is the CELPIP VERSION — General (all 4 skills, for PR)
+// vs LS (Listening + Speaking only, for citizenship) — modelled at session level.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // Migrations use Neon's direct (unpooled) connection; runtime queries use the
+  // pooled URL above. Both are provided by the Neon–Vercel integration.
+  directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+enum Locale {
+  EN
+  UR
+  AR
+  HI
+}
+
+enum SubscriptionTier {
+  FREE
+  PREMIUM
+}
+
+model User {
+  id           String  @id @default(cuid())
+  email        String  @unique
+  name         String?
+  passwordHash String
+  locale       Locale  @default(EN)
+  countryCode  String?
+  referralCode String  @unique @default(cuid())
+
+  // Email verification — required before paid feature access.
+  emailVerified               DateTime?
+  emailVerificationTokenHash  String?   @unique
+  emailVerificationExpiresAt  DateTime?
+  emailVerificationLastSentAt DateTime?
+
+  // Stripe subscription state — webhook keeps this in lockstep with Stripe.
+  stripeCustomerId              String?          @unique
+  stripeSubscriptionId          String?          @unique
+  subscriptionStatus            String?
+  subscriptionPlan              String?
+  subscriptionCurrentPeriodEnd  DateTime?
+  subscriptionCancelAtPeriodEnd Boolean          @default(false)
+  trialEndsAt                   DateTime?
+  subscriptionTier              SubscriptionTier @default(FREE)
+
+  // Comp Pro access — admin-granted, no Stripe. isProActive()/hasPaidAccess()
+  // short-circuit true while compProUntil is in the future, bypassing BOTH the
+  // subscription check AND email verification (comp = immediate full access).
+  // Single grant per user (revoke = null all four; extend tops up). CELPIP full Pro
+  // = AI feedback on the Writing letter + Speaking role-play + the full mock.
+  compProUntil  DateTime?
+  compGrantedAt DateTime?
+  compGrantedBy String?
+  compReason    String?
+
+  // Which CELPIP version the user is preparing for (General vs LS). Drives the
+  // default mock and which practice tasks are surfaced. Null = not chosen yet.
+
+  targetVersion CelpipVersion?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  sessions            Session[]
+  passwordResetTokens PasswordResetToken[]
+  celpipAttempts      CelpipAttempt[]
+  celpipSessions      CelpipSession[]
+  reviews             Review[]
+
+  @@index([email])
+  @@index([referralCode])
+  @@index([stripeCustomerId])
+  @@index([stripeSubscriptionId])
+  @@index([compProUntil])
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  tokenHash String   @unique
+  expiresAt DateTime
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model ProcessedWebhook {
+  id          String   @id
+  eventType   String
+  processedAt DateTime @default(now())
+
+  @@index([processedAt])
+}
+
+model EarlyAccess {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  source    String?
+  createdAt DateTime @default(now())
+
+  @@index([email])
+}
+
+// User-submitted star rating + testimonial. One per user (enforced in the
+// server action via findFirst → update/create). `approved` gates whether it can
+// appear on the public homepage grid; the founder approves in /admin/reviews.
+// Editing a review re-enters moderation (approved reset to false).
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int
+  text      String   @db.Text
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([approved, createdAt])
+}
+
+model AICostLedger {
+  id               String   @id @default(cuid())
+  timestamp        DateTime @default(now())
+  userId           String? // null for system calls (e.g. seeding, admin)
+  feature          String // e.g. "writing-letter.evaluate"
+  model            String
+  inputTokens      Int
+  outputTokens     Int
+  cacheReadTokens  Int      @default(0)
+  cacheWriteTokens Int      @default(0)
+  costCents        Int // rounded total cost in 1/100 cents
+  success          Boolean  @default(true)
+  errorMessage     String?
+
+  @@index([timestamp(sort: Desc)])
+  @@index([userId, timestamp])
+  @@index([feature, timestamp])
+}
+
+// ===================== CELPIP practice item-bank =====================
+// CELPIP has four sub-tests (Listening, Reading, Writing, Speaking), each scored
+// per skill on the Canadian Language Benchmark (CLB 1-12) — NO composite. There
+// is NO profession axis (general English). The General/LS distinction is a
+// SESSION concept: General = all 4 skills (for PR); LS = Listening + Speaking
+// only (for citizenship). One CelpipItem/CelpipAttempt pair serves every task
+// type; payload/response shapes vary by taskType (validated in src/lib/celpip/tasks/*).
+// All content is original; results are practice estimates — confirm the CLB you
+// need with IRCC.
+
+enum CelpipSubTest {
+  LISTENING // General + LS
+  READING // General only
+  WRITING // General only
+  SPEAKING // General + LS
+}
+
+// Which CELPIP version this applies to. Set on a session/user, not the item:
+// L/S items serve both; R/W are General-only (naturally excluded from an LS mock).
+enum CelpipVersion {
+  GENERAL // all four skills (PR / Express Entry)
+  LS // Listening + Speaking only (citizenship)
+}
+
+// Fine-grained task type — encodes the sub-test and the CELPIP task structure.
+enum CelpipTaskType {
+  // Listening (6 parts) — objective MCQ
+  LISTENING_PROBLEM_SOLVING
+  LISTENING_DAILY_LIFE
+  LISTENING_INFORMATION
+  LISTENING_NEWS
+  LISTENING_DISCUSSION
+  LISTENING_VIEWPOINTS
+  // Reading (4 parts) — objective MCQ / matching
+  READING_CORRESPONDENCE
+  READING_DIAGRAM
+  READING_INFORMATION
+  READING_VIEWPOINTS
+  // Writing (2 tasks) — AI
+  WRITING_EMAIL
+  WRITING_SURVEY
+  // Speaking (8 tasks) — AI (audio -> Whisper -> grade)
+  SPEAKING_ADVICE
+  SPEAKING_PERSONAL_EXPERIENCE
+  SPEAKING_DESCRIBE_SCENE
+  SPEAKING_PREDICTIONS
+  SPEAKING_COMPARE_PERSUADE
+  SPEAKING_DIFFICULT_SITUATION
+  SPEAKING_OPINIONS
+  SPEAKING_UNUSUAL_SITUATION
+}
+
+enum CelpipAttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  SCORED
+}
+
+// Difficulty pools for assembling practice sets and mocks (not adaptive —
+// honestly labelled practice difficulty).
+enum CelpipDifficulty {
+  FOUNDATION
+  CORE
+  STRETCH
+}
+
+model CelpipItem {
+  id               String           @id @default(cuid())
+  subTest          CelpipSubTest
+  taskType         CelpipTaskType
+  title            String
+  // Instruction shown to the test-taker.
+  prompt           String           @db.Text
+  // Task-specific stimulus + (for objective tasks) the server-side answer key,
+  // never sent raw to the client. Shapes by taskType (validated in app code):
+  //   LISTENING_*  { audioScript, speakers:[{role,voice}], questions:[{id,stem,options,answer}] }
+  //   READING_*    { passages:[{id,heading,body}], questions:[{id,kind,stem,options,answer}] }
+  //   WRITING_EMAIL  { situation, instruction, wordMin, wordMax }
+  //   WRITING_SURVEY { topic, optionA, optionB, instruction, wordMin, wordMax }
+  //   SPEAKING_*     { taskPrompt, prepSeconds, speakSeconds, imageUrl?, imageAlt? }
+  payload          Json
+  difficulty       CelpipDifficulty @default(CORE)
+  guidanceNote     String?          @db.Text
+  timeLimitSeconds Int              @default(0)
+  topicTag         String           @default("general")
+  active           Boolean          @default(true)
+  createdAt        DateTime         @default(now())
+
+  attempts CelpipAttempt[]
+
+  @@index([subTest, active, difficulty])
+  @@index([taskType, active])
+}
+
+model CelpipAttempt {
+  id       String              @id @default(cuid())
+  userId   String
+  itemId   String
+  subTest  CelpipSubTest
+  taskType CelpipTaskType
+  status   CelpipAttemptStatus @default(IN_PROGRESS)
+
+  // The user's raw response; shape depends on taskType:
+  //   Listening / Reading  { answers: { [questionId]: string | string[] } }
+  //   WRITING_*             { text: string }
+  //   SPEAKING_*            { transcript: string }
+  response Json @default("{}")
+
+  pointsEarned Int @default(0)
+  pointsMax    Int @default(0)
+
+  // Per-skill practice estimate on the CLB scale (1-12). NO composite — each
+  // skill stands alone. Shape: { lo, hi, clb } | null (null = not enough evidence).
+  clbEstimate Json?
+
+  // AI trait feedback payload for Writing/Speaking (qualitative; no CLB number).
+  feedback Json?
+
+  aiModel   String?
+  costCents Int?
+  latencyMs Int?
+
+  sessionId   String?
+  sessionStep Int?
+
+  timeSpentSeconds Int       @default(0)
+  startedAt        DateTime  @default(now())
+  submittedAt      DateTime?
+  updatedAt        DateTime  @updatedAt
+
+  user    User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  item    CelpipItem     @relation(fields: [itemId], references: [id], onDelete: Cascade)
+  session CelpipSession? @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@index([userId, status, submittedAt])
+  @@index([userId, startedAt])
+  @@index([itemId])
+  @@index([sessionId, sessionStep])
+}
+
+// ===================== Practice sets + full mock =====================
+// PRACTICE_SET = several items of one sub-test. MOCK = the full CELPIP in order.
+// A mock's `version` decides the skills: GENERAL = Listening->Reading->Writing->
+// Speaking; LS = Listening->Speaking only. Each skill scored independently on
+// CLB — no composite.
+
+enum CelpipSessionMode {
+  PRACTICE_SET
+  MOCK
+}
+
+enum CelpipSessionStatus {
+  IN_PROGRESS
+  COMPLETED
+}
+
+model CelpipSession {
+  id     String @id @default(cuid())
+  userId String
+
+  mode              CelpipSessionMode
+  subTest           CelpipSubTest? // set for PRACTICE_SET (single sub-test); null for MOCK
+  // The CELPIP version a MOCK is built for (GENERAL = 4 skills, LS = L+S).
+  version           CelpipVersion?
+  targetCount       Int
+  currentStep       Int                 @default(0)
+  currentDifficulty CelpipDifficulty    @default(CORE)
+  plan              Json?
+  status            CelpipSessionStatus @default(IN_PROGRESS)
+
+  startedAt   DateTime  @default(now())
+  completedAt DateTime?
+  updatedAt   DateTime  @updatedAt
+
+  user     User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  attempts CelpipAttempt[]
+
+  @@index([userId, status, startedAt])
+}
