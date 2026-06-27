@@ -235,8 +235,14 @@ export default function Home() {
               </li>
             ))}
           </ul>
-          <p className="mx-auto mt-6 max-w-2xl text-center text-xs text-almi-text-muted">
-            Not sure which you need? Confirm the test and CLB your program requires with IRCC.
+          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-almi-text">
+            Not sure which you need?{" "}
+            <Link href="/celpip-for" className="font-semibold text-almi-coral hover:underline">
+              See the CELPIP requirement for each Canadian program →
+            </Link>
+          </p>
+          <p className="mx-auto mt-2 max-w-2xl text-center text-xs text-almi-text-muted">
+            Requirements can change — always confirm the test and CLB your program needs with IRCC.
           </p>
         </div>
       </section>

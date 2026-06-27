@@ -1,16 +1,22 @@
+// Chunked sitemap for the CELPIP SEO landing system. Mirrors the proven
+// AlmiPrep/AlmiSalary generateSitemaps() pattern: enumerate every static + hub +
+// program×origin URL once, slice into chunks under Google's 50k cap. Next 16 may
+// hand `id` over as a Promise — coerce defensively (see SITEMAP_CHUNKING_FUTURE
+// note in almijob-v2; this bit AlmiJob across four PRs).
+
 import type { MetadataRoute } from "next";
+import { buildCelpipSitemapUrls, SITEMAP_CHUNK as CHUNK } from "@/lib/celpip/seo/sitemap-urls";
 
-// Minimal static sitemap for Phase 0 — the public marketing + auth surface. The
-// programmatic CELPIP SEO surface (CLB × Canadian immigration programs × origins)
-// is a later phase.
-const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://almicelpip.almiworld.com";
+const ALL_URLS = buildCelpipSitemapUrls();
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-  return ["", "/pricing", "/login", "/signup"].map((p) => ({
-    url: `${SITE_URL}${p}`,
-    lastModified: now,
-    changeFrequency: "weekly" as const,
-    priority: p === "" ? 1 : 0.7,
-  }));
+export async function generateSitemaps(): Promise<{ id: number }[]> {
+  const n = Math.max(1, Math.ceil(ALL_URLS.length / CHUNK));
+  return Array.from({ length: n }, (_, i) => ({ id: i }));
+}
+
+export default async function sitemap({ id }: { id: number }): Promise<MetadataRoute.Sitemap> {
+  // Next 16 may pass `id` as a Promise; Promise.resolve handles both shapes.
+  const idNum = Number(await Promise.resolve(id));
+  const start = (Number.isFinite(idNum) ? idNum : 0) * CHUNK;
+  return ALL_URLS.slice(start, start + CHUNK);
 }
