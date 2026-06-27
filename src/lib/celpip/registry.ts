@@ -30,10 +30,10 @@ export type TaskDef = {
   blurb: string;
 };
 
-// Listening + Reading are fully wired (seed content, composer, deterministic
-// scoring, audio TTS) and ship live in Phase 0. Writing + Speaking are structurally
-// complete but their AI graders land in Phase 2/3, so they stay live:false (shown
-// as "Coming soon") until then — we never advertise a task we can't yet grade.
+// Listening + Reading ship live from Phase 0 (deterministic scoring + audio TTS).
+// Writing goes live in Phase 2 (Sonnet AI grader against the four CELPIP writing
+// criteria). Speaking stays live:false (shown as "Coming soon") until its AI grader
+// lands in Phase 3 — we never advertise a task we can't yet grade.
 const L = (taskType: CelpipTaskType, slug: string, label: string, blurb: string): TaskDef => ({
   taskType, subTest: "LISTENING", slug, label, scoringMode: "DETERMINISTIC", live: true, blurb,
 });
@@ -41,7 +41,7 @@ const R = (taskType: CelpipTaskType, slug: string, label: string, blurb: string)
   taskType, subTest: "READING", slug, label, scoringMode: "DETERMINISTIC", live: true, blurb,
 });
 const W = (taskType: CelpipTaskType, slug: string, label: string, blurb: string): TaskDef => ({
-  taskType, subTest: "WRITING", slug, label, scoringMode: "AI", live: false, blurb,
+  taskType, subTest: "WRITING", slug, label, scoringMode: "AI", live: true, blurb,
 });
 const S = (taskType: CelpipTaskType, slug: string, label: string, blurb: string): TaskDef => ({
   taskType, subTest: "SPEAKING", slug, label, scoringMode: "AI", live: false, blurb,
