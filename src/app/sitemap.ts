@@ -1,17 +1,21 @@
 // Chunked sitemap for the CELPIP SEO landing system. Mirrors the proven
-// AlmiPrep/AlmiSalary generateSitemaps() pattern: enumerate every static + hub +
-// program×origin URL once, slice into chunks under Google's 50k cap. Next 16 may
-// hand `id` over as a Promise — coerce defensively (see SITEMAP_CHUNKING_FUTURE
-// note in almijob-v2; this bit AlmiJob across four PRs).
+// AlmiPrep/AlmiOET generateSitemaps() pattern: enumerate every indexable URL once
+// (shared builder), slice into chunks under Google's 50k cap. Next 16 may hand
+// `id` over as a Promise — coerce defensively (see SITEMAP_CHUNKING_FUTURE note in
+// almijob-v2; this bit AlmiJob across four PRs). The chunk URLs are listed by the
+// manual /sitemap-index.xml route, since Next 16 does not auto-emit an index.
 
 import type { MetadataRoute } from "next";
-import { buildCelpipSitemapUrls, SITEMAP_CHUNK as CHUNK } from "@/lib/celpip/seo/sitemap-urls";
+import {
+  buildCelpipSitemapUrls,
+  sitemapChunkCount,
+  SITEMAP_CHUNK as CHUNK,
+} from "@/lib/celpip/seo/sitemap-urls";
 
 const ALL_URLS = buildCelpipSitemapUrls();
 
 export async function generateSitemaps(): Promise<{ id: number }[]> {
-  const n = Math.max(1, Math.ceil(ALL_URLS.length / CHUNK));
-  return Array.from({ length: n }, (_, i) => ({ id: i }));
+  return Array.from({ length: sitemapChunkCount() }, (_, i) => ({ id: i }));
 }
 
 export default async function sitemap({ id }: { id: number }): Promise<MetadataRoute.Sitemap> {

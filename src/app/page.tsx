@@ -237,7 +237,7 @@ export default function Home() {
           </ul>
           <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-almi-text">
             Not sure which you need?{" "}
-            <Link href="/celpip-for" className="font-semibold text-almi-coral hover:underline">
+            <Link href="/celpip" className="font-semibold text-almi-coral hover:underline">
               See the CELPIP requirement for each Canadian program →
             </Link>
           </p>
