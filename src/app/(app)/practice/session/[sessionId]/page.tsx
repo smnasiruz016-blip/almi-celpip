@@ -9,6 +9,7 @@ import { CELPIP_TASKS } from "@/lib/celpip/registry";
 import { CelpipComposer } from "@/components/celpip/composer-map";
 import { CelpipResult } from "@/components/celpip/CelpipResult";
 import { CelpipSessionResult } from "@/components/celpip/CelpipSessionResult";
+import { MockProgress } from "@/components/celpip/MockProgress";
 import type { CelpipTaskType } from "@prisma/client";
 
 // Strip any server-only answer key before sending the payload to the client.
@@ -53,6 +54,8 @@ export default async function SessionPage({
   const def = CELPIP_TASKS[current.taskType];
   const stepLabel = `Step ${session.currentStep + 1} of ${session.targetCount}`;
   const isLast = session.currentStep + 1 >= session.targetCount;
+  const mockPlanSteps =
+    session.mode === "MOCK" ? ((session.plan as CelpipTaskType[] | null) ?? []) : [];
 
   if (current.status === "SCORED") {
     async function advance() {
@@ -63,6 +66,9 @@ export default async function SessionPage({
     }
     return (
       <div className="mx-auto max-w-2xl space-y-6">
+        {mockPlanSteps.length > 0 && (
+          <MockProgress plan={mockPlanSteps} currentStep={session.currentStep} />
+        )}
         <p className="text-xs font-bold uppercase tracking-wider text-almi-text-muted">{stepLabel}</p>
         <CelpipResult def={def} item={current.item} attempt={current} variant="step" />
         <form action={advance}>
@@ -79,6 +85,9 @@ export default async function SessionPage({
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">
+      {mockPlanSteps.length > 0 && (
+        <MockProgress plan={mockPlanSteps} currentStep={session.currentStep} />
+      )}
       <header>
         <p className="text-xs font-bold uppercase tracking-wider text-almi-accent-deep">
           {def.label} · {stepLabel}
