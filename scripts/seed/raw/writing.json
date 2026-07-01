@@ -1,0 +1,514 @@
+[
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Requesting a refund from a moving company",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "You hired Maple Ridge Movers to move your belongings across Calgary last weekend. Two boxes were lost and a bookshelf arrived with a cracked panel. You want the company to make things right.",
+      "instruction": "Write an email to the company's customer service manager. In your email: describe what went wrong during the move, explain what you would like the company to do to resolve it, and ask when you can expect a reply.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Asking your landlord to fix the building heating",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "The heating in your Winnipeg apartment has not worked properly for the past week, and the weather has turned cold. You have already mentioned it once to the building superintendent but nothing has changed.",
+      "instruction": "Write an email to your landlord. In your email: explain the heating problem and how long it has lasted, describe how it is affecting you, and request that someone come to repair it soon.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Inviting a neighbour to a community cleanup",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "Your neighbourhood association is organising a spring cleanup of the local park next Saturday morning. You would like your neighbour Priya, who recently moved onto your street, to join in and meet a few people.",
+      "instruction": "Write an email to your neighbour Priya. In your email: tell her about the cleanup event and where and when it takes place, explain why you think she would enjoy coming, and let her know what she should bring.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Requesting a schedule change from your manager",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "You have started an evening course at a local college that overlaps with your Thursday shift at the grocery store where you work. You would like your manager to adjust your hours for the next three months.",
+      "instruction": "Write an email to your manager. In your email: explain why you need a schedule change, propose a new arrangement for your Thursday shifts, and offer to help cover the change so your team is not left short.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Complaining about noisy construction next door",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "A renovation crew next to your Halifax townhouse has been starting work before 7:00 a.m., which is earlier than the city's noise bylaw allows. The early drilling is waking your household every morning.",
+      "instruction": "Write an email to the construction company's site office. In your email: describe the noise problem and when it happens, explain how it is affecting your family, and ask them to keep to the permitted work hours.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Thanking a colleague who covered your shifts",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "You were away for two weeks caring for a family member, and your coworker Daniel took on your shifts and tasks at the clinic while you were gone. You want to thank him properly now that you are back.",
+      "instruction": "Write an email to your coworker Daniel. In your email: thank him for covering your work, mention something specific he handled that you appreciated, and offer to return the favour in some way.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Reporting a damaged item to an online retailer",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "You ordered a desk lamp from an online store based in Ontario. It arrived yesterday with a bent shade and a cracked base, even though the box looked undamaged on the outside.",
+      "instruction": "Write an email to the retailer's support team. In your email: describe the condition the lamp arrived in, state whether you want a replacement or a refund, and ask how you should return the damaged item.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Asking the community centre about swim lessons",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "You want to register your two children for swimming lessons at your local community centre this fall, but the online schedule is confusing and you are unsure which levels suit their ages.",
+      "instruction": "Write an email to the community centre's front desk. In your email: explain that you want to enrol your children and give their ages, ask which lesson levels would be appropriate, and ask how to complete the registration.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Declining a project invitation from a coworker",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "A colleague, Suzanne, has invited you to join a volunteer committee she is leading at work. You are interested but already committed to another project and cannot take on more right now.",
+      "instruction": "Write an email to Suzanne. In your email: thank her for thinking of you, explain politely why you cannot join at this time, and suggest a way you might still support the committee.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Requesting a warranty repair for an appliance",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "The dishwasher you bought eight months ago has stopped draining properly. It is still under a one-year manufacturer's warranty, and you would like it repaired at no cost.",
+      "instruction": "Write an email to the appliance manufacturer's service department. In your email: describe the problem and when it began, mention that the appliance is still under warranty, and ask how to arrange a repair visit.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Suggesting an improvement to your workplace",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "Your office in Ottawa recently switched to a hybrid schedule, but there are not enough desks for everyone on busy in-office days. You have an idea for a simple desk-booking system that could help.",
+      "instruction": "Write an email to your team lead. In your email: describe the problem with desk availability, explain your suggested booking system and how it would work, and offer to help set it up or test it.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Asking a friend to help you move apartments",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "You are moving to a new apartment across town at the end of the month and could use a hand with the heavier furniture. Your friend Marcus has a pickup truck and has offered to help before.",
+      "instruction": "Write an email to your friend Marcus. In your email: tell him about your move and the date, explain what kind of help you need, and suggest a way to thank him for lending a hand.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Disputing an incorrect utility bill",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "Your latest electricity bill from the city utility is nearly triple your usual amount, even though your household's habits have not changed. You suspect a meter reading error.",
+      "instruction": "Write an email to the utility company's billing department. In your email: explain why you believe the bill is incorrect, provide details such as your usual amount and account information, and ask them to review the charge and respond.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Cancelling a gym membership",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "You are relocating to another city for work and can no longer use your fitness club in Victoria. You want to cancel your monthly membership without paying further fees.",
+      "instruction": "Write an email to the fitness club's membership office. In your email: state that you wish to cancel and explain why, ask what steps are needed to close your account, and confirm that no further payments will be charged.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Recommending a former employee for a job",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "A hiring manager at another company has emailed you asking for a reference for Amina, who used to work on your team as an administrative assistant. You were happy with her work and want to give a strong reference.",
+      "instruction": "Write an email to the hiring manager. In your email: confirm your working relationship with Amina, describe two or three of her strengths with examples, and state whether you would recommend her for the role.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_EMAIL",
+    "title": "Email — Reporting a pothole to the city",
+    "prompt": "Write an email responding to the situation below. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Address every point the task asks for, use a tone that fits the reader, and organise the email with a clear opening and closing.",
+    "payload": {
+      "situation": "A large pothole has opened up on your street in Saskatoon after the spring thaw. Cars are swerving to avoid it, and you worry someone will be hurt or a vehicle damaged.",
+      "instruction": "Write an email to your city's roads department. In your email: describe the pothole and its exact location, explain why it is a safety concern, and ask when it can be repaired.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Public transit vs. more parking downtown",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your city council has funding to improve the downtown core and is asking residents how it should be spent. Which approach would you prefer?",
+      "optionA": "Expand public transit with more frequent buses and new routes.",
+      "optionB": "Build more parking so it is easier to drive downtown.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Working from home vs. working at the office",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your employer is reviewing its work policy and has surveyed staff about their preferred arrangement. Which would you choose?",
+      "optionA": "Work mainly from home, coming into the office only when needed.",
+      "optionB": "Work mainly at the office with your team most days.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — A new community centre vs. an outdoor sports field",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your town has an empty lot and is asking residents what to build there. Which option would you support?",
+      "optionA": "An indoor community centre with meeting rooms and programs.",
+      "optionB": "An outdoor sports field open to everyone.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Year-round school vs. a long summer break",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your local school board is asking parents and residents for their views on the school calendar. Which schedule do you prefer?",
+      "optionA": "A year-round calendar with several shorter breaks.",
+      "optionB": "The traditional calendar with one long summer break.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Shopping locally vs. shopping online",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "A community newsletter is running a poll about how residents prefer to do their shopping. Which do you prefer?",
+      "optionA": "Shop at local stores in your neighbourhood.",
+      "optionB": "Shop online and have items delivered to your door.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Bike lanes vs. wider roads for cars",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your city is redesigning a busy main street and wants public input on how to use the available space. Which would you choose?",
+      "optionA": "Add protected bike lanes to encourage cycling.",
+      "optionB": "Keep the space for wider vehicle lanes to reduce traffic.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — A city dog park vs. a community garden",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your neighbourhood association has space for one new project and is polling residents. Which would you rather have?",
+      "optionA": "A fenced dog park where pets can run off-leash.",
+      "optionB": "A community garden with plots residents can rent.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Four-day work week vs. five-day work week",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your company is considering changing its work week and has asked employees for their preference. Which would you choose?",
+      "optionA": "A four-day week with longer daily hours.",
+      "optionB": "A five-day week with shorter daily hours.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Spending a tax refund vs. saving it",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "A personal finance website is asking readers what they would do with an unexpected tax refund. Which describes you best?",
+      "optionA": "Spend it on something you have wanted for a while.",
+      "optionB": "Put it into savings for the future.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — A pet cat vs. a pet dog for city living",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "A pet adoption centre is surveying apartment residents about which pet suits city living best. Which would you choose?",
+      "optionA": "A cat, which needs less space and outdoor time.",
+      "optionB": "A dog, which offers companionship and encourages you to get outside.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Taking a vacation nearby vs. travelling abroad",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "A travel magazine is asking readers about their ideal way to spend a week off. Which do you prefer?",
+      "optionA": "A relaxing trip close to home within your own province.",
+      "optionB": "An adventure abroad in another country.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Free public transit vs. lower property taxes",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "Your municipality has a budget surplus and is asking residents how it should be used. Which option would you support?",
+      "optionA": "Make public transit free for all residents.",
+      "optionB": "Reduce property taxes for homeowners and renters.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Cooking at home vs. ordering takeout",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "A community health newsletter is polling residents on how they usually get their weeknight dinners. Which describes you?",
+      "optionA": "Cook meals at home most evenings.",
+      "optionB": "Order takeout or delivery most evenings.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Streaming shows vs. going to the cinema",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "An entertainment blog is asking readers how they prefer to watch movies. Which do you prefer?",
+      "optionA": "Stream films at home on a subscription service.",
+      "optionB": "Go out to a cinema to watch films on the big screen.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Renting vs. buying a home",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "A housing survey is asking young adults about their long-term plans for where to live. Which would you choose?",
+      "optionA": "Continue renting to stay flexible and avoid large debt.",
+      "optionB": "Buy a home as an investment and for stability.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  },
+  {
+    "subTest": "WRITING",
+    "taskType": "WRITING_SURVEY",
+    "title": "Survey — Volunteering time vs. donating money",
+    "prompt": "Read the survey question, choose ONE option, and explain your choice. Write 150–200 words.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give specific reasons. You are not graded on which option you choose — only on how well you support it.",
+    "payload": {
+      "topic": "A local charity is asking supporters how they would most like to help the community. Which would you choose?",
+      "optionA": "Volunteer your time at events and programs.",
+      "optionB": "Donate money to fund the charity's work.",
+      "instruction": "Choose Option A or Option B and give reasons for your choice.",
+      "wordMin": 150,
+      "wordMax": 200
+    }
+  }
+]

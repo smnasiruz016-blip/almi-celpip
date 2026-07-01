@@ -1,0 +1,2050 @@
+[
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — An email about a delayed furniture order",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Watch for the reason a delay happened and what the writer offers to make up for it.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Email from Maplewood Furniture",
+          "body": "Dear Ms. Tremblay,\n\nThank you for your order of the Kenora dining table placed on March 3rd. I am writing to let you know that your delivery will be later than the date we first promised.\n\nThe table is built at our workshop in Kitchener, and a shipment of oak from our supplier arrived damaged last week. Rather than send you a table with a flaw, our team decided to wait for fresh materials. Your new delivery date is April 18th, about ten days later than planned.\n\nWe are sorry for the wait. To thank you for your patience, we have added a set of four matching placemats to your order at no charge. You do not need to do anything to receive them.\n\nIf the new date does not suit you, please reply to this email or call our Guelph office and we will arrange a time that works better.\n\nWarm regards,\nDaniel Okafor\nCustomer Care, Maplewood Furniture"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "Why is the delivery delayed?",
+          "options": [
+            { "id": "a", "text": "The oak that arrived was damaged." },
+            { "id": "b", "text": "Ms. Tremblay changed her order." },
+            { "id": "c", "text": "The workshop in Kitchener has closed." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What has the company added to the order for free?",
+          "options": [
+            { "id": "a", "text": "A second dining table." },
+            { "id": "b", "text": "A set of four placemats." },
+            { "id": "c", "text": "Free delivery to Guelph." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What should Ms. Tremblay do if the new date does not suit her?",
+          "options": [
+            { "id": "a", "text": "Visit the workshop in person." },
+            { "id": "b", "text": "Wait for a second email." },
+            { "id": "c", "text": "Reply to the email or phone the office." }
+          ],
+          "answer": "c"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What is the main purpose of the email?",
+          "options": [
+            { "id": "a", "text": "To inform the customer of a delay and a new date." },
+            { "id": "b", "text": "To ask the customer to pay a balance owing." },
+            { "id": "c", "text": "To advertise a new line of tables." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — A message from a neighbour about a shared fence",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Notice what the neighbour is proposing and how the cost is to be shared.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Note left in the mailbox",
+          "body": "Hi Priya,\n\nI hope you're settling into the neighbourhood well. I'm Carla from the house next door, the one with the red door.\n\nI wanted to talk to you about the wooden fence between our two backyards. A few boards near the gate have started to rot, and after the windstorm last month one section is leaning quite a bit. I'm worried it could fall over the winter.\n\nMy husband got a quote from a contractor in Burnaby who can replace the damaged part for about six hundred dollars. Since the fence sits on the line between our properties, we thought it would be fair to split the cost down the middle. That would be three hundred dollars each.\n\nWould you be free to chat this weekend? You could knock on our door any time on Saturday afternoon, or leave a note in our box. There's no rush, but it would be good to sort it out before the snow arrives.\n\nThanks so much,\nCarla"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What problem does Carla describe?",
+          "options": [
+            { "id": "a", "text": "The shared fence is damaged and leaning." },
+            { "id": "b", "text": "A tree has fallen into the yard." },
+            { "id": "c", "text": "The gate has been locked." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "How much does Carla suggest Priya should pay?",
+          "options": [
+            { "id": "a", "text": "The full six hundred dollars." },
+            { "id": "b", "text": "Three hundred dollars." },
+            { "id": "c", "text": "Nothing at all." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "How does Carla suggest Priya reply?",
+          "options": [
+            { "id": "a", "text": "By calling the contractor directly." },
+            { "id": "b", "text": "By emailing her husband." },
+            { "id": "c", "text": "By knocking on Saturday or leaving a note." }
+          ],
+          "answer": "c"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What is the tone of Carla's message?",
+          "options": [
+            { "id": "a", "text": "Friendly and cooperative." },
+            { "id": "b", "text": "Angry and demanding." },
+            { "id": "c", "text": "Cold and formal." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — An email inviting a colleague to a retirement party",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Track the practical details: who, when, where, and what each guest is asked to bring.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Email to the sales team",
+          "body": "Hello everyone,\n\nAs many of you know, Fatima Hassan is retiring at the end of June after twenty-two years with our Halifax branch. We would like to send her off with a proper celebration.\n\nWe've booked the community hall on Argyle Street for the evening of Friday, June 27th, starting at 6:30. Rather than a sit-down dinner, we're planning a potluck, so please bring one dish to share. To avoid ending up with twelve bowls of salad, I've set up a shared list where you can sign up for either a main, a side, or a dessert.\n\nMona is collecting money for a group gift. If you'd like to chip in, please give your contribution to her by June 20th so she has time to shop. Twenty dollars is a suggested amount, but anything is welcome.\n\nPlease keep the party a surprise. Fatima thinks she's coming to a regular team meeting, so don't mention it near her desk.\n\nLet me know by June 15th if you can make it.\n\nCheers,\nRaj"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What kind of meal is planned for the party?",
+          "options": [
+            { "id": "a", "text": "A catered sit-down dinner." },
+            { "id": "b", "text": "A potluck where guests bring a dish." },
+            { "id": "c", "text": "A restaurant booking." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What should guests do about the group gift?",
+          "options": [
+            { "id": "a", "text": "Buy their own gift for Fatima." },
+            { "id": "b", "text": "Give money to Mona by June 20th." },
+            { "id": "c", "text": "Send money directly to Raj." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "Why does Raj ask people not to mention the party near Fatima's desk?",
+          "options": [
+            { "id": "a", "text": "The party is meant to be a surprise." },
+            { "id": "b", "text": "The date has not been confirmed." },
+            { "id": "c", "text": "Fatima does not want a party." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "By what date should staff say whether they can attend?",
+          "options": [
+            { "id": "a", "text": "June 15th." },
+            { "id": "b", "text": "June 20th." },
+            { "id": "c", "text": "June 27th." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — A letter of complaint about a gym membership",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Separate what actually happened from what the writer is asking the company to do.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Letter to Riverside Fitness",
+          "body": "Dear Manager,\n\nI am writing about the membership I hold at your Saskatoon location. When I signed up in January, the staff member told me clearly that I could cancel at any time with thirty days' notice and no extra fee.\n\nIn May, I moved to Regina for work and sent an email to cancel, giving well over thirty days' notice. Instead of closing my account, your billing office charged me for two more months and added a ninety-dollar \"early exit\" fee that I was never told about.\n\nI have tried calling three times. On each call I waited more than twenty minutes and was then transferred to a voicemail box that was full. This has been frustrating, and I am no longer able to use the gym in any case.\n\nI would like a full refund of the two monthly charges and the exit fee, and written confirmation that my account is closed. If I do not hear back within fourteen days, I will contact the provincial consumer protection office.\n\nI can be reached by email or at the phone number below.\n\nSincerely,\nGordon Leung"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What was Gordon told when he signed up in January?",
+          "options": [
+            { "id": "a", "text": "He could cancel any time with thirty days' notice and no fee." },
+            { "id": "b", "text": "He would have to pay a ninety-dollar exit fee." },
+            { "id": "c", "text": "He could not cancel for one full year." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "Why did Gordon want to cancel his membership?",
+          "options": [
+            { "id": "a", "text": "He was unhappy with the equipment." },
+            { "id": "b", "text": "He moved to Regina for work." },
+            { "id": "c", "text": "He found a cheaper gym." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What does Gordon ask the company to do?",
+          "options": [
+            { "id": "a", "text": "Give him free months at another branch." },
+            { "id": "b", "text": "Refund the charges and confirm the account is closed." },
+            { "id": "c", "text": "Lower his monthly rate." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does Gordon say he will do if he gets no reply in fourteen days?",
+          "options": [
+            { "id": "a", "text": "Cancel his bank card." },
+            { "id": "b", "text": "Visit the gym in person." },
+            { "id": "c", "text": "Contact the provincial consumer protection office." }
+          ],
+          "answer": "c"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — A thank-you note to a volunteer coach",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Focus on the specific things the writer thanks the coach for.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Card from a parent",
+          "body": "Dear Coach Emma,\n\nI wanted to write a proper note to thank you for everything you did for the under-12 soccer team this season here in Winnipeg.\n\nWhen my son Theo joined in the spring, he was shy and unsure of himself. He barely spoke to the other kids. Over the past few months, I have watched him grow into a confident player who cheers for his teammates and looks forward to every practice. That change is because of you.\n\nI know you drove across the city twice a week after your own workday, in all kinds of weather, without ever being paid. You always stayed late to help the slower players, and you never made anyone feel left out.\n\nThe medal Theo won at the tournament is now on his bedroom wall, but the lessons you taught him about teamwork will last far longer than that.\n\nThank you from the bottom of our hearts. We hope you'll coach again next year.\n\nWith gratitude,\nDenise and Theo Adeyemi"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "How did Theo change over the season?",
+          "options": [
+            { "id": "a", "text": "He became more confident and social." },
+            { "id": "b", "text": "He decided to stop playing soccer." },
+            { "id": "c", "text": "He became the team captain." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What does the note say about Coach Emma's work?",
+          "options": [
+            { "id": "a", "text": "She was paid a small salary." },
+            { "id": "b", "text": "She volunteered without pay." },
+            { "id": "c", "text": "She coached only on weekends." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "According to Denise, what will last longer than the medal?",
+          "options": [
+            { "id": "a", "text": "The team photo." },
+            { "id": "b", "text": "The lessons about teamwork." },
+            { "id": "c", "text": "The tournament trophy." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does Denise hope for the future?",
+          "options": [
+            { "id": "a", "text": "That Emma will coach again next year." },
+            { "id": "b", "text": "That the team will move to a new city." },
+            { "id": "c", "text": "That Theo will switch to a different sport." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — An email declining a wedding invitation",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Distinguish the reason for declining from the alternative the writer suggests.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Reply to a wedding invitation",
+          "body": "Dear Sophie and Marcus,\n\nThank you so much for inviting me to your wedding in Victoria on August 9th. I was thrilled to open the envelope, and I know it will be a beautiful day by the water.\n\nI'm so sorry to say that I won't be able to come. My sister is due to have her first baby in early August, and I've already promised to stay with her in Ottawa for those two weeks to help out. As much as I would love to be in two places at once, I need to keep that promise.\n\nPlease know this isn't for lack of wanting to celebrate with you. I'd love to take you both out for dinner when you're back from your honeymoon, my treat, so I can hear all about the day and see the photos.\n\nI've sent a small gift to your home address, which should arrive next week.\n\nWishing you a lifetime of happiness together.\n\nLots of love,\nAisha"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "Why can't Aisha attend the wedding?",
+          "options": [
+            { "id": "a", "text": "She will be helping her sister, who is having a baby." },
+            { "id": "b", "text": "She cannot afford to travel to Victoria." },
+            { "id": "c", "text": "She has an argument with the couple." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What does Aisha offer to do instead?",
+          "options": [
+            { "id": "a", "text": "Attend the ceremony by video call." },
+            { "id": "b", "text": "Take the couple to dinner after the honeymoon." },
+            { "id": "c", "text": "Plan a second party in Ottawa." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What has Aisha already done?",
+          "options": [
+            { "id": "a", "text": "Booked a flight to Victoria." },
+            { "id": "b", "text": "Sent a gift to the couple's home." },
+            { "id": "c", "text": "Reserved a restaurant table." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "How does Aisha feel about missing the wedding?",
+          "options": [
+            { "id": "a", "text": "Relieved to have an excuse." },
+            { "id": "b", "text": "Genuinely sorry and disappointed." },
+            { "id": "c", "text": "Indifferent about it." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — A landlord's letter about building maintenance",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pay attention to dates, what tenants must do, and what will happen if they do nothing.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Notice to tenants",
+          "body": "Dear Residents of 240 Birchwood Lane,\n\nWe are writing to let you know that the water heating system for the entire building will be replaced next week. This work is needed because the current boiler is over thirty years old and has broken down twice this winter.\n\nThe work will take place on Tuesday, February 11th, between 8:00 a.m. and 4:00 p.m. During those hours there will be no hot water anywhere in the building. Cold water will still be available as usual. We recommend showering the night before or early that morning.\n\nOur contractor will need brief access to the utility closet in each unit. If you will not be home, please leave the closet unlocked, or drop a spare key at the front office before Monday. If we cannot get in, your unit's hot water may not be restored until a second visit.\n\nWe expect everything to be working normally by Tuesday evening. Thank you for your patience during this necessary upgrade.\n\nSincerely,\nThe Birchwood Property Management Team"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "Why is the boiler being replaced?",
+          "options": [
+            { "id": "a", "text": "It is old and has broken down twice this winter." },
+            { "id": "b", "text": "Tenants complained about the water being too hot." },
+            { "id": "c", "text": "The building is being sold." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What will be unavailable during the work?",
+          "options": [
+            { "id": "a", "text": "All water in the building." },
+            { "id": "b", "text": "Hot water only." },
+            { "id": "c", "text": "Electricity in the units." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What should tenants do if they will not be home?",
+          "options": [
+            { "id": "a", "text": "Cancel the appointment." },
+            { "id": "b", "text": "Leave the closet unlocked or drop off a spare key." },
+            { "id": "c", "text": "Wait for a phone call from the contractor." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What could happen if the contractor cannot enter a unit?",
+          "options": [
+            { "id": "a", "text": "The tenant will be charged a fee." },
+            { "id": "b", "text": "That unit's hot water may not be restored until a second visit." },
+            { "id": "c", "text": "The whole building's work will be cancelled." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — An email requesting a reference from a former manager",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Notice what the writer is asking for and the details she provides to make the favour easy.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Email to a former manager",
+          "body": "Dear Ms. Beaulieu,\n\nI hope this message finds you well and that things are going smoothly at the Moncton office since I left two years ago.\n\nI'm writing because I've applied for a coordinator position at a non-profit here in Calgary, and they've asked for a professional reference. You were my supervisor for three years, and I can't think of anyone better placed to speak to my work. Would you be willing to act as a reference for me?\n\nIf you agree, the organization will send you a short online form rather than ask for a long letter, so it shouldn't take more than fifteen minutes. I'd be happy to send you my updated resume and a summary of the role, so the details are fresh in your mind.\n\nI completely understand if you're too busy, and there will be no hard feelings if you'd rather not. Please just let me know either way by the end of next week, as I'd like to give the employer an answer.\n\nThank you for considering it, and for all your guidance during my time on your team.\n\nBest wishes,\nCandice Nwosu"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What is Candice asking Ms. Beaulieu to do?",
+          "options": [
+            { "id": "a", "text": "Offer her a new job." },
+            { "id": "b", "text": "Act as a professional reference." },
+            { "id": "c", "text": "Rehire her at the Moncton office." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What does Candice say the reference will involve?",
+          "options": [
+            { "id": "a", "text": "A short online form, about fifteen minutes." },
+            { "id": "b", "text": "A long handwritten letter." },
+            { "id": "c", "text": "An in-person interview." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What does Candice offer to send to help?",
+          "options": [
+            { "id": "a", "text": "A gift as a thank-you." },
+            { "id": "b", "text": "Her resume and a summary of the role." },
+            { "id": "c", "text": "A cheque to cover Ms. Beaulieu's time." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What tone does Candice take about the request?",
+          "options": [
+            { "id": "a", "text": "She insists that Ms. Beaulieu must help." },
+            { "id": "b", "text": "She is polite and gives Ms. Beaulieu the freedom to decline." },
+            { "id": "c", "text": "She is upset that she has to ask at all." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — A message rescheduling a dentist appointment",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Keep the old and new appointment details clearly separate as you read.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Text message from a dental clinic",
+          "body": "Hello Mr. Kowalski,\n\nThis is a message from Lakeshore Dental in Kingston. You have a cleaning booked with Dr. Amini for this Thursday, October 9th, at 2:00 p.m.\n\nUnfortunately, Dr. Amini has been called away for a family matter and will not be in the office that day. We are very sorry for the short notice.\n\nWe have two options for you. We can move your appointment to the same time next Thursday, October 16th, still with Dr. Amini. Or, if you'd prefer not to wait, our hygienist Ms. Roy has an opening this Friday, October 10th, at 11:00 a.m., and she can do your cleaning then.\n\nPlease reply to this message with either \"16th\" or \"Friday\" so we know which you'd like. If we don't hear from you by Wednesday afternoon, we'll assume you want the October 16th slot and hold it for you.\n\nThere is no charge for the change. Thank you for your understanding, and we look forward to seeing you soon.\n\nLakeshore Dental"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "Why has the appointment been changed?",
+          "options": [
+            { "id": "a", "text": "Dr. Amini has a family matter and will be away." },
+            { "id": "b", "text": "Mr. Kowalski asked to reschedule." },
+            { "id": "c", "text": "The clinic is closing that week." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What is the Friday option?",
+          "options": [
+            { "id": "a", "text": "A cleaning with Dr. Amini at 2:00 p.m." },
+            { "id": "b", "text": "A cleaning with hygienist Ms. Roy at 11:00 a.m." },
+            { "id": "c", "text": "A phone consultation." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What will happen if Mr. Kowalski does not reply by Wednesday afternoon?",
+          "options": [
+            { "id": "a", "text": "His appointment will be cancelled entirely." },
+            { "id": "b", "text": "The clinic will hold the October 16th slot for him." },
+            { "id": "c", "text": "He will be charged a missed-appointment fee." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "How should Mr. Kowalski respond?",
+          "options": [
+            { "id": "a", "text": "By calling a different clinic." },
+            { "id": "b", "text": "By replying with \"16th\" or \"Friday\"." },
+            { "id": "c", "text": "By visiting the office in person." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_CORRESPONDENCE",
+    "title": "Correspondence — A letter to a city councillor about a crosswalk",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Identify the specific change the writer wants and the evidence she uses to support it.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Letter to a city councillor",
+          "body": "Dear Councillor Fournier,\n\nI am a resident of the Elmvale neighbourhood and a parent of two children who attend Cedar Grove Elementary. I am writing to ask the city to install a marked crosswalk with flashing lights at the corner of Third Avenue and Pine Street.\n\nEvery school morning, dozens of children cross at this corner, yet there is no signal and no painted crossing. Cars often travel well above the posted speed, and drivers turning off Third Avenue simply do not expect anyone to be there. In the past year alone, I have seen three near-misses with my own eyes.\n\nI understand the city has a limited budget, and I am not asking for a full set of traffic lights. A painted crosswalk with the solar-powered flashing beacons already used near two other schools in our city would be a modest and proven solution.\n\nI have gathered signatures from more than sixty families who share this concern, and I would be glad to present them at the next council meeting. Would you be willing to raise this issue on our behalf?\n\nThank you for your time and for serving our community.\n\nRespectfully,\nHana Yamamoto"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What specific change is Hana requesting?",
+          "options": [
+            { "id": "a", "text": "A marked crosswalk with flashing lights." },
+            { "id": "b", "text": "A full set of traffic lights." },
+            { "id": "c", "text": "A new school building." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What evidence does Hana give that the corner is dangerous?",
+          "options": [
+            { "id": "a", "text": "A police report of an accident." },
+            { "id": "b", "text": "Three near-misses she has seen herself." },
+            { "id": "c", "text": "A newspaper article about the street." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "Why does Hana mention two other schools in the city?",
+          "options": [
+            { "id": "a", "text": "To show the flashing beacons are already proven and in use." },
+            { "id": "b", "text": "To complain that those schools are unsafe too." },
+            { "id": "c", "text": "To ask that her children be transferred there." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does Hana offer to bring to the council meeting?",
+          "options": [
+            { "id": "a", "text": "Photographs of the corner." },
+            { "id": "b", "text": "Signatures from more than sixty families." },
+            { "id": "c", "text": "A donation toward the cost." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_DIAGRAM",
+    "title": "Diagram — Community centre weekend class schedule",
+    "prompt": "Read the schedule, then match each person to the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Match each person's stated need to the one class that fits the day, time, and interest.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Rosewood Community Centre — Saturday Classes",
+          "body": "Class A: Beginner Pottery\nTime: 9:00–10:30 a.m.\nRoom: Art Studio\nNote: All materials included. No experience needed.\n\nClass B: Family Swim\nTime: 10:00–11:30 a.m.\nRoom: Main Pool\nNote: Children must be with an adult. Bring your own towel.\n\nClass C: Gentle Yoga for Seniors\nTime: 11:00 a.m.–12:00 p.m.\nRoom: Movement Hall\nNote: Chairs available. Suitable for stiff joints.\n\nClass D: Teen Coding Club\nTime: 1:00–3:00 p.m.\nRoom: Computer Lab\nNote: Ages 13–17. Laptops provided.\n\nClass E: Evening Conversational French\nTime: 6:00–7:30 p.m.\nRoom: Room 4\nNote: For adults who already know some basics."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "match",
+          "stem": "Bao wants to try making a clay bowl for the first time and has a free morning. Which class suits him?",
+          "options": [
+            { "id": "a", "text": "Class A: Beginner Pottery" },
+            { "id": "b", "text": "Class D: Teen Coding Club" },
+            { "id": "c", "text": "Class E: Evening Conversational French" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "match",
+          "stem": "Grace is 70 and has stiff knees. She wants a gentle way to stay active. Which class suits her?",
+          "options": [
+            { "id": "a", "text": "Class B: Family Swim" },
+            { "id": "b", "text": "Class C: Gentle Yoga for Seniors" },
+            { "id": "c", "text": "Class D: Teen Coding Club" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "match",
+          "stem": "Malik wants to take his young daughter to the pool on Saturday. Which class suits them?",
+          "options": [
+            { "id": "a", "text": "Class B: Family Swim" },
+            { "id": "b", "text": "Class C: Gentle Yoga for Seniors" },
+            { "id": "c", "text": "Class E: Evening Conversational French" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "match",
+          "stem": "Sofia, an adult who studied a little French in school, wants to practise speaking in the evening. Which class suits her?",
+          "options": [
+            { "id": "a", "text": "Class A: Beginner Pottery" },
+            { "id": "b", "text": "Class D: Teen Coding Club" },
+            { "id": "c", "text": "Class E: Evening Conversational French" }
+          ],
+          "answer": "c"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_DIAGRAM",
+    "title": "Diagram — Provincial park campground options",
+    "prompt": "Read the notice, then match each person to the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Compare each visitor's needs against the features listed for each site.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Maple Ridge Provincial Park — Campsite Types",
+          "body": "Site 1: Walk-In Tent Site\nAccess: Park at lot, carry gear 200 m\nFeatures: Quiet, forested, no vehicle beside tent\nHookups: None\n\nSite 2: Drive-Up Family Site\nAccess: Park car right beside your tent\nFeatures: Fire pit, picnic table, close to washrooms\nHookups: None\n\nSite 3: RV Full-Service Site\nAccess: Wide gravel pad\nFeatures: For trailers and motorhomes\nHookups: Water, power, sewer\n\nSite 4: Accessible Site\nAccess: Paved level pad, near accessible washroom\nFeatures: Wide paths, firm ground for wheelchairs\nHookups: Power\n\nSite 5: Group Site\nAccess: Large clearing\nFeatures: Holds up to 25 people, shared shelter\nHookups: None"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "match",
+          "stem": "The Okonkwo family is driving a large motorhome and needs water and power. Which site suits them?",
+          "options": [
+            { "id": "a", "text": "Site 1: Walk-In Tent Site" },
+            { "id": "b", "text": "Site 3: RV Full-Service Site" },
+            { "id": "c", "text": "Site 5: Group Site" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "match",
+          "stem": "Elena uses a wheelchair and wants a level, firm site near an accessible washroom. Which site suits her?",
+          "options": [
+            { "id": "a", "text": "Site 2: Drive-Up Family Site" },
+            { "id": "b", "text": "Site 4: Accessible Site" },
+            { "id": "c", "text": "Site 5: Group Site" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "match",
+          "stem": "Tariq wants the quietest, most secluded tent spot and doesn't mind carrying his gear a short way. Which site suits him?",
+          "options": [
+            { "id": "a", "text": "Site 1: Walk-In Tent Site" },
+            { "id": "b", "text": "Site 3: RV Full-Service Site" },
+            { "id": "c", "text": "Site 4: Accessible Site" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "match",
+          "stem": "A youth club of 20 people wants to camp together with a shared shelter. Which site suits them?",
+          "options": [
+            { "id": "a", "text": "Site 2: Drive-Up Family Site" },
+            { "id": "b", "text": "Site 4: Accessible Site" },
+            { "id": "c", "text": "Site 5: Group Site" }
+          ],
+          "answer": "c"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_DIAGRAM",
+    "title": "Diagram — Public library service directory",
+    "prompt": "Read the directory, then match each person to the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Read each desk's description carefully; the right match is the one that handles the visitor's exact task.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Prairie View Public Library — Service Desks",
+          "body": "Desk 1: Membership & Cards\nFor: New library cards, replacing lost cards, updating your address\nFloor: Main entrance\n\nDesk 2: Holds & Returns\nFor: Picking up items you reserved, returning borrowed books\nFloor: Main entrance\n\nDesk 3: Children's Corner\nFor: Story time sign-up, picture books, early reader help\nFloor: Lower level\n\nDesk 4: Tech Help\nFor: Using the printers, free Wi-Fi setup, learning to use a tablet\nFloor: Second floor\n\nDesk 5: Local History Room\nFor: Old maps, newspaper archives, family research\nFloor: Second floor"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "match",
+          "stem": "Nadia just moved to the city and wants to sign up for her first library card. Which desk should she visit?",
+          "options": [
+            { "id": "a", "text": "Desk 1: Membership & Cards" },
+            { "id": "b", "text": "Desk 3: Children's Corner" },
+            { "id": "c", "text": "Desk 5: Local History Room" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "match",
+          "stem": "Mr. Dubois needs help printing a document but doesn't know how to use the library printers. Which desk should he visit?",
+          "options": [
+            { "id": "a", "text": "Desk 2: Holds & Returns" },
+            { "id": "b", "text": "Desk 4: Tech Help" },
+            { "id": "c", "text": "Desk 5: Local History Room" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "match",
+          "stem": "Amara wants to register her toddler for the weekly story time. Which desk should she visit?",
+          "options": [
+            { "id": "a", "text": "Desk 1: Membership & Cards" },
+            { "id": "b", "text": "Desk 3: Children's Corner" },
+            { "id": "c", "text": "Desk 4: Tech Help" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "match",
+          "stem": "Robert is researching his grandparents who settled in the area long ago. Which desk should he visit?",
+          "options": [
+            { "id": "a", "text": "Desk 2: Holds & Returns" },
+            { "id": "b", "text": "Desk 3: Children's Corner" },
+            { "id": "c", "text": "Desk 5: Local History Room" }
+          ],
+          "answer": "c"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_DIAGRAM",
+    "title": "Diagram — Farmers' market vendor guide",
+    "prompt": "Read the vendor guide, then match each shopper to the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Match what each shopper wants to buy with the vendor that clearly sells it.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Riverbend Farmers' Market — Vendor Guide",
+          "body": "Stall 1: Sunny Acres Produce\nSells: Seasonal vegetables and fruit, grown on their farm\nExtra: Accepts cash only\n\nStall 2: The Bread Basket\nSells: Sourdough loaves, muffins, gluten-free options\nExtra: Sells out early; arrive before 10 a.m.\n\nStall 3: Maple Hollow Honey\nSells: Raw honey, beeswax candles, lip balm\nExtra: Free samples available\n\nStall 4: Coastal Catch\nSells: Fresh and smoked fish, brought in weekly\nExtra: Bring a cooler bag for the drive home\n\nStall 5: Little Sprout Plants\nSells: Herb seedlings, potted flowers, garden soil\nExtra: Advice on growing offered"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "match",
+          "stem": "Priya needs a gluten-free loaf for a friend with a wheat allergy. Which stall should she visit?",
+          "options": [
+            { "id": "a", "text": "Stall 2: The Bread Basket" },
+            { "id": "b", "text": "Stall 3: Maple Hollow Honey" },
+            { "id": "c", "text": "Stall 4: Coastal Catch" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "match",
+          "stem": "Diego wants fresh vegetables but only has cash on him. Which stall should he visit?",
+          "options": [
+            { "id": "a", "text": "Stall 1: Sunny Acres Produce" },
+            { "id": "b", "text": "Stall 4: Coastal Catch" },
+            { "id": "c", "text": "Stall 5: Little Sprout Plants" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q3",
+          "kind": "match",
+          "stem": "Mei wants to start a small herb garden on her balcony and would like some growing tips. Which stall should she visit?",
+          "options": [
+            { "id": "a", "text": "Stall 2: The Bread Basket" },
+            { "id": "b", "text": "Stall 3: Maple Hollow Honey" },
+            { "id": "c", "text": "Stall 5: Little Sprout Plants" }
+          ],
+          "answer": "c"
+        },
+        {
+          "id": "q4",
+          "kind": "match",
+          "stem": "Owen is looking for smoked fish for dinner and has brought a cooler bag. Which stall should he visit?",
+          "options": [
+            { "id": "a", "text": "Stall 1: Sunny Acres Produce" },
+            { "id": "b", "text": "Stall 4: Coastal Catch" },
+            { "id": "c", "text": "Stall 5: Little Sprout Plants" }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_DIAGRAM",
+    "title": "Diagram — Recreation centre membership plans",
+    "prompt": "Read the plan comparison, then match each person to the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Weigh cost against what each person actually plans to use before choosing a plan.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Northgate Recreation Centre — Membership Plans",
+          "body": "Plan A: Drop-In Pass\nPrice: $8 per visit\nIncludes: One entry to pool or gym\nBest for: Occasional visitors\n\nPlan B: Fitness Monthly\nPrice: $45 per month\nIncludes: Unlimited gym and fitness classes; pool not included\nBest for: Regular gym-goers\n\nPlan C: Aquatic Monthly\nPrice: $40 per month\nIncludes: Unlimited pool and swim lessons; gym not included\nBest for: Swimmers\n\nPlan D: All-Access Annual\nPrice: $520 per year\nIncludes: Everything — pool, gym, classes, plus guest passes\nBest for: Frequent all-round users\n\nPlan E: Youth Monthly\nPrice: $25 per month\nIncludes: Full access for members under 18\nBest for: Students and teens"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "match",
+          "stem": "Ingrid swims laps five times a week but never uses the gym. Which plan is best for her?",
+          "options": [
+            { "id": "a", "text": "Plan B: Fitness Monthly" },
+            { "id": "b", "text": "Plan C: Aquatic Monthly" },
+            { "id": "c", "text": "Plan D: All-Access Annual" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "match",
+          "stem": "Sixteen-year-old Jamal wants full access to both the pool and gym for the lowest price. Which plan is best for him?",
+          "options": [
+            { "id": "a", "text": "Plan A: Drop-In Pass" },
+            { "id": "b", "text": "Plan D: All-Access Annual" },
+            { "id": "c", "text": "Plan E: Youth Monthly" }
+          ],
+          "answer": "c"
+        },
+        {
+          "id": "q3",
+          "kind": "match",
+          "stem": "Beatrice visits only once or twice a month and doesn't want a monthly commitment. Which plan is best for her?",
+          "options": [
+            { "id": "a", "text": "Plan A: Drop-In Pass" },
+            { "id": "b", "text": "Plan B: Fitness Monthly" },
+            { "id": "c", "text": "Plan C: Aquatic Monthly" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "match",
+          "stem": "Kwame uses the gym, the pool, and classes almost daily and sometimes brings a friend. Which plan is best for him?",
+          "options": [
+            { "id": "a", "text": "Plan B: Fitness Monthly" },
+            { "id": "b", "text": "Plan D: All-Access Annual" },
+            { "id": "c", "text": "Plan E: Youth Monthly" }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_DIAGRAM",
+    "title": "Diagram — Volunteer roles at a winter festival",
+    "prompt": "Read the role list, then match each volunteer to the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Match each volunteer's skills and preferences to the role that lists them.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Frostlight Winter Festival — Volunteer Roles",
+          "body": "Role 1: Welcome Booth\nTasks: Greet visitors, hand out maps, answer questions\nGood for: Friendly people who like to talk\nSetting: Indoor tent, warm\n\nRole 2: Skating Rink Monitor\nTasks: Watch the ice, help beginners, keep the rink safe\nGood for: Confident skaters\nSetting: Outdoors, cold\n\nRole 3: Hot Cocoa Stand\nTasks: Serve drinks, take payment, keep the area tidy\nGood for: Quick, organized workers\nSetting: Outdoor stand with heater\n\nRole 4: Photo Station\nTasks: Take photos of families, help with the camera\nGood for: People comfortable with a camera\nSetting: Indoor, warm\n\nRole 5: Setup Crew\nTasks: Carry tables, string lights, build the stage\nGood for: Those who can lift and don't mind early mornings\nSetting: Outdoors, before the event opens"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "match",
+          "stem": "Lucia is a strong skater who loves helping children learn. Which role suits her?",
+          "options": [
+            { "id": "a", "text": "Role 1: Welcome Booth" },
+            { "id": "b", "text": "Role 2: Skating Rink Monitor" },
+            { "id": "c", "text": "Role 4: Photo Station" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "match",
+          "stem": "Hassan feels the cold easily and enjoys chatting with people. Which role suits him?",
+          "options": [
+            { "id": "a", "text": "Role 1: Welcome Booth" },
+            { "id": "b", "text": "Role 3: Hot Cocoa Stand" },
+            { "id": "c", "text": "Role 5: Setup Crew" }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q3",
+          "kind": "match",
+          "stem": "Bjorn is strong, doesn't mind early mornings, and prefers physical work. Which role suits him?",
+          "options": [
+            { "id": "a", "text": "Role 2: Skating Rink Monitor" },
+            { "id": "b", "text": "Role 4: Photo Station" },
+            { "id": "c", "text": "Role 5: Setup Crew" }
+          ],
+          "answer": "c"
+        },
+        {
+          "id": "q4",
+          "kind": "match",
+          "stem": "Delphine loves photography and wants to stay warm indoors. Which role suits her?",
+          "options": [
+            { "id": "a", "text": "Role 2: Skating Rink Monitor" },
+            { "id": "b", "text": "Role 4: Photo Station" },
+            { "id": "c", "text": "Role 5: Setup Crew" }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_INFORMATION",
+    "title": "Information — How curbside recycling works in a Canadian city",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Look for the rules about what goes where and when collection happens.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Your Guide to Curbside Recycling",
+          "body": "The city of Brookdale collects recycling from homes every two weeks. To make sure your materials are actually recycled, it helps to sort them correctly.\n\nBlue bins are for paper and cardboard. Flatten boxes so they take up less space, and keep paper dry. Wet or greasy paper, such as a used pizza box, cannot be recycled and should go in the green compost bin instead.\n\nClear bags are for containers: clean plastic bottles, glass jars, and metal cans. Please rinse them first. A jar with food still inside can spoil a whole bag of otherwise good material.\n\nSome items are not accepted at the curb at all. Batteries, light bulbs, and old electronics must be taken to the depot on Fraser Road, which is open on Saturdays.\n\nPlace your bins at the curb by 7:00 a.m. on your collection day. Trucks may come earlier than in past years, and crews will not return for bins put out late. If you are unsure of your day, check the calendar on the city website."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "How often is recycling collected in Brookdale?",
+          "options": [
+            { "id": "a", "text": "Every week." },
+            { "id": "b", "text": "Every two weeks." },
+            { "id": "c", "text": "Once a month." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "Where should a greasy pizza box go?",
+          "options": [
+            { "id": "a", "text": "In the blue bin." },
+            { "id": "b", "text": "In the green compost bin." },
+            { "id": "c", "text": "In a clear bag." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "Where must old batteries and electronics be taken?",
+          "options": [
+            { "id": "a", "text": "To the curb in a clear bag." },
+            { "id": "b", "text": "To the depot on Fraser Road." },
+            { "id": "c", "text": "Into the blue bin." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What happens if bins are put out late?",
+          "options": [
+            { "id": "a", "text": "Crews will not return for them." },
+            { "id": "b", "text": "A fine is mailed to the home." },
+            { "id": "c", "text": "The truck waits until the bins are out." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_INFORMATION",
+    "title": "Information — A notice about a public transit fare change",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Note the new prices, who is affected, and what riders should do before the change.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Transit Fare Update — Effective September 1",
+          "body": "Starting September 1st, Greenline Transit will adjust its fares for the first time in four years. The single adult fare will rise from $3.25 to $3.50. A monthly adult pass will increase from $95 to $102.\n\nWe understand that any increase is unwelcome, so we have kept some fares frozen. Fares for seniors, children under twelve, and post-secondary students will not change. Riders who use the low-income subsidy program will also see no increase, and we are expanding that program to cover more households this fall.\n\nThe extra revenue will fund longer service hours on three busy routes and the purchase of eight new low-floor buses that are easier to board.\n\nIf you carry a reloadable transit card, no action is needed; the new rates will apply automatically. However, paper tickets bought before September 1st at the old price will still be honoured until the end of the year, so there is no need to rush to use them.\n\nFor full details, visit any station kiosk or the Greenline website."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What will the new single adult fare be?",
+          "options": [
+            { "id": "a", "text": "$3.25" },
+            { "id": "b", "text": "$3.50" },
+            { "id": "c", "text": "$102" }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "Whose fares will NOT change?",
+          "options": [
+            { "id": "a", "text": "Adult monthly pass holders." },
+            { "id": "b", "text": "Seniors, children under twelve, and students." },
+            { "id": "c", "text": "All riders equally." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What will the extra revenue be used for?",
+          "options": [
+            { "id": "a", "text": "Longer service hours and new low-floor buses." },
+            { "id": "b", "text": "Lowering fares next year." },
+            { "id": "c", "text": "Building a new station downtown." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What happens to paper tickets bought at the old price?",
+          "options": [
+            { "id": "a", "text": "They become worthless on September 1st." },
+            { "id": "b", "text": "They are honoured until the end of the year." },
+            { "id": "c", "text": "They must be exchanged at a kiosk." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_INFORMATION",
+    "title": "Information — An article about the history of the butter tart",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Follow the facts about where the treat comes from and why people disagree about it.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "The Humble Butter Tart",
+          "body": "Few desserts are as closely tied to Canada as the butter tart. This small pastry, filled with a mixture of butter, sugar, syrup, and egg, has been baked in Canadian kitchens for well over a century.\n\nOne of the earliest known printed recipes appeared in a cookbook from a women's group in Ontario in 1900. Because the ingredients were simple and affordable, the tart quickly became a favourite in rural homes, where farm kitchens usually had butter, eggs, and syrup on hand.\n\nToday the butter tart sparks friendly debate. The biggest argument is about texture: some bakers prefer a runny, almost liquid centre, while others insist a proper tart should be firm enough to hold its shape. A second question is whether to add raisins, which divides families and even entire towns.\n\nSeveral communities now hold butter tart festivals each summer, drawing thousands of visitors who sample dozens of versions in a single afternoon. Bakers compete for prizes, and the winning recipes are guarded closely. What everyone agrees on is that the little tart, once a thrifty farm treat, has become a small national treasure."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "When did one of the earliest printed butter tart recipes appear?",
+          "options": [
+            { "id": "a", "text": "In 1900, in an Ontario cookbook." },
+            { "id": "b", "text": "In the 1950s, in a magazine." },
+            { "id": "c", "text": "Only in recent years." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "Why did the tart become popular in rural homes?",
+          "options": [
+            { "id": "a", "text": "It could be frozen for the winter." },
+            { "id": "b", "text": "Its ingredients were simple and usually on hand." },
+            { "id": "c", "text": "It was sold cheaply in city shops." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What is the biggest argument bakers have about the tart?",
+          "options": [
+            { "id": "a", "text": "Its texture — runny versus firm." },
+            { "id": "b", "text": "Its price at festivals." },
+            { "id": "c", "text": "Which province invented it." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does the article say everyone agrees on?",
+          "options": [
+            { "id": "a", "text": "That raisins should always be added." },
+            { "id": "b", "text": "That the tart has become a small national treasure." },
+            { "id": "c", "text": "That the runny version is the correct one." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_INFORMATION",
+    "title": "Information — A workplace notice about a new sick-leave policy",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pin down the numbers: how many days, when they reset, and what proof is needed.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Updated Sick-Leave Policy",
+          "body": "To all staff,\n\nBeginning January 1st, our company is updating its paid sick-leave policy to give employees more flexibility and to keep our workplace healthy.\n\nEach full-time employee will now receive seven paid sick days per calendar year, up from five. These days reset every January and cannot be carried over to the following year, so there is no benefit to saving them unused.\n\nFor absences of one or two days, you no longer need a doctor's note. Simply notify your supervisor by email or phone before the start of your shift. A note from a healthcare provider is required only when you are away for three or more days in a row.\n\nPart-time staff will receive a number of sick days in proportion to the hours they work, calculated at the start of each year and shown on your first pay statement.\n\nWe encourage everyone to stay home when unwell rather than risk spreading illness to colleagues. If you have questions about how many days you are entitled to, please speak with the human resources office.\n\nThank you,\nManagement"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "How many paid sick days will full-time employees now receive?",
+          "options": [
+            { "id": "a", "text": "Five." },
+            { "id": "b", "text": "Seven." },
+            { "id": "c", "text": "Ten." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What happens to unused sick days at the end of the year?",
+          "options": [
+            { "id": "a", "text": "They are paid out in cash." },
+            { "id": "b", "text": "They carry over to the next year." },
+            { "id": "c", "text": "They are lost; days reset each January." }
+          ],
+          "answer": "c"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "When is a doctor's note required?",
+          "options": [
+            { "id": "a", "text": "For any absence at all." },
+            { "id": "b", "text": "Only for absences of three or more days in a row." },
+            { "id": "c", "text": "Never, under the new policy." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "How are part-time staff's sick days decided?",
+          "options": [
+            { "id": "a", "text": "They receive the same seven days as full-time staff." },
+            { "id": "b", "text": "In proportion to the hours they work." },
+            { "id": "c", "text": "They receive no sick days." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_INFORMATION",
+    "title": "Information — A notice about protecting local pollinators",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Focus on why the topic matters and the practical steps residents can take.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Helping Our Local Pollinators",
+          "body": "Bees, butterflies, and other pollinators do a quiet but vital job in our community. As they move from flower to flower in search of food, they carry pollen that allows plants to produce fruit and seeds. Without them, many of the fruits and vegetables we enjoy would be far harder to grow.\n\nIn recent years, the number of pollinators in our region has dropped. Experts point to the loss of wild flowering plants and the heavy use of certain garden sprays as two of the main causes.\n\nThe good news is that residents can help, even with a small yard or a single balcony. Planting native flowers that bloom at different times of the year gives pollinators food from spring through fall. Leaving a shallow dish of water with a few stones for insects to land on offers them a safe drink. Most importantly, avoiding chemical sprays keeps these helpful creatures out of harm's way.\n\nThe parks department will hand out free packets of native wildflower seeds at the library next Saturday, while supplies last. Together, small actions across many gardens can make a real difference."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "Why are pollinators important, according to the notice?",
+          "options": [
+            { "id": "a", "text": "They help plants produce fruit and seeds." },
+            { "id": "b", "text": "They keep gardens free of weeds." },
+            { "id": "c", "text": "They make honey for sale." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What are two main causes of the decline?",
+          "options": [
+            { "id": "a", "text": "Cold winters and heavy rain." },
+            { "id": "b", "text": "Loss of wild flowers and heavy use of garden sprays." },
+            { "id": "c", "text": "Too many parks and gardens." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What does the notice say is the most important thing residents can do?",
+          "options": [
+            { "id": "a", "text": "Plant only one kind of flower." },
+            { "id": "b", "text": "Avoid using chemical sprays." },
+            { "id": "c", "text": "Keep bees in a hive." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What is being given away at the library next Saturday?",
+          "options": [
+            { "id": "a", "text": "Free garden tools." },
+            { "id": "b", "text": "Free native wildflower seeds." },
+            { "id": "c", "text": "Free water dishes." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_INFORMATION",
+    "title": "Information — An article about how snow-clearing crews prioritize roads",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Track the order in which roads are cleared and the reasons behind that order.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "How the City Clears Snow",
+          "body": "When a heavy snowfall blankets the city, drivers often wonder why their own street is still buried while the main road nearby has already been plowed. The answer lies in a clear system of priorities that crews follow every winter.\n\nFirst in line are the major routes: highways, bus corridors, and the streets leading to hospitals and fire halls. These carry the most traffic and serve emergencies, so keeping them open protects the greatest number of people. Crews aim to have them cleared within a few hours of a storm ending.\n\nNext come collector roads, the medium-sized streets that funnel cars from neighbourhoods toward the main routes. Only after these are passable do plows turn to quiet residential streets, which is why side streets are usually last.\n\nThis order sometimes frustrates residents, but reversing it would leave ambulances and buses stranded on unplowed highways. The city asks drivers to be patient, to move parked cars off the street when a snow route is declared, and to check the online plow tracker, which shows in real time where each truck has been and where it is headed next."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "Which roads are cleared first?",
+          "options": [
+            { "id": "a", "text": "Quiet residential side streets." },
+            { "id": "b", "text": "Highways, bus corridors, and roads to hospitals and fire halls." },
+            { "id": "c", "text": "Collector roads." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "Why are the major routes cleared first?",
+          "options": [
+            { "id": "a", "text": "They are the easiest to plow." },
+            { "id": "b", "text": "They carry the most traffic and serve emergencies." },
+            { "id": "c", "text": "They are closest to the depot." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "Why are residential side streets usually plowed last?",
+          "options": [
+            { "id": "a", "text": "They come after major and collector roads in the priority system." },
+            { "id": "b", "text": "They are too narrow for the trucks." },
+            { "id": "c", "text": "Residents pay less in taxes." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does the city ask drivers to do when a snow route is declared?",
+          "options": [
+            { "id": "a", "text": "Leave their cars parked on the street." },
+            { "id": "b", "text": "Move parked cars off the street." },
+            { "id": "c", "text": "Plow their own driveways for the crews." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_INFORMATION",
+    "title": "Information — A guide to storing food safely after a power outage",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Note the time limits and the rule of thumb for deciding what to keep or throw out.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Food Safety During a Power Outage",
+          "body": "Winter storms and summer heat can both knock out power for hours or even days. When the electricity stops, so does your fridge and freezer, and knowing a few simple rules can keep your family safe.\n\nThe most important step is to keep the doors closed. An unopened fridge will keep food cold for about four hours, and a full freezer will stay frozen for around forty-eight hours. Every time you open a door, cold air escapes and that clock speeds up. Resist the urge to peek.\n\nIf the outage lasts longer, use a cooler with ice or ice packs for the items you use most, such as milk and medicine. Group frozen items close together; they help keep one another cold.\n\nWhen power returns, check each item. A common rule is \"when in doubt, throw it out.\" Food that still has ice crystals or feels refrigerator-cold, at or below four degrees, is safe to keep. But any perishable food, such as meat or dairy, that has sat above that temperature for more than two hours should be discarded, even if it looks and smells fine."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What is the most important step during an outage?",
+          "options": [
+            { "id": "a", "text": "Keep the fridge and freezer doors closed." },
+            { "id": "b", "text": "Move all food outside." },
+            { "id": "c", "text": "Turn the fridge to its coldest setting." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "About how long will a full freezer stay frozen if kept closed?",
+          "options": [
+            { "id": "a", "text": "Four hours." },
+            { "id": "b", "text": "Forty-eight hours." },
+            { "id": "c", "text": "One week." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "According to the guide, which food is safe to keep?",
+          "options": [
+            { "id": "a", "text": "Any food that still looks and smells fine." },
+            { "id": "b", "text": "Food that still has ice crystals or feels at or below four degrees." },
+            { "id": "c", "text": "Meat that has been out for three hours." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What should be done with perishable food left above four degrees for more than two hours?",
+          "options": [
+            { "id": "a", "text": "Cook it thoroughly and eat it." },
+            { "id": "b", "text": "Refreeze it right away." },
+            { "id": "c", "text": "Throw it out, even if it looks fine." }
+          ],
+          "answer": "c"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — A review of a new neighbourhood café",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Separate what the reviewer praises from what she criticizes before choosing an answer.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "A Cosy Spot with One Flaw",
+          "body": "I had heard plenty of buzz about The Copper Kettle, the café that opened last month on Willow Street, so I stopped in on a rainy Tuesday to see for myself.\n\nThe first thing I noticed was how warm and welcoming the space felt. Soft lighting, mismatched wooden chairs, and shelves of second-hand books gave it the feel of a friend's living room rather than a business. The staff greeted me by name after only my second visit, which is rare these days.\n\nThe coffee itself is excellent. My flat white was smooth and rich, and the oat-milk option was clearly made with care. The house muffins, baked each morning, sell out by noon for good reason.\n\nMy one real complaint is the seating. With only twelve seats, the café fills up fast, and on both my visits I saw people leave because there was nowhere to sit. For a place this pleasant, that's a genuine shame.\n\nStill, I'll be back. If the owners can find a way to add even a few more chairs, The Copper Kettle could easily become the heart of the neighbourhood."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What is the reviewer's overall opinion of the café?",
+          "options": [
+            { "id": "a", "text": "Mostly positive, with one main complaint." },
+            { "id": "b", "text": "Completely negative." },
+            { "id": "c", "text": "Indifferent and unmoved." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What does the reviewer praise most about the atmosphere?",
+          "options": [
+            { "id": "a", "text": "Its warm, living-room feel." },
+            { "id": "b", "text": "Its modern, sleek design." },
+            { "id": "c", "text": "Its large outdoor patio." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What is the reviewer's one real complaint?",
+          "options": [
+            { "id": "a", "text": "The coffee is weak." },
+            { "id": "b", "text": "There are too few seats." },
+            { "id": "c", "text": "The staff are unfriendly." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does the reviewer suggest would improve the café?",
+          "options": [
+            { "id": "a", "text": "Adding a few more chairs." },
+            { "id": "b", "text": "Changing the coffee supplier." },
+            { "id": "c", "text": "Hiring new staff." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — An opinion piece on banning cars downtown",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Identify the writer's position and the concern he acknowledges but sets aside.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Give the Streets Back to People",
+          "body": "Every Saturday for the past summer, our city closed three downtown blocks to cars and opened them to people. As someone who was doubtful at first, I have become a firm supporter, and I believe the change should be made permanent.\n\nThe difference is striking. Streets that were once rivers of traffic now hum with families, buskers, and shoppers strolling between patios. Local businesses I spoke with reported busier weekends, not quieter ones, because people who stroll tend to linger and spend.\n\nI understand the main worry: that drivers, especially those with mobility challenges or heavy shopping, will be shut out. This is a fair point and must be taken seriously. But it is not a reason to abandon the idea, only to design it well. Nearby parking, frequent buses, and drop-off zones for those who need them can address most concerns.\n\nCities across the world have shown that streets built for people, not just for cars, are safer, livelier, and better for local shops. Our downtown deserves the same. Let's make the car-free weekends a year-round feature and watch the neighbourhood come alive."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What is the writer's main position?",
+          "options": [
+            { "id": "a", "text": "The car-free weekends should be made permanent." },
+            { "id": "b", "text": "The car-free weekends should be stopped." },
+            { "id": "c", "text": "Downtown needs more parking above all." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What did local businesses report?",
+          "options": [
+            { "id": "a", "text": "Quieter, less profitable weekends." },
+            { "id": "b", "text": "Busier weekends because strollers linger and spend." },
+            { "id": "c", "text": "No change in sales." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "How does the writer treat the worry about drivers with mobility challenges?",
+          "options": [
+            { "id": "a", "text": "He calls it a fair point that can be addressed with good design." },
+            { "id": "b", "text": "He ignores it completely." },
+            { "id": "c", "text": "He says it proves the idea should be abandoned." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What evidence does the writer use to support his view?",
+          "options": [
+            { "id": "a", "text": "A survey of city drivers." },
+            { "id": "b", "text": "Examples of cities that built streets for people." },
+            { "id": "c", "text": "A government traffic report." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — A commentary on whether homework helps young children",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Notice the writer's stance and the distinction she draws between age groups.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Rethinking Homework for Little Ones",
+          "body": "As a parent of a seven-year-old, I have watched too many evenings dissolve into tears over worksheets. It has led me to a firm conclusion: for children in the early grades, nightly homework does more harm than good.\n\nThe research I have read is surprisingly clear. For young children, there is little evidence that piles of homework improve learning. What does help at that age is reading together, playing outside, and getting enough sleep, all of which homework crowds out.\n\nI want to be fair. I am not against homework at every age. By high school, assignments can teach students to manage their time and dig deeper into subjects they enjoy. My argument is about the youngest learners, not teenagers.\n\nSome will say homework builds discipline early. Perhaps, but a stressed, exhausted child rarely learns discipline; she learns to dislike school. I would rather my daughter spend that hour building a fort or reading a story of her own choosing.\n\nSchools should trust that a curious childhood, not a stack of worksheets, is the best foundation for the years of study ahead."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What is the writer's main argument?",
+          "options": [
+            { "id": "a", "text": "Nightly homework does more harm than good for young children." },
+            { "id": "b", "text": "All homework at every age should be banned." },
+            { "id": "c", "text": "Teenagers should have less homework." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "According to the writer, what helps young children most?",
+          "options": [
+            { "id": "a", "text": "More worksheets each night." },
+            { "id": "b", "text": "Reading together, playing outside, and enough sleep." },
+            { "id": "c", "text": "Longer school days." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What does the writer concede about older students?",
+          "options": [
+            { "id": "a", "text": "Homework can help high schoolers manage time and go deeper." },
+            { "id": "b", "text": "Teenagers also learn nothing from homework." },
+            { "id": "c", "text": "High schoolers should have no homework either." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "How does the writer respond to the claim that homework builds discipline?",
+          "options": [
+            { "id": "a", "text": "She fully agrees with it." },
+            { "id": "b", "text": "She argues a stressed child learns to dislike school instead." },
+            { "id": "c", "text": "She says discipline does not matter." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — A review of an electric snowblower",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Balance the strengths the reviewer lists against the limitation he warns about.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Quiet, Clean, but Know Its Limits",
+          "body": "After twenty winters of wrestling with a heavy gas snowblower, I switched this year to a battery-powered model, the Frostguard E20. After clearing my driveway through a dozen storms, I have thoughts worth sharing with anyone considering the change.\n\nThe best surprises were the quiet and the convenience. There is no pull cord, no fumes, and no trips to the gas station. I press a button and it starts every time, even at minus fifteen. My neighbours no longer wake to a roar at six in the morning, which alone has improved relations on my street.\n\nIt is also lighter than my old machine, so my back thanks me. For a typical two-car driveway and the light, fluffy snow we usually get, it does the job well.\n\nHere is the honest catch. On the morning after a wet, heavy dump of thirty centimetres, the battery ran flat before I finished, and the machine struggled to throw the dense snow far. If you face regular deep storms, keep a second battery charged, or this may not be the tool for you.\n\nFor most homeowners, though, I would recommend it without hesitation."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What does the reviewer like most about the snowblower?",
+          "options": [
+            { "id": "a", "text": "Its quiet operation and convenience." },
+            { "id": "b", "text": "Its low price." },
+            { "id": "c", "text": "Its bright colour." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What is the machine's main limitation?",
+          "options": [
+            { "id": "a", "text": "It is far too heavy to push." },
+            { "id": "b", "text": "It struggles with deep, wet snow and can run out of battery." },
+            { "id": "c", "text": "It is very loud in the morning." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What does the reviewer suggest for people who face deep storms?",
+          "options": [
+            { "id": "a", "text": "Keep a second battery charged." },
+            { "id": "b", "text": "Return to a gas machine immediately." },
+            { "id": "c", "text": "Clear snow only by hand." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What is the reviewer's overall recommendation?",
+          "options": [
+            { "id": "a", "text": "He recommends it for most homeowners." },
+            { "id": "b", "text": "He advises no one to buy it." },
+            { "id": "c", "text": "He is unable to decide." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — A letter arguing for later school start times",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Track the writer's proposal, her supporting reason, and how she handles the opposing view.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Let Teenagers Sleep",
+          "body": "Each school morning, our high school opens its doors at 8:00, which means many teenagers are dragging themselves out of bed before dawn. As a teacher of fifteen years, I believe our board should push the start time to 9:00, and I am not alone.\n\nThe science on teenage sleep is well established. During these years, the body's internal clock shifts later, so teens naturally fall asleep and wake up later than younger children or adults. Fighting that clock does not make them lazy; it makes them tired. I see the results firsthand: students yawning through first period, unable to absorb a lesson their rested afternoon selves would grasp easily.\n\nI know the objection well. A later start complicates bus schedules and after-school jobs and sports. These are real hurdles, and I do not dismiss them. Yet other districts have moved their start times successfully by staggering bus routes and shifting practice times, so the problems are solvable with planning.\n\nWe ask a great deal of our students. The least we can do is let their school day begin when their minds are actually awake. An hour of sleep is not a luxury; for a growing teenager, it is a foundation for learning."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What change does the writer propose?",
+          "options": [
+            { "id": "a", "text": "Moving the high school start time to 9:00." },
+            { "id": "b", "text": "Making the school day shorter overall." },
+            { "id": "c", "text": "Starting school even earlier, at 7:00." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What is her main supporting reason?",
+          "options": [
+            { "id": "a", "text": "Teenagers' internal clock naturally shifts later." },
+            { "id": "b", "text": "Teachers prefer a later start." },
+            { "id": "c", "text": "Buses are cheaper to run later." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "How does the writer respond to the objection about buses and sports?",
+          "options": [
+            { "id": "a", "text": "She admits the hurdles are real but says other districts solved them with planning." },
+            { "id": "b", "text": "She denies that any such problems exist." },
+            { "id": "c", "text": "She agrees the plan cannot work." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does the writer mean by calling an hour of sleep \"a foundation for learning\"?",
+          "options": [
+            { "id": "a", "text": "That sleep is optional for good students." },
+            { "id": "b", "text": "That adequate sleep is essential for teens to learn well." },
+            { "id": "c", "text": "That students should sleep during class." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — A commentary on whether tipping has gone too far",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Distinguish the writer's core complaint from the solution he ultimately proposes.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "The Tipping Point",
+          "body": "I have no quarrel with rewarding good service. When a server has looked after my table all evening, I tip gladly and generously. But something has shifted, and I suspect I am not the only one who feels uneasy about it.\n\nLately I am asked to tip at the strangest moments. A screen spins around at the counter of a self-serve bakery, suggesting twenty per cent before I have so much as carried my own muffin to a table. A machine at the hardware store prompts me to tip on a bag of screws. The request appears everywhere, and its constant presence has begun to feel less like gratitude and more like pressure.\n\nMy worry is not really about a dollar here or there. It is that tipping is quietly being used to shift the cost of paying staff from the business onto the customer. That is a conversation about fair wages, and it should be had openly, not slipped onto a checkout screen.\n\nI would rather see honest prices that pay workers properly, with tipping returned to what it once was: a genuine thank-you for service that went above and beyond, freely given and never demanded."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What is the writer's core complaint?",
+          "options": [
+            { "id": "a", "text": "That tipping requests now appear everywhere and feel like pressure." },
+            { "id": "b", "text": "That servers do not deserve tips." },
+            { "id": "c", "text": "That prices at bakeries are too high." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What does the writer say about tipping for good service?",
+          "options": [
+            { "id": "a", "text": "He refuses to tip under any circumstances." },
+            { "id": "b", "text": "He tips gladly when service is genuinely good." },
+            { "id": "c", "text": "He thinks tips should be banned entirely." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What deeper worry does the writer raise?",
+          "options": [
+            { "id": "a", "text": "That tipping shifts the cost of paying staff onto customers." },
+            { "id": "b", "text": "That machines are replacing human servers." },
+            { "id": "c", "text": "That customers tip too much." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What solution does the writer ultimately propose?",
+          "options": [
+            { "id": "a", "text": "Honest prices that pay workers properly, with tipping as a genuine thank-you." },
+            { "id": "b", "text": "Higher default tip amounts on every screen." },
+            { "id": "c", "text": "Removing all staff from stores." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — A review of a local outdoor skating trail",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Sort the reviewer's praise from her one practical warning to visitors.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "A Winter Gem Worth the Drive",
+          "body": "If you are looking for a way to enjoy the cold months instead of hiding from them, I cannot recommend the Cedar Creek skating trail highly enough. My family visited twice over the holidays, and both times we left with rosy cheeks and big smiles.\n\nUnlike a plain rink, this is a winding loop of ice that curls through a snowy forest for nearly two kilometres. Skating beneath the frosted pines, with strings of lights glowing as the sun sets, feels almost magical. Warming huts along the way let you rest and thaw your toes, and a small stand sells hot chocolate and maple taffy.\n\nBest of all, it is free to skate, though donations for trail upkeep are welcome. Skate rentals are available for a modest fee if you don't own a pair.\n\nMy only word of caution is about timing. On weekend afternoons the trail gets crowded, and the parking lot fills quickly. We found that arriving on a weekday evening, or right when it opens, made for a far calmer visit. Plan around the crowds and you'll have a wonderful time."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What makes this trail different from a plain rink?",
+          "options": [
+            { "id": "a", "text": "It is a winding loop through a snowy forest." },
+            { "id": "b", "text": "It is entirely indoors." },
+            { "id": "c", "text": "It is only for expert skaters." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "What does the reviewer say about the cost?",
+          "options": [
+            { "id": "a", "text": "It is expensive and not worth it." },
+            { "id": "b", "text": "Skating is free, though donations are welcome." },
+            { "id": "c", "text": "There is a high entry fee." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What is the reviewer's one word of caution?",
+          "options": [
+            { "id": "a", "text": "The ice is dangerously thin." },
+            { "id": "b", "text": "Weekend afternoons get crowded and parking fills up." },
+            { "id": "c", "text": "There is nowhere to warm up." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "When does the reviewer suggest visiting for a calmer time?",
+          "options": [
+            { "id": "a", "text": "On a weekday evening or right at opening." },
+            { "id": "b", "text": "On a busy weekend afternoon." },
+            { "id": "c", "text": "Only during a snowstorm." }
+          ],
+          "answer": "a"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — An opinion piece on keeping local newspapers alive",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Follow why the writer values local papers and what she urges readers to do.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "The Stories Only Local Papers Tell",
+          "body": "When our town's weekly paper nearly folded last spring, I was surprised by how much the news upset me. I had, I confess, let my own subscription lapse years earlier. Yet the thought of losing it made me realize how much quiet work it did on our behalf.\n\nBig national outlets will never send a reporter to sit through a four-hour council meeting about a proposed rezoning, or to cover the high school science fair, or to ask hard questions when a local budget goes astray. Only a local paper does that, and when it disappears, those stories simply go untold. Decisions that shape our streets get made in rooms no one is watching.\n\nSome argue that social media has replaced newspapers. But a neighbourhood group full of rumours is not the same as a trained reporter who checks facts and names sources. One spreads noise; the other builds trust.\n\nSaving these papers will take effort. It means paying for a subscription even when headlines are a click away for free, and it means supporting the local shops that advertise in them. I have renewed mine. I hope, before it is too late, that you will consider doing the same."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "Why does the writer value local newspapers?",
+          "options": [
+            { "id": "a", "text": "They cover local stories no national outlet will." },
+            { "id": "b", "text": "They are cheaper than national papers." },
+            { "id": "c", "text": "They print more entertainment news." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "How does the writer respond to the idea that social media has replaced newspapers?",
+          "options": [
+            { "id": "a", "text": "She agrees it is a perfect replacement." },
+            { "id": "b", "text": "She argues rumours online are not the same as fact-checked reporting." },
+            { "id": "c", "text": "She says social media is always more accurate." }
+          ],
+          "answer": "b"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What does the writer admit about her own past behaviour?",
+          "options": [
+            { "id": "a", "text": "She had let her subscription lapse years earlier." },
+            { "id": "b", "text": "She had never read the paper at all." },
+            { "id": "c", "text": "She once worked as a reporter." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "What does the writer urge readers to do?",
+          "options": [
+            { "id": "a", "text": "Rely only on free online headlines." },
+            { "id": "b", "text": "Subscribe and support the shops that advertise in local papers." },
+            { "id": "c", "text": "Start their own social media groups." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  },
+  {
+    "subTest": "READING",
+    "taskType": "READING_VIEWPOINTS",
+    "title": "Viewpoints — A commentary on turning empty lots into community gardens",
+    "prompt": "Read the text, then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Separate the benefits the writer lists from the concern he raises and how he answers it.",
+    "payload": {
+      "passages": [
+        {
+          "id": "p1",
+          "heading": "Let the Vacant Lots Grow",
+          "body": "There is a weedy, fenced-off lot two blocks from my home in Hamilton that has sat empty for as long as I can remember. It collects litter, and no one gives it a second glance. I keep thinking the same thing every time I pass: what a waste.\n\nAcross the country, cities are turning lots just like it into community gardens, and I believe ours should follow. The benefits go well beyond a few rows of tomatoes. Neighbours who once nodded politely now spend Saturday mornings side by side, trading seeds and stories. Children learn where food actually comes from. Fresh vegetables reach families who might otherwise pay a premium for them at the store.\n\nCritics warn that gardens are hard to maintain and may be abandoned once the novelty fades. That is a fair concern, but the solution is not to give up on the idea; it is to plan for it. Gardens that thrive tend to have a small volunteer committee and a modest annual budget for water and tools.\n\nAn empty lot grows nothing but weeds. A garden grows food, friendships, and a little more pride in the place we call home."
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "kind": "mcq",
+          "stem": "What does the writer propose for the empty lot?",
+          "options": [
+            { "id": "a", "text": "Turning it into a community garden." },
+            { "id": "b", "text": "Building a parking lot on it." },
+            { "id": "c", "text": "Leaving it fenced off as it is." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q2",
+          "kind": "mcq",
+          "stem": "According to the writer, what benefit goes beyond growing vegetables?",
+          "options": [
+            { "id": "a", "text": "Neighbours connecting and children learning about food." },
+            { "id": "b", "text": "Higher property taxes for the city." },
+            { "id": "c", "text": "More space for parked cars." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q3",
+          "kind": "mcq",
+          "stem": "What concern do critics raise?",
+          "options": [
+            { "id": "a", "text": "That gardens are hard to maintain and may be abandoned." },
+            { "id": "b", "text": "That gardens grow too much food." },
+            { "id": "c", "text": "That children dislike gardening." }
+          ],
+          "answer": "a"
+        },
+        {
+          "id": "q4",
+          "kind": "mcq",
+          "stem": "How does the writer answer that concern?",
+          "options": [
+            { "id": "a", "text": "He agrees the idea should be dropped." },
+            { "id": "b", "text": "He says planning, such as a volunteer committee and a small budget, keeps gardens thriving." },
+            { "id": "c", "text": "He ignores the concern entirely." }
+          ],
+          "answer": "b"
+        }
+      ]
+    }
+  }
+]

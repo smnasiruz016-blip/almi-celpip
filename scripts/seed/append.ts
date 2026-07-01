@@ -17,11 +17,12 @@ import { ITEMS as LISTENING } from "./listening";
 import { ITEMS as READING } from "./reading";
 import { ITEMS as WRITING } from "./writing";
 import { ITEMS as SPEAKING } from "./speaking";
+import { ITEMS as BATCH1 } from "./batch1";
 
 const prisma = new PrismaClient();
 const DRY = process.argv.includes("--dry");
 
-const ALL = [...LISTENING, ...READING, ...WRITING, ...SPEAKING];
+const ALL = [...LISTENING, ...READING, ...WRITING, ...SPEAKING, ...BATCH1];
 
 const key = (taskType: string, title: string) => `${taskType}::${title}`;
 

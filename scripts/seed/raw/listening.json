@@ -1,0 +1,625 @@
+[
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_PROBLEM_SOLVING",
+    "title": "Problem Solving — A delayed furniture delivery",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the reason the delivery was missed and what the store offers to fix it.",
+    "payload": {
+      "audioScript": "Customer: Hi, I ordered a sofa from your Calgary store, and it was supposed to arrive last Tuesday. Nobody showed up. Rep: I'm sorry about that. Let me pull up your order. It looks like the truck was rerouted because of the snowstorm that week. Customer: I understand the weather, but I took the whole day off work to wait. Rep: That's frustrating, and I apologize. What I can do is schedule redelivery for this Saturday, and I'll waive the delivery fee entirely. Customer: Saturday works, but I want to make sure someone actually calls me first this time. Rep: Absolutely. The driver will phone you thirty minutes before arriving, and I'll add a note to the file. Customer: Alright, and the waived fee, that's the fifty dollars, right? Rep: Correct, fifty dollars back to your card within three business days.",
+      "speakers": [
+        { "role": "Customer", "voice": "shimmer" },
+        { "role": "Rep", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why was the sofa not delivered on Tuesday?", "options": [{"id":"a","text":"The item was out of stock."},{"id":"b","text":"A snowstorm caused the truck to be rerouted."},{"id":"c","text":"The customer gave the wrong address."}], "answer": "b" },
+        { "id": "q2", "stem": "What will the driver do before the new delivery?", "options": [{"id":"a","text":"Phone the customer thirty minutes ahead."},{"id":"b","text":"Send a text the night before."},{"id":"c","text":"Email a tracking link."}], "answer": "a" },
+        { "id": "q3", "stem": "What compensation does the rep offer?", "options": [{"id":"a","text":"A store gift card."},{"id":"b","text":"A waived fifty-dollar delivery fee."},{"id":"c","text":"A discount on a future order."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_PROBLEM_SOLVING",
+    "title": "Problem Solving — A double-booked meeting room",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for how the two coworkers agree to solve the scheduling conflict.",
+    "payload": {
+      "audioScript": "Priya: Hey Marcus, I booked the Harbour Room for my client call at two, but the system says you have it too. Marcus: Oh no, I reserved it last week for the budget review. I didn't see your booking. Priya: My client is calling in from Halifax, so I really need the video screen in there. Marcus: That makes sense. My meeting is just three of us going over spreadsheets. We could use the small room down the hall instead. Priya: Are you sure? I don't want to bump you. Marcus: It's fine, honestly. The little room has a whiteboard, which is actually better for what we're doing. Priya: Thank you, I owe you one. I'll let the front desk know the Harbour Room is mine at two. Marcus: Sounds good. Just make sure the projector cable is plugged in; it comes loose sometimes.",
+      "speakers": [
+        { "role": "Priya", "voice": "nova" },
+        { "role": "Marcus", "voice": "echo" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why does Priya need the Harbour Room specifically?", "options": [{"id":"a","text":"It has a video screen for her client call."},{"id":"b","text":"It is closer to the front desk."},{"id":"c","text":"It is the only room available."}], "answer": "a" },
+        { "id": "q2", "stem": "What does Marcus decide to do?", "options": [{"id":"a","text":"Cancel his budget review."},{"id":"b","text":"Move his meeting to the small room."},{"id":"c","text":"Ask Priya to reschedule her call."}], "answer": "b" },
+        { "id": "q3", "stem": "What does Marcus warn Priya about?", "options": [{"id":"a","text":"The projector cable can come loose."},{"id":"b","text":"The room is often too cold."},{"id":"c","text":"The door lock is broken."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_PROBLEM_SOLVING",
+    "title": "Problem Solving — A locked-out tenant",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for what the tenant lost and the temporary arrangement the manager offers.",
+    "payload": {
+      "audioScript": "Tenant: Hi, this is Dana in unit 304. I'm locked out; my keys must have fallen out somewhere between here and the bus stop. Manager: Oh, that's not great, especially in this cold. Are you outside the building right now? Tenant: Yes, I'm at the front entrance. My phone's almost dead too. Manager: Okay, don't worry. I keep a spare set in the office. I can come let you in within about fifteen minutes. Tenant: That would be a lifesaver. Do I need to pay for a replacement key? Manager: There's a twenty-five dollar fee for a new copy, but I'll cut that after you settle in. For now let's just get you inside. Tenant: Thank you so much. Should I wait right here? Manager: Yes, stay by the door where it's a bit sheltered. I'm leaving the office now.",
+      "speakers": [
+        { "role": "Tenant", "voice": "shimmer" },
+        { "role": "Manager", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is Dana's problem?", "options": [{"id":"a","text":"Her heater has stopped working."},{"id":"b","text":"She has lost her keys and is locked out."},{"id":"c","text":"Her rent payment did not go through."}], "answer": "b" },
+        { "id": "q2", "stem": "How will the manager help immediately?", "options": [{"id":"a","text":"By calling a locksmith."},{"id":"b","text":"By letting her in with a spare set."},{"id":"c","text":"By mailing a new key."}], "answer": "b" },
+        { "id": "q3", "stem": "What does the manager say about the replacement fee?", "options": [{"id":"a","text":"It must be paid before entering."},{"id":"b","text":"It will be arranged later, not now."},{"id":"c","text":"It has been permanently removed."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_PROBLEM_SOLVING",
+    "title": "Problem Solving — A billing error on a phone plan",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for what was charged incorrectly and the two-part fix the agent proposes.",
+    "payload": {
+      "audioScript": "Caller: I'm calling because my bill this month is ninety dollars, but my plan is supposed to be sixty. Agent: Let me take a look. Yes, I see a thirty-dollar roaming charge from the fourteenth. Were you travelling? Caller: No, I was in Winnipeg the whole month. I never left the country. Agent: That's odd. It looks like a tower near the border occasionally logs domestic use as roaming. It's a known glitch. Caller: So I'm being charged for a mistake in your system? Agent: I'm afraid so, and I apologize. Here's what I'll do: I'll reverse the thirty dollars on this bill, and I'll add a block so international roaming can't be applied unless you turn it on yourself. Caller: I'd appreciate that. How long until the credit shows? Agent: It'll appear on next month's statement, and you'll get a confirmation text tonight.",
+      "speakers": [
+        { "role": "Caller", "voice": "alloy" },
+        { "role": "Agent", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What caused the extra charge on the bill?", "options": [{"id":"a","text":"The caller travelled abroad."},{"id":"b","text":"A tower glitch logged domestic use as roaming."},{"id":"c","text":"The caller upgraded the plan."}], "answer": "b" },
+        { "id": "q2", "stem": "What is the second part of the agent's fix?", "options": [{"id":"a","text":"Adding a block on international roaming."},{"id":"b","text":"Switching the caller to a new plan."},{"id":"c","text":"Sending a new SIM card."}], "answer": "a" },
+        { "id": "q3", "stem": "When will the credit appear?", "options": [{"id":"a","text":"Immediately on the current bill."},{"id":"b","text":"On next month's statement."},{"id":"c","text":"After ninety days."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_PROBLEM_SOLVING",
+    "title": "Problem Solving — A carpool that fell through",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for why the usual ride is unavailable and the backup plan they settle on.",
+    "payload": {
+      "audioScript": "Sam: Hey Leah, my car's in the shop until Thursday, so I can't drive us to the conference tomorrow. Leah: Oh, that's tight. The morning session starts at eight-thirty. Sam: I know. I feel bad because I said I'd handle the driving this week. Leah: Don't stress. What if we take the GO train instead? There's one from our station at seven-fifteen. Sam: That could work. It gets us downtown by eight, right? Leah: About five to eight, so we'd have time to grab a coffee and still be early. Sam: Perfect. I'll cover both our train tickets since I bailed on driving. Leah: You don't have to, but I won't argue. Let's meet at the platform at seven, just to be safe. Sam: Deal. See you at seven.",
+      "speakers": [
+        { "role": "Sam", "voice": "echo" },
+        { "role": "Leah", "voice": "shimmer" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why can't Sam drive to the conference?", "options": [{"id":"a","text":"His car is being repaired."},{"id":"b","text":"He has to work in the morning."},{"id":"c","text":"He lost his driver's licence."}], "answer": "a" },
+        { "id": "q2", "stem": "What backup plan do they choose?", "options": [{"id":"a","text":"Taking the GO train."},{"id":"b","text":"Booking a taxi."},{"id":"c","text":"Renting a car."}], "answer": "a" },
+        { "id": "q3", "stem": "What does Sam offer to do?", "options": [{"id":"a","text":"Pay for both train tickets."},{"id":"b","text":"Drive them home afterward."},{"id":"c","text":"Bring coffee for both of them."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_PROBLEM_SOLVING",
+    "title": "Problem Solving — A returned online order",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for what was wrong with the item and how the customer chooses to resolve it.",
+    "payload": {
+      "audioScript": "Customer: Hi, I received the winter boots I ordered, but they sent size nine instead of size seven. Agent: I'm sorry about the mix-up. Would you like a refund or the correct size sent out? Customer: I'd rather have the right size; I really like the boots. Agent: No problem. I'll ship a size seven today with express delivery at no extra charge. Customer: Great. What do I do with the wrong pair? Agent: I'll email you a prepaid return label. Just drop the box at any Canada Post outlet. Customer: Do I need to send them back before you ship the new ones? Agent: Not at all. The replacement goes out immediately, and you have thirty days to return the wrong pair. Customer: That's easy. Thanks for sorting it out so quickly. Agent: My pleasure. You'll get a tracking number by email shortly.",
+      "speakers": [
+        { "role": "Customer", "voice": "nova" },
+        { "role": "Agent", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What was wrong with the order?", "options": [{"id":"a","text":"The wrong size was sent."},{"id":"b","text":"The colour was incorrect."},{"id":"c","text":"The boots were damaged."}], "answer": "a" },
+        { "id": "q2", "stem": "How does the customer choose to resolve it?", "options": [{"id":"a","text":"By getting a full refund."},{"id":"b","text":"By having the correct size sent."},{"id":"c","text":"By exchanging for a different style."}], "answer": "b" },
+        { "id": "q3", "stem": "Does the customer have to return the wrong pair first?", "options": [{"id":"a","text":"Yes, before the new pair ships."},{"id":"b","text":"No, they have thirty days to return it."},{"id":"c","text":"No, they can keep both pairs."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_PROBLEM_SOLVING",
+    "title": "Problem Solving — A leaking apartment radiator",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the immediate action the tenant is told to take and the follow-up plan.",
+    "payload": {
+      "audioScript": "Tenant: Hi, the radiator in my bedroom is leaking water onto the floor, and it's getting worse. Superintendent: Okay, first thing, is there a small valve at the base? Turn it clockwise to shut off the flow. Tenant: Let me try. Okay, it's turning... the dripping is slowing down. Superintendent: Good. Put a towel down to catch what's left and move anything valuable away from that corner. Tenant: Done. Will someone come today? It's supposed to drop below freezing tonight. Superintendent: I'll get the heating contractor out this afternoon. In the meantime, I'll bring you a space heater so the room stays warm. Tenant: That's a relief. Should I keep the valve closed until they arrive? Superintendent: Yes, leave it closed. If the leak starts again before I get there, call me right away and I'll come shut off the whole line.",
+      "speakers": [
+        { "role": "Tenant", "voice": "shimmer" },
+        { "role": "Superintendent", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is the tenant told to do first?", "options": [{"id":"a","text":"Turn the valve clockwise to stop the flow."},{"id":"b","text":"Unplug the radiator."},{"id":"c","text":"Open the window to release pressure."}], "answer": "a" },
+        { "id": "q2", "stem": "What will the superintendent bring in the meantime?", "options": [{"id":"a","text":"A new radiator."},{"id":"b","text":"A space heater."},{"id":"c","text":"Extra towels."}], "answer": "b" },
+        { "id": "q3", "stem": "What should the tenant do if the leak restarts?", "options": [{"id":"a","text":"Call the superintendent right away."},{"id":"b","text":"Turn the valve counter-clockwise."},{"id":"c","text":"Wait for the afternoon appointment."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DAILY_LIFE",
+    "title": "Daily Life — Planning a weekend at the lake",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for what each person agrees to bring and the departure time.",
+    "payload": {
+      "audioScript": "Owen: So are we still on for the cottage this weekend? Grandma's place near Muskoka? Jess: Definitely. I checked the forecast and it's sunny both days, finally. Owen: Great. I'll bring the kayaks and the cooler. Can you handle the food? Jess: Sure. I'll pick up burgers, buns, and some snacks. Should I grab firewood too? Owen: The cottage usually has a stack, but bring a bundle just in case. Oh, and bug spray, the mosquitoes were brutal last time. Jess: Good call. What time do you want to leave Saturday? Owen: If we go by eight, we'll beat the traffic heading north. Jess: Eight works. I'll set an alarm. Do we need to stop for gas? Owen: I filled up yesterday, so we're good to drive straight there. Jess: Perfect. This is going to be a great weekend.",
+      "speakers": [
+        { "role": "Owen", "voice": "echo" },
+        { "role": "Jess", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is Jess responsible for bringing?", "options": [{"id":"a","text":"The kayaks and cooler."},{"id":"b","text":"The food and some firewood."},{"id":"c","text":"The tent and sleeping bags."}], "answer": "b" },
+        { "id": "q2", "stem": "What time do they plan to leave on Saturday?", "options": [{"id":"a","text":"Seven o'clock."},{"id":"b","text":"Eight o'clock."},{"id":"c","text":"Nine o'clock."}], "answer": "b" },
+        { "id": "q3", "stem": "Why don't they need to stop for gas?", "options": [{"id":"a","text":"Owen filled up the day before."},{"id":"b","text":"The cottage is very close."},{"id":"c","text":"Jess will pay for gas on the way."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DAILY_LIFE",
+    "title": "Daily Life — Choosing a birthday gift",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for whose birthday it is and the gift they finally decide on.",
+    "payload": {
+      "audioScript": "Ben: We need to figure out a gift for Dad's birthday. He's turning sixty. Amara: I know, it should be something special. He keeps saying his old barbecue is falling apart. Ben: A new barbecue might be over our budget, though. What about a nice set of grilling tools? Amara: He'd like that, but he already has a decent set. Ben: True. What about tickets to a Blue Jays game? He hasn't been in years. Amara: Oh, that's a lovely idea. We could all go together, make it a family outing. Ben: Exactly. And it's something he'd actually enjoy doing, not just another gadget. Amara: Let's do it. I'll look up dates for late July when the weather's good. Ben: Perfect. I'll chip in for the tickets, and we can surprise him at dinner. Amara: He's going to love it.",
+      "speakers": [
+        { "role": "Ben", "voice": "onyx" },
+        { "role": "Amara", "voice": "shimmer" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Whose birthday are they planning for?", "options": [{"id":"a","text":"Their father's sixtieth."},{"id":"b","text":"Their mother's birthday."},{"id":"c","text":"A friend's birthday."}], "answer": "a" },
+        { "id": "q2", "stem": "Why do they reject the grilling tools idea?", "options": [{"id":"a","text":"They are too expensive."},{"id":"b","text":"He already has a decent set."},{"id":"c","text":"He doesn't like to cook."}], "answer": "b" },
+        { "id": "q3", "stem": "What gift do they finally choose?", "options": [{"id":"a","text":"A new barbecue."},{"id":"b","text":"Baseball game tickets."},{"id":"c","text":"A grilling tool set."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DAILY_LIFE",
+    "title": "Daily Life — Sorting out the recycling schedule",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for which day the pickup changed to and what goes out this week.",
+    "payload": {
+      "audioScript": "Neighbour: Hey, quick question, do you know if recycling still goes out Wednesday? Renu: Actually the city changed it. Starting this month, our street is Thursday now. Neighbour: Oh, I had no idea. I nearly put my bins out tonight. Renu: Yeah, they mailed a little calendar, but it's easy to miss. Green bin and recycling alternate weeks, remember. Neighbour: Right, so which is this week? Renu: This week is recycling, blue bin. Next week is the green organics bin. Neighbour: Got it. And garbage? Renu: Garbage is every week, still on Thursday too, so it all goes out the same morning now. Neighbour: That's actually simpler. Thanks for setting me straight. Renu: No problem. I only remember because I got a warning sticker last month for the wrong day.",
+      "speakers": [
+        { "role": "Neighbour", "voice": "alloy" },
+        { "role": "Renu", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What day is pickup now?", "options": [{"id":"a","text":"Wednesday."},{"id":"b","text":"Thursday."},{"id":"c","text":"Friday."}], "answer": "b" },
+        { "id": "q2", "stem": "Which bin goes out this week?", "options": [{"id":"a","text":"The blue recycling bin."},{"id":"b","text":"The green organics bin."},{"id":"c","text":"Only garbage."}], "answer": "a" },
+        { "id": "q3", "stem": "How does Renu remember the change so well?", "options": [{"id":"a","text":"She checks the city app daily."},{"id":"b","text":"She got a warning sticker last month."},{"id":"c","text":"Her neighbour reminds her weekly."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DAILY_LIFE",
+    "title": "Daily Life — Deciding on a family movie night",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the compromise the two reach about which film and snacks.",
+    "payload": {
+      "audioScript": "Kyle: The kids want movie night tonight. Ravi picked a superhero film, but Nadia wants the animated penguin one. Tara: Of course they can't agree. How about we let Nadia's choice go first since it's shorter, then the older ones can watch the superhero one after she's in bed? Kyle: That's fair. Nadia's usually asleep by eight anyway. Tara: Exactly. And for snacks, can we do popcorn instead of ordering pizza? We just had takeout Friday. Kyle: Agreed, popcorn and maybe some cut-up apples. The kids won't complain if there's caramel dip. Tara: Perfect. I'll make the popcorn; you set up the projector in the basement. Kyle: On it. Should I text my sister to see if the cousins want to join? Tara: Sure, the more the merrier. Tell them to bring blankets.",
+      "speakers": [
+        { "role": "Kyle", "voice": "echo" },
+        { "role": "Tara", "voice": "shimmer" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "How do they solve the movie disagreement?", "options": [{"id":"a","text":"They watch the penguin film first, then the superhero one."},{"id":"b","text":"They let Ravi choose since he is older."},{"id":"c","text":"They skip movie night entirely."}], "answer": "a" },
+        { "id": "q2", "stem": "What do they decide to have for snacks?", "options": [{"id":"a","text":"Pizza delivery."},{"id":"b","text":"Popcorn and apples with dip."},{"id":"c","text":"Ice cream sundaes."}], "answer": "b" },
+        { "id": "q3", "stem": "What is Kyle asked to set up?", "options": [{"id":"a","text":"The projector in the basement."},{"id":"b","text":"The dining table."},{"id":"c","text":"The backyard fire pit."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_INFORMATION",
+    "title": "Information — A community centre voicemail",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the class time change and what registrants must bring.",
+    "payload": {
+      "audioScript": "Hello, this is a message for participants in the Tuesday evening pottery class at the Riverdale Community Centre. We're calling to let you know about a small schedule change. Because of a plumbing repair in the main studio, next week's class will move from six-thirty to seven o'clock, and it will be held in the smaller room down the hall, Room B. The class will still run the full ninety minutes, so we'll finish at eight-thirty. Please remember to bring your own apron and a hand towel, as the sinks in Room B are limited. Your clay and tools will be provided as usual. If seven o'clock doesn't work for you, you're welcome to join the Thursday afternoon session instead at no extra cost. Just reply to this message or call the front desk to switch. Thank you, and we'll see you next week.",
+      "speakers": [
+        { "role": "Announcer", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is the new start time for next week's class?", "options": [{"id":"a","text":"Six-thirty."},{"id":"b","text":"Seven o'clock."},{"id":"c","text":"Eight-thirty."}], "answer": "b" },
+        { "id": "q2", "stem": "What are participants asked to bring?", "options": [{"id":"a","text":"Their own clay and tools."},{"id":"b","text":"An apron and a hand towel."},{"id":"c","text":"A folding chair."}], "answer": "b" },
+        { "id": "q3", "stem": "What alternative is offered to those who can't attend?", "options": [{"id":"a","text":"A Thursday afternoon session at no extra cost."},{"id":"b","text":"A full refund."},{"id":"c","text":"An online video class."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_INFORMATION",
+    "title": "Information — Airport shuttle announcement",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the pickup location and how often the shuttle runs.",
+    "payload": {
+      "audioScript": "Attention passengers waiting for the airport hotel shuttle. Please note that due to construction at the usual curb, the shuttle is now boarding at Pillar Number Four on the arrivals level, just past the taxi stand. Look for the blue signs marked Hotel Shuttles. The shuttle runs every twenty minutes between five in the morning and midnight. After midnight, service drops to once an hour, so please plan accordingly if your flight lands late. The ride to the hotel district takes roughly fifteen minutes, depending on traffic. There is no charge for guests with a hotel booking; simply show your reservation to the driver. For those without a booking, the fare is eight dollars, payable by card only. If you need help with luggage, our drivers are happy to assist. Thank you for your patience during the construction period.",
+      "speakers": [
+        { "role": "Announcer", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Where is the shuttle now boarding?", "options": [{"id":"a","text":"At Pillar Number Four on the arrivals level."},{"id":"b","text":"At the departures curb."},{"id":"c","text":"At the taxi stand entrance."}], "answer": "a" },
+        { "id": "q2", "stem": "How often does the shuttle run before midnight?", "options": [{"id":"a","text":"Every ten minutes."},{"id":"b","text":"Every twenty minutes."},{"id":"c","text":"Once an hour."}], "answer": "b" },
+        { "id": "q3", "stem": "What is the fare for guests without a booking?", "options": [{"id":"a","text":"It is free."},{"id":"b","text":"Eight dollars, card only."},{"id":"c","text":"Fifteen dollars, cash only."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_INFORMATION",
+    "title": "Information — Library renovation update",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for which service stays open and how to return books during the closure.",
+    "payload": {
+      "audioScript": "Good afternoon, and thank you for calling the Vancouver Kitsilano branch of the public library. We want to let patrons know that our main floor will be closed for renovations from the first to the twenty-first of next month. During this time, the children's section on the lower level will remain fully open, including storytime every Saturday at ten-thirty. Book returns can still be made at any time using the outdoor drop box beside the main entrance; it will be checked twice daily. If you have holds ready for pickup, we'll move them to the lower-level desk, and staff will text you when they're available. Please note that public computers on the main floor will be unavailable, but you can use the branch in nearby Point Grey, which has extended hours during our closure. We appreciate your patience and look forward to showing you the refreshed space.",
+      "speakers": [
+        { "role": "Announcer", "voice": "shimmer" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Which service stays open during the renovation?", "options": [{"id":"a","text":"The main-floor computers."},{"id":"b","text":"The children's section on the lower level."},{"id":"c","text":"The rooftop reading room."}], "answer": "b" },
+        { "id": "q2", "stem": "How can patrons return books during the closure?", "options": [{"id":"a","text":"Using the outdoor drop box by the main entrance."},{"id":"b","text":"By mailing them to the branch."},{"id":"c","text":"Only in person at the front desk."}], "answer": "a" },
+        { "id": "q3", "stem": "What happens to holds ready for pickup?", "options": [{"id":"a","text":"They are cancelled until reopening."},{"id":"b","text":"They move to the lower-level desk with a text notice."},{"id":"c","text":"They are sent to the Point Grey branch."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_INFORMATION",
+    "title": "Information — Workplace fire drill briefing",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the meeting point and the one thing staff must not do.",
+    "payload": {
+      "audioScript": "Good morning, everyone. This is a reminder that we'll be running our quarterly fire drill this Thursday at ten a.m. When you hear the alarm, please stop what you're doing, leave your belongings, and exit calmly using the nearest stairwell. Do not use the elevators under any circumstances, even if they appear to be working. Once outside, our meeting point is the far end of the parking lot, near the picnic tables by the flagpole, not the front sidewalk, which needs to stay clear for emergency vehicles. Floor wardens in yellow vests will guide you and take a headcount, so please stay with your team until we confirm everyone is accounted for. The drill should take about fifteen minutes. If you have mobility concerns or will have visitors on site that day, let your manager know in advance so we can plan assistance. Thanks for taking this seriously; it keeps us all safe.",
+      "speakers": [
+        { "role": "Announcer", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Where is the meeting point?", "options": [{"id":"a","text":"The front sidewalk."},{"id":"b","text":"The far end of the parking lot by the flagpole."},{"id":"c","text":"The building lobby."}], "answer": "b" },
+        { "id": "q2", "stem": "What must staff never do during the drill?", "options": [{"id":"a","text":"Use the elevators."},{"id":"b","text":"Take the stairs."},{"id":"c","text":"Leave their belongings behind."}], "answer": "a" },
+        { "id": "q3", "stem": "Who should inform their manager in advance?", "options": [{"id":"a","text":"Everyone attending the drill."},{"id":"b","text":"Those with mobility concerns or visitors on site."},{"id":"c","text":"Only the floor wardens."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_INFORMATION",
+    "title": "Information — Recreation centre pool schedule",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for when lane swim is available and the rule for young children.",
+    "payload": {
+      "audioScript": "Welcome to the Halifax Commons Aquatic Centre information line. Here is our current pool schedule. Lane swim for adults is available weekday mornings from six to nine, and again in the evenings from eight to ten. Public open swim runs weekday afternoons from one to five, and all day on weekends. Please note that children under the age of seven must be within arm's reach of an adult at all times, regardless of swimming ability. Our warm therapy pool is open during all public swim times and is especially popular with seniors. Aquafit classes take place Tuesday and Thursday at eleven a.m.; drop-ins are welcome, and the first class is free for new members. The centre is closed on statutory holidays. For change room access, remember that the family change area is located near the shallow end. Thank you, and enjoy your swim.",
+      "speakers": [
+        { "role": "Announcer", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "When is adult lane swim available on weekdays?", "options": [{"id":"a","text":"Mornings six to nine and evenings eight to ten."},{"id":"b","text":"Only on weekend mornings."},{"id":"c","text":"Afternoons one to five."}], "answer": "a" },
+        { "id": "q2", "stem": "What is the rule for children under seven?", "options": [{"id":"a","text":"They may not enter the pool."},{"id":"b","text":"They must be within arm's reach of an adult."},{"id":"c","text":"They must pass a swim test first."}], "answer": "b" },
+        { "id": "q3", "stem": "What is offered free to new members?", "options": [{"id":"a","text":"The first aquafit class."},{"id":"b","text":"A locker rental."},{"id":"c","text":"A month of lane swim."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_NEWS",
+    "title": "News — A new bike lane network in the city",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the length of the new network and when it opens.",
+    "payload": {
+      "audioScript": "In local news, the city council has approved a plan to add fifteen kilometres of protected bike lanes across the downtown core over the next two years. The lanes will be separated from car traffic by low concrete barriers, a change transportation officials say will make cycling safer for riders of all ages. Construction is set to begin this spring, with the first five-kilometre stretch along Elm Street expected to open by September. Supporters argue the network will ease traffic congestion and cut commute times, while some business owners have raised concerns about the loss of on-street parking during construction. In response, the city has promised additional parking at two nearby lots and says it will consult local merchants before finalizing each section. Officials estimate the full project will cost twelve million dollars, funded through a mix of provincial grants and the city's transportation budget. Council will review progress every six months.",
+      "speakers": [
+        { "role": "News Reader", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "How long is the planned bike lane network?", "options": [{"id":"a","text":"Five kilometres."},{"id":"b","text":"Fifteen kilometres."},{"id":"c","text":"Twelve kilometres."}], "answer": "b" },
+        { "id": "q2", "stem": "When is the first stretch on Elm Street expected to open?", "options": [{"id":"a","text":"This spring."},{"id":"b","text":"By September."},{"id":"c","text":"In two years."}], "answer": "b" },
+        { "id": "q3", "stem": "What concern have some business owners raised?", "options": [{"id":"a","text":"The loss of on-street parking during construction."},{"id":"b","text":"The height of the concrete barriers."},{"id":"c","text":"The cost of provincial grants."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_NEWS",
+    "title": "News — Record snowfall closes mountain highway",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for why the highway closed and the advice given to drivers.",
+    "payload": {
+      "audioScript": "Turning to the weather, a powerful winter storm dumped nearly sixty centimetres of snow on the mountain passes overnight, forcing the closure of the main highway between the valley and the ski resort towns. Crews have been working since before dawn to clear the route, but officials warn that ongoing avalanche risk means the road may stay closed until at least tomorrow morning. Drivers are being urged to avoid all non-essential travel in the region and to check road conditions online before setting out. Several vehicles were stranded overnight, though no injuries have been reported, and warming shelters were opened in two nearby communities. The transportation ministry reminds motorists that winter tires are legally required on this route from October through April, and that chains may be needed on steeper sections. Forecasters expect the snow to taper off by this evening, with clearer skies returning over the weekend.",
+      "speakers": [
+        { "role": "News Reader", "voice": "fable" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why did the highway close?", "options": [{"id":"a","text":"A landslide blocked the road."},{"id":"b","text":"Heavy snowfall and avalanche risk."},{"id":"c","text":"A major traffic accident."}], "answer": "b" },
+        { "id": "q2", "stem": "What are drivers urged to do?", "options": [{"id":"a","text":"Avoid all non-essential travel in the region."},{"id":"b","text":"Take an alternate mountain route."},{"id":"c","text":"Drive only at night."}], "answer": "a" },
+        { "id": "q3", "stem": "What does the ministry remind motorists about?", "options": [{"id":"a","text":"Winter tires are legally required on the route."},{"id":"b","text":"Tolls have increased for the season."},{"id":"c","text":"The speed limit has been lowered permanently."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_NEWS",
+    "title": "News — Local hospital opens new wing",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for what the new wing focuses on and how it was funded.",
+    "payload": {
+      "audioScript": "In health news, the regional hospital in Ottawa officially opened its new children's wing this morning, following three years of construction. The four-storey addition features forty new beds, a dedicated pediatric emergency area, and a bright rooftop garden where young patients and their families can spend time outdoors. Hospital leaders say the wing will nearly double the number of children the hospital can treat at one time, easing pressure on the existing emergency department. Much of the funding came from a community campaign that raised eighteen million dollars over four years, with donations from local families, businesses, and a large gift from a retired physician. Staff will begin admitting patients to the new wing next Monday. The hospital also announced it is hiring additional nurses and specialists to support the expansion. A public open house is planned for this Saturday, giving residents a chance to tour the facility before it opens to patients.",
+      "speakers": [
+        { "role": "News Reader", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What does the new hospital wing focus on?", "options": [{"id":"a","text":"Children's care."},{"id":"b","text":"Cancer treatment."},{"id":"c","text":"Senior rehabilitation."}], "answer": "a" },
+        { "id": "q2", "stem": "How was much of the wing funded?", "options": [{"id":"a","text":"A community fundraising campaign."},{"id":"b","text":"A federal government grant only."},{"id":"c","text":"Hospital parking fees."}], "answer": "a" },
+        { "id": "q3", "stem": "What is planned for this Saturday?", "options": [{"id":"a","text":"A public open house to tour the facility."},{"id":"b","text":"The first patient admissions."},{"id":"c","text":"A staff hiring fair."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_NEWS",
+    "title": "News — Farmers' market returns for the season",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for where and when the market runs and what is new this year.",
+    "payload": {
+      "audioScript": "And in community news, the popular Riverside Farmers' Market is back for another season, opening this Saturday in the parking lot behind city hall. The market will run every Saturday from eight in the morning until one in the afternoon, right through until the end of October. This year, organizers have added a dozen new vendors, including two bakeries, a honey producer, and a stall selling locally roasted coffee. A new feature this season is a small stage where local musicians will perform live between nine and eleven each week. Organizers say they've also expanded the covered seating area so shoppers can enjoy a snack out of the sun or rain. As always, the market accepts both cash and card, and dogs on leashes are welcome. Parking is free in the nearby municipal lot. Organizers encourage residents to bring reusable bags and to come early for the best selection of fresh produce.",
+      "speakers": [
+        { "role": "News Reader", "voice": "fable" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "When does the farmers' market run?", "options": [{"id":"a","text":"Every Saturday from eight to one."},{"id":"b","text":"Every Sunday afternoon."},{"id":"c","text":"Weekday mornings only."}], "answer": "a" },
+        { "id": "q2", "stem": "What is new this season?", "options": [{"id":"a","text":"A stage with live music between nine and eleven."},{"id":"b","text":"A paid admission fee."},{"id":"c","text":"An indoor location."}], "answer": "a" },
+        { "id": "q3", "stem": "What do organizers encourage shoppers to bring?", "options": [{"id":"a","text":"Reusable bags."},{"id":"b","text":"Exact change only."},{"id":"c","text":"Their own tables."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DISCUSSION",
+    "title": "Discussion — Should the office go four days a week",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for each speaker's position on the four-day week proposal.",
+    "payload": {
+      "audioScript": "Facilitator: We're gathered to talk about the pilot for a four-day work week. Devon, you've been keen on it. Devon: Yes. The research from other Canadian companies shows people are just as productive in four longer days, and morale goes way up. I think we'd keep staff longer. Facilitator: Priscilla, you had reservations? Priscilla: I'm not against it in principle, but I worry about client coverage. Half our clients expect someone available Friday. If the whole office is off, we could lose accounts. Devon: That's fair, but we could stagger it, so some staff take Monday off and others take Friday. Priscilla: Staggering could work, though it makes scheduling meetings harder. Facilitator: So the concern is coverage, not the idea itself. Priscilla: Exactly. If we solve coverage, I'd support a trial. Devon: Then let's propose a three-month pilot with staggered days off and review the client feedback. Priscilla: I can agree to that.",
+      "speakers": [
+        { "role": "Facilitator", "voice": "nova" },
+        { "role": "Devon", "voice": "echo" },
+        { "role": "Priscilla", "voice": "shimmer" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why does Devon support the four-day week?", "options": [{"id":"a","text":"It would reduce office rent."},{"id":"b","text":"Productivity holds and morale improves."},{"id":"c","text":"Clients have requested it."}], "answer": "b" },
+        { "id": "q2", "stem": "What is Priscilla's main concern?", "options": [{"id":"a","text":"Client coverage, especially on Fridays."},{"id":"b","text":"That salaries would be cut."},{"id":"c","text":"That the office is too small."}], "answer": "a" },
+        { "id": "q3", "stem": "What do they agree to do?", "options": [{"id":"a","text":"Reject the idea completely."},{"id":"b","text":"Run a three-month pilot with staggered days off."},{"id":"c","text":"Switch to fully remote work."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DISCUSSION",
+    "title": "Discussion — Where to hold the school fundraiser",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the venue options and what finally sways the decision.",
+    "payload": {
+      "audioScript": "Chair: Let's decide where to hold the spring fundraiser. We had two ideas: the school gym or renting the community hall. Gord: The gym is free, which matters since every dollar should go to the playground fund. Fatima: True, but the gym only holds about a hundred people, and last year we turned families away at the door. Gord: I forgot about that. The hall fits closer to two hundred, doesn't it? Fatima: Yes, and it has a proper kitchen for the bake sale, plus parking. Chair: But the hall costs three hundred dollars to rent. Fatima: It does, though if more families attend, we'll easily raise that back and more. Gord: That's a good point. Turning people away actually costs us donations. Chair: So we all lean toward the hall? Gord: Yes, the extra space is worth the rental fee. Fatima: Agreed. I'll book it for the second Saturday in May.",
+      "speakers": [
+        { "role": "Chair", "voice": "onyx" },
+        { "role": "Gord", "voice": "alloy" },
+        { "role": "Fatima", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is the advantage of the school gym?", "options": [{"id":"a","text":"It is free to use."},{"id":"b","text":"It has more parking."},{"id":"c","text":"It holds two hundred people."}], "answer": "a" },
+        { "id": "q2", "stem": "What finally sways them toward the hall?", "options": [{"id":"a","text":"The larger capacity means more donations."},{"id":"b","text":"It is closer to the school."},{"id":"c","text":"It is cheaper than the gym."}], "answer": "a" },
+        { "id": "q3", "stem": "When will Fatima book the venue?", "options": [{"id":"a","text":"The first Friday in April."},{"id":"b","text":"The second Saturday in May."},{"id":"c","text":"The last Sunday in June."}], "answer": "b" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DISCUSSION",
+    "title": "Discussion — Adopting a rescue dog",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for each person's worry and the plan they make before deciding.",
+    "payload": {
+      "audioScript": "Maya: I've been thinking we should adopt that rescue dog from the shelter, the older beagle. Chris: I'd love a dog, but I'm worried about our schedules. We're both out of the house nine hours some days. Maya: That's my hesitation too. A puppy would be too much, but the beagle is calm and already house-trained. Chris: That helps. Still, nine hours alone is long for any dog. Grandpa: Well, I'm retired and home most days. I could take him for a midday walk. Maya: That would make a huge difference, Dad. Are you sure you'd want to? Grandpa: Honestly, I'd enjoy the company and the exercise. Chris: With that support, I feel a lot better about it. Maya: Let's do a trial visit first, though, to see if he gets along with the cat. Chris: Good idea. I'll call the shelter and book a meet-and-greet for Saturday.",
+      "speakers": [
+        { "role": "Maya", "voice": "shimmer" },
+        { "role": "Chris", "voice": "echo" },
+        { "role": "Grandpa", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is Chris's main worry about adopting?", "options": [{"id":"a","text":"The dog is too old."},{"id":"b","text":"Their long hours away from home."},{"id":"c","text":"The cost of dog food."}], "answer": "b" },
+        { "id": "q2", "stem": "How does Grandpa offer to help?", "options": [{"id":"a","text":"By taking the dog for a midday walk."},{"id":"b","text":"By paying the adoption fee."},{"id":"c","text":"By keeping the dog at his house."}], "answer": "a" },
+        { "id": "q3", "stem": "What do they decide to do before adopting?", "options": [{"id":"a","text":"Book a meet-and-greet to test the cat."},{"id":"b","text":"Buy all the supplies first."},{"id":"c","text":"Ask a vet to visit their home."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DISCUSSION",
+    "title": "Discussion — Planning the office holiday party",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the format they choose and why they rule out a restaurant.",
+    "payload": {
+      "audioScript": "Lena: We need to sort out the holiday party. A restaurant, or something in the office? Tomas: Restaurants get pricey fast, and it's hard to book a big group in December. Everything's full. Ivy: That's true. What if we did a potluck lunch right here, decorate the lounge, maybe a gift exchange? Lena: I like that. It's relaxed, and people who can't stay late still get to join. Tomas: And it's way cheaper. We could put the saved money toward better prizes for the gift game. Ivy: Exactly. Not everyone drinks, so a daytime lunch is more inclusive anyway. Lena: Should we still cater a main dish so it's not all side salads? Tomas: Good idea, let's order a couple of hot mains and have people bring sides and desserts. Ivy: Perfect. I'll send a sign-up sheet so we don't end up with fifteen bowls of chips. Lena: Deal.",
+      "speakers": [
+        { "role": "Lena", "voice": "nova" },
+        { "role": "Tomas", "voice": "onyx" },
+        { "role": "Ivy", "voice": "shimmer" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why do they rule out a restaurant?", "options": [{"id":"a","text":"It is pricey and hard to book in December."},{"id":"b","text":"No one likes restaurant food."},{"id":"c","text":"The office is too far from any restaurant."}], "answer": "a" },
+        { "id": "q2", "stem": "What format do they choose?", "options": [{"id":"a","text":"A potluck lunch in the office lounge."},{"id":"b","text":"An evening dinner out."},{"id":"c","text":"A weekend picnic."}], "answer": "a" },
+        { "id": "q3", "stem": "What will Ivy send around?", "options": [{"id":"a","text":"A sign-up sheet for dishes."},{"id":"b","text":"An invoice for the caterer."},{"id":"c","text":"A survey about party dates."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DISCUSSION",
+    "title": "Discussion — Choosing a neighbourhood garden project",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the two proposals and the compromise the group reaches.",
+    "payload": {
+      "audioScript": "Coordinator: Our residents' group has funding for one project in the vacant lot. Two ideas came up: a vegetable garden or a flower and seating area. Harjit: I'm for vegetables. Families here could grow their own food, and it teaches kids where food comes from. Nadia: I see the appeal, but vegetable plots need constant watering and weeding all summer. If volunteers fade in July, it becomes an eyesore. Harjit: That's a real risk, I admit. Nadia: A flower garden with benches is lower maintenance and everyone can enjoy it, even people who won't garden. Coordinator: Could we combine them? Nadia: Maybe a smaller set of raised vegetable beds for committed families, plus flowers and benches around the edge. Harjit: I'd support that. The raised beds are easier to manage than a big open plot. Coordinator: So a hybrid: a few raised beds and a seating garden. Everyone comfortable? Harjit: Yes. Nadia: That works for me.",
+      "speakers": [
+        { "role": "Coordinator", "voice": "onyx" },
+        { "role": "Harjit", "voice": "alloy" },
+        { "role": "Nadia", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "Why does Harjit favour a vegetable garden?", "options": [{"id":"a","text":"Families can grow food and kids learn."},{"id":"b","text":"It needs the least maintenance."},{"id":"c","text":"It costs nothing to run."}], "answer": "a" },
+        { "id": "q2", "stem": "What is Nadia's concern about vegetables?", "options": [{"id":"a","text":"They attract pests to nearby homes."},{"id":"b","text":"Upkeep may fade and become an eyesore."},{"id":"c","text":"They are too expensive to plant."}], "answer": "b" },
+        { "id": "q3", "stem": "What compromise do they reach?", "options": [{"id":"a","text":"A hybrid of raised beds and a seating garden."},{"id":"b","text":"Only flowers and benches."},{"id":"c","text":"Postponing the project a year."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_DISCUSSION",
+    "title": "Discussion — Splitting chores in a shared house",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the problem with the old system and the new arrangement.",
+    "payload": {
+      "audioScript": "Jordan: We need to talk about the chores. The kitchen's been a disaster all week. Mei: Agreed. The problem is nobody knows whose turn it is. The list on the fridge is useless. Sasha: Honestly, I never look at it. What if we each just own certain tasks for the whole month instead of rotating weekly? Jordan: You mean like, one person always does dishes, another always does the bathroom? Sasha: Right. Then it's clear, and we swap at the end of the month so no one's stuck forever. Mei: I like that. I'll happily take the kitchen if someone else handles the vacuuming; I hate lugging that thing up the stairs. Jordan: I'll take vacuuming and garbage, then. Sasha, that leaves you the bathroom and the recycling. Sasha: Fine by me. Let's put it on a shared phone calendar with reminders instead of that old paper list. Mei: Much better. Let's start Monday.",
+      "speakers": [
+        { "role": "Jordan", "voice": "echo" },
+        { "role": "Mei", "voice": "shimmer" },
+        { "role": "Sasha", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What was wrong with the old system?", "options": [{"id":"a","text":"Nobody knew whose turn it was."},{"id":"b","text":"There were too few chores to share."},{"id":"c","text":"One person did everything."}], "answer": "a" },
+        { "id": "q2", "stem": "What new arrangement do they agree on?", "options": [{"id":"a","text":"Each person owns fixed tasks for the month."},{"id":"b","text":"Hiring a cleaner."},{"id":"c","text":"Rotating tasks every single day."}], "answer": "a" },
+        { "id": "q3", "stem": "How will they track the chores now?", "options": [{"id":"a","text":"On a shared phone calendar with reminders."},{"id":"b","text":"With the same paper list on the fridge."},{"id":"c","text":"By texting each other daily."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_VIEWPOINTS",
+    "title": "Viewpoints — In praise of taking the bus",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the speaker's main argument and the benefit they value most.",
+    "payload": {
+      "audioScript": "I'll admit, I used to dread giving up my car and taking the bus to work. I pictured long waits in the cold and crowded seats. But six months in, I've completely changed my mind, and I'd encourage anyone on the fence to try it. The obvious win is money; between parking downtown, gas, and insurance, I was spending a small fortune. My monthly transit pass costs a fraction of that. But the benefit I've come to value most isn't financial at all, it's time. On the bus, I read, answer emails, or just stare out the window and let my mind wander. Driving, I was tense, gripping the wheel in traffic, arriving frazzled. Now I get to work calm and having actually finished a book. Sure, there are mornings the bus is late, and I don't pretend it's perfect. But for me, the trade has been overwhelmingly worth it. Give it an honest month; you might surprise yourself.",
+      "speakers": [
+        { "role": "Commentator", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is the speaker's overall view of taking the bus?", "options": [{"id":"a","text":"They now strongly recommend it."},{"id":"b","text":"They regret giving up their car."},{"id":"c","text":"They are still undecided."}], "answer": "a" },
+        { "id": "q2", "stem": "Which benefit does the speaker value most?", "options": [{"id":"a","text":"Saving money."},{"id":"b","text":"Gaining usable time."},{"id":"c","text":"Meeting new people."}], "answer": "b" },
+        { "id": "q3", "stem": "What does the speaker admit about the bus?", "options": [{"id":"a","text":"It is sometimes late."},{"id":"b","text":"It is always overcrowded."},{"id":"c","text":"It costs more than driving."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_VIEWPOINTS",
+    "title": "Viewpoints — Why I stopped over-scheduling my kids",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for what changed the speaker's mind and what they now recommend.",
+    "payload": {
+      "audioScript": "For years I signed my kids up for everything: hockey, piano, swimming, coding club, you name it. I believed more activities meant more opportunities, and I'd feel guilty if a weeknight sat empty. But last winter I noticed my daughter was exhausted and, frankly, so was I, shuttling between rinks and lessons every single evening. She snapped at me one night and said she just wanted a day to do nothing. That stopped me cold. So we cut back to two activities each, and something unexpected happened. The kids started inventing their own games, reading for fun, even helping cook dinner. The unstructured time wasn't wasted; it was where their creativity lived. I'm not saying activities are bad, they teach real skills. But I've come to believe that a packed calendar isn't the same as a rich childhood. If your evenings feel like a marathon, I'd gently suggest leaving some blank space. Kids, it turns out, need room to be bored.",
+      "speakers": [
+        { "role": "Commentator", "voice": "shimmer" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What did the speaker used to believe?", "options": [{"id":"a","text":"More activities meant more opportunities."},{"id":"b","text":"Children should choose their own hobbies."},{"id":"c","text":"Sports are more valuable than music."}], "answer": "a" },
+        { "id": "q2", "stem": "What prompted the speaker to change?", "options": [{"id":"a","text":"Her daughter said she wanted a day to do nothing."},{"id":"b","text":"The activities became too costly."},{"id":"c","text":"A coach advised cutting back."}], "answer": "a" },
+        { "id": "q3", "stem": "What does the speaker now recommend?", "options": [{"id":"a","text":"Leaving some unstructured blank space."},{"id":"b","text":"Dropping all organized activities."},{"id":"c","text":"Adding one new activity each year."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_VIEWPOINTS",
+    "title": "Viewpoints — Small towns deserve a second look",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the speaker's opinion and the trade-off they acknowledge.",
+    "payload": {
+      "audioScript": "When I told friends I was leaving Toronto for a small town in the Maritimes, most of them thought I'd lost it. No nightlife, they said, nothing to do. Two years later, I think they had it backwards. Yes, I gave some things up. I miss the endless restaurant choices and the concerts, I won't deny that. But what I've gained is harder to put a price on. I actually know my neighbours now; someone waves on every walk. My commute is eight minutes, not eighty. I bought a house with a yard for what a cramped condo cost back in the city. My kids play outside without me hovering. I'm not claiming small-town life suits everyone, and it isn't perfect; some services are a long drive away, and job options can be thin. But I'd urge anyone feeling worn down by the city to at least consider it. Sometimes a slower pace isn't a step backward; it's exactly what you needed.",
+      "speakers": [
+        { "role": "Commentator", "voice": "onyx" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is the speaker's overall opinion of small-town life?", "options": [{"id":"a","text":"It has been worth it for them."},{"id":"b","text":"They regret leaving the city."},{"id":"c","text":"It suits absolutely everyone."}], "answer": "a" },
+        { "id": "q2", "stem": "What trade-off does the speaker acknowledge?", "options": [{"id":"a","text":"Some services are a long drive away."},{"id":"b","text":"Housing is more expensive than the city."},{"id":"c","text":"The commute is longer."}], "answer": "a" },
+        { "id": "q3", "stem": "What does the speaker say about the city that they miss?", "options": [{"id":"a","text":"The restaurant choices and concerts."},{"id":"b","text":"The friendly neighbours."},{"id":"c","text":"The short commute."}], "answer": "a" }
+      ]
+    }
+  },
+  {
+    "subTest": "LISTENING",
+    "taskType": "LISTENING_VIEWPOINTS",
+    "title": "Viewpoints — Learn to cook a few real meals",
+    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Listen for the speaker's main point and the small suggestion they give.",
+    "payload": {
+      "audioScript": "I want to make a small case for something old-fashioned: learning to cook a handful of real meals. When I first moved out on my own, I lived on takeout and frozen dinners. It was easy, but it was also expensive, and honestly, I never felt great. Then a friend taught me to make three simple dishes: a hearty soup, a stir-fry, and a pasta. That's it, just three. And it changed how I eat. I'm not talking about becoming a chef or spending hours in the kitchen. I'm talking about a few reliable recipes you can make without thinking. The savings add up fast, you know exactly what's in your food, and there's a quiet satisfaction in feeding yourself well after a long day. So here's my suggestion: pick one dish this week, look up a simple version, and make it twice. By the second time, it'll feel natural. You don't need talent, just a little repetition.",
+      "speakers": [
+        { "role": "Commentator", "voice": "nova" }
+      ],
+      "questions": [
+        { "id": "q1", "stem": "What is the speaker encouraging people to do?", "options": [{"id":"a","text":"Learn to cook a few reliable meals."},{"id":"b","text":"Become a professional chef."},{"id":"c","text":"Stop eating out completely forever."}], "answer": "a" },
+        { "id": "q2", "stem": "How many dishes did the speaker's friend teach them?", "options": [{"id":"a","text":"Three."},{"id":"b","text":"Five."},{"id":"c","text":"Ten."}], "answer": "a" },
+        { "id": "q3", "stem": "What specific suggestion does the speaker give?", "options": [{"id":"a","text":"Pick one dish and make it twice this week."},{"id":"b","text":"Take a formal cooking class."},{"id":"c","text":"Buy expensive kitchen equipment."}], "answer": "a" }
+      ]
+    }
+  }
+]

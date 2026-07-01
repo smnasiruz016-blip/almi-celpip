@@ -4,6 +4,7 @@ import { ITEMS as L } from "./seed/listening";
 import { ITEMS as R } from "./seed/reading";
 import { ITEMS as W } from "./seed/writing";
 import { ITEMS as S } from "./seed/speaking";
+import { ITEMS as BATCH1 } from "./seed/batch1";
 import { listeningPayloadSchema } from "../src/lib/celpip/tasks/listening";
 import { readingPayloadSchema } from "../src/lib/celpip/tasks/reading";
 import { writingEmailPayloadSchema, writingSurveyPayloadSchema } from "../src/lib/celpip/tasks/writing";
@@ -22,7 +23,7 @@ function schemaFor(taskType: string): Schema | null {
   return null;
 }
 
-const all = [...L, ...R, ...W, ...S];
+const all = [...L, ...R, ...W, ...S, ...BATCH1];
 let bad = 0;
 for (const it of all) {
   const sc = schemaFor(it.taskType as string);

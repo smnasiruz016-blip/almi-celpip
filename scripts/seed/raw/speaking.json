@@ -1,0 +1,322 @@
+[
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_ADVICE",
+    "title": "Giving Advice — A friend overspending on streaming subscriptions",
+    "prompt": "Give advice in a short spoken response.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Name the problem, then give two or three clear suggestions the friend can actually follow.",
+    "payload": { "taskPrompt": "Your friend in Calgary just realized they are paying for six different streaming and music subscriptions and money is tight. They ask you what they should do. Give them some advice.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_ADVICE",
+    "title": "Giving Advice — A coworker nervous about a first presentation",
+    "prompt": "Give advice in a short spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Reassure the coworker first, then offer practical steps they can use before and during the presentation.",
+    "payload": { "taskPrompt": "A new coworker has to give their first presentation at a team meeting next week and they are very nervous about it. They ask for your advice. Tell them what you think they should do to feel ready.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_ADVICE",
+    "title": "Giving Advice — A neighbour deciding whether to adopt a dog",
+    "prompt": "Give advice in a short spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Consider both sides of the decision and guide them toward what fits their lifestyle.",
+    "payload": { "taskPrompt": "Your neighbour is thinking about adopting a dog from the local shelter, but they work long hours and live in a small apartment in Winnipeg. They ask what you think. Give them your advice.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_ADVICE",
+    "title": "Giving Advice — A cousin choosing between two job offers",
+    "prompt": "Give advice in a short spoken response.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Weigh the trade-offs clearly, then recommend an approach without deciding for them.",
+    "payload": { "taskPrompt": "Your cousin has two job offers: one pays more but requires a long commute into downtown Toronto, and the other pays less but is a five-minute walk from home. They can't decide and ask for your advice. Tell them how you would think it through.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PERSONAL_EXPERIENCE",
+    "title": "Personal Experience — A time you helped a stranger",
+    "prompt": "Describe a personal experience in a short spoken response.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Set the scene, say what you did, and finish with how it made you feel.",
+    "payload": { "taskPrompt": "Describe a time when you helped a stranger. What happened, what did you do, and how did you feel afterward?", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PERSONAL_EXPERIENCE",
+    "title": "Personal Experience — A memorable meal you shared",
+    "prompt": "Describe a personal experience in a short spoken response.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Include who you were with and one or two details that made the meal stand out.",
+    "payload": { "taskPrompt": "Talk about a memorable meal you shared with family or friends. Where were you, who was there, and why do you remember it?", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PERSONAL_EXPERIENCE",
+    "title": "Personal Experience — A time you learned a new skill",
+    "prompt": "Describe a personal experience in a short spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Explain why you wanted to learn it and how you felt once you improved.",
+    "payload": { "taskPrompt": "Describe a time when you learned a new skill, such as cooking, skating, or driving. Why did you want to learn it, and how did it go?", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PERSONAL_EXPERIENCE",
+    "title": "Personal Experience — A time a plan did not work out",
+    "prompt": "Describe a personal experience in a short spoken response.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Describe what went wrong and reflect on what you took away from it.",
+    "payload": { "taskPrompt": "Tell me about a time when a plan of yours did not work out the way you expected. What was the plan, what went wrong, and what did you learn?", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DESCRIBE_SCENE",
+    "title": "Describe a Scene — A busy farmers' market on Saturday morning",
+    "prompt": "Describe what is happening in the scene.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Move through the scene in order and name who is doing what and where.",
+    "payload": { "taskPrompt": "Imagine a photo of a busy outdoor farmers' market on a Saturday morning. Vendors stand behind tables piled with vegetables and flowers, a woman fills a cloth bag with apples, a child points at a basket of berries, and a musician plays guitar near the entrance. Describe everything you can see happening in this scene.", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DESCRIBE_SCENE",
+    "title": "Describe a Scene — A snowy morning at a neighbourhood bus stop",
+    "prompt": "Describe what is happening in the scene.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Describe the people, the weather, and what each person seems to be doing.",
+    "payload": { "taskPrompt": "Imagine a photo of a neighbourhood bus stop on a snowy winter morning. Three people wait under the shelter in heavy coats, one checks their phone, an older man clears snow off the bench, and a bus approaches with its headlights on. Describe what is happening in this scene.", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DESCRIBE_SCENE",
+    "title": "Describe a Scene — A family setting up a campsite by a lake",
+    "prompt": "Describe what is happening in the scene.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Cover the foreground and background so the listener can picture the whole scene.",
+    "payload": { "taskPrompt": "Imagine a photo of a family setting up a campsite next to a lake in the late afternoon. Two adults raise a tent, a teenager arranges chairs around a fire pit, a young child chases a beach ball, and canoes rest at the water's edge. Describe everything happening in this scene.", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DESCRIBE_SCENE",
+    "title": "Describe a Scene — A crowded community centre during a craft fair",
+    "prompt": "Describe what is happening in the scene.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Organize your description by area so a busy scene stays easy to follow.",
+    "payload": { "taskPrompt": "Imagine a photo of a crowded community centre hall during a weekend craft fair. Rows of tables display handmade jewellery and knitted scarves, a volunteer serves coffee at a side counter, two shoppers compare pottery, and a banner reading 'Winter Craft Fair' hangs above the stage. Describe what is happening in this scene.", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PREDICTIONS",
+    "title": "Predictions — What happens next at the farmers' market",
+    "prompt": "Predict what will happen next in the scene.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Base your predictions on clues in the scene and use future-tense language.",
+    "payload": { "taskPrompt": "Look again at the busy farmers' market scene, where a woman is filling a bag with apples and a musician is playing near the entrance. Predict what will happen in the next few minutes. What do you think the people will do next?", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PREDICTIONS",
+    "title": "Predictions — What happens next at the snowy bus stop",
+    "prompt": "Predict what will happen next in the scene.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Tie each prediction to something you already noticed in the scene.",
+    "payload": { "taskPrompt": "Look again at the snowy bus stop scene, where three people are waiting and a bus is approaching with its headlights on. Predict what will happen next. What do you think each person will do once the bus arrives?", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PREDICTIONS",
+    "title": "Predictions — What happens next at the lakeside campsite",
+    "prompt": "Predict what will happen next in the scene.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Give a few likely outcomes and briefly explain why you expect them.",
+    "payload": { "taskPrompt": "Look again at the family setting up a campsite by the lake in the late afternoon. Predict what the family will do next as evening comes. What activities do you think will happen at the campsite?", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_PREDICTIONS",
+    "title": "Predictions — What happens next at the community craft fair",
+    "prompt": "Predict what will happen next in the scene.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Make reasonable, connected predictions rather than listing random events.",
+    "payload": { "taskPrompt": "Look again at the crowded craft fair in the community centre, where shoppers are comparing pottery and a volunteer is serving coffee. Predict what will happen as the afternoon goes on. What do you think the shoppers and vendors will do next?", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_COMPARE_PERSUADE",
+    "title": "Compare and Persuade — House in the suburbs or condo downtown",
+    "prompt": "Choose one option and persuade someone in a spoken response.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick one option clearly and give strong reasons aimed at what the other person cares about.",
+    "payload": { "taskPrompt": "Your partner is deciding where to live: Option A is a house in the suburbs with a yard but a longer commute, and Option B is a smaller condo downtown close to work and restaurants. Choose the option you prefer and persuade your partner to agree with you.", "prepSeconds": 60, "speakSeconds": 120 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_COMPARE_PERSUADE",
+    "title": "Compare and Persuade — Family road trip or flying for vacation",
+    "prompt": "Choose one option and persuade someone in a spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Compare both briefly, then focus your energy on selling the option you chose.",
+    "payload": { "taskPrompt": "Your family is planning a summer vacation. Option A is a road trip through the Rocky Mountains, and Option B is flying to visit relatives on the East Coast. Choose one option and persuade your family members that it is the better choice.", "prepSeconds": 60, "speakSeconds": 120 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_COMPARE_PERSUADE",
+    "title": "Compare and Persuade — Gym membership or home workout setup",
+    "prompt": "Choose one option and persuade someone in a spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Address the likely objection to your choice before the listener raises it.",
+    "payload": { "taskPrompt": "A friend wants to get more active and is choosing between two options: Option A is joining a local gym, and Option B is buying equipment to work out at home. Choose the option you think is better and persuade your friend to go with it.", "prepSeconds": 60, "speakSeconds": 120 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_COMPARE_PERSUADE",
+    "title": "Compare and Persuade — Hosting a potluck or dining out for a celebration",
+    "prompt": "Choose one option and persuade someone in a spoken response.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Build a persuasive case with cost, effort, and enjoyment, then close with a clear recommendation.",
+    "payload": { "taskPrompt": "Your group of friends wants to celebrate a birthday. Option A is hosting a potluck dinner at someone's home, and Option B is booking a table at a restaurant. Choose one option and persuade the group to pick it.", "prepSeconds": 60, "speakSeconds": 120 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DIFFICULT_SITUATION",
+    "title": "Difficult Situation — A roommate who never cleans up",
+    "prompt": "Speak to handle a difficult situation.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Choose a calm approach and explain what you would say to keep the friendship intact.",
+    "payload": { "taskPrompt": "Your roommate keeps leaving dirty dishes in the sink and never takes out the garbage, and it is starting to bother you. You need to bring it up without starting a fight. Explain how you would handle this situation and what you would say to your roommate.", "prepSeconds": 60, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DIFFICULT_SITUATION",
+    "title": "Difficult Situation — A friend who is always late",
+    "prompt": "Speak to handle a difficult situation.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Pick an approach, then show how you would raise it kindly but honestly.",
+    "payload": { "taskPrompt": "A close friend is almost always late when you make plans, and last weekend you waited over an hour at a cafe in Ottawa. You want to talk to them about it without hurting their feelings. Describe how you would handle this situation and what you would say.", "prepSeconds": 60, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DIFFICULT_SITUATION",
+    "title": "Difficult Situation — A returned item the store won't refund",
+    "prompt": "Speak to handle a difficult situation.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Stay polite and firm, and explain the outcome you are asking for.",
+    "payload": { "taskPrompt": "You bought a coffee maker that stopped working after a week, but the store clerk says you cannot get a refund because you no longer have the box. You need to resolve this politely. Explain how you would handle the situation and what you would say to the clerk.", "prepSeconds": 60, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_DIFFICULT_SITUATION",
+    "title": "Difficult Situation — A manager assigning you a coworker's mistake",
+    "prompt": "Speak to handle a difficult situation.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Balance professionalism and self-advocacy, and explain the approach you would take.",
+    "payload": { "taskPrompt": "Your manager blames you in front of the team for a scheduling mistake that a coworker actually made. You want to set the record straight without embarrassing anyone or seeming defensive. Explain how you would handle this situation and what you would say to your manager.", "prepSeconds": 60, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_OPINIONS",
+    "title": "Opinion — Should cities offer free public transit?",
+    "prompt": "Express and support an opinion in a spoken response.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "State your opinion clearly at the start and back it with two or three reasons.",
+    "payload": { "taskPrompt": "Some people think Canadian cities should make public transit free for everyone. What is your opinion? Explain whether you agree or disagree and give reasons for your view.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_OPINIONS",
+    "title": "Opinion — Is working from home better than working in an office?",
+    "prompt": "Express and support an opinion in a spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Take a side and support it with examples rather than sitting on the fence.",
+    "payload": { "taskPrompt": "Many people now work from home instead of going into an office. Do you think working from home is better than working in an office? Share your opinion and explain why.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_OPINIONS",
+    "title": "Opinion — Should children have limited screen time?",
+    "prompt": "Express and support an opinion in a spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Give a clear position and connect each reason back to it.",
+    "payload": { "taskPrompt": "Some parents believe children should have strict limits on how much time they spend on phones and tablets. What is your opinion on limiting children's screen time? Explain your view with reasons.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_OPINIONS",
+    "title": "Opinion — Are online reviews trustworthy?",
+    "prompt": "Express and support an opinion in a spoken response.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Acknowledge the other side briefly, then argue firmly for your own position.",
+    "payload": { "taskPrompt": "Before buying products or choosing restaurants, many people rely on online reviews. Do you think online reviews are trustworthy? Give your opinion and support it with reasons.", "prepSeconds": 30, "speakSeconds": 90 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_UNUSUAL_SITUATION",
+    "title": "Unusual Situation — A moose walking down your street",
+    "prompt": "Describe an unusual or surprising situation in a spoken response.",
+    "difficulty": "FOUNDATION",
+    "topicTag": "everyday",
+    "guidanceNote": "Describe what you saw and how you and others reacted to the surprise.",
+    "payload": { "taskPrompt": "One morning you look out your window and see a full-grown moose calmly walking down the middle of your suburban street. Describe this unusual situation. What did you see, and how did you and your neighbours react?", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_UNUSUAL_SITUATION",
+    "title": "Unusual Situation — Finding a wallet full of cash on the sidewalk",
+    "prompt": "Describe an unusual or surprising situation in a spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Explain what made it surprising and what you decided to do.",
+    "payload": { "taskPrompt": "While walking home, you find a wallet on the sidewalk stuffed with cash and an ID card but no phone number. Describe this surprising situation. What did you find, how did you feel, and what did you decide to do?", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_UNUSUAL_SITUATION",
+    "title": "Unusual Situation — The power goes out during a dinner party",
+    "prompt": "Describe an unusual or surprising situation in a spoken response.",
+    "difficulty": "CORE",
+    "topicTag": "everyday",
+    "guidanceNote": "Walk through what happened and how the group made the best of it.",
+    "payload": { "taskPrompt": "You are hosting a dinner party when a sudden storm knocks out the power for the whole block. Describe this unusual situation. What happened, and how did you and your guests handle the evening without electricity?", "prepSeconds": 30, "speakSeconds": 60 }
+  },
+  {
+    "subTest": "SPEAKING",
+    "taskType": "SPEAKING_UNUSUAL_SITUATION",
+    "title": "Unusual Situation — A stranger returns a lost item years later",
+    "prompt": "Describe an unusual or surprising situation in a spoken response.",
+    "difficulty": "STRETCH",
+    "topicTag": "everyday",
+    "guidanceNote": "Build the surprise clearly and end with why the moment stuck with you.",
+    "payload": { "taskPrompt": "A stranger knocks on your door and returns a camera you lost on a hiking trail three years ago, saying they finally tracked you down through a photo on the memory card. Describe this surprising situation. What happened, and how did you react?", "prepSeconds": 30, "speakSeconds": 60 }
+  }
+]
