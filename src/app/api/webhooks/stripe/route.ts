@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { getStripeClient } from "@/lib/billing/stripe";
+import { verifyRouterSignature } from "@/lib/router-auth";
 import { prisma } from "@/lib/prisma";
 import { isBillingEnabled, priceIdToPlanLabel } from "@/lib/billing/plans";
 
@@ -198,30 +199,33 @@ async function handleInvoicePaymentSucceeded(invoice: Stripe.Invoice): Promise<v
 }
 
 export async function POST(request: Request): Promise<NextResponse> {
-  const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
-  if (!webhookSecret || webhookSecret.length < 10) {
-    console.error(`${logPrefix()} STRIPE_WEBHOOK_SECRET not configured`);
-    return new NextResponse("Webhook secret not configured", { status: 500 });
-  }
-
-  const sig = request.headers.get("stripe-signature");
-  if (!sig) {
-    console.error(`${logPrefix()} missing stripe-signature header`);
-    return new NextResponse("Missing signature", { status: 400 });
-  }
-
   // Raw body required for signature verification — do NOT JSON.parse first.
   const rawBody = await request.text();
 
-  const stripe = getStripeClient();
   let event: Stripe.Event;
-  try {
-    event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
-  } catch (err) {
-    console.error(`${logPrefix()} signature verification failed:`, {
-      message: err instanceof Error ? err.message : String(err),
-    });
-    return new NextResponse("Invalid signature", { status: 400 });
+  // Accept EITHER an almi-billing-router HMAC (a forwarded event) OR a direct Stripe signature.
+  if (verifyRouterSignature(rawBody, request.headers.get("x-almi-router-signature"))) {
+    event = JSON.parse(rawBody) as Stripe.Event; // trusted via the router's per-product HMAC
+  } else {
+    const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
+    if (!webhookSecret || webhookSecret.length < 10) {
+      console.error(`${logPrefix()} STRIPE_WEBHOOK_SECRET not configured`);
+      return new NextResponse("Webhook secret not configured", { status: 500 });
+    }
+    const sig = request.headers.get("stripe-signature");
+    if (!sig) {
+      console.error(`${logPrefix()} missing stripe-signature header`);
+      return new NextResponse("Missing signature", { status: 400 });
+    }
+    const stripe = getStripeClient();
+    try {
+      event = stripe.webhooks.constructEvent(rawBody, sig, webhookSecret);
+    } catch (err) {
+      console.error(`${logPrefix()} signature verification failed:`, {
+        message: err instanceof Error ? err.message : String(err),
+      });
+      return new NextResponse("Invalid signature", { status: 400 });
+    }
   }
 
   if (await alreadyProcessed(event.id)) {
