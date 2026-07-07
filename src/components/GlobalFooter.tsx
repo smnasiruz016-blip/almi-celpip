@@ -1,6 +1,9 @@
 // Family-wide footer — AlmiWorld Global Nav Spec v1 §3. Data-driven: every family
 // product except this site's own is a followed cross-link, strengthening the
-// network's SEO (spec §3 note).
+// network's SEO (spec §3 note). Product names come from the canonical single source
+// (src/lib/nav/family.ts) so they never drift from the header/strip.
+
+import { footerProducts } from "@/lib/nav/family";
 
 type FooterLink = { label: string; href: string };
 type FooterColumn = { title: string; links: FooterLink[] };
@@ -15,23 +18,9 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     ],
   },
   {
-    // All eight products — one list.
+    // Every family product except this site's own — from the canonical single source.
     title: "Products",
-    links: [
-      { label: "AlmiJobs", href: "https://almijob.almiworld.com/" },
-      { label: "AlmiSalary", href: "https://almisalary.almiworld.com/" },
-      { label: "AlmiCV", href: "https://almicv.almiworld.com/" },
-      { label: "AlmiStudy", href: "https://almistudy.almiworld.com/" },
-      { label: "AlmiPrep", href: "https://almiprep.almiworld.com/" },
-      { label: "AlmiPTE", href: "https://almipte.almiworld.com/" },
-      { label: "AlmiTOEFL", href: "https://almitoefl.almiworld.com/" },
-      { label: "AlmiOET", href: "https://almioet.almiworld.com/" },
-      { label: "AlmiDET", href: "https://almidet.almiworld.com/" },
-      { label: "AlmiGoethe", href: "https://almigoethe.almiworld.com/" },
-      { label: "AlmiFrench", href: "https://almifrench.almiworld.com/" },
-      { label: "AlmiSpanish", href: "https://almispanish.almiworld.com/" },
-      { label: "AlmiJapanese", href: "https://almijapanese.almiworld.com/" },
-    ],
+    links: footerProducts("celpip"),
   },
   {
     title: "Legal & Contact",

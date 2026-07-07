@@ -70,13 +70,15 @@ export function HeaderMobileMenu() {
           aria-label="Family navigation"
           className="fixed inset-0 top-[64px] z-40 overflow-y-auto bg-almi-bg"
         >
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-6 text-base">
+          {/* Mobile inherits the nav-typography standard: bold (600) + one step
+              larger (text-lg). Labels come from the canonical family source. */}
+          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-6 text-lg">
             {FAMILY_NAV.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-almi-text hover:bg-almi-bg-peach hover:text-almi-coral"
+                className="rounded-md px-3 py-3 text-lg font-semibold text-almi-text hover:bg-almi-bg-peach hover:text-almi-coral"
               >
                 {item.label}
               </a>
@@ -87,7 +89,7 @@ export function HeaderMobileMenu() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 font-medium text-almi-ink hover:bg-almi-bg-peach hover:text-almi-coral"
+                className="rounded-md px-3 py-3 text-lg font-semibold text-almi-ink hover:bg-almi-bg-peach hover:text-almi-coral"
               >
                 {item.label}
               </Link>

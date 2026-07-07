@@ -1,33 +1,18 @@
-// AlmiCELPIP-branded header — own wordmark + product entry points + the family
-// sibling nav (like AlmiCV's site header). The brand links home; the family
-// links keep AlmiCELPIP connected to the rest of AlmiWorld.
+// AlmiCELPIP-branded header — own wordmark + the family sibling nav + product entry
+// points. Desktop uses the grouped 2-row layout (Nav Task 1): row 1 = family strip
+// (canonical names, overflow behind "More ▾"), row 2 = product links + CTA. Family
+// labels come from the canonical single source (src/lib/nav/family.ts).
 
 import Link from "next/link";
+import { familyStrip } from "@/lib/nav/family";
+import { FamilyNav } from "./nav/FamilyNav";
 import { HeaderMobileMenu } from "./HeaderMobileMenu";
 
-export const FAMILY_NAV = [
-  { label: "Home", href: "https://almiworld.com/" },
-  { label: "eBooks", href: "https://almiworld.com/ebooks-2/" },
-  { label: "Almijobs", href: "https://almijob.almiworld.com/" },
-  { label: "Salary Checker", href: "https://almisalary.almiworld.com" },
-  { label: "Almi CV", href: "https://almicv.almiworld.com" },
-  { label: "Almistudy", href: "https://almistudy.almiworld.com/" },
-  { label: "AlmiPrep", href: "https://almiprep.almiworld.com/" },
-  { label: "AlmiPTE", href: "https://almipte.almiworld.com/" },
-  { label: "AlmiTOEFL", href: "https://almitoefl.almiworld.com/" },
-  { label: "AlmiOET", href: "https://almioet.almiworld.com/" },
-  { label: "AlmiDET", href: "https://almidet.almiworld.com/" },
-  { label: "AlmiGoethe", href: "https://almigoethe.almiworld.com/" },
-  { label: "AlmiFrench", href: "https://almifrench.almiworld.com/" },
-  { label: "AlmiSpanish", href: "https://almispanish.almiworld.com/" },
-  { label: "AlmiJapanese", href: "https://almijapanese.almiworld.com/" },
-  { label: "AlmiKorean", href: "https://almikorean.almiworld.com/" },
-  { label: "Contact Us", href: "https://almiworld.com/contact-us/" },
-  { label: "Shamool Foundation", href: "https://shamoolfoundation.com/" },
-] as const;
+// The family strip for this repo = every product except AlmiCELPIP (its own brand
+// wordmark is CELPIP's home) + the network links. Sourced from the canonical list.
+export const FAMILY_NAV = familyStrip("celpip");
 
-// Product entry points (distinct from the family sibling links above). These
-// take a visitor from any page into AlmiCELPIP's own practice product.
+// Product entry points into AlmiCELPIP's own practice product.
 export const PRODUCT_NAV = [
   { label: "Practice", href: "/practice" },
   { label: "Log in", href: "/login" },
@@ -49,36 +34,28 @@ export function GlobalHeader() {
           <span className="text-xl font-semibold tracking-tight text-almi-ink">AlmiCELPIP</span>
         </Link>
 
-        <nav
-          aria-label="Family navigation"
-          className="hidden flex-1 items-center justify-end gap-x-5 gap-y-2 text-sm lg:flex lg:flex-wrap"
-        >
-          {FAMILY_NAV.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-sm text-almi-text hover:text-almi-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-almi-coral focus-visible:ring-offset-2 focus-visible:ring-offset-almi-bg"
-            >
-              {item.label}
-            </a>
-          ))}
-          {PRODUCT_NAV.map((item) => (
+        {/* Desktop: grouped 2-row — family strip on top, product actions below. */}
+        <div className="hidden flex-1 flex-col items-end gap-2 lg:flex">
+          <FamilyNav items={FAMILY_NAV} />
+          <div className="flex items-center gap-x-4">
+            {PRODUCT_NAV.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-sm text-base font-semibold text-almi-ink hover:text-almi-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-almi-coral focus-visible:ring-offset-2 focus-visible:ring-offset-almi-bg"
+              >
+                {item.label}
+              </Link>
+            ))}
             <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-sm font-medium text-almi-ink hover:text-almi-coral focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-almi-coral focus-visible:ring-offset-2 focus-visible:ring-offset-almi-bg"
+              href={GET_STARTED_HREF}
+              className="inline-flex min-h-[40px] items-center justify-center bg-almi-coral px-5 py-2 text-sm font-semibold text-almi-ink hover:bg-almi-coral-deep focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-almi-coral/30"
+              style={{ borderRadius: 9999 }}
             >
-              {item.label}
+              Start practising free
             </Link>
-          ))}
-          <Link
-            href={GET_STARTED_HREF}
-            className="ml-2 inline-flex min-h-[40px] items-center justify-center bg-almi-coral px-5 py-2 text-sm font-semibold text-almi-ink hover:bg-almi-coral-deep focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-almi-coral/30"
-            style={{ borderRadius: 9999 }}
-          >
-            Start practising free
-          </Link>
-        </nav>
+          </div>
+        </div>
 
         <div className="lg:hidden">
           <HeaderMobileMenu />
