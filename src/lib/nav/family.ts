@@ -13,7 +13,7 @@ export type FamilyProduct = { key: string; name: string; href: string };
 // Ordered as the family strip presents them. `key` is stable; use it to mark the
 // current product (exclude or highlight) — never match on label.
 export const FAMILY_PRODUCTS: readonly FamilyProduct[] = [
-  { key: "jobs", name: "AlmiJobs", href: "https://almijob.almiworld.com/" },
+  { key: "jobs", name: "AlmiJob", href: "https://almijob.almiworld.com/" },
   { key: "salary", name: "Salary Checker", href: "https://almisalary.almiworld.com/" },
   { key: "cv", name: "AlmiCV", href: "https://almicv.almiworld.com/" },
   { key: "study", name: "AlmiStudy", href: "https://almistudy.almiworld.com/" },
