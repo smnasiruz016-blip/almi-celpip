@@ -4,27 +4,23 @@ import { createCustomerPortalSession } from "@/lib/billing/stripe";
 
 export const runtime = "nodejs";
 
-export async function POST(): Promise<NextResponse> {
+// Invoked by a native <form method="POST"> on /account, so every response must be
+// a redirect the browser can follow — returning JSON renders as naked text.
+export async function POST(req: Request): Promise<NextResponse> {
   const user = await getCurrentUser();
   if (!user) {
-    return NextResponse.json({ ok: false, error: "Not authenticated" }, { status: 401 });
+    return NextResponse.redirect(new URL("/login", req.url), 303);
   }
 
   if (!user.stripeCustomerId) {
-    return NextResponse.json(
-      { ok: false, error: "No Stripe customer on file" },
-      { status: 400 },
-    );
+    return NextResponse.redirect(new URL("/pricing", req.url), 303);
   }
 
   try {
     const { url } = await createCustomerPortalSession(user.stripeCustomerId);
-    return NextResponse.json({ ok: true, url });
+    return NextResponse.redirect(url, 303);
   } catch (err) {
     console.error("[portal] failed:", err);
-    return NextResponse.json(
-      { ok: false, error: "Unable to open billing portal." },
-      { status: 500 },
-    );
+    return NextResponse.redirect(new URL("/account?portal_error=1", req.url), 303);
   }
 }
