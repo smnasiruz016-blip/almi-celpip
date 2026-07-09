@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 // Read-only billing self-check. Exposes NO secret values — only key MODE
-// (live/test), boolean validity, and public price IDs/amounts. Safe to call.
+// (live/test), boolean validity, and price IDs. Any value that is not a clean
+// `price_…` id is redacted, so a mis-pasted secret can never be echoed.
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
@@ -12,6 +13,9 @@ function keyMode(k: string): string {
   if (k.startsWith("sk_test_")) return "test";
   return "unknown";
 }
+
+const safeId = (v: string): string =>
+  /^price_[A-Za-z0-9]+$/.test(v) ? v : "REDACTED_NON_PRICE_VALUE";
 
 export async function GET() {
   const key = process.env.STRIPE_SECRET_KEY ?? "";
@@ -56,10 +60,12 @@ export async function GET() {
 
   const prices: Record<string, unknown> = {};
   for (const [v, id] of Object.entries(present)) {
+    const clean = /^price_[A-Za-z0-9]+$/.test(id);
     try {
       const p = await stripe.prices.retrieve(id);
       prices[v] = {
-        priceId: id,
+        priceId: safeId(id),
+        cleanFormat: clean,
         valid: true,
         active: p.active,
         recurring: p.recurring?.interval ?? "one-time",
@@ -67,14 +73,14 @@ export async function GET() {
         modeMatch: (mode === "live") === p.livemode,
       };
     } catch (e) {
-      prices[v] = { priceId: id, valid: false, error: (e as { code?: string }).code || "retrieve_failed" };
+      prices[v] = { priceId: safeId(id), cleanFormat: clean, valid: false, error: (e as { code?: string }).code || "retrieve_failed" };
     }
   }
   out.prices = prices;
 
   const anyPrice = Object.keys(present).length > 0;
   const pricesOk = anyPrice && Object.values(prices).every(
-    (p) => (p as { valid?: boolean }).valid && (p as { modeMatch?: boolean }).modeMatch,
+    (p) => (p as { valid?: boolean }).valid && (p as { modeMatch?: boolean }).modeMatch && (p as { cleanFormat?: boolean }).cleanFormat,
   );
   out.ok = keyValid && portalReachable && pricesOk;
   return NextResponse.json(out);
