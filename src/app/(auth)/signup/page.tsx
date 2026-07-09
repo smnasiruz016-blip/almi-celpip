@@ -69,7 +69,7 @@ export default async function SignupPage({
     <div className="rounded-2xl border border-almi-bg-peach bg-almi-paper p-8 shadow-sm">
       <h1 className="text-2xl font-semibold text-almi-ink">Create your account</h1>
       <p className="mt-2 text-sm text-almi-text-muted">
-        Practise the Canadian English Language Proficiency Index Program with honest AI feedback on the 10–160 scale.
+        Practise the Canadian English Language Proficiency Index Program with honest AI feedback on the CLB 1–12 scale.
       </p>
 
       {error === "taken" && (

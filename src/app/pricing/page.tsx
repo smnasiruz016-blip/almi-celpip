@@ -8,13 +8,13 @@ import { PricingCheckoutButton } from "./PricingCheckoutButton";
 export const metadata: Metadata = {
   title: "Pricing — 7-day free trial",
   description:
-    "AlmiCELPIP Pro — $12/month, cancel anytime. 7-day free trial. Honest AI feedback on Write and Speak About the Photo, full-length practice, and subscore estimates on the 10–160 scale.",
+    "AlmiCELPIP Pro — $12/month, cancel anytime. 7-day free trial. Honest AI feedback on CELPIP Writing and Speaking, full-length practice, and per-skill estimates on the CLB 1–12 scale.",
 };
 
 const FEATURES = [
-  "Honest AI feedback on Write About the Photo and Speak About the Photo",
+  "Honest AI feedback on CELPIP Writing and Speaking tasks",
   "Full-length practice across all four skills",
-  "Subscore estimates on the 10–160 scale, shown as ranges (never a fabricated overall)",
+  "Per-skill estimates on the CLB 1–12 scale, shown as ranges (never a fabricated overall)",
   "Adaptive practice that adjusts to your level",
   "Original material — never copied from CELPIP",
   "Cancel anytime from your account",

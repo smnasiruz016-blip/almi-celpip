@@ -78,7 +78,7 @@ export function CompAccountsClient({
       <section className="rounded-2xl border border-almi-bg-peach bg-almi-paper p-6">
         <h2 className="text-lg font-semibold text-almi-ink">Grant comp Pro</h2>
         <p className="mt-1 text-sm text-almi-text-muted">
-          Gives an existing user full Pro access — AI feedback on Write &amp; Speak About the Photo and
+          Gives an existing user full Pro access — AI feedback on CELPIP Writing &amp; Speaking and
           the full-length mock — without Stripe, with an expiry. No payment, no email-verify needed.
         </p>
         <div className="mt-4 grid gap-3 sm:grid-cols-[1fr_120px]">
