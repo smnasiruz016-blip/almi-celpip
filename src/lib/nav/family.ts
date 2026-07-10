@@ -27,7 +27,8 @@ export const FAMILY_PRODUCTS: readonly FamilyProduct[] = [
   { key: "spanish", name: "AlmiSpanish", href: "https://almispanish.almiworld.com/" },
   { key: "japanese", name: "AlmiJapanese", href: "https://almijapanese.almiworld.com/" },
   { key: "korean", name: "AlmiKorean", href: "https://almikorean.almiworld.com/" },
-  { key: "goethe", name: "AlmiGoethe", href: "https://almigoethe.almiworld.com/" },
+  { key: "goethe", name: "AlmiGoethe", href: "https://almigoethe.almiworld.com/" },  { key: "portuguese", name: "AlmiPortuguese", href: "https://almiportuguese.almiworld.com/" },
+
   { key: "italian", name: "AlmiItalian", href: "https://almiitalian.almiworld.com/" },
 ];
 
