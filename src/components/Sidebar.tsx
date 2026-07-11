@@ -26,6 +26,7 @@ function buildItems(isAdmin: boolean): Item[] {
   // Admin panel (Comp Accounts + Accounts) — only for ADMIN_EMAILS users.
   if (isAdmin) {
     items.push({ key: "admin", href: "/admin", icon: "🛠️", label: "Admin", match: "/admin" });
+    items.push({ key: "reviews", href: "/admin/reviews", icon: "⭐", label: "Reviews", match: "/admin/reviews" });
   }
   return items;
 }
