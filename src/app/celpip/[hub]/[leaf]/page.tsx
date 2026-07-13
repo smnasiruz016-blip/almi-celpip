@@ -12,7 +12,7 @@ import { findClbTarget, type ClbTarget } from "@/lib/celpip/seo/clb-targets";
 import { OriginPathwayPage } from "@/components/celpip-seo/pages-origin";
 import { ClbOriginPage } from "@/components/celpip-seo/pages-clb";
 
-export const revalidate = 86400;
+export const revalidate = false; // render-once, cache until redeploy — static SEO data, no periodic ISR re-writes
 export const dynamicParams = true;
 
 export function generateStaticParams() {

@@ -6,7 +6,7 @@ import { findProvinceBySlug } from "@/lib/celpip/seo/provinces";
 import { findCountryByOriginParam } from "@/lib/celpip/seo/countries";
 import { ProvinceOriginPage } from "@/components/celpip-seo/pages-province";
 
-export const revalidate = 86400;
+export const revalidate = false; // render-once, cache until redeploy — static SEO data, no periodic ISR re-writes
 export const dynamicParams = true;
 
 export function generateStaticParams() {

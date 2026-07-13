@@ -11,7 +11,7 @@ import { CLB_TARGETS, findClbTarget, type ClbTarget } from "@/lib/celpip/seo/clb
 import { OriginHub } from "@/components/celpip-seo/pages-origin";
 import { ClbHub } from "@/components/celpip-seo/pages-clb";
 
-export const revalidate = 86400;
+export const revalidate = false; // render-once, cache until redeploy — static SEO data, no periodic ISR re-writes
 export const dynamicParams = true;
 
 export function generateStaticParams() {
