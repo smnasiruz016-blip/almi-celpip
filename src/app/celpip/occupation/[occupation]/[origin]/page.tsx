@@ -6,7 +6,7 @@ import { findOccupationBySlug } from "@/lib/celpip/seo/occupations";
 import { findCountryByOriginParam } from "@/lib/celpip/seo/countries";
 import { OccupationOriginPage } from "@/components/celpip-seo/pages-occupation";
 
-export const revalidate = 86400;
+export const revalidate = false; // render-once, cache until redeploy — static SEO data, no periodic ISR re-writes
 export const dynamicParams = true;
 
 export function generateStaticParams() {

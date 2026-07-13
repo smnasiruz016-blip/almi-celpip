@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { findProvinceBySlug, PROVINCE_SLUGS } from "@/lib/celpip/seo/provinces";
 import { ProvinceHub } from "@/components/celpip-seo/pages-province";
 
-export const revalidate = 86400;
+export const revalidate = false; // render-once, cache until redeploy — static SEO data, no periodic ISR re-writes
 export const dynamicParams = true;
 
 export function generateStaticParams() {
