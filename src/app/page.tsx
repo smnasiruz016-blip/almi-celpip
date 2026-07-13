@@ -12,10 +12,10 @@ export const revalidate = 3600;
 // template so the brand appears exactly once.
 export const metadata: Metadata = {
   title: {
-    absolute: "CELPIP Practice with Honest AI Feedback on the CLB Scale | AlmiCELPIP",
+    absolute: "CELPIP Practice Test — Honest Per-Skill CLB | AlmiCELPIP",
   },
   description:
-    "Practise CELPIP — Listening, Reading, Writing (Email + Survey) and Speaking (8 tasks) — with honest per-skill estimates on the Canadian Language Benchmark (CLB 1–12) and AI feedback. Covers CELPIP-General and CELPIP-General LS. Original material, never copied from CELPIP. $12/month, 7-day free trial.",
+    "CELPIP practice — Listening, Reading, Writing and Speaking — with honest per-skill CLB estimates (CLB 1–12) shown as ranges, never inflated. General and General LS.",
   openGraph: {
     title: "AlmiCELPIP — honest CELPIP practice on the CLB scale",
     description:
