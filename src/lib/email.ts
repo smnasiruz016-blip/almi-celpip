@@ -177,3 +177,156 @@ export async function sendEmailVerification(input: {
     throw new Error(`Resend send failed: ${result.error.message}`);
   }
 }
+
+// ===================== Welcome (sent once, after email is verified) =====================
+
+function greeting(name: string | null | undefined): string {
+  const trimmed = name?.trim();
+  return trimmed ? `Assalam o alaikum ${escapeHtml(trimmed)},` : "Assalam o alaikum,";
+}
+
+function renderWelcomeHtml(name: string | null | undefined): string {
+  const practiceUrl = `${SITE_URL}/practice`;
+  return shell(`
+    <p style="margin:0 0 16px 0;">${greeting(name)}</p>
+    <p style="margin:0 0 16px 0;">Your email is confirmed and your AlmiCELPIP account is ready.</p>
+    <p style="margin:0 0 8px 0;">You can start practising exam questions right away. Your readiness score is honest — it reflects only the questions you have actually answered, so what you see is where you really stand.</p>
+    ${ctaButton(practiceUrl, "Start practising")}
+    <p style="margin:0 0 8px 0;font-size:14px;color:${COLOR_TEXT_MUTED};">Or open <a href="${practiceUrl}" style="color:${COLOR_TEXT_MUTED};">${practiceUrl}</a></p>
+    <p style="margin:0;">If you have any question, just reply to this email.</p>
+  `);
+}
+
+function renderWelcomeText(name: string | null | undefined): string {
+  const g = name?.trim() ? `Assalam o alaikum ${name.trim()},` : "Assalam o alaikum,";
+  return `${g}
+
+Your email is confirmed and your AlmiCELPIP account is ready.
+
+You can start practising exam questions right away. Your readiness score is honest — it reflects only the questions you have actually answered, so what you see is where you really stand.
+
+Start practising: ${SITE_URL}/practice
+
+If you have any question, just reply to this email.
+
+— AlmiCELPIP
+${SITE_URL}
+`;
+}
+
+export async function sendWelcomeEmail(input: {
+  to: string;
+  name?: string | null;
+}): Promise<void> {
+  const client = getResendClient();
+  const result = await client.emails.send({
+    from: getFromAddress(),
+    to: input.to,
+    subject: "Welcome to AlmiCELPIP",
+    html: renderWelcomeHtml(input.name),
+    text: renderWelcomeText(input.name),
+  });
+  if (result.error) {
+    throw new Error(`Resend send failed: ${result.error.message}`);
+  }
+}
+
+// ===================== Subscription confirmation =====================
+
+// Deliberately does NOT restate amounts or act as a receipt — Stripe sends the
+// official receipt. This email confirms access and is honest about the trial.
+function formatDateUTC(d: Date | null | undefined): string | null {
+  if (!d) return null;
+  return d.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
+
+function renderSubscriptionHtml(input: {
+  name?: string | null;
+  isTrial: boolean;
+  trialEnd?: Date | null;
+  planLabel?: string | null;
+}): string {
+  const practiceUrl = `${SITE_URL}/practice`;
+  const accountUrl = `${SITE_URL}/account`;
+  const plan = input.planLabel?.trim()
+    ? escapeHtml(input.planLabel.trim())
+    : "AlmiCELPIP Premium";
+  const trialEndStr = formatDateUTC(input.trialEnd);
+
+  const statusBlock = input.isTrial
+    ? `<p style="margin:0 0 16px 0;">Your free trial of ${plan} has started, and you now have full access to every practice feature.</p>
+       ${
+         trialEndStr
+           ? `<p style="margin:0 0 16px 0;">You will not be charged until <strong>${trialEndStr}</strong>. If AlmiCELPIP isn't right for you, cancel any time before then from your account and you won't pay anything.</p>`
+           : `<p style="margin:0 0 16px 0;">You can cancel any time before your trial ends from your account, and you won't be charged.</p>`
+       }`
+    : `<p style="margin:0 0 16px 0;">Your ${plan} subscription is active, and you now have full access to every practice feature.</p>`;
+
+  return shell(`
+    <p style="margin:0 0 16px 0;">${greeting(input.name)}</p>
+    ${statusBlock}
+    ${ctaButton(practiceUrl, "Go to practice")}
+    <p style="margin:0 0 8px 0;font-size:14px;color:${COLOR_TEXT_MUTED};">You can view or manage your subscription any time at <a href="${accountUrl}" style="color:${COLOR_TEXT_MUTED};">${accountUrl}</a></p>
+    <p style="margin:0;">Questions? Just reply to this email.</p>
+  `);
+}
+
+function renderSubscriptionText(input: {
+  name?: string | null;
+  isTrial: boolean;
+  trialEnd?: Date | null;
+  planLabel?: string | null;
+}): string {
+  const g = input.name?.trim()
+    ? `Assalam o alaikum ${input.name.trim()},`
+    : "Assalam o alaikum,";
+  const plan = input.planLabel?.trim() || "AlmiCELPIP Premium";
+  const trialEndStr = formatDateUTC(input.trialEnd);
+  const statusBlock = input.isTrial
+    ? `Your free trial of ${plan} has started, and you now have full access to every practice feature.\n\n${
+        trialEndStr
+          ? `You will not be charged until ${trialEndStr}. If AlmiCELPIP isn't right for you, cancel any time before then from your account and you won't pay anything.`
+          : `You can cancel any time before your trial ends from your account, and you won't be charged.`
+      }`
+    : `Your ${plan} subscription is active, and you now have full access to every practice feature.`;
+
+  return `${g}
+
+${statusBlock}
+
+Go to practice: ${SITE_URL}/practice
+Manage your subscription: ${SITE_URL}/account
+
+Questions? Just reply to this email.
+
+— AlmiCELPIP
+${SITE_URL}
+`;
+}
+
+export async function sendSubscriptionConfirmationEmail(input: {
+  to: string;
+  name?: string | null;
+  isTrial: boolean;
+  trialEnd?: Date | null;
+  planLabel?: string | null;
+}): Promise<void> {
+  const client = getResendClient();
+  const result = await client.emails.send({
+    from: getFromAddress(),
+    to: input.to,
+    subject: input.isTrial
+      ? "Your AlmiCELPIP trial has started"
+      : "Your AlmiCELPIP subscription is active",
+    html: renderSubscriptionHtml(input),
+    text: renderSubscriptionText(input),
+  });
+  if (result.error) {
+    throw new Error(`Resend send failed: ${result.error.message}`);
+  }
+}

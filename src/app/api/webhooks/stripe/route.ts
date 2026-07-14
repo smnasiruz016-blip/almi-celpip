@@ -4,6 +4,7 @@ import { getStripeClient } from "@/lib/billing/stripe";
 import { verifyRouterSignature } from "@/lib/router-auth";
 import { prisma } from "@/lib/prisma";
 import { isBillingEnabled, priceIdToPlanLabel } from "@/lib/billing/plans";
+import { sendSubscriptionConfirmationEmail } from "@/lib/email";
 
 // Stripe needs the raw request body for signature verification — must not
 // run through Next's static optimization or any caching layer.
@@ -118,6 +119,30 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session): Promis
   const stripe = getStripeClient();
   const subscription = await stripe.subscriptions.retrieve(subscriptionId);
   await syncSubscriptionToUser(userId, subscription);
+
+  // Subscription confirmation email — fires once per checkout (this event is
+  // idempotency-guarded by alreadyProcessed/markProcessed). Fire-and-forget so
+  // a mail failure never 500s the webhook and triggers a Stripe re-delivery.
+  try {
+    const recipient = await prisma.user.findUnique({
+      where: { id: userId },
+      select: { email: true, name: true },
+    });
+    if (recipient?.email) {
+      const priceId = subscription.items.data[0]?.price.id;
+      await sendSubscriptionConfirmationEmail({
+        to: recipient.email,
+        name: recipient.name,
+        isTrial: subscription.status === "trialing",
+        trialEnd: toDateOrNull(subscription.trial_end),
+        planLabel: priceId ? priceIdToPlanLabel(priceId) : null,
+      });
+    }
+  } catch (err) {
+    console.error(`${logPrefix()} subscription confirmation email failed`, {
+      message: err instanceof Error ? err.message : String(err),
+    });
+  }
 }
 
 async function handleSubscriptionEvent(subscription: Stripe.Subscription): Promise<void> {
