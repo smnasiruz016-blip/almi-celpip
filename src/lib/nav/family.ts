@@ -29,11 +29,13 @@ export const FAMILY_PRODUCTS: readonly FamilyProduct[] = [
   { key: "korean", name: "AlmiKorean", href: "https://almikorean.almiworld.com/" },
   { key: "goethe", name: "AlmiGoethe", href: "https://almigoethe.almiworld.com/" },
   { key: "portuguese", name: "AlmiPortuguese", href: "https://almiportuguese.almiworld.com/" },
-
   { key: "italian", name: "AlmiItalian", href: "https://almiitalian.almiworld.com/" },
   { key: "dutch", name: "AlmiDutch", href: "https://almidutch.almiworld.com/" },
   { key: "icelandic", name: "AlmiIcelandic", href: "https://almiicelandic.almiworld.com/" },
   { key: "danish", name: "AlmiDanish", href: "https://almidanish.almiworld.com/" },
+  { key: "norwegian", name: "AlmiNorwegian", href: "https://alminorwegian.almiworld.com/" },
+  { key: "swedish", name: "AlmiSwedish", href: "https://almiswedish.almiworld.com/" },
+  { key: "swiss", name: "AlmiSwiss", href: "https://almiswiss.almiworld.com/" },
 ];
 
 // Non-product network links — unchanged by the naming doctrine.
@@ -46,10 +48,39 @@ export const NETWORK_LINKS = {
 
 export type NavLink = { label: string; href: string };
 
+/** The product keys this file knows. `selfKey` is an IDENTITY, not a label — never
+ *  match on the display name. */
+export type FamilyKey = (typeof FAMILY_PRODUCTS)[number]["key"];
+
+/** A selfKey nobody recognises means this strip is silently wrong, so fail loudly.
+ *
+ *  `FAMILY_PRODUCTS.filter((p) => p.key !== selfKey)` accepts ANY string: pass a key
+ *  that matches nothing and you get a strip that renders fine and simply lists one
+ *  product too many, forever, with nothing thrown. These helpers are called at module
+ *  scope, so this check runs at build time — a typo or a removed product breaks the
+ *  build instead of shipping a quietly wrong nav.
+ *
+ *  ⚠️ WHAT THIS DOES NOT CATCH, stated so nobody trusts it too far: a fork that
+ *  inherits its ancestor's key. "swedish" is a VALID key, so no check here can tell
+ *  that almi-swiss meant "swiss" — and that shipped, live: almi-swiss called
+ *  familyStrip("swedish"), which hid ALMISWEDISH from the strip as if it were self
+ *  and never listed AlmiSwiss at all. 21 products rendered and nothing looked broken.
+ *  Re-keying a fork is a checklist item, not something this file can enforce. */
+function assertKnownKey(selfKey?: string): void {
+  if (selfKey === undefined) return;
+  if (!FAMILY_PRODUCTS.some((p) => p.key === selfKey)) {
+    throw new Error(
+      `family.ts: selfKey "${selfKey}" is not a known product key. If this repo was ` +
+        `forked, re-key it to its OWN product. Known keys: ${FAMILY_PRODUCTS.map((p) => p.key).join(", ")}`,
+    );
+  }
+}
+
 /** The family strip for a repo: Home · eBooks · <products> · Contact · Shamool.
  *  Pass the current repo's product `key` as `selfKey` to omit it (its own brand
  *  wordmark is that product's home). */
-export function familyStrip(selfKey?: string): NavLink[] {
+export function familyStrip(selfKey?: FamilyKey): NavLink[] {
+  assertKnownKey(selfKey);
   const products = FAMILY_PRODUCTS.filter((p) => p.key !== selfKey).map((p) => ({
     label: p.name,
     href: p.href,
@@ -64,7 +95,8 @@ export function familyStrip(selfKey?: string): NavLink[] {
 }
 
 /** The footer "Products" column for a repo (canonical product names, self omitted). */
-export function footerProducts(selfKey?: string): NavLink[] {
+export function footerProducts(selfKey?: FamilyKey): NavLink[] {
+  assertKnownKey(selfKey);
   return FAMILY_PRODUCTS.filter((p) => p.key !== selfKey).map((p) => ({
     label: p.name,
     href: p.href,
