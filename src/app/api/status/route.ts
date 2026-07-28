@@ -3,14 +3,14 @@
 // deploy's auto-seed step landed.
 
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { prisma, withDbRetry } from "@/lib/prisma";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 export async function GET(): Promise<NextResponse> {
   try {
-    const [bySubTest, total, approvedReviews] = await Promise.all([
+    const [bySubTest, total, approvedReviews] = await withDbRetry(() => Promise.all([
       prisma.celpipItem.groupBy({
         by: ["subTest"],
         where: { active: true },
@@ -18,7 +18,7 @@ export async function GET(): Promise<NextResponse> {
       }),
       prisma.celpipItem.count({ where: { active: true } }),
       prisma.review.count({ where: { approved: true } }),
-    ]);
+    ]));
     const items: Record<string, number> = {};
     for (const r of bySubTest) items[r.subTest] = r._count;
     return NextResponse.json(
