@@ -2,7 +2,7 @@
 // type — it looks the handler up in the registry, runs it, turns the result into
 // an honest per-skill CLB estimate, and persists. AI tasks (Writing Email/Survey,
 // Speaking) are gated on paid access; objective tasks (Listening, Reading) are
-// free practice. Speaking arrives as multipart audio, which is transcribed
+// AI-scored practice. Speaking arrives as multipart audio, which is transcribed
 // (Whisper) before scoring.
 
 import { NextResponse } from "next/server";
@@ -72,8 +72,8 @@ export async function POST(req: Request): Promise<NextResponse> {
     );
   }
 
-  // AI feedback is a paid feature; objective auto-marking is free practice.
-  if (handler.mode === "AI" && !hasPaidAccess(user)) {
+  // AI feedback is a paid feature; objective auto-marking is AI-scored practice.
+  if (!hasPaidAccess(user)) {
     return NextResponse.json(
       { ok: false, error: "AI feedback needs a subscription", upgradeUrl: "/pricing" },
       { status: 402 },

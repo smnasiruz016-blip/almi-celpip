@@ -24,7 +24,7 @@ export async function generateMetadata({
   if (!occupation || !country) return {};
   return {
     title: `CELPIP for ${occupation.name}s — from ${country.name}`,
-    description: `Moving to Canada from ${country.name} as a ${occupation.name.toLowerCase()}? The CELPIP minimum comes from your program, not your job. How CLB affects your CRS, with free practice. Confirm with IRCC.`,
+    description: `Moving to Canada from ${country.name} as a ${occupation.name.toLowerCase()}? The CELPIP minimum comes from your program, not your job. How CLB affects your CRS, with AI-scored practice. Confirm with IRCC.`,
     alternates: { canonical: `/celpip/occupation/${occupation.slug}/${origin}` },
   };
 }
