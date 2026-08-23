@@ -1,11 +1,12 @@
 // Task start page: opens a practice session for the task and routes into it.
-// Objective tasks (Listening/Reading) run a short practice set and are free; AI
-// tasks (Writing/Speaking) run a single item and need a subscription. CELPIP has
-// no profession axis, so no per-profession routing is needed.
+// Objective tasks (Listening/Reading) run a short practice set inside the 3-day
+// no-card window; AI tasks (Writing/Speaking) run a single item and are card-first,
+// because each calls a paid model. CELPIP has no profession axis, so no per-profession
+// routing is needed.
 
 import { notFound, redirect } from "next/navigation";
 import { requireUser } from "@/lib/auth";
-import { hasPaidAccess } from "@/lib/billing/plans";
+import { openPractice, wouldRefusePractice } from "@/lib/billing/free-window";
 import { startSession } from "@/lib/celpip/session";
 import { taskBySlug } from "@/lib/celpip/registry";
 import { SUBTEST_LABEL } from "@/lib/celpip/types";
@@ -16,7 +17,11 @@ async function beginAction(formData: FormData) {
   const def = taskBySlug(slug);
   if (!def || !def.live) redirect("/practice");
   const user = await requireUser();
-  if (def.scoringMode === "AI" && !hasPaidAccess(user)) redirect("/pricing");
+  // openPractice() both decides AND starts the 3-day clock for Listening/Reading.
+  // Do not add a hasPaidAccess() check in front of it: refusing before the clock is
+  // set is the 2026-08-18 AlmiPrep deadlock, where the clock was never set at all.
+  const decision = await openPractice(user, def.subTest);
+  if (!decision.allowed) redirect("/pricing");
   const id = await startSession({
     userId: user.id,
     mode: "PRACTICE_SET",
@@ -40,7 +45,7 @@ export default async function TaskStartPage({
   if (!def || !def.live) notFound();
 
   const isObjective = def.scoringMode === "DETERMINISTIC";
-  const needsPaid = def.scoringMode === "AI" && !hasPaidAccess(user);
+  const needsPaid = wouldRefusePractice(user, def.subTest);
 
   return (
     <div className="mx-auto max-w-2xl space-y-6">

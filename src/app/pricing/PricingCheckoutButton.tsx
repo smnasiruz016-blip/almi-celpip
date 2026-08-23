@@ -43,7 +43,7 @@ export function PricingCheckoutButton({
         className="inline-flex w-full min-h-[44px] items-center justify-center bg-almi-coral px-6 py-3 text-sm font-semibold text-almi-ink hover:bg-almi-coral-deep disabled:opacity-60"
         style={{ borderRadius: 9999 }}
       >
-        {loading ? "Starting…" : disabled ? "Checkout unavailable" : "Start 7-day free trial"}
+        {loading ? "Starting…" : disabled ? "Checkout unavailable" : "Start your 7-day free trial"}
       </button>
       {err && <p className="mt-2 text-xs text-almi-coral-deep">{err}</p>}
     </div>

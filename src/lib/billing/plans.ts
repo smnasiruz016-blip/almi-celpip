@@ -5,9 +5,10 @@ import { isOwner } from "@/lib/auth/owner-check";
 // the "AlmiCELPIP Pro" product in the shared AlmiWorld Stripe account.
 // Until set, billing is disabled at runtime by isBillingEnabled().
 export const STRIPE_PRICE_MONTHLY = process.env.STRIPE_PRICE_ID_MONTHLY ?? "";
-export const STRIPE_PRICE_YEARLY = process.env.STRIPE_PRICE_ID_YEARLY ?? "";
 
-export type PlanKey = "FREE" | "PRO_MONTHLY" | "PRO_YEARLY";
+// One paid plan. The network law is $12/month with a 7-day trial and nothing else,
+// so there is no yearly key to be dormant about.
+export type PlanKey = "FREE" | "PRO_MONTHLY";
 
 export type PlanConfig = {
   /** Practice attempts per month — Infinity = unlimited. */
@@ -29,17 +30,11 @@ export const PLANS: Record<PlanKey, PlanConfig> = {
     aiEvaluationsPerMonth: Infinity,
     allTasks: true,
   },
-  PRO_YEARLY: {
-    attemptsPerMonth: Infinity,
-    aiEvaluationsPerMonth: Infinity,
-    allTasks: true,
-  },
 };
 
 export const PLAN_DISPLAY_NAME: Record<PlanKey, string> = {
   FREE: "Free",
   PRO_MONTHLY: "Pro Monthly",
-  PRO_YEARLY: "Pro Yearly",
 };
 
 const ACTIVE_STATUSES = new Set(["trialing", "active"]);
@@ -99,7 +94,6 @@ export function getUserPlan(
   user: ProUserShape & Pick<User, "subscriptionPlan">,
 ): PlanKey {
   if (!isProActive(user)) return "FREE";
-  if (user.subscriptionPlan === "pro_yearly") return "PRO_YEARLY";
   return "PRO_MONTHLY";
 }
 
@@ -109,9 +103,8 @@ export function getUserPlan(
  */
 export function priceIdToPlanLabel(
   priceId: string,
-): "pro_monthly" | "pro_yearly" | null {
+): "pro_monthly" | null {
   if (priceId && priceId === STRIPE_PRICE_MONTHLY) return "pro_monthly";
-  if (priceId && priceId === STRIPE_PRICE_YEARLY) return "pro_yearly";
   return null;
 }
 
@@ -124,9 +117,10 @@ export function priceIdToPlanLabel(
  * the build-cache trap. Dropping it removes that footgun: set the Stripe env
  * vars and any redeploy turns billing on.)
  *
- * AlmiCELPIP ships a single $12/month plan — there is no yearly price, so the
- * yearly scaffolding stays dormant (STRIPE_PRICE_YEARLY === "" makes
- * priceIdToPlanLabel + the checkout allowlist reject any "yearly" request).
+ * AlmiCELPIP ships a single $12/month plan. The yearly scaffolding used to sit here
+ * dormant, justified by STRIPE_PRICE_YEARLY being "" — which was true, and is exactly
+ * the kind of dead branch that stops being dormant the day someone sets the env var.
+ * The network law is monthly only, so the key is gone rather than disabled.
  */
 function isRealEnv(v: string | undefined): boolean {
   return Boolean(v && v.trim() && v !== "TODO_FOUNDER_PROVIDES");
@@ -137,4 +131,91 @@ export function isBillingEnabled(): boolean {
     isRealEnv(process.env.STRIPE_SECRET_KEY) &&
     isRealEnv(process.env.STRIPE_PRICE_ID_MONTHLY)
   );
+}
+
+// ===================== 3-day no-card free window =====================
+//
+// Network law, settled 23 Aug 2026: $12/month with a 7-day CARD-FIRST trial, PLUS a
+// 3-day NO-CARD window that covers LISTENING and READING ONLY.
+//
+// The coverage line is COST, not generosity. Writing and Speaking each call a paid
+// model to produce their result, and the Listening audio is pre-rendered rather than
+// synthesised per request — so the two skills in the window are the two that can be
+// served for nothing.
+//
+// ── THE SCAR TISSUE, PORTED DELIBERATELY ────────────────────────────────────────
+// AlmiPrep shipped this on 2026-08-18 and deadlocked production. Its start gate asked
+// "may this user practise right now" instead of "may this user BEGIN", so it refused
+// before the attempt existed; the clock is set BY starting, so it was never set; so it
+// refused forever. All 27 users sat at freeAccessStartedAt = NULL and could do nothing,
+// and the gate was green the whole time because it asserted what each state was CALLED.
+//
+// "NEVER STARTED" IS NOT A REFUSAL. Three predicates, three different questions, and
+// they must never be interchanged:
+//
+//   hasPaidAccess()          owner ‖ comp ‖ (active subscription AND verified email)
+//   hasMachineMarkedAccess() deliberately a SUPERSET — a paying user must never be
+//                            refused something a free user is given
+//   isPracticeStartBlocked() refuses ONLY a non-paying user whose window has EXPIRED
+
+export const FREE_ACCESS_DAYS = 3;
+
+/** The only sub-tests the no-card window covers. */
+export const FREE_WINDOW_SUBTESTS = new Set(["LISTENING", "READING"] as const);
+
+export function isFreeWindowSubTest(subTest: string): boolean {
+  return FREE_WINDOW_SUBTESTS.has(subTest as "LISTENING" | "READING");
+}
+
+export type FreeUserShape = Pick<User, "freeAccessStartedAt">;
+
+export function isFreeWindowActive(user: FreeUserShape): boolean {
+  if (!user.freeAccessStartedAt) return false;
+  return user.freeAccessStartedAt.getTime() + FREE_ACCESS_DAYS * DAY_MS > Date.now();
+}
+
+/** Whole days left, or null if the window is not running. Null covers BOTH "not
+ *  started" and "expired" — callers that must tell those apart read getAccessLevel(). */
+export function getFreeAccessDaysRemaining(user: FreeUserShape): number | null {
+  if (!isFreeWindowActive(user)) return null;
+  const endsAt = user.freeAccessStartedAt!.getTime() + FREE_ACCESS_DAYS * DAY_MS;
+  return Math.ceil((endsAt - Date.now()) / DAY_MS);
+}
+
+/** True ONLY when a window was started and has since run out. */
+export function isFreeWindowExpired(user: FreeUserShape): boolean {
+  return Boolean(user.freeAccessStartedAt) && !isFreeWindowActive(user);
+}
+
+/** May they practise a covered sub-test RIGHT NOW? A superset of hasPaidAccess by
+ *  construction — a payer is never refused something a free user is given. The free
+ *  path still requires a verified email: the same bar as the paid path. */
+export function hasMachineMarkedAccess(
+  user: ProUserShape & FreeUserShape & Pick<User, "emailVerified" | "email">,
+): boolean {
+  if (hasPaidAccess(user)) return true;
+  return isFreeWindowActive(user) && isEmailVerified(user);
+}
+
+/** THE START GATE. Refuses exactly one population: a non-paying user whose window has
+ *  EXPIRED. A user with no window yet falls through — starting is how they get one.
+ *  Do NOT substitute hasMachineMarkedAccess() here; that is the 18 Aug regression. */
+export function isPracticeStartBlocked(
+  user: ProUserShape & FreeUserShape & Pick<User, "emailVerified" | "email">,
+): boolean {
+  if (hasPaidAccess(user)) return false;
+  return isFreeWindowExpired(user);
+}
+
+export type AccessLevel = "NONE" | "FREE_3DAY" | "FREE_EXPIRED" | "PAID";
+
+/** Four states, and the one the UI keeps confusing with NONE: a user whose window ran
+ *  out is not the same as one who never started, and the upgrade copy differs. */
+export function getAccessLevel(
+  user: ProUserShape & FreeUserShape & Pick<User, "emailVerified" | "email">,
+): AccessLevel {
+  if (hasPaidAccess(user)) return "PAID";
+  if (hasMachineMarkedAccess(user)) return "FREE_3DAY";
+  if (isFreeWindowExpired(user)) return "FREE_EXPIRED";
+  return "NONE";
 }

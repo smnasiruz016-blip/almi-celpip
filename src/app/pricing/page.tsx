@@ -129,7 +129,7 @@ function PlanCard({
             className="inline-flex w-full min-h-[44px] items-center justify-center bg-almi-coral px-6 py-3 text-sm font-semibold text-almi-ink hover:bg-almi-coral-deep"
             style={{ borderRadius: 9999 }}
           >
-            Start 7-day free trial
+            Start your 7-day free trial
           </Link>
         ) : (
           <PricingCheckoutButton plan={plan} disabled={!billingLive} />

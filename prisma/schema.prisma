@@ -72,6 +72,18 @@ model User {
   compGrantedBy String?
   compReason    String?
 
+  /// 3-DAY NO-CARD WINDOW — Listening and Reading only.
+  ///
+  /// NULL means "never started", which is NOT a refusal: it is the state a new user
+  /// arrives in, and starting a Listening or Reading item is what sets it. AlmiPrep
+  /// shipped this on 2026-08-18 with a start gate that refused before the clock was
+  /// set, so the clock was never set, so it refused forever — all 27 users sat at NULL.
+  /// isPracticeStartBlocked() refuses only a non-paying user whose window has EXPIRED.
+  ///
+  /// Writing, Speaking and the mock are never in this window: each calls a paid model
+  /// to produce its result, and the line is COST, not generosity.
+  freeAccessStartedAt DateTime?
+
   // Which CELPIP version the user is preparing for (General vs LS). Drives the
   // default mock and which practice tasks are surfaced. Null = not chosen yet.
 
