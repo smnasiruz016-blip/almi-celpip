@@ -12,6 +12,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { loadListeningAudio } from "@/lib/celpip/listening-audio";
 import type { CelpipTaskType } from "@prisma/client";
 
 const SUBMIT_BTN =
@@ -99,7 +100,7 @@ function QuestionField({
 }
 
 // ---- Listening: play-once audio + questions ----
-function ListeningAudio({ attemptId }: { attemptId: string }) {
+function ListeningAudio({ attemptId, audioUrl }: { attemptId: string; audioUrl: string | null }) {
   const [state, setState] = useState<"idle" | "loading" | "playing" | "done" | "error">("idle");
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const urlRef = useRef<string | null>(null);
@@ -114,12 +115,11 @@ function ListeningAudio({ attemptId }: { attemptId: string }) {
   async function play() {
     setState("loading");
     try {
-      const res = await fetch(`/api/celpip/audio/${attemptId}`);
-      if (!res.ok) throw new Error("audio");
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      urlRef.current = url;
-      const audio = new Audio(url);
+      // Stored clip → played straight from its URL. No route call, no synthesiser.
+      // No stored clip → today's fallback, unchanged.
+      const loaded = await loadListeningAudio({ attemptId, audioUrl });
+      urlRef.current = loaded.objectUrl;
+      const audio = new Audio(loaded.playbackUrl);
       audioRef.current = audio;
       audio.onended = () => setState("done");
       audio.onerror = () => setState("error");
@@ -155,7 +155,8 @@ function ListeningAudio({ attemptId }: { attemptId: string }) {
       </div>
       {state === "error" && (
         <p className="mt-2 text-xs font-medium text-almi-coral-deep">
-          Audio could not be played. Press Retry. (Listening audio needs the OPENAI_API_KEY set.)
+          Audio could not be played. Press Retry.
+          {audioUrl === null && " (Listening audio needs the OPENAI_API_KEY set.)"}
         </p>
       )}
     </div>
@@ -166,10 +167,12 @@ function ListeningComposer({
   attemptId,
   prompt,
   payload,
+  audioUrl,
 }: {
   attemptId: string;
   prompt: string;
   payload: unknown;
+  audioUrl: string | null;
 }) {
   const { submit, submitting, error } = useSubmit(attemptId);
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -179,7 +182,7 @@ function ListeningComposer({
   return (
     <div className="space-y-5">
       <p className="text-sm text-almi-text">{prompt}</p>
-      <ListeningAudio attemptId={attemptId} />
+      <ListeningAudio attemptId={attemptId} audioUrl={audioUrl} />
       <div className="space-y-3">
         {questions.map((q) => (
           <QuestionField
@@ -556,11 +559,14 @@ export function CelpipComposer({
   taskType,
   prompt,
   payload,
+  audioUrl,
 }: {
   attemptId: string;
   taskType: CelpipTaskType;
   prompt: string;
   payload: unknown;
+  /** Pre-rendered Listening clip, or null when none is stored yet. */
+  audioUrl: string | null;
 }) {
   if (taskType.startsWith("WRITING")) {
     return <WritingComposer attemptId={attemptId} prompt={prompt} payload={payload} />;
@@ -569,7 +575,7 @@ export function CelpipComposer({
     return <SpeakingComposer attemptId={attemptId} prompt={prompt} payload={payload} />;
   }
   if (taskType.startsWith("LISTENING")) {
-    return <ListeningComposer attemptId={attemptId} prompt={prompt} payload={payload} />;
+    return <ListeningComposer attemptId={attemptId} prompt={prompt} payload={payload} audioUrl={audioUrl} />;
   }
   return <ReadingComposer attemptId={attemptId} prompt={prompt} payload={payload} />;
 }

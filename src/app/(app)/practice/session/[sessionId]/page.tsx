@@ -10,29 +10,8 @@ import { CelpipComposer } from "@/components/celpip/composer-map";
 import { CelpipResult } from "@/components/celpip/CelpipResult";
 import { CelpipSessionResult } from "@/components/celpip/CelpipSessionResult";
 import { MockProgress } from "@/components/celpip/MockProgress";
+import { buildComposerProps } from "@/lib/celpip/client-payload";
 import type { CelpipTaskType } from "@prisma/client";
-
-// Strip any server-only answer key before sending the payload to the client.
-// Objective items (Listening, Reading) keep their questions but lose the `answer`
-// field; Listening audio scripts never go to the client (audio is fetched
-// server-side). Writing/Speaking payloads carry no objective answer key.
-function sanitizePayload(taskType: CelpipTaskType, payload: unknown): unknown {
-  const p = payload as Record<string, unknown>;
-  if (taskType.startsWith("LISTENING")) {
-    const questions = (p.questions as { id: string; stem: string; options: unknown[] }[] | undefined) ?? [];
-    // audioScript + answer stay server-side.
-    return { questions: questions.map((q) => ({ id: q.id, stem: q.stem, options: q.options })) };
-  }
-  if (taskType.startsWith("READING")) {
-    const questions = (p.questions as { id: string; stem: string; options?: unknown[] }[] | undefined) ?? [];
-    return {
-      passages: p.passages,
-      questions: questions.map((q) => ({ id: q.id, stem: q.stem, options: q.options })),
-    };
-  }
-  // Writing (Email/Survey) and Speaking carry no objective answer key.
-  return payload;
-}
 
 export default async function SessionPage({
   params,
@@ -95,10 +74,13 @@ export default async function SessionPage({
         <h1 className="mt-1 text-2xl font-semibold text-almi-ink">{current.item.title}</h1>
       </header>
       <CelpipComposer
-        attemptId={current.id}
-        taskType={current.taskType}
-        prompt={current.item.prompt}
-        payload={sanitizePayload(current.taskType, current.item.payload)}
+        {...buildComposerProps({
+          attemptId: current.id,
+          taskType: current.taskType,
+          prompt: current.item.prompt,
+          payload: current.item.payload,
+          audioUrl: current.item.audioUrl,
+        })}
       />
     </div>
   );
