@@ -233,15 +233,16 @@
   {
     "subTest": "LISTENING",
     "taskType": "LISTENING_INFORMATION",
-    "title": "Information — A community centre voicemail",
-    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "title": "Information — A community centre schedule change",
+    "prompt": "You will hear a conversation. It plays once. Choose the best option for each question.",
     "difficulty": "FOUNDATION",
     "topicTag": "everyday",
-    "guidanceNote": "Listen for the class time change and what registrants must bring.",
+    "guidanceNote": "The change and the reason for it arrive together — hold on to the new time, not the old one.",
     "payload": {
-      "audioScript": "Hello, this is a message for participants in the Tuesday evening pottery class at the Riverdale Community Centre. We're calling to let you know about a small schedule change. Because of a plumbing repair in the main studio, next week's class will move from six-thirty to seven o'clock, and it will be held in the smaller room down the hall, Room B. The class will still run the full ninety minutes, so we'll finish at eight-thirty. Please remember to bring your own apron and a hand towel, as the sinks in Room B are limited. Your clay and tools will be provided as usual. If seven o'clock doesn't work for you, you're welcome to join the Thursday afternoon session instead at no extra cost. Just reply to this message or call the front desk to switch. Thank you, and we'll see you next week.",
+      "audioScript": "Participant: Hello — I'm in the Tuesday evening pottery class at Riverdale. I got a message about a change? Coordinator: Yes. There's a plumbing repair in the main studio, so next week's class moves from six-thirty to seven o'clock, and we'll be in the smaller room down the hall, Room B. Participant: Does that make it shorter? Coordinator: No, it still runs the full ninety minutes, so we'll finish at eight-thirty. Participant: Is there anything I need to bring? Coordinator: Please bring your own apron and a hand towel — the sinks in Room B are limited. Your clay and tools will be provided as usual. Participant: Seven is a little late for me, actually. Coordinator: Then you're welcome to join the Thursday afternoon session instead, at no extra cost. Just call the front desk to switch.",
       "speakers": [
-        { "role": "Announcer", "voice": "nova" }
+        { "role": "Participant", "voice": "shimmer" },
+        { "role": "Coordinator", "voice": "onyx" }
       ],
       "questions": [
         { "id": "q1", "stem": "What is the new start time for next week's class?", "options": [{"id":"a","text":"Six-thirty."},{"id":"b","text":"Seven o'clock."},{"id":"c","text":"Eight-thirty."}], "answer": "b" },
@@ -254,14 +255,15 @@
     "subTest": "LISTENING",
     "taskType": "LISTENING_INFORMATION",
     "title": "Information — Airport shuttle announcement",
-    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "prompt": "You will hear a conversation. It plays once. Choose the best option for each question.",
     "difficulty": "CORE",
     "topicTag": "everyday",
-    "guidanceNote": "Listen for the pickup location and how often the shuttle runs.",
+    "guidanceNote": "Two different frequencies and two different fares are given — keep each one attached to the condition it belongs to.",
     "payload": {
-      "audioScript": "Attention passengers waiting for the airport hotel shuttle. Please note that due to construction at the usual curb, the shuttle is now boarding at Pillar Number Four on the arrivals level, just past the taxi stand. Look for the blue signs marked Hotel Shuttles. The shuttle runs every twenty minutes between five in the morning and midnight. After midnight, service drops to once an hour, so please plan accordingly if your flight lands late. The ride to the hotel district takes roughly fifteen minutes, depending on traffic. There is no charge for guests with a hotel booking; simply show your reservation to the driver. For those without a booking, the fare is eight dollars, payable by card only. If you need help with luggage, our drivers are happy to assist. Thank you for your patience during the construction period.",
+      "audioScript": "Traveller: Excuse me, I'm looking for the airport hotel shuttle. Isn't it usually at the curb outside? Agent: It was, but there's construction there. It's boarding at Pillar Number Four on the arrivals level now, just past the taxi stand — look for the blue signs marked Hotel Shuttles. Traveller: How long will I be waiting? Agent: It runs every twenty minutes between five in the morning and midnight. After midnight it drops to once an hour, so plan ahead if your flight lands late. Traveller: And the ride itself? Agent: Roughly fifteen minutes to the hotel district, depending on traffic. Traveller: I don't have a hotel booking yet. Is there a charge? Agent: For guests with a booking it's free — you just show your reservation to the driver. Without one, the fare is eight dollars, card only. Traveller: I've got two large cases. Agent: The drivers are happy to help with luggage.",
       "speakers": [
-        { "role": "Announcer", "voice": "onyx" }
+        { "role": "Traveller", "voice": "nova" },
+        { "role": "Agent", "voice": "onyx" }
       ],
       "questions": [
         { "id": "q1", "stem": "Where is the shuttle now boarding?", "options": [{"id":"a","text":"At Pillar Number Four on the arrivals level."},{"id":"b","text":"At the departures curb."},{"id":"c","text":"At the taxi stand entrance."}], "answer": "a" },
@@ -274,14 +276,15 @@
     "subTest": "LISTENING",
     "taskType": "LISTENING_INFORMATION",
     "title": "Information — Library renovation update",
-    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "prompt": "You will hear a conversation. It plays once. Choose the best option for each question.",
     "difficulty": "CORE",
     "topicTag": "everyday",
-    "guidanceNote": "Listen for which service stays open and how to return books during the closure.",
+    "guidanceNote": "Several services are affected in different ways — track what stays open, what moves, and what closes.",
     "payload": {
-      "audioScript": "Good afternoon, and thank you for calling the Vancouver Kitsilano branch of the public library. We want to let patrons know that our main floor will be closed for renovations from the first to the twenty-first of next month. During this time, the children's section on the lower level will remain fully open, including storytime every Saturday at ten-thirty. Book returns can still be made at any time using the outdoor drop box beside the main entrance; it will be checked twice daily. If you have holds ready for pickup, we'll move them to the lower-level desk, and staff will text you when they're available. Please note that public computers on the main floor will be unavailable, but you can use the branch in nearby Point Grey, which has extended hours during our closure. We appreciate your patience and look forward to showing you the refreshed space.",
+      "audioScript": "Patron: I hear the main floor is closing for renovations? Librarian: That's right — from the first to the twenty-first of next month. Patron: Does that mean everything's shut? Librarian: No. The children's section on the lower level stays fully open, including storytime every Saturday at ten-thirty. Patron: What do I do about returns while it's closed? Librarian: You can use the outdoor drop box beside the main entrance at any time. We check it twice daily. Patron: I've got two holds waiting. Librarian: We'll move those to the lower-level desk, and staff will text you when they're ready. Patron: And the computers? Librarian: The main-floor computers won't be available, but the Point Grey branch nearby has extended hours during our closure.",
       "speakers": [
-        { "role": "Announcer", "voice": "shimmer" }
+        { "role": "Patron", "voice": "echo" },
+        { "role": "Librarian", "voice": "shimmer" }
       ],
       "questions": [
         { "id": "q1", "stem": "Which service stays open during the renovation?", "options": [{"id":"a","text":"The main-floor computers."},{"id":"b","text":"The children's section on the lower level."},{"id":"c","text":"The rooftop reading room."}], "answer": "b" },
@@ -294,14 +297,15 @@
     "subTest": "LISTENING",
     "taskType": "LISTENING_INFORMATION",
     "title": "Information — Workplace fire drill briefing",
-    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "prompt": "You will hear a conversation. It plays once. Choose the best option for each question.",
     "difficulty": "STRETCH",
     "topicTag": "everyday",
-    "guidanceNote": "Listen for the meeting point and the one thing staff must not do.",
+    "guidanceNote": "Instructions come mixed with things NOT to do — separate the one prohibition from the several requirements.",
     "payload": {
-      "audioScript": "Good morning, everyone. This is a reminder that we'll be running our quarterly fire drill this Thursday at ten a.m. When you hear the alarm, please stop what you're doing, leave your belongings, and exit calmly using the nearest stairwell. Do not use the elevators under any circumstances, even if they appear to be working. Once outside, our meeting point is the far end of the parking lot, near the picnic tables by the flagpole, not the front sidewalk, which needs to stay clear for emergency vehicles. Floor wardens in yellow vests will guide you and take a headcount, so please stay with your team until we confirm everyone is accounted for. The drill should take about fifteen minutes. If you have mobility concerns or will have visitors on site that day, let your manager know in advance so we can plan assistance. Thanks for taking this seriously; it keeps us all safe.",
+      "audioScript": "Employee: I saw a notice about a fire drill this week. Officer: Thursday at ten. When you hear the alarm, stop what you're doing, leave your belongings, and exit calmly using the nearest stairwell. Employee: The lifts are quicker from our floor. Officer: Do not use the elevators under any circumstances, even if they appear to be working. Employee: Where do we go once we're outside? Officer: The far end of the parking lot, near the picnic tables by the flagpole. Not the front sidewalk — that has to stay clear for emergency vehicles. Employee: How will we know when it's over? Officer: Floor wardens in yellow vests will guide you and take a headcount. Stay with your team until we confirm everyone is accounted for. The whole thing should take about fifteen minutes. Employee: One of my team uses a walking frame. Officer: Then let your manager know in advance. The same goes if you'll have visitors on site that day, so we can plan assistance.",
       "speakers": [
-        { "role": "Announcer", "voice": "onyx" }
+        { "role": "Employee", "voice": "nova" },
+        { "role": "Officer", "voice": "alloy" }
       ],
       "questions": [
         { "id": "q1", "stem": "Where is the meeting point?", "options": [{"id":"a","text":"The front sidewalk."},{"id":"b","text":"The far end of the parking lot by the flagpole."},{"id":"c","text":"The building lobby."}], "answer": "b" },
@@ -314,14 +318,15 @@
     "subTest": "LISTENING",
     "taskType": "LISTENING_INFORMATION",
     "title": "Information — Recreation centre pool schedule",
-    "prompt": "You will hear a recording. It plays once. Then answer the questions by choosing the best option.",
+    "prompt": "You will hear a conversation. It plays once. Choose the best option for each question.",
     "difficulty": "FOUNDATION",
     "topicTag": "everyday",
-    "guidanceNote": "Listen for when lane swim is available and the rule for young children.",
+    "guidanceNote": "Times, ages and offers all arrive in one exchange — hold each one against the person it applies to.",
     "payload": {
-      "audioScript": "Welcome to the Halifax Commons Aquatic Centre information line. Here is our current pool schedule. Lane swim for adults is available weekday mornings from six to nine, and again in the evenings from eight to ten. Public open swim runs weekday afternoons from one to five, and all day on weekends. Please note that children under the age of seven must be within arm's reach of an adult at all times, regardless of swimming ability. Our warm therapy pool is open during all public swim times and is especially popular with seniors. Aquafit classes take place Tuesday and Thursday at eleven a.m.; drop-ins are welcome, and the first class is free for new members. The centre is closed on statutory holidays. For change room access, remember that the family change area is located near the shallow end. Thank you, and enjoy your swim.",
+      "audioScript": "Caller: I wanted to ask about the pool times. Receptionist: Of course. Adult lane swim is weekday mornings from six to nine, and again in the evenings from eight to ten. Caller: And if I'm bringing the family? Receptionist: Public open swim runs weekday afternoons from one to five, and all day at weekends. Caller: My youngest is five. Receptionist: Children under seven must be within arm's reach of an adult at all times, regardless of how well they swim. Caller: My mother comes with us — she finds the water cold. Receptionist: The warm therapy pool is open during all public swim times. It's especially popular with seniors. Caller: Do you run classes? Receptionist: Aquafit is Tuesday and Thursday at eleven. Drop-ins are welcome, and the first class is free for new members. Caller: Anything else I should know? Receptionist: We're closed on statutory holidays, and the family change area is near the shallow end.",
       "speakers": [
-        { "role": "Announcer", "voice": "nova" }
+        { "role": "Caller", "voice": "onyx" },
+        { "role": "Receptionist", "voice": "shimmer" }
       ],
       "questions": [
         { "id": "q1", "stem": "When is adult lane swim available on weekdays?", "options": [{"id":"a","text":"Mornings six to nine and evenings eight to ten."},{"id":"b","text":"Only on weekend mornings."},{"id":"c","text":"Afternoons one to five."}], "answer": "a" },

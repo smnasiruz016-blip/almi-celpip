@@ -177,6 +177,13 @@ async function upload(id: string, mp3: Buffer): Promise<string> {
     access: "public",
     contentType: "audio/mpeg",
     addRandomSuffix: false,
+    // The path is keyed by item id, so re-rendering an item MUST replace its clip.
+    // Without this the uploader can only ever succeed on an id that has never been
+    // uploaded: the first re-render of any item fails with "This blob already
+    // exists", which is how the 8 Part 3 conversions failed on 24 Aug. The work
+    // list is "audioUrl IS NULL", so this can only overwrite a clip whose row has
+    // already been cleared deliberately.
+    allowOverwrite: true,
   });
   return res.url;
 }
