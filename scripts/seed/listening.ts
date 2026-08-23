@@ -99,13 +99,13 @@ export const ITEMS: Prisma.CelpipItemCreateManyInput[] = [
     taskType: "LISTENING_INFORMATION",
     title: "Information — A library service announcement",
     prompt:
-      "You will hear someone giving information. It plays once. Choose the best option for each question.",
+      "You will hear a conversation. It plays once. Choose the best option for each question.",
     difficulty: "CORE",
     topicTag: "everyday",
     payload: {
       audioScript:
-        "Welcome to the Riverside Public Library. A quick note about our new hours: starting next month, we will open at nine on weekdays instead of ten, but we will now close at six rather than eight. Saturday hours are unchanged. The self-checkout machines by the entrance are available whenever the building is open, and you can also return items at the outdoor drop box twenty-four hours a day. Holds can now be picked up from the new shelves to your left as you come in, without needing to wait at the desk.",
-      speakers: [{ role: "Announcer", voice: "alloy" }],
+        "Visitor: Excuse me — I heard the library hours are changing next month? Librarian: They are. We'll open at nine on weekdays instead of ten, but we'll close at six rather than eight. Visitor: I see. And Saturdays? Librarian: Saturday hours are unchanged. Visitor: If I come by after closing, can I still return things? Librarian: Yes — the outdoor drop box is available twenty-four hours a day. And the self-checkout machines by the entrance work whenever the building is open. Visitor: One more thing. I have a book on hold. Do I queue at the desk for it? Librarian: Not any more. Holds are on the new shelves to your left as you come in, so you can pick them up yourself without waiting at the desk.",
+      speakers: [{ role: "Visitor", voice: "echo" }, { role: "Librarian", voice: "shimmer" }],
       questions: [
         {
           id: "q1",
@@ -129,7 +129,7 @@ export const ITEMS: Prisma.CelpipItemCreateManyInput[] = [
         },
       ],
     },
-    guidanceNote: "Announcements list several facts — keep each detail separate from the others.",
+    guidanceNote: "In a conversation the facts arrive in the answers, not in a list — keep each detail tied to the question that drew it out.",
   },
   {
     subTest: "LISTENING",
@@ -416,13 +416,13 @@ export const ITEMS: Prisma.CelpipItemCreateManyInput[] = [
     taskType: "LISTENING_INFORMATION",
     title: "Information — Summer pool schedule",
     prompt:
-      "You will hear someone giving information. It plays once. Choose the best option for each question.",
+      "You will hear a conversation. It plays once. Choose the best option for each question.",
     difficulty: "FOUNDATION",
     topicTag: "everyday",
     payload: {
       audioScript:
-        "Welcome to the Lakeside Recreation Centre pool. Here's how our summer schedule works. On weekday mornings, the pool is reserved for swimming lessons, so it's closed to the public until noon. Lessons must be booked in advance online — spots fill quickly. Weekday afternoons are open for lane swimming. On weekends, we run a family open swim every afternoon; you don't need to register for that one, just come in and show your membership card at the desk.",
-      speakers: [{ role: "Announcer", voice: "fable" }],
+        "Swimmer: Hi — is the pool open now? It's ten in the morning. Attendant: Not to the public. On weekday mornings it's reserved for swimming lessons, so it's closed until noon. Swimmer: I'd like to sign up for one of those lessons. Attendant: You'll need to book online in advance. Spots fill quickly. Swimmer: And if I just want to do lengths? Attendant: Weekday afternoons are open for lane swimming. Swimmer: What about bringing my children at the weekend? Attendant: We run a family open swim every weekend afternoon. There's no registration for that one — just come in and show your membership card at the desk.",
+      speakers: [{ role: "Swimmer", voice: "nova" }, { role: "Attendant", voice: "fable" }],
       questions: [
         {
           id: "q1",
@@ -446,20 +446,20 @@ export const ITEMS: Prisma.CelpipItemCreateManyInput[] = [
         },
       ],
     },
-    guidanceNote: "Schedules pair times with rules — keep each time slot tied to what is allowed then.",
+    guidanceNote: "A schedule given in conversation still pairs each time with its own rule — keep the time slot tied to what is allowed then.",
   },
   {
     subTest: "LISTENING",
     taskType: "LISTENING_INFORMATION",
     title: "Information — A new transit fare card",
     prompt:
-      "You will hear someone giving information. It plays once. Choose the best option for each question.",
+      "You will hear a conversation. It plays once. Choose the best option for each question.",
     difficulty: "STRETCH",
     topicTag: "everyday",
     payload: {
       audioScript:
-        "Starting in September, the city is changing how you pay for transit. Paper tickets and tokens are being phased out and replaced by a reloadable tap card called the GoPass. You tap it on the reader as you board, and the fare is taken from your balance. The biggest change is daily fare capping: once your taps in a single day add up to the price of a day pass, every ride after that is free, so you never pay more than the day pass no matter how many trips you take. You can load the card online, at any station machine, or at corner stores displaying the GoPass sign. Paper tickets already bought will still be accepted until the end of the year.",
-      speakers: [{ role: "Announcer", voice: "alloy" }],
+        "Commuter: I heard something about the fare system changing in September? Agent: That's right. Paper tickets and tokens are being phased out and replaced by a reloadable tap card called the GoPass. Commuter: How does it work? Agent: You tap it on the reader as you board, and the fare comes off your balance. Commuter: Is there any advantage over just buying tickets? Agent: The biggest change is daily fare capping. Once your taps in a single day add up to the price of a day pass, every ride after that is free, so you never pay more than the day pass no matter how many trips you take. Commuter: Where do I load it? Agent: Online, at any station machine, or at corner stores displaying the GoPass sign. Commuter: I still have a book of paper tickets at home. Agent: Those will be accepted until the end of the year.",
+      speakers: [{ role: "Commuter", voice: "alloy" }, { role: "Agent", voice: "nova" }],
       questions: [
         {
           id: "q1",
@@ -483,8 +483,7 @@ export const ITEMS: Prisma.CelpipItemCreateManyInput[] = [
         },
       ],
     },
-    guidanceNote:
-      "Announcements about a change usually highlight one main benefit — listen for the phrase that explains it ('the biggest change is…').",
+    guidanceNote: "When someone explains a change, the main benefit is usually flagged in words — listen for the phrase that marks it ('the biggest change is…').",
   },
   {
     subTest: "LISTENING",
