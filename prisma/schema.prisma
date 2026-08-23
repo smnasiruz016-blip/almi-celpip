@@ -264,6 +264,15 @@ model CelpipItem {
   //   SPEAKING_*     { taskPrompt, prepSeconds, speakSeconds, imageUrl?, imageAlt? }
   payload          Json
   difficulty       CelpipDifficulty @default(CORE)
+  /// PRE-RENDERED LISTENING AUDIO. Standing network rule: audio is rendered ONCE to
+  /// a stored URL, and a learner request must never trigger a synthesiser. Until this
+  /// is non-null for every active Listening item, /api/celpip/audio/[attemptId] is the
+  /// fallback and must stay; once coverage is 48/48 that route is deleted.
+  /// Rendered with edge-tts, which is free and unmetered — no key, no account.
+  audioUrl         String?
+  /// Clip length in seconds, from the rendered file. Lets the player show a duration
+  /// without downloading the mp3 first.
+  audioDurationSec Int?
   guidanceNote     String?          @db.Text
   timeLimitSeconds Int              @default(0)
   topicTag         String           @default("general")
