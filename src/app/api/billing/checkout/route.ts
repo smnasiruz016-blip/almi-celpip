@@ -3,7 +3,6 @@ import { getCurrentUser } from "@/lib/auth";
 import {
   isBillingEnabled,
   STRIPE_PRICE_MONTHLY,
-  STRIPE_PRICE_YEARLY,
   priceIdToPlanLabel,
 } from "@/lib/billing/plans";
 import { createCheckoutSession } from "@/lib/billing/stripe";
@@ -40,9 +39,10 @@ export async function POST(req: Request): Promise<NextResponse> {
   const input = body as { plan?: unknown };
   const plan = typeof input.plan === "string" ? input.plan : "";
 
-  let priceId = "";
-  if (plan === "monthly") priceId = STRIPE_PRICE_MONTHLY;
-  else if (plan === "yearly") priceId = STRIPE_PRICE_YEARLY;
+  // Monthly is the only plan. A "yearly" request is not a special case to handle —
+  // it falls through to the empty priceId and is refused by the allowlist below, the
+  // same as any other unrecognised value.
+  const priceId = plan === "monthly" ? STRIPE_PRICE_MONTHLY : "";
 
   // Server-side allowlist defense — never trust browser-supplied price IDs.
   if (!priceIdToPlanLabel(priceId)) {

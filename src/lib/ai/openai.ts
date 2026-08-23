@@ -3,6 +3,8 @@
 // record cost to the AICostLedger.
 
 import { TTS_USD_PER_1K_CHARS } from "@/lib/ai/models";
+// ONE implementation, shared with the pre-render script — see dialogue.ts.
+import { splitDialogue, type DialogueSpeaker } from "@/lib/celpip/dialogue";
 import { computeTranscriptionCostCents } from "@/lib/ai/cost";
 import { recordExternalCost, recordTranscriptionCost } from "@/lib/ai/anthropic-client";
 
@@ -70,37 +72,6 @@ export async function synthesizeSpeech(
     success: true,
   });
   return res.arrayBuffer();
-}
-
-type DialogueSpeaker = { role: string; voice: string };
-
-/** Split a labelled script ("Clinician: … Patient: …") into ordered segments,
- *  each tagged with the speaker's voice. Speaker labels are removed from the
- *  spoken text — the voice change signals who is talking, as in the real exam. */
-function splitDialogue(
-  script: string,
-  speakers: DialogueSpeaker[],
-): { voice: string; text: string }[] {
-  if (speakers.length < 2) return [];
-  const roleToVoice = new Map(speakers.map((s) => [s.role.toLowerCase(), s.voice]));
-  const labels = speakers.map((s) => s.role.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-  // Find every "Role:" boundary, then slice the text between consecutive marks.
-  const re = new RegExp(`(${labels.join("|")})\\s*:\\s*`, "gi");
-  const marks: { role: string; at: number; end: number }[] = [];
-  let match: RegExpExecArray | null;
-  while ((match = re.exec(script)) !== null) {
-    marks.push({ role: match[1], at: match.index, end: match.index + match[0].length });
-  }
-  if (marks.length < 2) return [];
-  const segments: { voice: string; text: string }[] = [];
-  for (let i = 0; i < marks.length; i++) {
-    const m = marks[i];
-    const textEnd = i + 1 < marks.length ? marks[i + 1].at : script.length;
-    const text = script.slice(m.end, textEnd).trim();
-    const voice = roleToVoice.get(m.role.toLowerCase()) ?? speakers[0].voice;
-    if (text) segments.push({ voice, text });
-  }
-  return segments;
 }
 
 /** Concatenate several tts-1 MP3 buffers into one. tts-1 returns constant-

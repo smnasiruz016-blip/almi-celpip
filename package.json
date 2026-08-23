@@ -7,6 +7,10 @@
     "dev": "next dev",
     "build": "npm run gate:fork-hygiene && prisma generate && prisma migrate deploy && next build && npm run seed:prod",
     "gate:fork-hygiene": "node scripts/fork-hygiene-gate.mjs",
+    "verify:free-window": "tsx scripts/verify-free-window.test.ts",
+    "verify:spend-gate": "tsx scripts/verify-spend-gate.ts",
+    "verify:audio": "tsx scripts/verify-audio-prerendered.ts",
+    "verify:audio:self-test": "tsx scripts/verify-audio-prerendered.ts --self-test",
     "seed:prod": "tsx scripts/seed/append.ts || echo 'seed:prod skipped (non-fatal)'",
     "start": "next start",
     "postinstall": "prisma generate",
@@ -20,6 +24,8 @@
   "dependencies": {
     "@anthropic-ai/sdk": "^0.91.1",
     "@prisma/client": "^6.19.3",
+    "@smnasiruz016-blip/almi-data": "^0.5.0",
+    "@vercel/blob": "^2.8.0",
     "bcryptjs": "^3.0.3",
     "next": "16.2.6",
     "prisma": "^6.19.3",
@@ -28,8 +34,7 @@
     "resend": "^6.12.3",
     "stripe": "^22.1.0",
     "tsx": "^4.21.0",
-    "zod": "^4.3.6",
-    "@smnasiruz016-blip/almi-data": "^0.5.0"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
