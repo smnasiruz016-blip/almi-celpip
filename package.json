@@ -10,6 +10,8 @@
     "verify:free-window": "tsx scripts/verify-free-window.test.ts",
     "verify:spend-gate": "tsx scripts/verify-spend-gate.ts",
     "verify:audio": "tsx scripts/verify-audio-prerendered.ts",
+    "verify:listening-speakers": "tsx scripts/verify-listening-speakers.ts",
+    "verify:listening-speakers:self-test": "tsx scripts/verify-listening-speakers.ts --self-test",
     "verify:audio:self-test": "tsx scripts/verify-audio-prerendered.ts --self-test",
     "seed:prod": "tsx scripts/seed/append.ts || echo 'seed:prod skipped (non-fatal)'",
     "start": "next start",
