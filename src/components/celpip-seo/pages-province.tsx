@@ -89,7 +89,7 @@ export function ProvinceOriginPage({
         intro={
           <>
             Applying from {country.name} through the {province.pnpName}? CELPIP-General is accepted. The
-            level you need depends on the stream — here is the honest picture and free practice.
+            level you need depends on the stream — here is the honest picture and AI-scored practice.
           </>
         }
       />

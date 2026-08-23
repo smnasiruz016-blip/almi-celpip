@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!occupation) return {};
   return {
     title: `CELPIP for ${occupation.name}s moving to Canada`,
-    description: `What CELPIP level a ${occupation.name.toLowerCase()} needs for Canada — the minimum comes from the program, not the job. How CLB affects your Express Entry CRS, by country, with free practice. Confirm with IRCC.`,
+    description: `What CELPIP level a ${occupation.name.toLowerCase()} needs for Canada — the minimum comes from the program, not the job. How CLB affects your Express Entry CRS, by country, with AI-scored practice. Confirm with IRCC.`,
     alternates: { canonical: `/celpip/occupation/${occupation.slug}` },
   };
 }

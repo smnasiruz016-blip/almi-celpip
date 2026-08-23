@@ -51,7 +51,7 @@ export async function generateMetadata({
     const title = `CELPIP for ${r.program.name} from ${r.country.name}`;
     return {
       title,
-      description: `Applying from ${r.country.name} for ${r.program.metaName}? ${r.program.clbHeadline}. How ${version} is scored on the CLB scale, plus free practice. Confirm requirements with IRCC.`,
+      description: `Applying from ${r.country.name} for ${r.program.metaName}? ${r.program.clbHeadline}. How ${version} is scored on the CLB scale, plus AI-scored practice. Confirm requirements with IRCC.`,
       alternates: { canonical: `/celpip/${hub}/${leaf}` },
     };
   }

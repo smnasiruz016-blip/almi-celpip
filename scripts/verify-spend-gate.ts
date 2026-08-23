@@ -160,14 +160,24 @@ const checkoutBtn = read("src/app/pricing/PricingCheckoutButton.tsx");
 const header = read("src/components/GlobalHeader.tsx");
 const mobile = read("src/components/HeaderMobileMenu.tsx");
 
-const CTA = "Start your 7-day free trial";
+// THE FAMILY STANDARD, not my preferred wording. PR #8 set "Start 7-day free trial"
+// across every $12/month product and it is what merged main says at all eight sites.
+// This branch originally changed four of them to "Start your 7-day free trial" — one
+// word off the standard — which would have left CELPIP internally inconsistent AND
+// divergent from the other products. That change YIELDED on merge, and the gate now
+// asserts the shipped standard rather than the variant it used to prefer.
+const CTA = "Start 7-day free trial";
+const VARIANT = /Start your 7-day free trial|Start practising free|Practise free/i;
 const ctaSites: [string, string][] = [
   ["GlobalHeader", header], ["HeaderMobileMenu", mobile],
   ["pricing page", pricingPage], ["PricingCheckoutButton", checkoutBtn],
+  ["landing page", read("src/app/page.tsx")], ["seo kit", read("src/components/celpip-seo/kit.tsx")],
 ];
 for (const [name, src] of ctaSites) {
   check(src.includes(CTA), `${name} CTA reads "${CTA}"`,
     (src.match(/Start[^"'<>{}]{0,40}(free|practising|trial)[^"'<>{}]{0,20}/i) ?? ["no Start… CTA found"])[0]);
+  check(!VARIANT.test(src), `${name} uses no off-standard CTA variant`,
+    (src.match(VARIANT) ?? [""])[0]);
 }
 // No CTA anywhere may still promise free practice without a card on the paid path.
 const contradictions = ctaSites.filter(([, s]) => /Start practising free|Practise free|Free forever/i.test(s));

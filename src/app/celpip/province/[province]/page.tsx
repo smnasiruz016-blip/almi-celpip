@@ -22,7 +22,7 @@ export async function generateMetadata({
   if (!province) return {};
   return {
     title: `CELPIP for the ${province.pnpName}`,
-    description: `What CELPIP level the ${province.pnpName} asks for. PNP requirements vary by stream — honest guidance, by country, and free practice. Confirm the exact requirement with ${province.name} and IRCC.`,
+    description: `What CELPIP level the ${province.pnpName} asks for. PNP requirements vary by stream — honest guidance, by country, and AI-scored practice. Confirm the exact requirement with ${province.name} and IRCC.`,
     alternates: { canonical: `/celpip/province/${province.slug}` },
   };
 }

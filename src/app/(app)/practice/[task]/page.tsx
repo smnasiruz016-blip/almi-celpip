@@ -17,9 +17,21 @@ async function beginAction(formData: FormData) {
   const def = taskBySlug(slug);
   if (!def || !def.live) redirect("/practice");
   const user = await requireUser();
-  // openPractice() both decides AND starts the 3-day clock for Listening/Reading.
-  // Do not add a hasPaidAccess() check in front of it: refusing before the clock is
-  // set is the 2026-08-18 AlmiPrep deadlock, where the clock was never set at all.
+  // ACCESS DECISION — resolved against #9 (billing: single plan, no free tier).
+  //
+  // #9 replaced `scoringMode === "AI" && !hasPaidAccess(user)` with a bare
+  // `!hasPaidAccess(user)`, removing the tier that made Listening and Reading free
+  // FOREVER. openPractice() keeps that removal: nothing is unconditionally free any
+  // more. What it adds on top is the 3-day no-card window the network settled on
+  // 23 Aug, which AlmiPrep already ships alongside its single $12 plan — "no Free
+  // tier" is about PLANS, and the window is a time-boxed mechanism, not a plan.
+  //
+  // If that reading is wrong and #9 meant to exclude the window at the gate too,
+  // the switch is ONE constant: empty FREE_WINDOW_SUBTESTS in plans.ts makes
+  // openPractice() reduce exactly to hasPaidAccess(). No other code changes.
+  //
+  // Do not put a hasPaidAccess() check in front of this call: refusing before the
+  // clock is set is the 2026-08-18 AlmiPrep deadlock, where the clock was never set.
   const decision = await openPractice(user, def.subTest);
   if (!decision.allowed) redirect("/pricing");
   const id = await startSession({
@@ -45,6 +57,9 @@ export default async function TaskStartPage({
   if (!def || !def.live) notFound();
 
   const isObjective = def.scoringMode === "DETERMINISTIC";
+  // Same decision as beginAction, WITHOUT the clock write. Two predicates that
+  // disagree about who is refused is how a page shows "start" on a button that then
+  // redirects to /pricing. #9's `!hasPaidAccess(user)` is the non-window case of this.
   const needsPaid = wouldRefusePractice(user, def.subTest);
 
   return (
@@ -75,7 +90,7 @@ export default async function TaskStartPage({
           <a href="/pricing" className="font-semibold underline">
             See plans
           </a>{" "}
-          — Listening and Reading practice is free.
+         
         </div>
       ) : (
         <form action={beginAction}>
