@@ -41,7 +41,7 @@ export function OriginHub({ country }: { country: CountryEntry }) {
             If you are applying to Canada from {country.name}, CELPIP is one of the English tests IRCC
             accepts for permanent residence (CELPIP-General) and citizenship (CELPIP-General LS). The
             level you need depends on the program, province or occupation — here is each route, with
-            free practice.
+            AI-scored practice.
           </>
         }
       />

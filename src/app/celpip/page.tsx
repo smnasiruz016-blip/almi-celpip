@@ -27,7 +27,7 @@ import {
 export const metadata: Metadata = {
   title: "CELPIP for Canadian immigration & citizenship",
   description:
-    "Which CELPIP level each Canadian route requires — Express Entry, Provincial Nominee Programs, citizenship, by CLB target and by occupation — with honest CLB guidance and free practice. Confirm current requirements with IRCC.",
+    "Which CELPIP level each Canadian route requires — Express Entry, Provincial Nominee Programs, citizenship, by CLB target and by occupation — with honest CLB guidance and AI-scored practice. Confirm current requirements with IRCC.",
   alternates: { canonical: "/celpip" },
 };
 

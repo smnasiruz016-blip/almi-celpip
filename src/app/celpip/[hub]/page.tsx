@@ -50,7 +50,7 @@ export async function generateMetadata({
     const title = `CELPIP from ${r.country.name} — for Canadian immigration`;
     return {
       title,
-      description: `CELPIP for Canadian immigration and citizenship when you apply from ${r.country.name}: every pathway, CLB target and province, with honest guidance and free practice. Confirm requirements with IRCC.`,
+      description: `CELPIP for Canadian immigration and citizenship when you apply from ${r.country.name}: every pathway, CLB target and province, with honest guidance and AI-scored practice. Confirm requirements with IRCC.`,
       alternates: { canonical: `/celpip/${hub}` },
     };
   }

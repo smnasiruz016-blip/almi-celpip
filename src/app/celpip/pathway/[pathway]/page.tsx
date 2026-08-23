@@ -22,8 +22,8 @@ export async function generateMetadata({
   if (!program) return {};
   const version = program.version === "LS" ? "CELPIP-General LS" : "CELPIP-General";
   return {
-    title: `CELPIP for ${program.name} — requirement & free practice`,
-    description: `${program.clbHeadline}. What ${version} requires for ${program.metaName}, how CELPIP is scored on the CLB scale, and free practice. Confirm current requirements with IRCC.`,
+    title: `CELPIP for ${program.name} — requirement & practice`,
+    description: `${program.clbHeadline}. What ${version} requires for ${program.metaName}, how CELPIP is scored on the CLB scale, and AI-scored practice. Confirm current requirements with IRCC.`,
     alternates: { canonical: `/celpip/pathway/${program.slug}` },
   };
 }

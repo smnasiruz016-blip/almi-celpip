@@ -12,7 +12,7 @@ import type { CelpipSubTest } from "@prisma/client";
 const SUBTEST_ORDER: CelpipSubTest[] = ["LISTENING", "READING", "WRITING", "SPEAKING"];
 
 function TaskCard({ def }: { def: TaskDef }) {
-  const tag = def.scoringMode === "AI" ? "AI feedback · Pro" : "Auto-marked · Free";
+  const tag = def.scoringMode === "AI" ? "AI feedback" : "Auto-marked";
   const inner = (
     <>
       <div className="flex items-baseline justify-between gap-3">

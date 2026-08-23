@@ -24,7 +24,7 @@ export async function generateMetadata({
   if (!province || !country) return {};
   return {
     title: `CELPIP for the ${province.name} PNP — from ${country.name}`,
-    description: `Applying from ${country.name} through the ${province.pnpName}? CELPIP-General is accepted; the level varies by stream. Honest guidance and free practice. Confirm with ${province.name} and IRCC.`,
+    description: `Applying from ${country.name} through the ${province.pnpName}? CELPIP-General is accepted; the level varies by stream. Honest guidance and AI-scored practice. Confirm with ${province.name} and IRCC.`,
     alternates: { canonical: `/celpip/province/${province.slug}/${origin}` },
   };
 }

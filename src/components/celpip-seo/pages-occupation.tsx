@@ -121,7 +121,7 @@ export function OccupationOriginPage({
           <>
             Moving to Canada from {country.name} as a {occupation.name.toLowerCase()}? CELPIP is one of
             the accepted English tests. The level you need depends on your program, not your job — here
-            is the honest picture and free practice.
+            is the honest picture and AI-scored practice.
           </>
         }
       />
