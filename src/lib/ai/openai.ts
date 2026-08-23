@@ -1,12 +1,15 @@
-// OpenAI helpers via fetch (no SDK dependency): on-demand TTS for Listen and
-// Type prompt audio, and Whisper transcription for Speak About the Photo. Both
-// record cost to the AICostLedger.
+// OpenAI helpers via fetch (no SDK dependency): Whisper transcription for Speak
+// About the Photo, which records its cost to the AICostLedger.
+//
+// The TTS synthesisers that used to live here (synthesizeSpeech,
+// synthesizeDialogue, concatBuffers) were removed with
+// /api/celpip/audio/[attemptId] once every active Listening item had a
+// pre-rendered clip. Listening audio is now rendered ONCE, offline and free,
+// by scripts/render-listening-audio.ts; no learner request reaches a paid
+// synthesiser. There is no runtime fallback any more — see that script's header.
 
-import { TTS_USD_PER_1K_CHARS } from "@/lib/ai/models";
-// ONE implementation, shared with the pre-render script — see dialogue.ts.
-import { splitDialogue, type DialogueSpeaker } from "@/lib/celpip/dialogue";
 import { computeTranscriptionCostCents } from "@/lib/ai/cost";
-import { recordExternalCost, recordTranscriptionCost } from "@/lib/ai/anthropic-client";
+import { recordTranscriptionCost } from "@/lib/ai/anthropic-client";
 
 const OPENAI_BASE = "https://api.openai.com/v1";
 
@@ -16,92 +19,6 @@ function getKey(): string {
     throw new Error("OPENAI_API_KEY missing or invalid — set a real key in Vercel env");
   }
   return k;
-}
-
-/** Generate spoken audio (mp3) from text with a chosen voice. Kept server-side
- *  so the Listening transcript (which carries the answers) never reaches the
- *  client. */
-export async function synthesizeSpeech(
-  text: string,
-  userId: string | null,
-  voice: string = "alloy",
-): Promise<ArrayBuffer> {
-  let res: Response;
-  try {
-    res = await fetch(`${OPENAI_BASE}/audio/speech`, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${getKey()}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        model: "tts-1",
-        voice,
-        input: text,
-        response_format: "mp3",
-      }),
-    });
-  } catch (err) {
-    await recordExternalCost({
-      userId,
-      feature: "listening.tts",
-      model: "tts-1",
-      costCents: 0,
-      success: false,
-      errorMessage: err instanceof Error ? err.message : String(err),
-    });
-    throw err;
-  }
-  if (!res.ok) {
-    await recordExternalCost({
-      userId,
-      feature: "listening.tts",
-      model: "tts-1",
-      costCents: 0,
-      success: false,
-      errorMessage: `TTS HTTP ${res.status}`,
-    });
-    throw new Error(`TTS request failed: ${res.status}`);
-  }
-  const costCents = Math.round((text.length / 1000) * TTS_USD_PER_1K_CHARS["tts-1"] * 10_000);
-  await recordExternalCost({
-    userId,
-    feature: "listening.tts",
-    model: "tts-1",
-    costCents,
-    success: true,
-  });
-  return res.arrayBuffer();
-}
-
-/** Concatenate several tts-1 MP3 buffers into one. tts-1 returns constant-
- *  bitrate MP3, which browsers play back fine when frames are concatenated. */
-function concatBuffers(buffers: ArrayBuffer[]): ArrayBuffer {
-  const total = buffers.reduce((n, b) => n + b.byteLength, 0);
-  const out = new Uint8Array(total);
-  let offset = 0;
-  for (const b of buffers) {
-    out.set(new Uint8Array(b), offset);
-    offset += b.byteLength;
-  }
-  return out.buffer;
-}
-
-/** Generate two-speaker consultation audio (Listening Part A) by synthesising
- *  each line in its speaker's voice and concatenating. Falls back to a single
- *  voice for the whole script if the dialogue can't be split. */
-export async function synthesizeDialogue(
-  script: string,
-  speakers: DialogueSpeaker[],
-  userId: string | null,
-): Promise<ArrayBuffer> {
-  const segments = splitDialogue(script, speakers);
-  if (segments.length < 2) return synthesizeSpeech(script, userId, speakers[0]?.voice);
-  const buffers: ArrayBuffer[] = [];
-  for (const seg of segments) {
-    buffers.push(await synthesizeSpeech(seg.text, userId, seg.voice));
-  }
-  return concatBuffers(buffers);
 }
 
 /** Transcribe a recorded audio clip with Whisper. */

@@ -155,8 +155,8 @@ function ListeningAudio({ attemptId, audioUrl }: { attemptId: string; audioUrl: 
       </div>
       {state === "error" && (
         <p className="mt-2 text-xs font-medium text-almi-coral-deep">
-          Audio could not be played. Press Retry.
-          {audioUrl === null && " (Listening audio needs the OPENAI_API_KEY set.)"}
+          Audio could not be played. Press Retry — if it still will not play,
+          refresh the page and start the set again.
         </p>
       )}
     </div>

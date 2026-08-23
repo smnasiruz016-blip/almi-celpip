@@ -175,8 +175,8 @@ async function main() {
 
   console.log(`\n${pass} passed, ${fail} failed`);
   console.log(fail === 0
-    ? "\nALL THREE GREEN -> /api/celpip/audio/[attemptId] may now be deleted."
-    : "\nNOT GREEN -> the runtime TTS route MUST STAY. Deleting it now would leave items with no audio at all.");
+    ? "\nALL THREE GREEN -> every active Listening item plays from a stored clip, and no learner route reaches a paid synthesiser."
+    : "\nNOT GREEN -> read the failing check above. If COVERAGE is short, render those items BEFORE shipping any change to them: /api/celpip/audio/[attemptId] is gone, so an item with a NULL audioUrl is SILENT, not degraded.");
   process.exit(fail ? 1 : 0);
 }
 
