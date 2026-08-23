@@ -52,7 +52,7 @@ export function GlobalHeader() {
               className="inline-flex min-h-[40px] items-center justify-center bg-almi-coral px-5 py-2 text-sm font-semibold text-almi-ink hover:bg-almi-coral-deep focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-almi-coral/30"
               style={{ borderRadius: 9999 }}
             >
-              Start practising free
+              Start 7-day free trial
             </Link>
           </div>
         </div>

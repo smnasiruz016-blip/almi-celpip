@@ -100,7 +100,7 @@ export function HeaderMobileMenu() {
               className="mt-3 inline-flex min-h-[48px] items-center justify-center rounded-pill bg-almi-coral px-5 py-3 text-base font-semibold text-almi-ink hover:bg-almi-coral-deep"
               style={{ borderRadius: 9999 }}
             >
-              Start practising free
+              Start 7-day free trial
             </Link>
           </nav>
         </div>
