@@ -122,6 +122,25 @@ async function main() {
   check(`no learner route reaches a paid TTS vendor  (${routes.length} routes scanned)`,
     offenders.length === 0, offenders.join(", "));
 
+  // ── THE BLOB STORE DOES NOT EXIST YET, AND THE BUILD MUST NOT CARE ──────────
+  // Creating the store is one of the things still awaiting a decision, so the code
+  // cannot demand it in advance: absence of BLOB_* must be a runtime refusal of the
+  // pre-render script only — never a build failure, never a broken page.
+  // Enforced rather than merely true today: @vercel/blob must not appear in src/ at
+  // all, and the one reference in scripts/ must be a lazy dynamic import inside a
+  // function, so `next build` never bundles or evaluates it.
+  const srcFiles = walk(SRC, (n) => /\.(ts|tsx|mjs|mts)$/.test(n));
+  const srcBlob = srcFiles.filter((f) => { try { return /@vercel\/blob/.test(readFileSync(f, "utf8")); } catch { return false; } });
+  check("no file under src/ references @vercel/blob", srcBlob.length === 0,
+    srcBlob.map((f) => f.replace(process.cwd(), "")).join(", "));
+
+  const renderer = join(process.cwd(), "scripts", "render-listening-audio.ts");
+  const rsrc = existsSync(renderer) ? readFileSync(renderer, "utf8") : "";
+  check("the renderer imports @vercel/blob lazily, not at module load",
+    /await import\(\s*["']@vercel\/blob["']\s*\)/.test(rsrc) && !/^\s*import\s[^\n]*@vercel\/blob/m.test(rsrc));
+  check("a missing BLOB_READ_WRITE_TOKEN refuses with a message instead of throwing on import",
+    /BLOB_READ_WRITE_TOKEN/.test(rsrc) && /--local/.test(rsrc));
+
   if (SELF_TEST) {
     console.log(`\n${pass} passed, ${fail} failed  (--self-test: A and C skipped, no database touched)`);
     process.exit(fail ? 1 : 0);
