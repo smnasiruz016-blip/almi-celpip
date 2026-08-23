@@ -23,7 +23,7 @@ export const ITEMS: Prisma.CelpipItemCreateManyInput[] = [
     topicTag: "everyday",
     payload: {
       audioScript:
-        "Woman: Hi, I'm calling about the sofa I ordered last week. The delivery was supposed to be today between nine and noon, but no one came. Man: I'm sorry about that. Let me check… It looks like the truck had a mechanical problem this morning. Woman: That's frustrating — I took the whole day off work. Man: I understand. I can book you the first slot tomorrow, eight to ten, and I'll add a fifty-dollar credit to your account for the trouble. Woman: Tomorrow morning works, but I'd prefer the credit goes toward the delivery fee instead. Man: That's no problem, I'll waive the delivery fee entirely.",
+        "Customer: Hi, I'm calling about the sofa I ordered last week. The delivery was supposed to be today between nine and noon, but no one came. Agent: I'm sorry about that. Let me check… It looks like the truck had a mechanical problem this morning. Customer: That's frustrating — I took the whole day off work. Agent: I understand. I can book you the first slot tomorrow, eight to ten, and I'll add a fifty-dollar credit to your account for the trouble. Customer: Tomorrow morning works, but I'd prefer the credit goes toward the delivery fee instead. Agent: That's no problem, I'll waive the delivery fee entirely.",
       speakers: [
         { role: "Customer", voice: "nova" },
         { role: "Agent", voice: "alloy" },

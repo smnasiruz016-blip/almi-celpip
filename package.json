@@ -5,7 +5,7 @@
   "description": "AlmiCELPIP — AI-powered CELPIP (Canadian English Language Proficiency Index Program) practice in the AlmiWorld family. Four skills scored per-skill on the Canadian Language Benchmark (CLB 1–12), no composite; CELPIP-General (all 4 skills) and CELPIP-General LS (Listening + Speaking). Separate product (almicelpip.almiworld.com). Original content — never copied from CELPIP/Paragon. Practice estimates only; confirm the CLB you need with IRCC.",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run gate:fork-hygiene && prisma generate && prisma migrate deploy && next build && npm run seed:prod",
+    "build": "npm run gate:fork-hygiene && prisma generate && prisma migrate deploy && npm run verify:listening-speakers && next build && npm run seed:prod",
     "gate:fork-hygiene": "node scripts/fork-hygiene-gate.mjs",
     "verify:free-window": "tsx scripts/verify-free-window.test.ts",
     "verify:spend-gate": "tsx scripts/verify-spend-gate.ts",
