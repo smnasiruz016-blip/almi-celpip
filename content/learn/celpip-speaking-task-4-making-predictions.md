@@ -8,6 +8,8 @@ cta:
   href: "/practice/speaking-predictions"
   note: "One full task, marked, no card required."
 related:
+  - label: "Task 4: a full sample answer, marked against the rubric"
+    slug: "celpip-speaking-task-4-sample-answer"
   - label: "Speaking Task 3: Describing a Scene"
     slug: "celpip-speaking-task-3-describing-a-scene"
   - label: "CELPIP Speaking: all 8 tasks explained"

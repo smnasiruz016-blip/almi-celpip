@@ -8,6 +8,8 @@ cta:
   href: "/practice/speaking-personal-experience"
   note: "One full task, marked, no card required."
 related:
+  - label: "Task 2: a full sample answer, marked against the rubric"
+    slug: "celpip-speaking-task-2-sample-answer"
   - label: "CELPIP Speaking: all 8 tasks explained"
     slug: "celpip-speaking-all-eight-tasks"
   - label: "Speaking Task 1: Giving Advice"
