@@ -13,6 +13,7 @@ related:
   - label: "Speaking Task 2: Talking About a Personal Experience"
     slug: "celpip-speaking-task-2-personal-experience"
   - label: "How CELPIP scoring works: the 0–12 scale and CLB"
+    slug: "celpip-score-chart-clb"
 sources:
   - label: "CELPIP test format"
     url: "https://www.celpip.ca/take-celpip/test-format/"

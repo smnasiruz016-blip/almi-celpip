@@ -15,6 +15,7 @@ related:
   - label: "Speaking Task 3: Describing a Scene"
     slug: "celpip-speaking-task-3-describing-a-scene"
   - label: "How CELPIP scoring works: the 0–12 scale and CLB"
+    slug: "celpip-score-chart-clb"
 sources:
   - label: "CELPIP test format"
     url: "https://www.celpip.ca/take-celpip/test-format/"
