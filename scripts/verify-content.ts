@@ -95,6 +95,15 @@ check("a TYPO'd practice task is NOT servable (shape alone would pass it)",
   !servable("/practice/writing-emial"));
 check("shape-only matching WOULD have passed the typo — proving the stricter check earns its place",
   shapeMatches("/practice/writing-emial"));
+// Controls for the two checks added 24 Aug. Each proves its detector FIRES on a
+// synthetic defect, so a clean run means "looked and found nothing" rather than
+// "did not look" -- the failure mode that made the shape-only CTA check useless.
+check("order detector FIRES on a duplicate within a section",
+  [...new Map([[1, ["a", "b"]], [2, ["c"]]])].filter(([, v]) => v.length > 1).length === 1);
+check("order detector is SILENT when every order is distinct",
+  [...new Map([[1, ["a"]], [2, ["b"]]])].filter(([, v]) => v.length > 1).length === 0);
+check("slug detector FIRES on a slug with no file", !new Set(["real-one"]).has("not-a-file"));
+check("slug detector is SILENT on a slug that exists", new Set(["real-one"]).has("real-one"));
 check("frontmatter schema REJECTS a missing cta",
   !frontmatterSchema.safeParse({ title: "t", description: "d", section: "s", order: 1 }).success);
 
@@ -169,15 +178,45 @@ check("learnUrls() and the article set agree",
 // silently renders as plain text forever.
 console.log("\nE. RELATED SLUGS, WHERE DECLARED, RESOLVE");
 const known = new Set(articles.map((a) => a.slug));
-let dangling = 0, unlinked = 0;
+// Named per ENTRY, not as one aggregate. With ~110 articles "3 dangling" tells a
+// maintainer nothing; the failing line has to say which file and which slug.
+let checkedSlugs = 0, unlinked = 0;
 for (const a of articles) {
   for (const r of a.related) {
-    if (r.slug && !known.has(r.slug)) { dangling++; console.log(`     dangling: ${a.slug} -> ${r.slug}`); }
-    if (!r.slug) unlinked++;
+    if (!r.slug) { unlinked++; continue; }
+    checkedSlugs++;
+    check(`${a.slug} -> ${r.slug}`, known.has(r.slug),
+      `no content/learn/${r.slug}.md - the link would silently render as plain text forever`);
   }
 }
-check("no related entry names a slug that does not exist", dangling === 0, `${dangling} dangling`);
-console.log(`     (${unlinked} related entries have no slug yet — expected while the set is being written)`);
+check("there were related slugs to check at all", checkedSlugs > 0,
+  "a zero here means nothing was verified, not that everything resolves");
+console.log(`     (${unlinked} related entries have no slug yet - expected while the set is being written)`);
+
+// ---- F. ORDER IS UNIQUE WITHIN EACH SECTION --------------------------------
+// order decides the hub's running order inside a section. Two articles sharing a
+// number break nothing at build time -- the hub falls back to the slug tiebreak
+// and quietly renders them in an order nobody chose. Across ~110 articles that is
+// certain to happen and impossible to spot by eye, so it is checked rather than
+// trusted. Duplicates ACROSS sections are fine: Writing 1 and Speaking 1 are
+// different lists.
+console.log("\nF. ORDER IS UNIQUE WITHIN EACH SECTION");
+const bySection = new Map<string, Map<number, string[]>>();
+for (const a of articles) {
+  if (!bySection.has(a.section)) bySection.set(a.section, new Map());
+  const m = bySection.get(a.section)!;
+  if (!m.has(a.order)) m.set(a.order, []);
+  m.get(a.order)!.push(a.slug);
+}
+check("there are sections to check at all", bySection.size > 0);
+for (const [section, orders] of [...bySection].sort()) {
+  const clashes = [...orders].filter(([, slugs]) => slugs.length > 1);
+  const n = articles.filter((a) => a.section === section).length;
+  const list = [...orders.keys()].sort((x, y) => x - y).join(", ");
+  check(`${section}: ${orders.size} distinct orders across ${n} articles  [${list}]`,
+    clashes.length === 0,
+    clashes.map(([o, slugs]) => `order ${o} used by ${slugs.join(" and ")}`).join("; "));
+}
 
 // ── verdict ─────────────────────────────────────────────────────────────────
 console.log(`\n${fail === 0 ? "PASS" : "FAIL"} — ${pass} passed, ${fail} failed`);
