@@ -17,6 +17,7 @@
 // answered one question. What ranks for CELPIP is one exam task, deep.
 
 import type { MetadataRoute } from "next";
+import { learnUrls } from "@/lib/celpip/learn/articles";
 import { PROGRAMS } from "./programs";
 import { COUNTRIES } from "./countries";
 import { CLB_TARGETS } from "./clb-targets";
@@ -42,8 +43,19 @@ export const SITEMAP_CHUNK = 10000;
 export const SITEMAP_LAST_MODIFIED = new Date("2026-08-24T00:00:00.000Z");
 
 /** Declared ceiling for the whole surface. The gate fails if the real count
- *  exceeds it, so a matrix cannot be reintroduced by accident. */
-export const SITEMAP_URL_CEILING = 300;
+ *  exceeds it, so a matrix cannot be reintroduced by accident.
+ *
+ *  RAISED DELIBERATELY 24 Aug 2026: 300 -> 400, for the /learn article system.
+ *  The surface is 5 statics + 260 hubs + 1 hub page + one URL per article. The
+ *  authored set is ~110 articles, so the end state is 265 + 1 + 110 = 376. 400
+ *  leaves room for the last few without another raise.
+ *
+ *  A ceiling raised whenever it fails is not a ceiling. Raise it only when the
+ *  SHAPE of the surface changes on purpose, as it does here, and write down the
+ *  arithmetic. If this needs raising again without a new page TYPE behind it,
+ *  that is a matrix creeping back and the right answer is to look, not to edit
+ *  this number. */
+export const SITEMAP_URL_CEILING = 400;
 
 type Entry = MetadataRoute.Sitemap[number];
 
@@ -65,6 +77,11 @@ export function buildCelpipSitemapUrls(): MetadataRoute.Sitemap {
   for (const pr of PROVINCES) push(provinceHubUrl(pr), 0.8, "weekly");
   for (const o of OCCUPATIONS) push(occupationHubUrl(o), 0.7, "weekly");
   for (const c of COUNTRIES) push(originHubUrl(c), 0.7, "weekly");
+
+  // /learn — the hub and every article, from the SAME directory scan that feeds
+  // the routes and the hub page. One source of truth, three consumers: add a
+  // second one and you have rebuilt the drift this file exists to prevent.
+  for (const path of learnUrls()) push(path, path === "/learn" ? 0.9 : 0.8, "weekly");
 
   return urls;
 }

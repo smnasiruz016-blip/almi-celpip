@@ -37,3 +37,39 @@ body {
   color: var(--color-almi-text);
   font-family: var(--font-sans);
 }
+
+/* /learn article prose. The markdown renderer emits plain HTML, so the body is
+   styled here by descendant rather than by injecting classes per element. */
+.learn-prose { color: var(--almi-text, #3f3a36); }
+.learn-prose > * + * { margin-top: 1rem; }
+.learn-prose h2 {
+  margin-top: 2.25rem; font-size: 1.25rem; line-height: 1.75rem;
+  font-weight: 600; color: var(--almi-ink, #241f1c);
+}
+.learn-prose h3 { margin-top: 1.75rem; font-size: 1.05rem; font-weight: 600; }
+.learn-prose p { font-size: 0.95rem; line-height: 1.7; }
+.learn-prose strong { font-weight: 600; color: var(--almi-ink, #241f1c); }
+.learn-prose ul, .learn-prose ol { padding-left: 1.25rem; font-size: 0.95rem; line-height: 1.7; }
+.learn-prose ul { list-style: disc; }
+.learn-prose ol { list-style: decimal; }
+.learn-prose li + li { margin-top: 0.4rem; }
+.learn-prose li > ul, .learn-prose li > ol { margin-top: 0.4rem; }
+.learn-prose blockquote {
+  border-left: 3px solid var(--almi-coral, #e8705a);
+  background: var(--almi-paper, #fffaf6);
+  padding: 0.85rem 1.1rem; border-radius: 0 0.75rem 0.75rem 0;
+  font-size: 0.95rem; line-height: 1.7;
+}
+.learn-prose blockquote > * + * { margin-top: 0.6rem; }
+.learn-prose blockquote ul, .learn-prose blockquote ol { margin-top: 0.5rem; }
+.learn-prose a { color: var(--almi-coral, #e8705a); text-decoration: underline; }
+.learn-prose code {
+  background: var(--almi-bg-peach, #f6e7dd); padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem; font-size: 0.875em;
+}
+.learn-prose table { width: 100%; border-collapse: collapse; font-size: 0.9rem; display: block; overflow-x: auto; }
+.learn-prose th, .learn-prose td {
+  border: 1px solid var(--almi-bg-peach, #f6e7dd); padding: 0.5rem 0.65rem; text-align: left;
+}
+.learn-prose th { font-weight: 600; background: var(--almi-paper, #fffaf6); }
+.learn-prose hr { border: 0; border-top: 1px solid var(--almi-bg-peach, #f6e7dd); margin: 2rem 0; }
