@@ -21,6 +21,12 @@ sources:
     url: "https://www.celpip.ca/take-celpip/test-format/"
   - label: "Guidebook for Test Takers, July 2026"
     url: "https://www.celpip.ca/wp-content/uploads/2026/07/Guidebook-CELPIP-Test-Takers-July-2026.pdf"
+  - label: "CELPIP Performance Standards"
+    url: "https://www.celpip.ca/wp-content/uploads/2023/05/CELPIP-Performance-Standards.pdf"
+  - label: "Busting CELPIP myths"
+    url: "https://www.celpip.ca/busting-celpip-myths/"
+  - label: "Speaking Pro Study Pack 2026"
+    url: "https://www.celpip.ca/wp-content/uploads/2026/05/Revised-Speaking-Pro-Target-5-Study-Pack-2026.pdf"
 ---
 
 ## There is no examiner
@@ -56,9 +62,23 @@ polished answer. You are being asked to **start talking almost immediately and k
 straight line.** A person who needs thirty seconds to decide what to say has spent a quarter of the
 task deciding.
 
-*(Paragon publishes the 15-minute total; it does not publish a per-task breakdown on the pages we
-have checked. The division above is arithmetic, not an official split — treat it as the scale of the
-problem, not as a stopwatch reading.)*
+Paragon does publish the per-task split, though not on the test-format page — it is in the Speaking
+study packs:
+
+| Task | Preparation | Speaking |
+|---|---|---|
+| 1 Giving Advice | 30 s | 90 s |
+| 2 Personal Experience | 30 s | 60 s |
+| 3 Describing a Scene | 30 s | 60 s |
+| 4 Making Predictions | 30 s | 60 s |
+| 5 Comparing and Persuading | 60 s, then 60 s | no speaking in part 1, then 60 s |
+| 6 Difficult Situation | 60 s | 60 s |
+| 7 Expressing Opinions | 30 s | 90 s |
+| 8 Unusual Situation | 30 s | 60 s |
+
+**Read the preparation column again. Thirty seconds, on six of the eight tasks.** That is the whole
+preparation you get — not two minutes, not one. Tasks 5 and 6 give you a minute, and Task 5 is the
+odd one: it runs in two parts, and the first part is preparation with no speaking at all.
 
 ## All eight tasks
 
@@ -78,12 +98,23 @@ from the one asked.** Not by weak grammar. Not by accent. By drifting one step o
 
 ## What is actually marked
 
-Each CELPIP skill is scored **0 to 12**, and that maps directly to a **CLB level**. Speaking is
-marked on how well you communicate — content, coherence, vocabulary, and how easy you are to follow.
+Each CELPIP skill is scored **0 to 12**, and that maps directly to a **CLB level**. Paragon publishes
+the four Speaking dimensions by name: **Content/Coherence, Vocabulary, Listenability, and Task
+Fulfillment.** Listenability is defined as *"How easy is it to listen to and understand the
+response?"*
 
-**Your accent is not one of the criteria.** Being *understandable* matters; sounding Canadian does
-not. Millions of people speak clear, fluent English in an Indian, Nigerian, Filipino or Pakistani
-accent, and CELPIP is not marking that.
+**Your accent is not one of them**, and Paragon says so directly:
+
+> *"Our raters specifically do not consider your accent when rating your responses."*
+
+Millions of people speak clear, fluent English in an Indian, Nigerian, Filipino or Pakistani accent,
+and CELPIP is not marking that.
+
+**One honest qualification, because it is the thing people confuse.** Accent is not rated —
+pronunciation is. Listenability's own sub-points are *"Rhythm, pronunciation, and intonation"*, and
+the level descriptors talk about whether "pronunciation errors rarely impede communication". The
+line is **being understood**, not sounding Canadian. Nobody is marking where you are from; somebody
+is marking whether a listener has to work.
 
 And the rule that outranks everything else:
 

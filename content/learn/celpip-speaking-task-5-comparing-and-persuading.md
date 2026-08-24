@@ -8,6 +8,8 @@ cta:
   href: "/practice/speaking-compare-persuade"
   note: "One full task, marked, no card required."
 related:
+  - label: "Task 5: a full sample answer, marked against the rubric"
+    slug: "celpip-speaking-task-5-sample-answer"
   - label: "CELPIP Speaking: all 8 tasks explained"
     slug: "celpip-speaking-all-eight-tasks"
   - label: "Speaking Task 6: Dealing with a Difficult Situation"
