@@ -97,7 +97,38 @@ function parseOne(file: string): Article {
 
 let cache: Article[] | null = null;
 
-/** Every article, sorted for the hub: section, then order, then slug. */
+/** The order CELPIP itself uses, with the orientation material first.
+ *
+ *  THIS IS A PREFERENCE, NOT AN ALLOWLIST. A section that is not listed here
+ *  still appears on the hub: it sorts after every listed section, alphabetically
+ *  among the other unlisted ones. Dropping an unlisted section would let a typo
+ *  in one `section:` line silently delete a page from the hub, which is exactly
+ *  the orphaning this whole system exists to prevent -- AlmiOET lost 144,266
+ *  pages to a door that did not open. A page must never disappear because it
+ *  was filed under a name nobody had thought of yet. */
+export const SECTION_ORDER: readonly string[] = [
+  "About the test",
+  "Listening",
+  "Reading",
+  "Writing",
+  "Speaking",
+];
+
+/** Listed sections rank by position; unlisted ones all share the rank just past
+ *  the end, so they land after the list and tie -- the tie then falls through to
+ *  an alphabetical compare, which is what orders them among themselves. */
+function sectionRank(section: string): number {
+  const i = SECTION_ORDER.indexOf(section);
+  return i === -1 ? SECTION_ORDER.length : i;
+}
+
+export function compareSections(a: string, b: string): number {
+  const ra = sectionRank(a);
+  const rb = sectionRank(b);
+  return ra === rb ? a.localeCompare(b) : ra - rb;
+}
+
+/** Every article, sorted for the hub: section (SECTION_ORDER), then order, then slug. */
 export function getAllArticles(): Article[] {
   if (cache) return cache;
   if (!existsSync(CONTENT_DIR)) return (cache = []);
@@ -108,7 +139,7 @@ export function getAllArticles(): Article[] {
       ? a.order === b.order
         ? a.slug.localeCompare(b.slug)
         : a.order - b.order
-      : a.section.localeCompare(b.section),
+      : compareSections(a.section, b.section),
   );
   return (cache = all);
 }
