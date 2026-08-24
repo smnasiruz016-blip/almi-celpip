@@ -8,9 +8,12 @@ cta:
   href: "/practice/writing-survey"
   note: "one full task, marked, no card required"
 related:
+  - label: "CELPIP Writing: both tasks, 53 minutes"
+    slug: "celpip-writing-both-tasks"
   - label: "CELPIP Writing Task 1: Writing an Email"
     slug: "celpip-writing-task-1-email"
   - label: "How CELPIP scoring works: the 0–12 scale and CLB"
+    slug: "celpip-score-chart-clb"
   - label: "CELPIP Speaking: all eight tasks explained"
     slug: "celpip-speaking-all-eight-tasks"
 sources:

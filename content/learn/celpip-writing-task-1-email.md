@@ -8,10 +8,14 @@ cta:
   href: "/practice/writing-email"
   note: "one full task, marked, no card required"
 related:
+  - label: "CELPIP Writing: both tasks, 53 minutes"
+    slug: "celpip-writing-both-tasks"
   - label: "CELPIP Writing Task 2: Responding to Survey Questions"
     slug: "celpip-writing-task-2-survey"
   - label: "How CELPIP scoring works: the 0–12 scale and CLB"
+    slug: "celpip-score-chart-clb"
   - label: "CELPIP-General vs CELPIP-General LS: which do you need?"
+    slug: "celpip-general-vs-ls"
 sources:
   - label: "CELPIP test format"
     url: "https://www.celpip.ca/take-celpip/test-format/"
