@@ -11,7 +11,7 @@ import type { CountryEntry } from "@/lib/celpip/seo/countries";
 import type { Occupation } from "@/lib/celpip/seo/occupations";
 import { OCCUPATIONS, teerDescription } from "@/lib/celpip/seo/occupations";
 import { PROGRAMS, IRCC_LANGUAGE_TESTS_URL, CELPIP_OFFICIAL_URL } from "@/lib/celpip/seo/programs";
-import { occupationHubUrl, occupationOriginUrl, originPathwayUrl, CELPIP_INDEX } from "@/lib/celpip/seo/urls";
+import { occupationHubUrl, CELPIP_INDEX } from "@/lib/celpip/seo/urls";
 import {
   SeoShell,
   Breadcrumb,
@@ -82,78 +82,9 @@ export function OccupationHub({ occupation }: { occupation: Occupation }) {
         />
       )}
 
-      <CountryGrid
-        title={`${occupation.name} — by country you apply from`}
-        intro="Pick your country for a page tailored to applying from there."
-        hrefFor={(c) => occupationOriginUrl(occupation, c)}
-      />
-
       <CrossLinkFooter />
       <Disclaimer />
     </SeoShell>
   );
 }
 
-export function OccupationOriginPage({
-  occupation,
-  country,
-}: {
-  occupation: Occupation;
-  country: CountryEntry;
-}) {
-  const related = OCCUPATIONS.filter(
-    (o) => o.field === occupation.field && o.slug !== occupation.slug,
-  ).slice(0, 8);
-
-  return (
-    <SeoShell>
-      <Breadcrumb
-        trail={[
-          { label: "CELPIP for Canada", href: CELPIP_INDEX },
-          { label: occupation.name, href: occupationHubUrl(occupation) },
-          { label: country.name },
-        ]}
-      />
-      <Hero
-        eyebrow={`${occupation.name} · from ${country.name}`}
-        title={`CELPIP for ${occupation.name}s — applying from ${country.name}`}
-        intro={
-          <>
-            Moving to Canada from {country.name} as a {occupation.name.toLowerCase()}? CELPIP is one of
-            the accepted English tests. The level you need depends on your program, not your job — here
-            is the honest picture and AI-scored practice.
-          </>
-        }
-      />
-
-      <RequirementCard
-        heading={`CELPIP for ${occupation.name}s from ${country.name}`}
-        headline="The minimum comes from the program, not the job"
-        detail={requirementDetail(occupation)}
-        extra={CRS_NOTE}
-        note={`The requirement is the same wherever you apply from. Confirm the exact level for your program, and current category-based draws, with IRCC.`}
-        links={[
-          { label: "Category-based selection (IRCC)", href: CATEGORY_URL },
-          { label: "IRCC language tests", href: IRCC_LANGUAGE_TESTS_URL },
-        ]}
-      />
-
-      <HonestScoringNote />
-      <SkillsGrid />
-
-      <LinkChips
-        title={`Pathways from ${country.name}`}
-        links={PROGRAMS.map((p) => ({ label: p.name, href: originPathwayUrl(country, p) }))}
-      />
-      {related.length > 0 && (
-        <LinkChips
-          title={`Other ${occupation.field.toLowerCase()} occupations — from ${country.name}`}
-          links={related.map((o) => ({ label: o.name, href: occupationOriginUrl(o, country) }))}
-        />
-      )}
-
-      <CrossLinkFooter country={country} />
-      <Disclaimer />
-    </SeoShell>
-  );
-}

@@ -7,14 +7,18 @@
 // metadata-route file at build). Chunk count comes from the SAME shared builder as
 // app/sitemap.ts, so the two can never drift.
 
-import { sitemapChunkCount } from "@/lib/celpip/seo/sitemap-urls";
+import { sitemapChunkCount, SITEMAP_LAST_MODIFIED } from "@/lib/celpip/seo/sitemap-urls";
 
 const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://almicelpip.almiworld.com";
 
 export const dynamic = "force-dynamic";
 
 export function GET(): Response {
-  const now = new Date().toISOString();
+  // NOT a wall clock. This route is the SIBLING that the 12 July fix missed: the
+  // ISR incident recurred because sitemap-urls.ts was fixed and this file was not.
+  // It now imports the SAME constant rather than keeping its own copy, so the two
+  // cannot drift apart again.
+  const now = SITEMAP_LAST_MODIFIED.toISOString();
   const n = sitemapChunkCount();
   const entries = Array.from(
     { length: n },
