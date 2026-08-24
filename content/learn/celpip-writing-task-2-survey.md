@@ -8,6 +8,8 @@ cta:
   href: "/practice/writing-survey"
   note: "one full task, marked, no card required"
 related:
+  - label: "Task 2: a full sample response, read against the rubric"
+    slug: "celpip-writing-task-2-sample-answer"
   - label: "CELPIP Writing: both tasks, 53 minutes"
     slug: "celpip-writing-both-tasks"
   - label: "CELPIP Writing Task 1: Writing an Email"
