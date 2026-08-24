@@ -13,6 +13,7 @@ related:
   - label: "Speaking Task 5: Comparing and Persuading"
     slug: "celpip-speaking-task-5-comparing-and-persuading"
   - label: "Speaking Task 7: Expressing Opinions"
+    slug: "celpip-speaking-task-7-expressing-opinions"
 sources:
   - label: "CELPIP test format"
     url: "https://www.celpip.ca/take-celpip/test-format/"

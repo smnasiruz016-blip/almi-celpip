@@ -63,14 +63,14 @@ problem, not as a stopwatch reading.)*
 
 | # | Task | What it asks | Where it is lost |
 |---|---|---|---|
-| 1 | **Giving Advice** | Advise a specific person about a specific problem | Generic advice that would suit anyone |
-| 2 | **Talking About a Personal Experience** | Tell about something that happened to you | A story with no point — events, no meaning |
-| 3 | **Describing a Scene** | Describe an image | Listing objects instead of describing a situation |
-| 4 | **Making Predictions** | Say what will happen next in that scene | Describing again instead of predicting |
-| 5 | **Comparing and Persuading** | Compare two options, then persuade someone | Comparing and never persuading |
-| 6 | **Dealing with a Difficult Situation** | Choose how to handle an awkward situation and explain | Avoiding the choice |
-| 7 | **Expressing Opinions** | State an opinion and support it | Stating it and then repeating it |
-| 8 | **Describing an Unusual Situation** | Describe an odd image **to someone who cannot see it** | Forgetting the listener is blind to it |
+| 1 | **[Giving Advice](/learn/celpip-speaking-task-1-giving-advice)** | Advise a specific person about a specific problem | Generic advice that would suit anyone |
+| 2 | **[Talking About a Personal Experience](/learn/celpip-speaking-task-2-personal-experience)** | Tell about something that happened to you | A story with no point — events, no meaning |
+| 3 | **[Describing a Scene](/learn/celpip-speaking-task-3-describing-a-scene)** | Describe an image | Listing objects instead of describing a situation |
+| 4 | **[Making Predictions](/learn/celpip-speaking-task-4-making-predictions)** | Say what will happen next in that scene | Describing again instead of predicting |
+| 5 | **[Comparing and Persuading](/learn/celpip-speaking-task-5-comparing-and-persuading)** | Compare two options, then persuade someone | Comparing and never persuading |
+| 6 | **[Dealing with a Difficult Situation](/learn/celpip-speaking-task-6-difficult-situation)** | Choose how to handle an awkward situation and explain | Avoiding the choice |
+| 7 | **[Expressing Opinions](/learn/celpip-speaking-task-7-expressing-opinions)** | State an opinion and support it | Stating it and then repeating it |
+| 8 | **[Describing an Unusual Situation](/learn/celpip-speaking-task-8-unusual-situation)** | Describe an odd image **to someone who cannot see it** | Forgetting the listener is blind to it |
 
 Read that last column again. **Six of the eight are lost by answering a slightly different question
 from the one asked.** Not by weak grammar. Not by accent. By drifting one step off the task.

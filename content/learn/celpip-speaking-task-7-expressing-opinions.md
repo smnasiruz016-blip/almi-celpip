@@ -13,6 +13,7 @@ related:
   - label: "Speaking Task 6: Dealing with a Difficult Situation"
     slug: "celpip-speaking-task-6-difficult-situation"
   - label: "Speaking Task 8: Describing an Unusual Situation"
+    slug: "celpip-speaking-task-8-unusual-situation"
 sources:
   - label: "CELPIP test format"
     url: "https://www.celpip.ca/take-celpip/test-format/"

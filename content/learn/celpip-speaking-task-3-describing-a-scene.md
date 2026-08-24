@@ -13,6 +13,7 @@ related:
   - label: "Speaking Task 2: Talking About a Personal Experience"
     slug: "celpip-speaking-task-2-personal-experience"
   - label: "Speaking Task 4: Making Predictions"
+    slug: "celpip-speaking-task-4-making-predictions"
 sources:
   - label: "CELPIP test format"
     url: "https://www.celpip.ca/take-celpip/test-format/"
