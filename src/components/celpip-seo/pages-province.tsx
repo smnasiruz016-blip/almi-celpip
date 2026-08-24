@@ -6,7 +6,7 @@ import type { CountryEntry } from "@/lib/celpip/seo/countries";
 import type { Province } from "@/lib/celpip/seo/provinces";
 import { PROVINCES } from "@/lib/celpip/seo/provinces";
 import { IRCC_LANGUAGE_TESTS_URL, CELPIP_OFFICIAL_URL } from "@/lib/celpip/seo/programs";
-import { provinceHubUrl, provinceOriginUrl, CELPIP_INDEX } from "@/lib/celpip/seo/urls";
+import { provinceHubUrl, CELPIP_INDEX } from "@/lib/celpip/seo/urls";
 import {
   SeoShell,
   Breadcrumb,
@@ -54,67 +54,9 @@ export function ProvinceHub({ province }: { province: Province }) {
         links={others.map((p) => ({ label: p.name, href: provinceHubUrl(p) }))}
       />
 
-      <CountryGrid
-        title={`${province.name} PNP — by country you apply from`}
-        intro="Pick your country for a page tailored to applying from there."
-        hrefFor={(c) => provinceOriginUrl(province, c)}
-      />
-
       <CrossLinkFooter />
       <Disclaimer />
     </SeoShell>
   );
 }
 
-export function ProvinceOriginPage({
-  province,
-  country,
-}: {
-  province: Province;
-  country: CountryEntry;
-}) {
-  const others = PROVINCES.filter((p) => p.slug !== province.slug);
-  return (
-    <SeoShell>
-      <Breadcrumb
-        trail={[
-          { label: "CELPIP for Canada", href: CELPIP_INDEX },
-          { label: province.name, href: provinceHubUrl(province) },
-          { label: country.name },
-        ]}
-      />
-      <Hero
-        eyebrow={`${province.name} PNP · from ${country.name}`}
-        title={`CELPIP for the ${province.name} PNP — applying from ${country.name}`}
-        intro={
-          <>
-            Applying from {country.name} through the {province.pnpName}? CELPIP-General is accepted. The
-            level you need depends on the stream — here is the honest picture and AI-scored practice.
-          </>
-        }
-      />
-
-      <RequirementCard
-        heading={`${province.name} — CELPIP requirement`}
-        headline="Varies by stream"
-        detail={province.clbNote}
-        note={`The requirement is the same wherever you apply from, but it differs by stream. Confirm the exact level for your ${province.name} stream on the province's page and with IRCC.`}
-        links={[
-          { label: `${province.name} immigration`, href: province.officialUrl },
-          { label: "IRCC language tests", href: IRCC_LANGUAGE_TESTS_URL },
-        ]}
-      />
-
-      <HonestScoringNote />
-      <SkillsGrid />
-
-      <LinkChips
-        title={`Other provinces — from ${country.name}`}
-        links={others.map((p) => ({ label: p.name, href: provinceOriginUrl(p, country) }))}
-      />
-
-      <CrossLinkFooter country={country} />
-      <Disclaimer />
-    </SeoShell>
-  );
-}

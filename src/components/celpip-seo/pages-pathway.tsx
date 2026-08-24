@@ -3,7 +3,7 @@
 
 import type { Program } from "@/lib/celpip/seo/programs";
 import { PROGRAMS, IRCC_LANGUAGE_TESTS_URL, CELPIP_OFFICIAL_URL } from "@/lib/celpip/seo/programs";
-import { originPathwayUrl, pathwayHubUrl, CELPIP_INDEX } from "@/lib/celpip/seo/urls";
+import { pathwayHubUrl, CELPIP_INDEX } from "@/lib/celpip/seo/urls";
 import {
   SeoShell,
   Breadcrumb,
@@ -49,12 +49,6 @@ export function PathwayHub({ program }: { program: Program }) {
       <LinkChips
         title="Other programs that accept CELPIP"
         links={others.map((p) => ({ label: p.name, href: pathwayHubUrl(p) }))}
-      />
-
-      <CountryGrid
-        title={`${program.name} — by country you apply from`}
-        intro="The requirement is the same wherever you apply from. Pick your country for a tailored page."
-        hrefFor={(c) => originPathwayUrl(c, program)}
       />
 
       <CrossLinkFooter />

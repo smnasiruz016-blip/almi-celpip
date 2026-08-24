@@ -6,7 +6,11 @@ import { findOccupationBySlug, OCCUPATION_SLUGS } from "@/lib/celpip/seo/occupat
 import { OccupationHub } from "@/components/celpip-seo/pages-occupation";
 
 export const revalidate = false; // render-once, cache until redeploy — static SEO data, no periodic ISR re-writes
-export const dynamicParams = true;
+// generateStaticParams below returns the COMPLETE set for this route, so every
+// real URL is prebuilt at deploy and nothing renders on demand. false makes an
+// unknown URL 404 instead of triggering a render + ISR cache write -- that
+// on-demand write was $0.51 of a $1.08 month.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return OCCUPATION_SLUGS.map((occupation) => ({ occupation }));
