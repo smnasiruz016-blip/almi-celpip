@@ -12,6 +12,7 @@ related:
     slug: "celpip-writing-task-1-email"
   - label: "How CELPIP scoring works: the 0–12 scale and CLB"
   - label: "CELPIP Speaking: all eight tasks explained"
+    slug: "celpip-speaking-all-eight-tasks"
 sources:
   - label: "CELPIP test format"
     url: "https://www.celpip.ca/take-celpip/test-format/"

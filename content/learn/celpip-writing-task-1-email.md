@@ -42,9 +42,9 @@ CELPIP's scoring carries one line harsher than any advice about length:
 Not marked down. **Marked out.** Miss one of the things the prompt asked for and you are not losing a
 point off a 9 — you are risking the entire task, no matter how good the English around it is.
 
-So before writing a single sentence: **count the demands in the prompt.** Most Task 1 prompts contain
-three. Answer three. Then check you answered three. That thirty seconds is the highest-value time in
-the whole task.
+So before writing a single sentence: **count the demands in the prompt.** They are usually set out as
+bullets under the instructions — Paragon's own free sample test gives **exactly three**. Answer three.
+Then check you answered three. That thirty seconds is the highest-value time in the whole task.
 
 ## A worked example
 
