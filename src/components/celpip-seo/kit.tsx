@@ -3,7 +3,7 @@
 // applied identically across ~13.5k pages and there is one place to change it.
 
 import Link from "next/link";
-import { COUNTRIES, originParam, type CountryEntry } from "@/lib/celpip/seo/countries";
+import type { CountryEntry } from "@/lib/celpip/seo/countries";
 
 export const FAMILY = {
   cv: "https://almicv.almiworld.com/",
@@ -153,63 +153,6 @@ export function HonestScoringNote({ ls = false }: { ls?: boolean }) {
           ? "CELPIP-General LS covers only listening and speaking."
           : "CELPIP-General covers all four skills."}
       </p>
-    </section>
-  );
-}
-
-/** Internal-link chips (programs, provinces, related pages). */
-export function LinkChips({
-  title,
-  links,
-}: {
-  title: string;
-  links: { label: string; href: string }[];
-}) {
-  if (links.length === 0) return null;
-  return (
-    <section className="mt-10">
-      <h2 className="text-sm font-bold uppercase tracking-wider text-almi-text-muted">{title}</h2>
-      <div className="mt-3 flex flex-wrap gap-2">
-        {links.map((l) => (
-          <Link
-            key={l.href}
-            href={l.href}
-            className="rounded-full border border-almi-bg-peach bg-almi-paper px-3 py-1 text-xs font-medium text-almi-text hover:border-almi-coral"
-          >
-            {l.label}
-          </Link>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-/** A–Z grid of all 193 origins, given a function that builds each href. */
-export function CountryGrid({
-  title,
-  intro,
-  hrefFor,
-}: {
-  title: string;
-  intro?: string;
-  hrefFor: (c: CountryEntry) => string;
-}) {
-  const sorted = [...COUNTRIES].sort((a, b) => a.name.localeCompare(b.name));
-  return (
-    <section className="mt-10 border-t border-almi-bg-peach pt-6">
-      <h2 className="text-xl font-semibold text-almi-ink">{title}</h2>
-      {intro && <p className="mt-1 text-sm text-almi-text">{intro}</p>}
-      <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-1.5 sm:grid-cols-3">
-        {sorted.map((c) => (
-          <Link
-            key={c.code}
-            href={hrefFor(c)}
-            className="text-sm text-almi-text hover:text-almi-coral hover:underline"
-          >
-            {c.name}
-          </Link>
-        ))}
-      </div>
     </section>
   );
 }
