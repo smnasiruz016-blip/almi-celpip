@@ -15,22 +15,15 @@
 // 12,931 URLs) were removed on 24 Aug 2026. They were not thin, they were
 // REDUNDANT: origin localizes the framing and never the facts, so 193 variants
 // answered one question. What ranks for CELPIP is one exam task, deep.
+//
+// The hubs (/celpip/<hub>, /celpip/pathway/*, /celpip/province/*,
+// /celpip/occupation/*) were removed too (cost fix, Oct 2026, owner ruling
+// 17 Oct). They now answer 410 Gone from src/proxy.ts, so no sitemap lists them.
+// The /celpip index page stays.
 
 import type { MetadataRoute } from "next";
 import { learnUrls } from "@/lib/celpip/learn/articles";
-import { PROGRAMS } from "./programs";
-import { COUNTRIES } from "./countries";
-import { CLB_TARGETS } from "./clb-targets";
-import { PROVINCES } from "./provinces";
-import { OCCUPATIONS } from "./occupations";
-import {
-  CELPIP_INDEX,
-  originHubUrl,
-  clbHubUrl,
-  pathwayHubUrl,
-  provinceHubUrl,
-  occupationHubUrl,
-} from "./urls";
+import { CELPIP_INDEX } from "./urls";
 
 const SITE_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://almicelpip.almiworld.com";
 
@@ -70,13 +63,6 @@ export function buildCelpipSitemapUrls(): MetadataRoute.Sitemap {
   push("/pricing", 0.7, "weekly");
   push("/signup", 0.6, "weekly");
   push("/login", 0.5, "weekly");
-
-  // Hubs.
-  for (const p of PROGRAMS) push(pathwayHubUrl(p), 0.8, "weekly");
-  for (const t of CLB_TARGETS) push(clbHubUrl(t), 0.8, "weekly");
-  for (const pr of PROVINCES) push(provinceHubUrl(pr), 0.8, "weekly");
-  for (const o of OCCUPATIONS) push(occupationHubUrl(o), 0.7, "weekly");
-  for (const c of COUNTRIES) push(originHubUrl(c), 0.7, "weekly");
 
   // /learn — the hub and every article, from the SAME directory scan that feeds
   // the routes and the hub page. One source of truth, three consumers: add a

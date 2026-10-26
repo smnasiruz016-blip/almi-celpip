@@ -5,8 +5,9 @@ import { SUBTEST_LABEL, VERSION_LABEL } from "@/lib/celpip/types";
 import type { CelpipSubTest, CelpipVersion } from "@prisma/client";
 import { TestimonialsSection } from "@/components/reviews/TestimonialsSection";
 
-// Re-render hourly so newly approved testimonials appear without a redeploy.
-export const revalidate = 3600;
+// Re-render daily so newly approved testimonials appear without a redeploy
+// (was hourly; lengthened in the Oct 2026 cost fix to cut ISR writes).
+export const revalidate = 86400;
 
 // Homepage self-brands. `absolute` opts out of the root layout's title
 // template so the brand appears exactly once.

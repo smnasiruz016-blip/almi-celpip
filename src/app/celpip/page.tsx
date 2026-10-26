@@ -1,25 +1,12 @@
-// /celpip — the master index of the CELPIP-for-Canada SEO surface. Links into
-// every layer: pathways, CLB targets, provinces, occupations, and all origins.
+// /celpip — the index of the CELPIP-for-Canada SEO surface. Its hub link lists
+// were removed in the Oct 2026 cost fix (the hubs answer 410 Gone).
 
 import type { Metadata } from "next";
-import { PROGRAMS } from "@/lib/celpip/seo/programs";
-import { CLB_TARGETS } from "@/lib/celpip/seo/clb-targets";
-import { PROVINCES } from "@/lib/celpip/seo/provinces";
-import { OCCUPATIONS } from "@/lib/celpip/seo/occupations";
-import {
-  pathwayHubUrl,
-  clbHubUrl,
-  provinceHubUrl,
-  occupationHubUrl,
-  originHubUrl,
-} from "@/lib/celpip/seo/urls";
 import {
   SeoShell,
   Hero,
   HonestScoringNote,
   SkillsGrid,
-  LinkChips,
-  CountryGrid,
   CrossLinkFooter,
   Disclaimer,
 } from "@/components/celpip-seo/kit";
@@ -37,34 +24,14 @@ export default function Page() {
       <Hero
         eyebrow="AlmiCELPIP"
         title="CELPIP for Canadian immigration & citizenship"
-        intro="CELPIP is one of the English tests IRCC accepts. The level you need depends on your route — the program, the province, your target CLB, or your occupation. Pick a starting point below. Requirements can change, so always confirm with IRCC."
+        intro="CELPIP is one of the English tests IRCC accepts. The level you need depends on your route — the program, the province, your target CLB, or your occupation. Requirements can change, so always confirm with IRCC."
       />
 
-      <LinkChips
-        title="By immigration pathway"
-        links={PROGRAMS.map((p) => ({ label: p.name, href: pathwayHubUrl(p) }))}
-      />
-      <LinkChips
-        title="By CLB target"
-        links={CLB_TARGETS.map((t) => ({ label: `CLB ${t.level}`, href: clbHubUrl(t) }))}
-      />
-      <LinkChips
-        title="By province (Provincial Nominee Programs)"
-        links={PROVINCES.map((p) => ({ label: p.name, href: provinceHubUrl(p) }))}
-      />
-      <LinkChips
-        title="By occupation"
-        links={OCCUPATIONS.map((o) => ({ label: o.name, href: occupationHubUrl(o) }))}
-      />
-
+      {/* The pathway, CLB, province, occupation and origin-country link lists
+          were removed in the Oct 2026 cost fix: those hub pages answer 410 Gone
+          (src/proxy.ts), and a kept page must not link to a removed one. */}
       <HonestScoringNote />
       <SkillsGrid />
-
-      <CountryGrid
-        title="By country you apply from"
-        intro="A localized CELPIP-for-Canada page for each origin country."
-        hrefFor={(c) => originHubUrl(c)}
-      />
 
       <CrossLinkFooter />
       <Disclaimer />
