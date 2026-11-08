@@ -6,7 +6,7 @@ import { isOwner } from "@/lib/auth/owner-check";
 // Until set, billing is disabled at runtime by isBillingEnabled().
 export const STRIPE_PRICE_MONTHLY = process.env.STRIPE_PRICE_ID_MONTHLY ?? "";
 
-// One paid plan. The network law is $12/month with a 7-day trial and nothing else,
+// One paid plan. The network law is $12/month with a 48-hour trial and nothing else,
 // so there is no yearly key to be dormant about.
 export type PlanKey = "FREE" | "PRO_MONTHLY";
 
@@ -120,7 +120,7 @@ export function priceIdToPlanLabel(
  * AlmiCELPIP ships a single $12/month plan. The yearly scaffolding used to sit here
  * dormant, justified by STRIPE_PRICE_YEARLY being "" — which was true, and is exactly
  * the kind of dead branch that stops being dormant the day someone sets the env var.
- * The network law is monthly only, so the key is gone rather than disabled.
+ * The network law sells a monthly plan only, so the key is gone rather than disabled.
  */
 function isRealEnv(v: string | undefined): boolean {
   return Boolean(v && v.trim() && v !== "TODO_FOUNDER_PROVIDES");
@@ -135,7 +135,8 @@ export function isBillingEnabled(): boolean {
 
 // ===================== 3-day no-card free window =====================
 //
-// Network law, settled 23 Aug 2026: $12/month with a 7-day CARD-FIRST trial, PLUS a
+// Network law, settled 23 Aug 2026: $12/month with a CARD-FIRST trial (48 hours for new
+// checkouts since RR-394, Nov 2026 — the length lives in ./offer.ts), PLUS a
 // 3-day NO-CARD window that covers LISTENING and READING ONLY.
 //
 // The coverage line is COST, not generosity. Writing and Speaking each call a paid
