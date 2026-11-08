@@ -115,7 +115,7 @@ function ScoreMockup() {
           {SAMPLE.map((s) => (
             <li key={s.name} className="flex items-baseline justify-between text-sm">
               <span className="font-medium text-almi-ink">{s.name}</span>
-              <span className="font-semibold text-almi-coral-deep">{s.range}</span>
+              <span className="font-semibold text-almi-coral-text">{s.range}</span>
             </li>
           ))}
         </ul>
@@ -143,7 +143,7 @@ export default function Home() {
           <div>
             <p className="text-sm font-bold uppercase tracking-widest text-almi-accent-deep">AlmiCELPIP · Canadian English Language Proficiency Index Program</p>
             <h1 className="mt-4 text-balance text-4xl font-semibold leading-[1.08] text-almi-ink sm:text-5xl">
-              Practise the CELPIP with <span className="text-almi-coral">honest AI feedback.</span>
+              Practise the CELPIP with <span className="text-almi-coral-text">honest AI feedback.</span>
             </h1>
             <p className="mt-5 text-lg text-almi-text">
               Original practice for all four skills, with a per-skill estimate on the Canadian Language
@@ -156,7 +156,7 @@ export default function Home() {
               >
                 Try free for 48 hours
               </Link>
-              <Link href="/login" className="text-sm font-medium text-almi-coral hover:underline">
+              <Link href="/login" className="text-sm font-medium text-almi-coral-text hover:underline">
                 Already have an account? Log in →
               </Link>
             </div>
@@ -237,7 +237,7 @@ export default function Home() {
           </ul>
           <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-almi-text">
             Not sure which you need?{" "}
-            <Link href="/celpip" className="font-semibold text-almi-coral hover:underline">
+            <Link href="/celpip" className="font-semibold text-almi-coral-text hover:underline">
               See the CELPIP requirement for each Canadian program →
             </Link>
           </p>

@@ -36,7 +36,7 @@ function lastActive(sessionExpires: Date | undefined, updatedAt: Date): Date {
 
 const PLAN_BADGE: Record<Plan, { label: string; cls: string }> = {
   comp: { label: "🎁 Comp", cls: "bg-almi-accent/15 text-almi-accent-deep" },
-  pro: { label: "Pro", cls: "bg-almi-teal/15 text-almi-teal" },
+  pro: { label: "Pro", cls: "bg-almi-teal/15 text-almi-teal-text" },
   free: { label: "Free", cls: "bg-almi-bg-peach text-almi-text-muted" },
 };
 

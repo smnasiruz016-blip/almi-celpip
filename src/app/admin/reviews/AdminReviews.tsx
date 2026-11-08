@@ -16,7 +16,7 @@ function StarRow({ rating }: { rating: number }) {
   const r = Math.max(0, Math.min(5, rating));
   return (
     <span aria-label={`${r} out of 5 stars`}>
-      <span className="text-almi-coral">{"★".repeat(r)}</span>
+      <span className="text-almi-coral-text">{"★".repeat(r)}</span>
       <span className="text-almi-bg-peach">{"★".repeat(5 - r)}</span>
     </span>
   );
@@ -80,7 +80,7 @@ export function AdminReviews({ rows: initial }: { rows: AdminReviewRow[] }) {
         </div>
       </div>
 
-      {error && <p className="text-sm font-medium text-almi-coral-deep">{error}</p>}
+      {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
 
       <div className="space-y-3">
         {shown.length === 0 && <p className="text-sm text-almi-text-muted">No reviews here.</p>}
@@ -98,7 +98,7 @@ export function AdminReviews({ rows: initial }: { rows: AdminReviewRow[] }) {
               <div className="flex items-center gap-2">
                 <span
                   className={`rounded-full px-2 py-0.5 text-xs font-semibold ${
-                    r.approved ? "bg-almi-teal/15 text-almi-teal" : "bg-almi-accent/15 text-almi-accent-deep"
+                    r.approved ? "bg-almi-teal/15 text-almi-teal-text" : "bg-almi-accent/15 text-almi-accent-deep"
                   }`}
                 >
                   {r.approved ? "Approved" : "Pending"}

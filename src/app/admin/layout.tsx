@@ -29,7 +29,7 @@ export default async function AdminLayout({
           <p className="text-xs font-bold uppercase tracking-wider text-almi-accent-deep">AlmiCELPIP</p>
           <h1 className="text-2xl font-semibold text-almi-ink">Admin</h1>
         </div>
-        <Link href="/account" className="text-sm font-medium text-almi-coral hover:underline">
+        <Link href="/account" className="text-sm font-medium text-almi-coral-text hover:underline">
           ← Account
         </Link>
       </div>

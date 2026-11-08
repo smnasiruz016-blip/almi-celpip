@@ -154,7 +154,7 @@ function ListeningAudio({ attemptId, audioUrl }: { attemptId: string; audioUrl: 
         </button>
       </div>
       {state === "error" && (
-        <p className="mt-2 text-xs font-medium text-almi-coral-deep">
+        <p className="mt-2 text-xs font-medium text-almi-coral-text">
           Audio could not be played. Press Retry — if it still will not play,
           refresh the page and start the set again.
         </p>
@@ -193,7 +193,7 @@ function ListeningComposer({
           />
         ))}
       </div>
-      {error && <p className="text-sm font-medium text-almi-coral-deep">{error}</p>}
+      {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
       <button type="button" onClick={() => submit({ answers })} disabled={submitting} className={SUBMIT_BTN}>
         {submitting ? "Checking…" : "Submit answers"}
       </button>
@@ -267,7 +267,7 @@ function ReadingComposer({
           />
         ))}
       </div>
-      {error && <p className="text-sm font-medium text-almi-coral-deep">{error}</p>}
+      {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
       <button type="button" onClick={() => submit({ answers })} disabled={submitting} className={SUBMIT_BTN}>
         {submitting ? "Checking…" : "Submit answers"}
       </button>
@@ -327,7 +327,7 @@ function WritingComposer({ attemptId, prompt, payload }: { attemptId: string; pr
         {words} words{p.wordMin ? ` · CELPIP expects ${p.wordMin}–${p.wordMax ?? p.wordMin}` : ""}. You&apos;ll get
         honest feedback against the four CELPIP writing criteria.
       </p>
-      {error && <p className="text-sm font-medium text-almi-coral-deep">{error}</p>}
+      {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
       <button type="button" onClick={() => submit({ text })} disabled={submitting} className={SUBMIT_BTN}>
         {submitting ? "Submitting…" : isSurvey ? "Submit response" : "Submit email"}
       </button>
@@ -549,7 +549,7 @@ function SpeakingComposer({ attemptId, prompt, payload }: { attemptId: string; p
         </button>
       )}
 
-      {error && <p className="text-sm font-medium text-almi-coral-deep">{error}</p>}
+      {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
     </div>
   );
 }

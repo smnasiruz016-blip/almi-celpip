@@ -81,7 +81,7 @@ function NavBody({
         <form action={logout}>
           <button
             type="submit"
-            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-almi-coral-deep hover:bg-almi-coral/10"
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-semibold text-almi-coral-text hover:bg-almi-coral/10"
           >
             <span aria-hidden className="w-5 text-center text-base leading-none">🚪</span>
             <span>Log out</span>

@@ -19,7 +19,7 @@ function StarPicker({ value, onChange }: { value: number; onChange: (v: number) 
           onMouseEnter={() => setHover(n)}
           onMouseLeave={() => setHover(0)}
           onClick={() => onChange(n)}
-          className={`text-2xl leading-none transition ${n <= shown ? "text-almi-coral" : "text-almi-bg-peach"}`}
+          className={`text-2xl leading-none transition ${n <= shown ? "text-almi-coral-text" : "text-almi-bg-peach"}`}
         >
           ★
         </button>
@@ -85,7 +85,7 @@ export function ReviewForm({
           Editing your review sends it back for approval before it shows publicly again.
         </p>
       )}
-      {error && <p className="text-sm font-medium text-almi-coral-deep">{error}</p>}
+      {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
       <button
         type="button"
         onClick={submit}

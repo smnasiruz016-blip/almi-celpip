@@ -24,7 +24,7 @@ function TaskCard({ def }: { def: TaskDef }) {
       <p className="mt-2 text-sm text-almi-text">{def.blurb}</p>
       <p className="mt-3 text-sm font-semibold">
         {def.live ? (
-          <span className="text-almi-coral">Practise →</span>
+          <span className="text-almi-coral-text">Practise →</span>
         ) : (
           <span className="text-almi-text-muted">Coming soon</span>
         )}
@@ -98,7 +98,7 @@ export default async function PracticePage() {
               each. No fabricated overall.
             </p>
           </div>
-          <span className="text-sm font-semibold text-almi-coral">Start full mock →</span>
+          <span className="text-sm font-semibold text-almi-coral-text">Start full mock →</span>
         </div>
       </Link>
 

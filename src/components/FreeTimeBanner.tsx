@@ -13,7 +13,7 @@ export function FreeTimeBanner({ user, ai }: { user: Parameters<typeof hasPaidAc
       <div className="rounded-xl border border-almi-teal/30 bg-almi-teal/10 px-4 py-3 text-sm text-almi-ink" data-free-time="active">
         Your free 48 hours: <strong>{h} {h === 1 ? "hour" : "hours"} left</strong>, no card.
         {ai ? ` ${TASTE_AI_LIMITS[ai]} AI-scored ${ai === "WRITING" ? "Writing" : "Speaking"} is included.` : ""}{" "}
-        <Link href="/pricing" className="font-medium text-almi-coral-deep hover:underline">Unlock for $12/month</Link>
+        <Link href="/pricing" className="font-medium text-almi-coral-text hover:underline">Unlock for $12/month</Link>
       </div>
     );
   }
@@ -21,7 +21,7 @@ export function FreeTimeBanner({ user, ai }: { user: Parameters<typeof hasPaidAc
   return (
     <div className="rounded-xl border border-almi-coral/30 bg-almi-coral/10 px-4 py-3 text-sm text-almi-ink" data-free-time="locked">
       <strong>{c.title}.</strong> {c.line}{" "}
-      <Link href={c.href} className="font-medium text-almi-coral-deep hover:underline">{c.cta}</Link>
+      <Link href={c.href} className="font-medium text-almi-coral-text hover:underline">{c.cta}</Link>
     </div>
   );
 }

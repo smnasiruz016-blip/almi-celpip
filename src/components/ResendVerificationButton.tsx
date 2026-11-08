@@ -48,9 +48,9 @@ export function ResendVerificationButton({ email }: { email: string }) {
           className={
             "text-sm " +
             (status === "sent"
-              ? "text-almi-teal"
+              ? "text-almi-teal-text"
               : status === "error" || status === "cooldown"
-                ? "text-almi-coral-deep"
+                ? "text-almi-coral-text"
                 : "text-almi-text-muted")
           }
         >

@@ -87,7 +87,7 @@ export function RequirementCard({
   return (
     <section className="mt-10 rounded-2xl border border-almi-coral/30 bg-almi-coral/5 p-6">
       <h2 className="text-xl font-semibold text-almi-ink">{heading}</h2>
-      <p className="mt-2 text-lg font-semibold text-almi-coral-deep">{headline}</p>
+      <p className="mt-2 text-lg font-semibold text-almi-coral-text">{headline}</p>
       <p className="mt-2 text-sm text-almi-text">{detail}</p>
       {extra && <p className="mt-2 text-sm text-almi-text">{extra}</p>}
       <p className="mt-4 rounded-xl border border-almi-bg-peach bg-almi-paper px-4 py-3 text-sm text-almi-text">
@@ -95,7 +95,7 @@ export function RequirementCard({
       </p>
       <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-sm font-semibold">
         {links.map((l) => (
-          <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="text-almi-coral hover:underline">
+          <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="text-almi-coral-text hover:underline">
             {l.label} ↗
           </a>
         ))}
@@ -228,28 +228,28 @@ export function CrossLinkFooter({ country }: { country?: CountryEntry }) {
       <ul className="mt-3 space-y-2 text-sm text-almi-text">
         <li>
           •{" "}
-          <a href={FAMILY.cv} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral hover:underline">
+          <a href={FAMILY.cv} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral-text hover:underline">
             AlmiCV
           </a>{" "}
           — build a Canadian-format resume.
         </li>
         <li>
           •{" "}
-          <a href={FAMILY.job} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral hover:underline">
+          <a href={FAMILY.job} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral-text hover:underline">
             AlmiJob
           </a>{" "}
           — find roles and see what employers ask for.
         </li>
         <li>
           •{" "}
-          <a href={FAMILY.study} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral hover:underline">
+          <a href={FAMILY.study} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral-text hover:underline">
             AlmiStudy
           </a>{" "}
           — compare Canadian programs and entry requirements.
         </li>
         <li>
           •{" "}
-          <a href={FAMILY.pathway} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral hover:underline">
+          <a href={FAMILY.pathway} target="_blank" rel="noopener noreferrer" className="font-semibold text-almi-coral-text hover:underline">
             AlmiPathway
           </a>{" "}
           — honest, dated guidance on the immigration route itself.

@@ -103,7 +103,7 @@ export default async function LearnArticlePage({
                     110-page set is authored. Link when it resolves, plain text
                     when it does not, so a dangling reference is never a 404. */}
                 {r.slug && known.has(r.slug) ? (
-                  <Link href={`${LEARN_BASE}/${r.slug}`} className="text-almi-coral hover:underline">
+                  <Link href={`${LEARN_BASE}/${r.slug}`} className="text-almi-coral-text hover:underline">
                     {r.label}
                   </Link>
                 ) : (
