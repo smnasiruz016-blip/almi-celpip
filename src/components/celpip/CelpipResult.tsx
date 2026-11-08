@@ -10,6 +10,7 @@ import { SUBTEST_LABEL } from "@/lib/celpip/types";
 import type { ClbEstimate as ClbEstimateValue } from "@/lib/celpip/scale";
 import { ClbEstimate, ESTIMATE_DISCLAIMER } from "@/components/celpip/ClbEstimate";
 import { buildObjectiveReview } from "@/lib/celpip/review";
+import { ModelAnswers } from "@/components/celpip/ModelAnswers";
 
 function ObjectiveReview({ def, item, attempt }: { def: TaskDef; item: CelpipItem; attempt: CelpipAttempt }) {
   const review = buildObjectiveReview(def.taskType, item.payload, attempt.response);
@@ -29,7 +30,7 @@ function ObjectiveReview({ def, item, attempt }: { def: TaskDef; item: CelpipIte
               <p className="text-sm font-medium text-almi-ink">{r.label}</p>
             </div>
             <p className="mt-1 pl-6 text-sm text-almi-text">
-              Your answer: <span className={r.ok ? "text-almi-teal" : "text-almi-coral-deep"}>{r.your}</span>
+              Your answer: <span className={r.ok ? "text-almi-teal-text" : "text-almi-coral-text"}>{r.your}</span>
             </p>
             {!r.ok && (
               <p className="pl-6 text-sm text-almi-text">
@@ -62,9 +63,9 @@ const TRAIT_LABEL: Record<string, string> = {
 };
 const TRAIT_LEVELS = new Set(["strong", "adequate", "limited"]);
 const TRAIT_TONE: Record<string, string> = {
-  strong: "bg-almi-teal/15 text-almi-teal",
+  strong: "bg-almi-teal/15 text-almi-teal-text",
   adequate: "bg-almi-accent/15 text-almi-accent-deep",
-  limited: "bg-almi-coral/15 text-almi-coral-deep",
+  limited: "bg-almi-coral/15 text-almi-coral-text",
 };
 
 function TraitGrid({ feedback }: { feedback: AnyFeedback }) {
@@ -93,7 +94,7 @@ function FeedbackBlock({ feedback }: { feedback: AnyFeedback }) {
       {feedback.overallComment && <p className="text-sm text-almi-text">{feedback.overallComment}</p>}
       {feedback.strengths && feedback.strengths.length > 0 && (
         <div>
-          <p className="text-xs font-bold uppercase tracking-wider text-almi-teal">What worked</p>
+          <p className="text-xs font-bold uppercase tracking-wider text-almi-teal-text">What worked</p>
           <ul className="mt-1 space-y-1 text-sm text-almi-text">
             {feedback.strengths.map((s, i) => (
               <li key={i} className="flex gap-2"><span aria-hidden className="text-almi-teal">✓</span>{s}</li>
@@ -153,6 +154,8 @@ export function CelpipResult({
           <div className="mt-3"><FeedbackBlock feedback={feedback} /></div>
         </section>
       )}
+
+      <ModelAnswers taskType={item.taskType} title={item.title} />
 
       {variant === "single" && (
         <>

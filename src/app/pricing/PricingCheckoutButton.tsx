@@ -45,7 +45,7 @@ export function PricingCheckoutButton({
       >
         {loading ? "Starting…" : disabled ? "Checkout unavailable" : "Unlock for $12/month"}
       </button>
-      {err && <p className="mt-2 text-xs text-almi-coral-deep">{err}</p>}
+      {err && <p className="mt-2 text-xs text-almi-coral-text">{err}</p>}
     </div>
   );
 }

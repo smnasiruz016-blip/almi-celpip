@@ -23,7 +23,7 @@ export function FamilyNav({
   activeHref?: string;
 }) {
   const linkClass = (href: string) =>
-    `${LINK_BASE} ${href === activeHref ? "text-almi-coral" : "text-almi-text hover:text-almi-coral"}`;
+    `${LINK_BASE} ${href === activeHref ? "text-almi-coral-text" : "text-almi-text hover:text-almi-coral"}`;
 
   return (
     <nav

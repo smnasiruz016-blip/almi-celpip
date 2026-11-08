@@ -42,9 +42,9 @@ export function EmailVerifyBanner({ email }: { email: string }) {
             <span
               className={
                 status === "sent"
-                  ? "text-almi-teal"
+                  ? "text-almi-teal-text"
                   : status === "error" || status === "cooldown"
-                    ? "text-almi-coral-deep"
+                    ? "text-almi-coral-text"
                     : "text-almi-text-muted"
               }
             >

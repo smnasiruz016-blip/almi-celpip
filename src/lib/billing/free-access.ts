@@ -12,8 +12,11 @@ import { hasPaidAccess } from "./plans";
 import { isTasteActive, isTasteOver, tasteMayUseAi, TASTE_AI_LIMITS, type TasteAiKind, type TasteUser } from "./taste";
 import { freeAiAllowedToday, FREE_AI_BUSY_MESSAGE } from "./free-ai-budget";
 import { TASTE_OVER_TITLE, UNLOCK_LABEL } from "./offer";
+import { claimFreeAi, releaseFreeAi, type ClaimStore } from "./free-ai-claim";
 
 type AccessUser = Parameters<typeof hasPaidAccess>[0] & TasteUser;
+/** RR-399 A3: the AI door needs the account id (the free use is reserved per account). */
+type AiUser = AccessUser & { id: string };
 
 export function hasPracticeAccess(user: AccessUser): boolean {
   return hasPaidAccess(user) || isTasteActive(user);
@@ -27,22 +30,30 @@ export function lockedCopy(user: TasteUser, now: number = Date.now()): { title: 
   return { title: "Unlock everything", /* RR-397: an account with no free 48 hours (it subscribed or was comped before) is never offered free time it cannot get */ line: "$12/month. Cancel anytime.", cta: UNLOCK_LABEL, href: "/pricing" };
 }
 
-export type AiGateResult = { ok: true; free: boolean } | { ok: false; status: 402; body: { ok: false; error: string; upgradeUrl: string; reason: string } };
+/** `release` gives the free use back: a route calls it when the AI call failed after the door said ok (the learner received nothing). */
+export type AiGateResult = { ok: true; free: boolean; release: () => Promise<void> } | { ok: false; status: 402; body: { ok: false; error: string; upgradeUrl: string; reason: string } };
+
+const NOTHING_TO_RELEASE = async () => {};
 
 /** May this user receive ONE AI scoring of `kind` now? `countUsed` returns how many AI scorings of this kind the account already
- *  RECEIVED (scored attempts, not clicks); it is only called for a free account inside its 48 hours. */
-export async function aiGate(user: AccessUser, kind: TasteAiKind, countUsed: () => Promise<number>, now: number = Date.now()): Promise<AiGateResult> {
-  if (hasPaidAccess(user)) return { ok: true, free: false };
+ *  RECEIVED (scored attempts, not clicks); it is only called for a free account inside its 48 hours.
+ *  RR-399 A3: when the count and the budget allow it, the free use is then RESERVED atomically (claimFreeAi), so two requests at the
+ *  same moment cannot both get it. `store` is only for tests. */
+export async function aiGate(user: AiUser, kind: TasteAiKind, countUsed: () => Promise<number>, now: number = Date.now(), store?: ClaimStore): Promise<AiGateResult> {
+  if (hasPaidAccess(user)) return { ok: true, free: false, release: NOTHING_TO_RELEASE };
   const shut = (reason: string, error: string): AiGateResult => ({ ok: false, status: 402, body: { ok: false, error, upgradeUrl: "/pricing", reason } });
   if (!isTasteActive(user, now)) {
     const c = lockedCopy(user, now);
     return shut(isTasteOver(user, now) ? "OVER" : "NO_TASTE", `${c.title}. ${c.line}`);
   }
   const usedOfKind = await countUsed();
-  if (usedOfKind >= TASTE_AI_LIMITS[kind]) {
-    return shut("USED", `Your free 48 hours include ${TASTE_AI_LIMITS[kind]} AI-scored ${KIND_WORD[kind]}, and you have used it. ${UNLOCK_LABEL} for unlimited AI feedback.`);
-  }
+  const usedShut = () => shut("USED", `Your free 48 hours include ${TASTE_AI_LIMITS[kind]} AI-scored ${KIND_WORD[kind]}, and you have used it. ${UNLOCK_LABEL} for unlimited AI feedback.`);
+  if (usedOfKind >= TASTE_AI_LIMITS[kind]) return usedShut();
   const verdict = tasteMayUseAi({ user, kind, usedOfKind, budgetOk: await freeAiAllowedToday(now), now });
   if (!verdict.ok) return shut(verdict.reason, verdict.reason === "BUDGET" ? FREE_AI_BUSY_MESSAGE : `${lockedCopy(user, now).title}.`);
-  return { ok: true, free: true };
+  // RR-399 A3: one INSERT that the unique key (userId, kind) lets only one request win.
+  const claim = await claimFreeAi(user.id, kind, store);
+  if (claim === "USED") return usedShut();
+  if (claim === "RESERVED") return { ok: true, free: true, release: () => releaseFreeAi(user.id, kind, store) };
+  return { ok: true, free: true, release: NOTHING_TO_RELEASE }; // UNAVAILABLE: the table is not migrated yet, so the count decision above stands
 }

@@ -118,7 +118,7 @@ export function CompAccountsClient({
         {msg && (
           <p
             className={`mt-3 text-sm font-medium ${
-              msg.ok ? "text-almi-teal" : "text-almi-coral-deep"
+              msg.ok ? "text-almi-teal-text" : "text-almi-coral-text"
             }`}
           >
             {msg.text}
@@ -184,7 +184,7 @@ export function CompAccountsClient({
                             type="button"
                             onClick={() => revoke(r.userId, r.email)}
                             disabled={pending}
-                            className="rounded-md border border-almi-coral/40 px-2.5 py-1 text-xs font-semibold text-almi-coral-deep hover:bg-almi-coral/10 disabled:opacity-50"
+                            className="rounded-md border border-almi-coral/40 px-2.5 py-1 text-xs font-semibold text-almi-coral-text hover:bg-almi-coral/10 disabled:opacity-50"
                           >
                             Revoke
                           </button>

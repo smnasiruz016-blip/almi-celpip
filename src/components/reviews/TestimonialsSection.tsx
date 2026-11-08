@@ -9,7 +9,7 @@ function StarRow({ rating }: { rating: number }) {
   const r = Math.max(0, Math.min(5, rating));
   return (
     <span aria-label={`${r} out of 5 stars`}>
-      <span className="text-almi-coral">{"★".repeat(r)}</span>
+      <span className="text-almi-coral-text">{"★".repeat(r)}</span>
       <span className="text-almi-bg-peach">{"★".repeat(5 - r)}</span>
     </span>
   );
@@ -53,7 +53,7 @@ export async function TestimonialsSection() {
               <StarRow rating={r.rating} />
               <blockquote className="mt-3 flex-1 text-sm text-almi-text">{r.text}</blockquote>
               <figcaption className="mt-4 flex items-center gap-3">
-                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-almi-coral/15 text-sm font-bold text-almi-coral-deep">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-almi-coral/15 text-sm font-bold text-almi-coral-text">
                   {initial}
                 </span>
                 <span>

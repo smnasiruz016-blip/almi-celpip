@@ -1,0 +1,351 @@
+{
+ "100febabda79120bbd2c395b37bf59c44de95bef8d4389c80ebffb1905b49330": [
+  {
+   "offset": 146,
+   "length": 13,
+   "message": "Probably a preposition is missing after ‘want’.",
+   "replacements": [
+    {
+     "value": "want to complain"
+    }
+   ],
+   "rule": {
+    "id": "ATD_VERBS_TO_COLLOCATION",
+    "issueType": "grammar",
+    "category": {
+     "id": "COLLOCATIONS"
+    }
+   }
+  },
+  {
+   "offset": 189,
+   "length": 4,
+   "message": "After ‘it’, use the third-person verb form “makes”.",
+   "replacements": [
+    {
+     "value": "makes"
+    }
+   ],
+   "rule": {
+    "id": "IT_VBZ",
+    "issueType": "grammar",
+    "category": {
+     "id": "GRAMMAR"
+    }
+   }
+  },
+  {
+   "offset": 228,
+   "length": 4,
+   "message": "Did you mean “can't” or “cannot”?",
+   "replacements": [
+    {
+     "value": "can't"
+    },
+    {
+     "value": "cannot"
+    }
+   ],
+   "rule": {
+    "id": "CANT",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  },
+  {
+   "offset": 236,
+   "length": 4,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "don't"
+    }
+   ],
+   "rule": {
+    "id": "EN_CONTRACTION_SPELLING",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "14365fb271325333e3f13a8ebf1c5973540ff6430f55c16d05dcf66bbbf15ba5": [
+  {
+   "offset": 104,
+   "length": 9,
+   "message": "The usual preposition for “a trip” with a named destination is “to”. Did you mean “a trip to”?",
+   "replacements": [
+    {
+     "value": "a trip to"
+    }
+   ],
+   "rule": {
+    "id": "A_TRIP_TO",
+    "issueType": "grammar",
+    "category": {
+     "id": "COLLOCATIONS"
+    }
+   }
+  }
+ ],
+ "1a6a47d6b65c8007b163dade3ef9fd7a50a7bae03e16a1b9ccbb5d4e77e83373": [
+  {
+   "offset": 5,
+   "length": 5,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "By law"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  },
+  {
+   "offset": 829,
+   "length": 4,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "Air"
+    },
+    {
+     "value": "Hair"
+    },
+    {
+     "value": "Pair"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "776088b3934d60cda772db54aee7de03a3de7a7c762b05bd140e74674bfac2b2": [
+  {
+   "offset": 821,
+   "length": 4,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "AIK"
+    },
+    {
+     "value": "AIO"
+    },
+    {
+     "value": "AKO"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "7ed6982388e6f1fe6e167271ff3e45ca1dee48b871438cc07057921fc030f2bb": [
+  {
+   "offset": 980,
+   "length": 4,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "AIK"
+    },
+    {
+     "value": "AIO"
+    },
+    {
+     "value": "AKO"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "989c1fe02f25693c551fd1283eba56475fa17d2c219cd9db3e180613c149b9a1": [
+  {
+   "offset": 212,
+   "length": 4,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "don't"
+    }
+   ],
+   "rule": {
+    "id": "EN_CONTRACTION_SPELLING",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "b5ade73d58fa3537bd20f70ea02ab869cd8dadf38f160e1631a2503774a0694d": [
+  {
+   "offset": 129,
+   "length": 3,
+   "message": "Please check whether ‘man’ (singular) might be the correct word here instead of ‘men’ (plural).",
+   "replacements": [
+    {
+     "value": "man",
+     "shortDescription": "singular"
+    }
+   ],
+   "rule": {
+    "id": "CONFUSION_RULE_MEN_MAN",
+    "issueType": "non-conformance",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  },
+  {
+   "offset": 945,
+   "length": 5,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "Moro"
+    },
+    {
+     "value": "Koto"
+    },
+    {
+     "value": "Okra"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "c9c10e73fc1181a54658efd5d2315a60cdd8c988a0f83fd897a7e018aff2ddec": [
+  {
+   "offset": 803,
+   "length": 5,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "Moro"
+    },
+    {
+     "value": "Koto"
+    },
+    {
+     "value": "Okra"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "efa6817c9d8658ff7d133cda3a9bc099ffe0e77a2189341a1c1cdf42071aca33": [
+  {
+   "offset": 5,
+   "length": 5,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "By law"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  },
+  {
+   "offset": 726,
+   "length": 5,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "by law"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  },
+  {
+   "offset": 1054,
+   "length": 4,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "Air"
+    },
+    {
+     "value": "Hair"
+    },
+    {
+     "value": "Pair"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ],
+ "fbce768bd0921336b0b5625aac3d82db26a0b8316ab192da45f10f75752015a8": [
+  {
+   "offset": 163,
+   "length": 5,
+   "message": "Possible spelling mistake found.",
+   "replacements": [
+    {
+     "value": "by law"
+    }
+   ],
+   "rule": {
+    "id": "MORFOLOGIK_RULE_EN_CA",
+    "issueType": "misspelling",
+    "category": {
+     "id": "TYPOS"
+    }
+   }
+  }
+ ]
+}

@@ -40,7 +40,7 @@ export function ResetPasswordForm({ token }: { token: string }) {
   return (
     <>
       {status === "error" && errMsg && (
-        <p className="mt-4 rounded-xl border border-almi-coral/30 bg-almi-coral/10 px-4 py-3 text-sm text-almi-coral-deep">
+        <p className="mt-4 rounded-xl border border-almi-coral/30 bg-almi-coral/10 px-4 py-3 text-sm text-almi-coral-text">
           {errMsg}
         </p>
       )}

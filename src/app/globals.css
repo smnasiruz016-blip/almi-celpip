@@ -8,6 +8,11 @@
   --color-almi-coral-deep: #ff6b5b;
   --color-almi-teal: #0d9488;
   --color-almi-teal-light: #5EEAD4;
+  /* RR-400: TEXT-only shades. Coral (#FF7A6B / #ff6b5b) and teal (#0d9488) stay as FILLS, but as text on
+   * cream, white or peach they measured 2.3-3.7:1 (WCAG AA needs 4.5:1). Where the coral or teal family
+   * paints TEXT it uses these (same values as AlmiItalian): coral-text 6.6:1 on cream, teal-text 7.4:1. */
+  --color-almi-coral-text: #a8301c;
+  --color-almi-teal-text: #115e59;
   /* AlmiCELPIP secondary accent — amber-honey, keeps DET in the warm family
    * palette while reading distinct from AlmiTOEFL's teal-led secondary. */
   --color-almi-accent: #F4A340;

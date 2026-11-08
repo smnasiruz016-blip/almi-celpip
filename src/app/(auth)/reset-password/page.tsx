@@ -15,7 +15,7 @@ export default async function ResetPasswordPage({
         <h1 className="text-2xl font-semibold text-almi-ink">Invalid reset link</h1>
         <p className="mt-2 text-sm text-almi-text-muted">
           This page expects a token in the URL. Request a new reset link from{" "}
-          <Link href="/forgot-password" className="text-almi-coral hover:underline">
+          <Link href="/forgot-password" className="text-almi-coral-text hover:underline">
             forgot password
           </Link>
           .

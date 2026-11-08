@@ -115,11 +115,11 @@ export default async function AccountPage({
         <p className="mt-1 text-sm text-almi-text">
           {user.email}{" "}
           {verified ? (
-            <span className="ml-2 rounded-md bg-almi-teal/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-almi-teal">
+            <span className="ml-2 rounded-md bg-almi-teal/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-almi-teal-text">
               Verified
             </span>
           ) : (
-            <span className="ml-2 rounded-md bg-almi-coral/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-almi-coral-deep">
+            <span className="ml-2 rounded-md bg-almi-coral/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-wide text-almi-coral-text">
               Not verified
             </span>
           )}
