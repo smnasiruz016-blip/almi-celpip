@@ -62,6 +62,11 @@ const SCAN_EXT = /\.(ts|tsx|js|mjs|mts|json|prisma|css|md)$/;
 const ALLOWLIST = new Map([
   // This gate documents the exact leaks it prevents.
   ["scripts/fork-hygiene-gate.mjs", "documents the banned nouns"],
+  // RR-398: the AlmiWorld family header/footer data, generated (never hand-edited) by
+  // almiworld-site/tools/make-family-kit.mjs. It lists EVERY family product by name and
+  // subdomain, as almiworld.com does — a directory of siblings, not content leaking back
+  // from a fork. Every other file is still scanned.
+  ["src/lib/almiworld-family.ts", "generated AlmiWorld family directory (RR-398 kit)"],
 ]);
 
 // ── DESCENDANT PRODUCT SLUGS ─────────────────────────────────────────────────

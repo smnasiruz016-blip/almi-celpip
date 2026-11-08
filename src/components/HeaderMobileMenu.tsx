@@ -6,7 +6,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { FAMILY_NAV, PRODUCT_NAV, GET_STARTED_HREF } from "./GlobalHeader";
+import { PRODUCT_NAV, GET_STARTED_HREF } from "./GlobalHeader";
 
 export function HeaderMobileMenu() {
   const [open, setOpen] = useState(false);
@@ -68,22 +68,11 @@ export function HeaderMobileMenu() {
           role="dialog"
           aria-modal="true"
           aria-label="Family navigation"
-          className="fixed inset-0 top-[64px] z-40 overflow-y-auto bg-almi-bg"
+          className="fixed inset-0 top-[112px] z-40 overflow-y-auto bg-almi-bg"
         >
-          {/* Mobile inherits the nav-typography standard: bold (600) + one step
-              larger (text-lg). Labels come from the canonical family source. */}
+          {/* RR-398: the AlmiWorld family links live in the AlmiWorld bar above (its own "AlmiWorld ☰" menu); this menu holds
+              AlmiCELPIP's own actions. It opens below the bar + header (112px), so the close button is never covered. */}
           <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-6 text-lg">
-            {FAMILY_NAV.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-3 text-lg font-semibold text-almi-text hover:bg-almi-bg-peach hover:text-almi-coral"
-              >
-                {item.label}
-              </a>
-            ))}
-            <div className="my-2 border-t border-almi-bg-peach" />
             {PRODUCT_NAV.map((item) => (
               <Link
                 key={item.href}

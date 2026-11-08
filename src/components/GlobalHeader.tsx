@@ -1,16 +1,10 @@
-// AlmiCELPIP-branded header — own wordmark + the family sibling nav + product entry
-// points. Desktop uses the grouped 2-row layout (Nav Task 1): row 1 = family strip
-// (canonical names, overflow behind "More ▾"), row 2 = product links + CTA. Family
-// labels come from the canonical single source (src/lib/nav/family.ts).
+// AlmiCELPIP header. RR-398: on top, the AlmiWorld family bar (logo + Home to almiworld.com, and the same menus as almiworld.com)
+// from the one generated kit; under it AlmiCELPIP's own wordmark, Practice, Log in and its own button. The old family strip (with its
+// eBooks and WordPress links) is gone.
 
 import Link from "next/link";
-import { familyStrip } from "@/lib/nav/family";
-import { FamilyNav } from "./nav/FamilyNav";
+import { AlmiWorldBar } from "@/components/almiworld/AlmiWorldBar";
 import { HeaderMobileMenu } from "./HeaderMobileMenu";
-
-// The family strip for this repo = every product except AlmiCELPIP (its own brand
-// wordmark is CELPIP's home) + the network links. Sourced from the canonical list.
-export const FAMILY_NAV = familyStrip("celpip");
 
 // Product entry points into AlmiCELPIP's own practice product.
 export const PRODUCT_NAV = [
@@ -24,6 +18,7 @@ export const GET_STARTED_HREF = "/signup";
 export function GlobalHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-almi-bg-peach bg-almi-bg/95 backdrop-blur">
+      <AlmiWorldBar />
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
           href="/"
@@ -34,9 +29,8 @@ export function GlobalHeader() {
           <span className="text-xl font-semibold tracking-tight text-almi-ink">AlmiCELPIP</span>
         </Link>
 
-        {/* Desktop: grouped 2-row — family strip on top, product actions below. */}
+        {/* Desktop: AlmiCELPIP's own actions (the family menus are in the AlmiWorld bar above). */}
         <div className="hidden flex-1 flex-col items-end gap-2 lg:flex">
-          <FamilyNav items={FAMILY_NAV} />
           <div className="flex items-center gap-x-4">
             {PRODUCT_NAV.map((item) => (
               <Link
