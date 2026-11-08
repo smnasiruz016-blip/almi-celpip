@@ -370,3 +370,15 @@ model CelpipSession {
 
   @@index([userId, status, startedAt])
 }
+
+/// RR-399 A3: one free AI scoring per kind per account, reserved atomically BEFORE the AI call (unique userId + kind).
+/// No relation to User on purpose: adding this table changes nothing else in the schema.
+model FreeAiUse {
+  id        String   @id @default(cuid())
+  userId    String
+  kind      String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, kind])
+  @@index([createdAt])
+}

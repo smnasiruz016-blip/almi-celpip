@@ -40,6 +40,16 @@ const freeAccess = code.find(([p]) => /free-access\.ts$/.test(p));
 ok(Boolean(freeAccess) && /tasteMayUseAi/.test(freeAccess[1]) && /freeAiAllowedToday/.test(freeAccess[1]), "the free door (free-access.ts) applies the 1-per-kind rule and today's free-AI budget");
 ok(unguarded.length === 0, `every AI route goes through aiGate() or is marked paid only (${aiRoutes.length} AI routes, ${unguarded.length} unguarded)`);
 for (const [p] of unguarded) console.log(`      unguarded: ${p}`);
+/* RR-399 A3 · the "1 free" is atomic: the free door RESERVES the free use (claimFreeAi) in a table whose unique key is (userId, kind),
+   so two requests at the same moment cannot both get it; and every AI route gives it back (gate.release()) when the AI call failed */
+const SCHEMA = existsSync(join(ROOT, "prisma/schema.prisma")) ? read("prisma/schema.prisma") : "";
+const freeAiUseModel = (/model FreeAiUse \{[\s\S]*?\n\}/.exec(SCHEMA) ?? [""])[0];
+ok(Boolean(freeAccess) && /\bclaimFreeAi\(user\.id, kind\b/.test(strip(freeAccess[1])), "the free door reserves the free use atomically (claimFreeAi)");
+ok(/@@unique\(\[userId, kind\]\)/.test(freeAiUseModel), "schema.prisma has model FreeAiUse with @@unique([userId, kind])");
+/* AlmiCELPIP: the door sits inside an if-block, so the route keeps gate.release as releaseFreeUse and calls that on failure */
+const noRelease = aiRoutes.filter(([, t]) => /\baiGate\(/.test(t) && !(/\bgate\.release\(\)/.test(strip(t)) || (/releaseFreeUse = gate\.release;/.test(strip(t)) && /await releaseFreeUse\(\)/.test(strip(t)))));
+ok(noRelease.length === 0, `every AI route gives the free use back when the AI call fails (gate.release()) (${noRelease.length} without)`);
+for (const [p] of noRelease) console.log(`      no release: ${p}`);
 
 /* the customer-facing lines: app code and copy under src/ and public/, exam material excluded */
 const COPY_SKIP = /node_modules|\.next|[\\/](seed|seeds|fixtures|generated|__tests__|universities)[\\/]|[\\/]content[\\/](reading|listening|writing|speaking|exam|bank|items|questions|passages|scripts)[\\/]|\.test\./i;

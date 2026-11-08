@@ -77,6 +77,9 @@ export async function POST(req: Request): Promise<NextResponse> {
   //   - the full mock (a MOCK session): paid only, as before;
   //   - Listening and Reading (auto-marked, no AI): paid, the 3-day no-card window (unchanged), or the free 48 hours;
   //   - Writing and Speaking (AI): paid, or ONE AI-scored attempt of each in the free 48 hours, within today's free-AI budget.
+  // RR-399 A3: the free door reserves the free use; if transcription or scoring then fails, the learner received nothing and
+  // releaseFreeUse() gives it back (paid users, the full mock and auto-marked practice have nothing to give back).
+  let releaseFreeUse: () => Promise<void> = async () => {};
   if (attempt.session?.mode === "MOCK") {
     // RR-397: the full mock stays behind hasPaidAccess(), never part of the free 48 hours.
     if (!hasPaidAccess(user)) {
@@ -98,6 +101,7 @@ export async function POST(req: Request): Promise<NextResponse> {
         prisma.celpipAttempt.count({ where: { userId: user.id, subTest, status: "SCORED" } }),
       );
       if (!gate.ok) return NextResponse.json(gate.body, { status: gate.status });
+      releaseFreeUse = gate.release;
     } else if (!hasMachineMarkedAccess(user) && !hasPracticeAccess(user)) {
       const c = lockedCopy(user);
       return NextResponse.json({ ok: false, error: `${c.title}. ${c.line}`, upgradeUrl: "/pricing" }, { status: 402 });
@@ -116,6 +120,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       responseValue = { transcript };
     } catch (err) {
       console.error("[celpip.submit] transcription failed:", err);
+      await releaseFreeUse();
       return NextResponse.json(
         { ok: false, error: "Could not transcribe your recording. Try again." },
         { status: 500 },
@@ -132,6 +137,7 @@ export async function POST(req: Request): Promise<NextResponse> {
     });
   } catch (err) {
     console.error("[celpip.submit] scoring failed:", err);
+    await releaseFreeUse();
     return NextResponse.json(
       { ok: false, error: "Could not score this attempt. Try again in a moment." },
       { status: 500 },
