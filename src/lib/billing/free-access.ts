@@ -24,7 +24,7 @@ const KIND_WORD: Record<TasteAiKind, string> = { WRITING: "Writing", SPEAKING: "
 /** The honest line for a shut door. */
 export function lockedCopy(user: TasteUser, now: number = Date.now()): { title: string; line: string; cta: string; href: string } {
   if (isTasteOver(user, now)) return { title: TASTE_OVER_TITLE, line: "Unlock everything for $12/month. Cancel anytime.", cta: UNLOCK_LABEL, href: "/pricing" };
-  return { title: "Unlock everything", line: "Try free for 48 hours, no card. Then $12/month. Cancel anytime.", cta: UNLOCK_LABEL, href: "/pricing" };
+  return { title: "Unlock everything", /* RR-397: an account with no free 48 hours (it subscribed or was comped before) is never offered free time it cannot get */ line: "$12/month. Cancel anytime.", cta: UNLOCK_LABEL, href: "/pricing" };
 }
 
 export type AiGateResult = { ok: true; free: boolean } | { ok: false; status: 402; body: { ok: false; error: string; upgradeUrl: string; reason: string } };
