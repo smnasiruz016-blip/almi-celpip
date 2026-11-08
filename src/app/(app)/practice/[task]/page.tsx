@@ -1,7 +1,8 @@
 // Task start page: opens a practice session for the task and routes into it.
 // Objective tasks (Listening/Reading) run a short practice set inside the 3-day
-// no-card window; AI tasks (Writing/Speaking) run a single item and are card-first,
-// because each calls a paid model. CELPIP has no profession axis, so no per-profession
+// no-card window; AI tasks (Writing/Speaking) run a single item, for paid users and
+// inside the free 48 hours (one AI-scored attempt of each, RR-397), because each calls a
+// paid model. CELPIP has no profession axis, so no per-profession
 // routing is needed.
 
 import { notFound, redirect } from "next/navigation";
@@ -10,6 +11,8 @@ import { openPractice, wouldRefusePractice } from "@/lib/billing/free-window";
 import { startSession } from "@/lib/celpip/session";
 import { taskBySlug } from "@/lib/celpip/registry";
 import { SUBTEST_LABEL } from "@/lib/celpip/types";
+import { FreeTimeBanner } from "@/components/FreeTimeBanner";
+import { isTasteActive } from "@/lib/billing/taste";
 
 async function beginAction(formData: FormData) {
   "use server";
@@ -84,15 +87,16 @@ export default async function TaskStartPage({
         </p>
       )}
 
-      {needsPaid ? (
-        <div className="rounded-xl border border-almi-accent/40 bg-almi-accent/10 px-4 py-3 text-sm text-almi-ink">
-          AI feedback on Writing and Speaking is part of a subscription.{" "}
-          <a href="/pricing" className="font-semibold underline">
-            See plans
-          </a>{" "}
-         
-        </div>
-      ) : (
+      {/* RR-397: the free-48-hours banner (hours left, or "Your free 48 hours are over" + "Unlock for $12/month"; nothing for
+          paid users). On Listening and Reading it is shown only when it matters, so the 3-day window is never contradicted. */}
+      {(needsPaid || !isObjective || isTasteActive(user)) && (
+        <FreeTimeBanner
+          user={user}
+          ai={def.subTest === "WRITING" ? "WRITING" : def.subTest === "SPEAKING" ? "SPEAKING" : undefined}
+        />
+      )}
+
+      {needsPaid ? null : (
         <form action={beginAction}>
           <input type="hidden" name="slug" value={def.slug} />
           <button

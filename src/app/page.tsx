@@ -55,7 +55,7 @@ const PRICING_LINES = [
   "A per-skill CLB estimate (1–12), shown as ranges, no fake composite",
   "Full mock for CELPIP-General and CELPIP-General LS",
   "Original practice material — never copied from CELPIP",
-  "Try free for 48 hours, then $12/month, cancel anytime",
+  "Try free for 48 hours, no card. Then $12/month, cancel anytime",
 ] as const;
 
 const FAQ = [
@@ -81,7 +81,7 @@ const FAQ = [
   },
   {
     q: "How much does AlmiCELPIP cost?",
-    a: "Try free for 48 hours, then $12/month. Cancel anytime. Listening and Reading practice, AI feedback on Writing and Speaking is part of the subscription.",
+    a: "Try free for 48 hours, no card. Then $12/month. Cancel anytime. The free 48 hours include Listening and Reading practice plus one AI-scored Writing and one AI-scored Speaking; unlimited AI feedback is part of the subscription.",
   },
 ] as const;
 
@@ -161,7 +161,7 @@ export default function Home() {
               </Link>
             </div>
             <p className="mt-4 text-sm text-almi-text-muted">
-              48-hour free trial, then $12/month, cancel anytime · Listening &amp; Reading free · Original material, never copied from CELPIP
+              Free for 48 hours, no card. Then $12/month, cancel anytime · Listening &amp; Reading free · Original material, never copied from CELPIP
             </p>
           </div>
           <ScoreMockup />
@@ -270,7 +270,7 @@ export default function Home() {
       <section className="border-t border-almi-bg-peach bg-almi-paper px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-semibold text-almi-ink">Simple, honest pricing</h2>
-          <p className="mt-3 text-xl font-semibold text-almi-ink">Try free for 48 hours, then $12/month. Cancel anytime.</p>
+          <p className="mt-3 text-xl font-semibold text-almi-ink">Try free for 48 hours, no card. Then $12/month. Cancel anytime.</p>
           <ul className="mx-auto mt-6 max-w-xl space-y-2 text-left text-sm text-almi-text">
             {PRICING_LINES.map((line) => (
               <li key={line} className="flex items-start gap-2">
@@ -313,8 +313,8 @@ export default function Home() {
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold text-almi-ink">Practise honestly. Walk in ready.</h2>
           <p className="mt-3 text-base text-almi-text">
-            Real CELPIP skills, honest per-skill CLB estimates, original material — for $12/month with a
-            48-hour free trial.
+            Real CELPIP skills, honest per-skill CLB estimates, original material. Try free for 48 hours, no card. Then
+            $12/month.
           </p>
           <div className="mt-8">
             <Link href="/signup" className="inline-flex min-h-[48px] items-center justify-center rounded-full bg-almi-coral px-7 py-3 text-base font-semibold text-almi-ink hover:bg-almi-coral-deep">

@@ -6,9 +6,9 @@ import { isBillingEnabled } from "@/lib/billing/plans";
 import { PricingCheckoutButton } from "./PricingCheckoutButton";
 
 export const metadata: Metadata = {
-  title: "Pricing — try free for 48 hours",
+  title: "Pricing — try free for 48 hours, no card",
   description:
-    "AlmiCELPIP Pro — try free for 48 hours, then $12/month. Cancel anytime. Honest AI feedback on CELPIP Writing and Speaking, full-length practice, and per-skill estimates on the CLB 1–12 scale.",
+    "AlmiCELPIP Pro — try free for 48 hours, no card. Then $12/month. Cancel anytime. Honest AI feedback on CELPIP Writing and Speaking, full-length practice, and per-skill estimates on the CLB 1–12 scale.",
 };
 
 const FEATURES = [
@@ -33,7 +33,7 @@ export default async function PricingPage({
     <div className="flex flex-1 flex-col bg-almi-bg">
       <main className="mx-auto w-full max-w-5xl flex-1 px-6 py-12">
         <div className="text-center">
-          <h1 className="text-4xl font-semibold text-almi-ink">Try free for 48 hours. Then $12/month.</h1>
+          <h1 className="text-4xl font-semibold text-almi-ink">Try free for 48 hours, no card. Then $12/month.</h1>
           <p className="mt-3 text-base text-almi-text-muted">
             One subscription. Honest AI feedback and full-length practice. Cancel anytime.
           </p>
@@ -47,7 +47,7 @@ export default async function PricingPage({
 
         {!billingLive && (
           <p className="mx-auto mt-6 max-w-md rounded-xl border border-almi-bg-peach bg-almi-paper px-4 py-3 text-center text-sm text-almi-text-muted">
-            Billing is in setup. Trial signups open shortly — leave your email on the homepage to be notified.
+            Billing is in setup. Sign-ups open shortly — leave your email on the homepage to be notified.
           </p>
         )}
 
@@ -66,7 +66,7 @@ export default async function PricingPage({
         </div>
 
         <p className="mt-10 text-center text-xs text-almi-text-muted">
-          Card not charged during the 48-hour trial. Cancel from your account before the trial ends and pay nothing.
+          No card for the free 48 hours. When you unlock, $12 is charged at checkout and then monthly; cancel anytime from your account.
         </p>
       </main>
     </div>
@@ -125,11 +125,11 @@ function PlanCard({
       <div className="mt-8">
         {!isLoggedIn ? (
           <Link
-            href={`/signup?next=${encodeURIComponent(`/pricing?plan=${plan}`)}`}
+            href="/signup"
             className="inline-flex w-full min-h-[44px] items-center justify-center bg-almi-coral px-6 py-3 text-sm font-semibold text-almi-ink hover:bg-almi-coral-deep"
             style={{ borderRadius: 9999 }}
           >
-            Try free for 48 hours
+            Try free for 48 hours, no card
           </Link>
         ) : (
           <PricingCheckoutButton plan={plan} disabled={!billingLive} />

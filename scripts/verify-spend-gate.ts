@@ -46,8 +46,10 @@ const SPEND_PATTERNS: [RegExp, string][] = [
 /** Predicates that actually decide whether a user may spend money. requireUser() is
  *  NOT here: being signed in is not the same as having paid, and treating it as a
  *  gate is how an open paid endpoint reads as protected. */
+// RR-397: aiGate() is the free-48-hours door for AI (paid, or ONE scoring of a kind inside
+// the free 48 hours within today's free-AI budget), so it is a payment gate too.
 const GATE_TOKENS =
-  /\b(hasPaidAccess|isProActive|hasFullAccess|hasMachineMarkedAccess|isPracticeStartBlocked|isAdmin|isOwner|requireAdmin|ADMIN_API_SECRET)\b/;
+  /\b(aiGate|hasPaidAccess|isProActive|hasFullAccess|hasMachineMarkedAccess|isPracticeStartBlocked|isAdmin|isOwner|requireAdmin|ADMIN_API_SECRET)\b/;
 
 function reachable(entry: string): string[] {
   const seen = new Set<string>(); const st = [entry];
@@ -166,38 +168,48 @@ const mobile = read("src/components/HeaderMobileMenu.tsx");
 // 48 hours, then $12/month. Cancel anytime." — so the standard CTA is now "Try free for
 // 48 hours", and the old 7-day CTA (either wording) is an off-standard VARIANT that must
 // not come back. The gate asserts the same six sites; only the expected words changed.
+// RR-397 (owner decision 8 Nov 2026): "Try free for 48 hours, no card. Then $12/month. Cancel
+// anytime." The sign-up CTA stays "Try free for 48 hours" at five sites; the logged-in checkout
+// button no longer starts anything free, it reads "Unlock for $12/month" (the free 48 hours
+// start at sign-up, with no card). Same six sites, each with the words it must now say.
 const CTA = "Try free for 48 hours";
+const UNLOCK = "Unlock for $12/month";
 const VARIANT = /Start (your )?7-day free trial|Start practising free|Practise free/i;
-const ctaSites: [string, string][] = [
-  ["GlobalHeader", header], ["HeaderMobileMenu", mobile],
-  ["pricing page", pricingPage], ["PricingCheckoutButton", checkoutBtn],
-  ["landing page", read("src/app/page.tsx")], ["seo kit", read("src/components/celpip-seo/kit.tsx")],
+const ctaSites: [string, string, string][] = [
+  ["GlobalHeader", header, CTA], ["HeaderMobileMenu", mobile, CTA],
+  ["pricing page", pricingPage, CTA], ["PricingCheckoutButton", checkoutBtn, UNLOCK],
+  ["landing page", read("src/app/page.tsx"), CTA], ["seo kit", read("src/components/celpip-seo/kit.tsx"), CTA],
 ];
-for (const [name, src] of ctaSites) {
-  check(src.includes(CTA), `${name} CTA reads "${CTA}"`,
+for (const [name, src, want] of ctaSites) {
+  check(src.includes(want), `${name} CTA reads "${want}"`,
     (src.match(/Start[^"'<>{}]{0,40}(free|practising|trial)[^"'<>{}]{0,20}/i) ?? ["no Start… CTA found"])[0]);
   check(!VARIANT.test(src), `${name} uses no off-standard CTA variant`,
     (src.match(VARIANT) ?? [""])[0]);
 }
 // No CTA anywhere may still promise free practice without a card on the paid path.
 const contradictions = ctaSites.filter(([, s]) => /Start practising free|Practise free|Free forever/i.test(s));
-check(contradictions.length === 0, "no CTA contradicts the card-first trial",
+check(contradictions.length === 0, "no CTA promises free practice beyond the free 48 hours and the 3-day window",
   contradictions.map(([n]) => n).join(", "));
 
 check(/\$?12\b/.test(pricingPage) || /1200/.test(plans + pricingPage), "$12/month appears in the pricing copy");
-// RR-394: this asserted a 7-day trial (and also passed on the words "7-day" in copy). It now
-// asserts the new offer is CONFIGURED — the offer file says 2 days, the checkout takes its
-// trial from that file — and that the pricing page describes 48 hours, not 7 days.
+// RR-394 asserted a 48-hour CARD trial here. RR-397 (owner decision 8 Nov 2026) replaced it:
+// the free 48 hours start at sign-up with no card, and a new checkout carries NO trial at all
+// (Stripe charges $12 at checkout, then monthly). So this now asserts the offer is CONFIGURED
+// that way — the offer file is 48 hours with the owner's words, trialForNewCheckout() returns
+// {}, the checkout spreads it and names no trial in code — and that the pricing page says so.
 const offerFile = read("src/lib/billing/offer.ts");
 const stripeFile = read("src/lib/billing/stripe.ts");
-check(/export const TRIAL_PERIOD_DAYS = 2;/.test(offerFile)
-    && /from "\.\/offer"/.test(stripeFile) && /trial_period_days\s*:\s*TRIAL_PERIOD_DAYS/.test(stripeFile),
-  "a 48-hour trial (trial_period_days: 2) is configured for new checkouts, not just described");
-check(/48[- ]hour/i.test(pricingPage) && !/7[- ]day/i.test(pricingPage),
-  "the pricing page describes the 48-hour trial and no longer a 7-day one");
+check(/export const TASTE_HOURS = 48;/.test(offerFile)
+    && /OFFER_LINE = "Try free for 48 hours, no card\. Then \$12\/month\. Cancel anytime\.";/.test(offerFile)
+    && /trialForNewCheckout\(\): Record<string, never> \{\s*return \{\};/.test(offerFile)
+    && /from "\.\/offer"/.test(stripeFile) && /\.\.\.trialForNewCheckout\(\)/.test(stripeFile)
+    && !/trial_period_days|trial_end|trial_from_plan/.test(stripComments(stripeFile)),
+  "free 48 hours with no card are configured, and a new checkout hands Stripe no trial");
+check(/48 hours, no card/i.test(pricingPage) && !/7[- ]day/i.test(pricingPage) && !/48-hour trial/i.test(pricingPage),
+  "the pricing page describes the free 48 hours with no card, and no card trial");
 check(!/payment_method_collection\s*:\s*["']if_required["']/.test(checkoutRoute),
-  "CARD FIRST — payment_method_collection is not 'if_required'",
-  "Stripe defaults to 'always'; setting 'if_required' would make the trial card-less");
+  "the checkout takes a card — payment_method_collection is not 'if_required'",
+  "Stripe defaults to 'always'; the $12 is charged at checkout");
 check(/cancel/i.test(pricingPage), "cancel-anytime is stated on the pricing page");
 
 console.log("\n   PRO_YEARLY is gone:");

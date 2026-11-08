@@ -1,14 +1,15 @@
 // Unified submit endpoint for every CELPIP task. The route does NOT branch on task
 // type — it looks the handler up in the registry, runs it, turns the result into
 // an honest per-skill CLB estimate, and persists. AI tasks (Writing Email/Survey,
-// Speaking) are gated on paid access; objective tasks (Listening, Reading) are
-// AI-scored practice. Speaking arrives as multipart audio, which is transcribed
+// Speaking) pass through aiGate() (RR-397); objective tasks (Listening, Reading) are
+// auto-marked practice. Speaking arrives as multipart audio, which is transcribed
 // (Whisper) before scoring.
 
 import { NextResponse } from "next/server";
 import { Prisma } from "@prisma/client";
 import { getCurrentUser } from "@/lib/auth";
-import { hasPaidAccess } from "@/lib/billing/plans";
+import { hasPaidAccess, hasMachineMarkedAccess, isEmailVerified } from "@/lib/billing/plans";
+import { aiGate, hasPracticeAccess, lockedCopy } from "@/lib/billing/free-access";
 import { prisma } from "@/lib/prisma";
 import { CELPIP_HANDLERS } from "@/lib/celpip/registry";
 import { fractionToEstimate } from "@/lib/celpip/scale";
@@ -55,7 +56,7 @@ export async function POST(req: Request): Promise<NextResponse> {
 
   const attempt = await prisma.celpipAttempt.findFirst({
     where: { id: attemptId, userId: user.id },
-    include: { item: true },
+    include: { item: true, session: { select: { mode: true } } },
   });
   if (!attempt) {
     return NextResponse.json({ ok: false, error: "Attempt not found" }, { status: 404 });
@@ -72,12 +73,35 @@ export async function POST(req: Request): Promise<NextResponse> {
     );
   }
 
-  // AI feedback is a paid feature; objective auto-marking is AI-scored practice.
-  if (!hasPaidAccess(user)) {
-    return NextResponse.json(
-      { ok: false, error: "AI feedback needs a subscription", upgradeUrl: "/pricing" },
-      { status: 402 },
-    );
+  // RR-397: who may have this attempt scored. hasPaidAccess() is asked first and is unchanged.
+  //   - the full mock (a MOCK session): paid only, as before;
+  //   - Listening and Reading (auto-marked, no AI): paid, the 3-day no-card window (unchanged), or the free 48 hours;
+  //   - Writing and Speaking (AI): paid, or ONE AI-scored attempt of each in the free 48 hours, within today's free-AI budget.
+  if (attempt.session?.mode === "MOCK") {
+    // RR-397: the full mock stays behind hasPaidAccess(), never part of the free 48 hours.
+    if (!hasPaidAccess(user)) {
+      return NextResponse.json(
+        { ok: false, error: "The full mock is part of a subscription. Unlock for $12/month.", upgradeUrl: "/pricing" },
+        { status: 402 },
+      );
+    }
+  } else {
+    if (!hasPaidAccess(user) && !isEmailVerified(user)) {
+      return NextResponse.json(
+        { ok: false, error: "Please verify your email before practising." },
+        { status: 403 },
+      );
+    }
+    if (attempt.subTest === "WRITING" || attempt.subTest === "SPEAKING") {
+      const subTest = attempt.subTest;
+      const gate = await aiGate(user, subTest, () =>
+        prisma.celpipAttempt.count({ where: { userId: user.id, subTest, status: "SCORED" } }),
+      );
+      if (!gate.ok) return NextResponse.json(gate.body, { status: gate.status });
+    } else if (!hasMachineMarkedAccess(user) && !hasPracticeAccess(user)) {
+      const c = lockedCopy(user);
+      return NextResponse.json({ ok: false, error: `${c.title}. ${c.line}`, upgradeUrl: "/pricing" }, { status: 402 });
+    }
   }
 
   // Speaking: transcribe the uploaded audio before scoring.

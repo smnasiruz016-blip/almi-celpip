@@ -13,6 +13,7 @@ import { startSession } from "@/lib/celpip/session";
 async function startMockAction() {
   "use server";
   const user = await requireUser();
+  // RR-397: paid only — the full mock is never part of the free 48 hours.
   if (!hasPaidAccess(user)) redirect("/pricing");
   if (!user.targetVersion) redirect("/account?needversion=1");
   const id = await startSession({
@@ -69,7 +70,7 @@ export default async function MockStartPage() {
         <div className="rounded-xl border border-almi-accent/40 bg-almi-accent/10 px-4 py-3 text-sm text-almi-ink">
           The full mock includes AI feedback and is part of a subscription.{" "}
           <a href="/pricing" className="font-semibold underline">
-            See plans
+            Unlock for $12/month
           </a>
           .
         </div>

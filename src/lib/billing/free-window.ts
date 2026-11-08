@@ -15,21 +15,25 @@
 
 import { prisma } from "@/lib/prisma";
 import { isFreeWindowSubTest, isPracticeStartBlocked, hasPaidAccess } from "@/lib/billing/plans";
+import { hasPracticeAccess } from "@/lib/billing/free-access";
 import type { CelpipSubTest } from "@prisma/client";
 
-type StartUser = Parameters<typeof isPracticeStartBlocked>[0] & { id: string };
+type StartUser = Parameters<typeof isPracticeStartBlocked>[0] & { id: string; createdAt?: Date | null; stripeSubscriptionId?: string | null };
 
 export type StartDecision = { allowed: true } | { allowed: false; reason: "PAYWALL" | "WINDOW_EXPIRED" };
 
 /**
  * May this user begin this sub-test, and if so, start their window.
  *
- * LISTENING and READING are covered by the no-card window. Writing, Speaking and the
- * mock are not: each calls a paid model to produce its result, and the line is COST.
+ * LISTENING and READING are covered by the 3-day no-card window. Writing and Speaking are
+ * not: each calls a paid model, so they open only for paid users and inside the free
+ * 48 hours (RR-397), where the AI scoring is limited to one of each. The mock is paid only.
  */
 export async function openPractice(user: StartUser, subTest: CelpipSubTest): Promise<StartDecision> {
   if (!isFreeWindowSubTest(subTest)) {
-    return hasPaidAccess(user) ? { allowed: true } : { allowed: false, reason: "PAYWALL" };
+    // RR-397: Writing and Speaking open for paid users and inside the free 48 hours (no card); the AI scoring itself is
+    // limited to one of each by aiGate() in the submit route.
+    return hasPracticeAccess(user) ? { allowed: true } : { allowed: false, reason: "PAYWALL" };
   }
   if (isPracticeStartBlocked(user)) return { allowed: false, reason: "WINDOW_EXPIRED" };
 
@@ -51,6 +55,6 @@ export async function openPractice(user: StartUser, subTest: CelpipSubTest): Pro
  * refused is how a page shows "start" on a button that then redirects to /pricing.
  */
 export function wouldRefusePractice(user: StartUser, subTest: CelpipSubTest): boolean {
-  if (!isFreeWindowSubTest(subTest)) return !hasPaidAccess(user);
+  if (!isFreeWindowSubTest(subTest)) return !hasPracticeAccess(user);
   return isPracticeStartBlocked(user);
 }
