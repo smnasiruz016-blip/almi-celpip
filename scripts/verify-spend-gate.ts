@@ -161,13 +161,13 @@ const header = read("src/components/GlobalHeader.tsx");
 const mobile = read("src/components/HeaderMobileMenu.tsx");
 
 // THE FAMILY STANDARD, not my preferred wording. PR #8 set "Start 7-day free trial"
-// across every $12/month product and it is what merged main says at all eight sites.
-// This branch originally changed four of them to "Start your 7-day free trial" — one
-// word off the standard — which would have left CELPIP internally inconsistent AND
-// divergent from the other products. That change YIELDED on merge, and the gate now
-// asserts the shipped standard rather than the variant it used to prefer.
-const CTA = "Start 7-day free trial";
-const VARIANT = /Start your 7-day free trial|Start practising free|Practise free/i;
+// across every $12/month product and it is what merged main said at all eight sites.
+// RR-394 (owner decision, Nov 2026) replaced the offer family-wide with "Try free for
+// 48 hours, then $12/month. Cancel anytime." — so the standard CTA is now "Try free for
+// 48 hours", and the old 7-day CTA (either wording) is an off-standard VARIANT that must
+// not come back. The gate asserts the same six sites; only the expected words changed.
+const CTA = "Try free for 48 hours";
+const VARIANT = /Start (your )?7-day free trial|Start practising free|Practise free/i;
 const ctaSites: [string, string][] = [
   ["GlobalHeader", header], ["HeaderMobileMenu", mobile],
   ["pricing page", pricingPage], ["PricingCheckoutButton", checkoutBtn],
@@ -185,8 +185,16 @@ check(contradictions.length === 0, "no CTA contradicts the card-first trial",
   contradictions.map(([n]) => n).join(", "));
 
 check(/\$?12\b/.test(pricingPage) || /1200/.test(plans + pricingPage), "$12/month appears in the pricing copy");
-check(/trial_period_days\s*:\s*7|trialPeriodDays\s*:\s*7|7[- ]day/i.test(checkoutRoute + pricingPage + plans),
-  "a 7-day trial is configured, not just described");
+// RR-394: this asserted a 7-day trial (and also passed on the words "7-day" in copy). It now
+// asserts the new offer is CONFIGURED — the offer file says 2 days, the checkout takes its
+// trial from that file — and that the pricing page describes 48 hours, not 7 days.
+const offerFile = read("src/lib/billing/offer.ts");
+const stripeFile = read("src/lib/billing/stripe.ts");
+check(/export const TRIAL_PERIOD_DAYS = 2;/.test(offerFile)
+    && /from "\.\/offer"/.test(stripeFile) && /trial_period_days\s*:\s*TRIAL_PERIOD_DAYS/.test(stripeFile),
+  "a 48-hour trial (trial_period_days: 2) is configured for new checkouts, not just described");
+check(/48[- ]hour/i.test(pricingPage) && !/7[- ]day/i.test(pricingPage),
+  "the pricing page describes the 48-hour trial and no longer a 7-day one");
 check(!/payment_method_collection\s*:\s*["']if_required["']/.test(checkoutRoute),
   "CARD FIRST — payment_method_collection is not 'if_required'",
   "Stripe defaults to 'always'; setting 'if_required' would make the trial card-less");

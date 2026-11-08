@@ -14,7 +14,7 @@ Honesty doctrine: scores are practice estimates on the **10–160** scale, shown
 as per-subscore **ranges** (Literacy / Comprehension / Conversation / Production)
 plus a readiness band — **never a fabricated overall** (DET's overall is a
 proprietary adaptive estimate). All content is original — **never copied from
-OET**. $12/month + 7-day trial; objective tasks free, AI feedback paid.
+OET**. $12/month + 48-hour trial; objective tasks free, AI feedback paid.
 
 Adaptivity here is honest difficulty-pool adaptivity and does **not** reproduce
 DET's scoring engine.

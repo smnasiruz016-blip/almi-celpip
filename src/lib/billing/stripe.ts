@@ -2,7 +2,8 @@ import Stripe from "stripe";
 import { prisma } from "@/lib/prisma";
 import { priceIdToPlanLabel } from "@/lib/billing/plans";
 
-const TRIAL_PERIOD_DAYS = 7;
+// RR-394: the trial length lives in ./offer (48 hours for NEW checkouts; running trials keep Stripe's own end date)
+import { TRIAL_PERIOD_DAYS } from "./offer";
 
 let cachedClient: Stripe | null = null;
 
