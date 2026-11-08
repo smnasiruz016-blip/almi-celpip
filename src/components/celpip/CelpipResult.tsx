@@ -10,6 +10,7 @@ import { SUBTEST_LABEL } from "@/lib/celpip/types";
 import type { ClbEstimate as ClbEstimateValue } from "@/lib/celpip/scale";
 import { ClbEstimate, ESTIMATE_DISCLAIMER } from "@/components/celpip/ClbEstimate";
 import { buildObjectiveReview } from "@/lib/celpip/review";
+import { ModelAnswers } from "@/components/celpip/ModelAnswers";
 
 function ObjectiveReview({ def, item, attempt }: { def: TaskDef; item: CelpipItem; attempt: CelpipAttempt }) {
   const review = buildObjectiveReview(def.taskType, item.payload, attempt.response);
@@ -153,6 +154,8 @@ export function CelpipResult({
           <div className="mt-3"><FeedbackBlock feedback={feedback} /></div>
         </section>
       )}
+
+      <ModelAnswers taskType={item.taskType} title={item.title} />
 
       {variant === "single" && (
         <>

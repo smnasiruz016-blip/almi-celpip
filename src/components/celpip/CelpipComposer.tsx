@@ -314,7 +314,7 @@ function WritingComposer({ attemptId, prompt, payload }: { attemptId: string; pr
             </>
           )
         )}
-        {p.instruction && <p className="mt-3 text-sm text-almi-text">{p.instruction}</p>}
+        {p.instruction && <p className="mt-3 whitespace-pre-line text-sm text-almi-text">{p.instruction}</p>}
       </div>
       <textarea
         value={text}
