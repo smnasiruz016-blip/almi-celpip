@@ -1,9 +1,11 @@
 // Practice hub — the logged-in "Choose a Test" page. Lists every CELPIP task type
 // from the registry grouped by skill, plus the full mock. Listening + Reading are
-// free; the AI-graded Writing + Speaking and the mock need a subscription.
+// free in the 3-day window; Writing + Speaking are AI-graded (one of each in the free 48 hours,
+// RR-397); the mock needs a subscription.
 
 import Link from "next/link";
 import { requireUser } from "@/lib/auth";
+import { FreeTimeBanner } from "@/components/FreeTimeBanner";
 import { CELPIP_TASKS } from "@/lib/celpip/registry";
 import type { TaskDef } from "@/lib/celpip/registry";
 import { SUBTEST_LABEL } from "@/lib/celpip/types";
@@ -42,7 +44,7 @@ function TaskCard({ def }: { def: TaskDef }) {
 }
 
 export default async function PracticePage() {
-  await requireUser();
+  const user = await requireUser();
   const tasks = Object.values(CELPIP_TASKS);
 
   return (
@@ -58,6 +60,8 @@ export default async function PracticePage() {
           Canadian Language Benchmark (CLB 1–12) — shown as a range, never a single number.
         </p>
       </header>
+
+      <FreeTimeBanner user={user} />
 
       {SUBTEST_ORDER.map((subTest) => {
         const group = tasks.filter((t) => t.subTest === subTest);

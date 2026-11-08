@@ -6,7 +6,7 @@ import { isOwner } from "@/lib/auth/owner-check";
 // Until set, billing is disabled at runtime by isBillingEnabled().
 export const STRIPE_PRICE_MONTHLY = process.env.STRIPE_PRICE_ID_MONTHLY ?? "";
 
-// One paid plan. The network law is $12/month with a 48-hour trial and nothing else,
+// One paid plan. The network law is $12/month (after the free 48 hours) and nothing else,
 // so there is no yearly key to be dormant about.
 export type PlanKey = "FREE" | "PRO_MONTHLY";
 
@@ -135,9 +135,10 @@ export function isBillingEnabled(): boolean {
 
 // ===================== 3-day no-card free window =====================
 //
-// Network law, settled 23 Aug 2026: $12/month with a CARD-FIRST trial (48 hours for new
-// checkouts since RR-394, Nov 2026 — the length lives in ./offer.ts), PLUS a
-// 3-day NO-CARD window that covers LISTENING and READING ONLY.
+// Network law, settled 23 Aug 2026: $12/month, PLUS a 3-day NO-CARD window that covers
+// LISTENING and READING ONLY. Since RR-397 (8 Nov 2026) every new account also gets the
+// free 48 hours from sign-up, no card (./taste.ts, ./free-access.ts); new checkouts carry
+// nothing about a trial (./offer.ts). This window is kept exactly as it was.
 //
 // The coverage line is COST, not generosity. Writing and Speaking each call a paid
 // model to produce their result, and the Listening audio is pre-rendered rather than

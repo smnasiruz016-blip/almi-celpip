@@ -52,7 +52,7 @@ export default async function AccountPage({
       )}
       {params.upgraded && (
         <div className="rounded-xl border border-almi-teal/30 bg-almi-teal/10 px-4 py-3 text-sm text-almi-ink">
-          Subscription active. Your 48-hour free trial has started.
+          Subscription active. Everything is unlocked.
         </div>
       )}
       {params.saved && (
