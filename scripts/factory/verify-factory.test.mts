@@ -56,12 +56,20 @@ check("13 items imported: 11 ready, 2 image pending", committed.items.length ===
 
 console.log("3. a blocked item stays out");
 const blockedWhere = r1.blocked.map((b) => b.where).join(" | ");
-check("exactly 2 blocks: Email 2 CELPIP 10+ (notes) and Speaking Task 1 Level 7 (no notes)", r1.blocked.length === 2
-  && /Email 2 .*CELPIP 10\+ · notes/.test(blockedWhere) && /Speaking Task 1 .*Level 7/.test(blockedWhere), blockedWhere);
-const e2 = committed.items.find((i) => i.packItem === "Email 2");
-check("Email 2's 10+ answer is not in the data; its 8 and 5 are", !!e2 && !e2.answers.some((a) => a.level === "10+") && e2.answers.length === 2);
+check("after beta-g's round-2 fixes: 0 blocks, all 24 answers in the data", r1.blocked.length === 0
+  && committed.items.reduce((n, i) => n + i.answers.length, 0) === 24, blockedWhere);
 const s1 = committed.items.find((i) => i.packItem === "Speaking Task 1");
-check("Speaking Task 1's Level 7 sample is not in the data", !!s1 && !s1.answers.some((a) => a.level === "7"));
+check("Speaking Task 1's Level 7 sample is in, with its notes", !!s1 && s1.answers.some((a) => a.level === "7" && a.notes.length === 1 && a.notes[0].text.length > 10));
+const noNotes = pack.items.map((it) => ({ ...it, answers: it.answers.map((a) => (it.tableName === "Speaking Task 1" && a.level === "7" ? { ...a, notes: [] } : a)) }));
+const r4 = importPack({ ...pack, items: noNotes }, recordedLt, existing);
+check("a model without notes stays out", !r4.data.items.find((i) => i.packItem === "Speaking Task 1")!.answers.some((a) => a.level === "7")
+  && r4.blocked.some((b) => /Speaking Task 1 .*Level 7/.test(b.where) && /no notes/.test(b.reason)));
+const e2Notes = pack.items.find((i) => i.tableName === "Email 2")!.answers.find((a) => a.level === "10+")!;
+const e2Text = e2Notes.notes.map((n) => `${n.criterion}: ${n.text}`).join("\n");
+const notePlant = (text: string, lang: string): LtMatch[] => text.startsWith("Content/Coherence: three specific examples")
+  ? [{ offset: text.indexOf("semiformal"), length: 10, message: "planted", rule: { id: "PLANTED", category: { id: "TYPOS" } } }] : recordedLt(text, lang);
+check("a planted error in a note keeps that answer out", e2Text.includes("semiformal")
+  && !importPack(pack, notePlant, existing).data.items.find((i) => i.packItem === "Email 2")!.answers.some((a) => a.level === "10+"));
 const e1Top = pack.items.find((i) => i.tableName === "Email 1")!.answers.find((a) => a.level === "10+")!.text;
 const planted = (text: string, lang: string): LtMatch[] => text === e1Top
   ? [{ offset: 0, length: 4, message: "planted", rule: { id: "PLANTED", issueType: "grammar", category: { id: "GRAMMAR" } } }]

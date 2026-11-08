@@ -146,6 +146,41 @@
    "modelContext": null,
    "answers": [
     {
+     "level": "10+",
+     "label": "CELPIP 10+",
+     "tier": "top",
+     "text": "Hi Marco,\n\nAs you may have heard, I'm moving to the Logistics team next Monday, and I didn't want to leave without properly thanking you for everything you've done for me this past month.\n\nWhen I started, I felt completely lost with our inventory software, but you patiently walked me through it, even staying late on my second day to explain the reporting features. You also introduced me to people in other departments, which made it much easier to settle in. Most of all, I appreciated how you always made time for my questions, no matter how busy you were.\n\nIn my new role, I'll be coordinating deliveries between our three warehouses, so I'll be working mostly with suppliers and drivers. It's an exciting step, although I'm sure I'll miss our team's Friday lunches.\n\nSince we'll still be in the same building, I'd love to keep having coffee together now and then. How about the second Tuesday of every month? Let me know if that works for you.\n\nThanks again for everything,\nAiko",
+     "paragraphs": [
+      "Hi Marco,",
+      "As you may have heard, I'm moving to the Logistics team next Monday, and I didn't want to leave without properly thanking you for everything you've done for me this past month.",
+      "When I started, I felt completely lost with our inventory software, but you patiently walked me through it, even staying late on my second day to explain the reporting features. You also introduced me to people in other departments, which made it much easier to settle in. Most of all, I appreciated how you always made time for my questions, no matter how busy you were.",
+      "In my new role, I'll be coordinating deliveries between our three warehouses, so I'll be working mostly with suppliers and drivers. It's an exciting step, although I'm sure I'll miss our team's Friday lunches.",
+      "Since we'll still be in the same building, I'd love to keep having coffee together now and then. How about the second Tuesday of every month? Let me know if that works for you.",
+      "Thanks again for everything,\nAiko"
+     ],
+     "wordCount": 173,
+     "notes": [
+      {
+       "criterion": "Content/Coherence",
+       "text": "three specific examples of help, a clear new role and a concrete plan to stay in touch."
+      },
+      {
+       "criterion": "Vocabulary",
+       "text": "natural and warm (*walked me through it*, *settle in*, *now and then*)."
+      },
+      {
+       "criterion": "Readability",
+       "text": "fluent, with a good mix of sentence types."
+      },
+      {
+       "criterion": "Task Fulfillment",
+       "text": "a friendly semiformal tone that suits a colleague."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    },
+    {
      "level": "8",
      "label": "CELPIP 8",
      "tier": "middle",
@@ -373,6 +408,24 @@
       {
        "criterion": "Notes",
        "text": "a friendly opening, four organized pieces of advice with reasons, and a supportive close. Natural spoken linking (*First*, *Second*, *And finally*)."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    },
+    {
+     "level": "7",
+     "label": "Level 7",
+     "tier": "middle",
+     "text": "Hi Ali, welcome to Canada. I have some advice for you. First, you should make a Canadian résumé, because it is different from your country. Don't put your photo, and write about your achievements. Second, you can use LinkedIn and go to job fairs to meet people. In Canada, many people find jobs by networking. Also, you can volunteer, because it gives you Canadian experience. Maybe you need to start with a small job first, like a bookkeeper, and then you can find a better job later. I hope this helps you. Good luck!",
+     "paragraphs": [
+      "Hi Ali, welcome to Canada. I have some advice for you. First, you should make a Canadian résumé, because it is different from your country. Don't put your photo, and write about your achievements. Second, you can use LinkedIn and go to job fairs to meet people. In Canada, many people find jobs by networking. Also, you can volunteer, because it gives you Canadian experience. Maybe you need to start with a small job first, like a bookkeeper, and then you can find a better job later. I hope this helps you. Good luck!"
+     ],
+     "wordCount": 95,
+     "notes": [
+      {
+       "criterion": "Notes",
+       "text": "the advice is relevant and clearly ordered, but the reasons are shorter, the language is simpler, and there is some repetition (*you can … you can …*)."
       }
      ],
      "aside": null,

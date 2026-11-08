@@ -1,23 +1,4 @@
 {
- "084c11eb2f59efe03b42720173633a0d4ddb41c3da41f5e35883a25483756f5e": [
-  {
-   "offset": 276,
-   "length": 11,
-   "message": "This word is normally spelled as one.",
-   "replacements": [
-    {
-     "value": "semiformal"
-    }
-   ],
-   "rule": {
-    "id": "EN_COMPOUNDS_SEMI_FORMAL",
-    "issueType": "misspelling",
-    "category": {
-     "id": "MISC"
-    }
-   }
-  }
- ],
  "100febabda79120bbd2c395b37bf59c44de95bef8d4389c80ebffb1905b49330": [
   {
    "offset": 146,

@@ -60,7 +60,7 @@ const W_ANSWER_RE = /^## CELPIP (10\+|8|5) model answer\s*$/;
 const W_NOTES_RE = /^\*\*Notes \(CELPIP (10\+|8|5)\):\*\*\s*$/;
 const NOTE_RE = /^- \*\*([^:*]+):\*\*\s*(.+)$/;
 const S_ANSWER_RE = /^\*\*Level (10\+|7) (model|sample) \(about (\d+) words\):\*\*\s*$/;
-const S_NOTES_RE = /^\*\*Notes:\*\*\s*(.+)$/;
+const S_NOTES_RE = /^\*\*Notes(?: \(Level (?:10\+|7)\))?:\*\*\s*(.+)$/;
 const ASIDE_RE = /^\*\((.+)\)\*\s*$/;
 const SAME_PICTURE = "\u0000same-picture";
 

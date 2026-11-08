@@ -111,7 +111,7 @@ Aiko
 - **Content/Coherence:** three specific examples of help, a clear new role and a concrete plan to stay in touch.
 - **Vocabulary:** natural and warm (*walked me through it*, *settle in*, *now and then*).
 - **Readability:** fluent, with a good mix of sentence types.
-- **Task Fulfillment:** a friendly semi-formal tone that suits a colleague.
+- **Task Fulfillment:** a friendly semiformal tone that suits a colleague.
 
 ## CELPIP 8 model answer
 
@@ -363,6 +363,8 @@ If you like, we can go through your résumé together this weekend.
 **Level 7 sample (about 95 words):**
 
 Hi Ali, welcome to Canada. I have some advice for you. First, you should make a Canadian résumé, because it is different from your country. Don't put your photo, and write about your achievements. Second, you can use LinkedIn and go to job fairs to meet people. In Canada, many people find jobs by networking. Also, you can volunteer, because it gives you Canadian experience. Maybe you need to start with a small job first, like a bookkeeper, and then you can find a better job later. I hope this helps you. Good luck!
+
+**Notes (Level 7):** the advice is relevant and clearly ordered, but the reasons are shorter, the language is simpler, and there is some repetition (*you can … you can …*).
 
 # Task 2 — Talking About a Personal Experience (30 seconds / 60 seconds)
 
