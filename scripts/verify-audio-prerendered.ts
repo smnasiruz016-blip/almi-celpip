@@ -20,7 +20,7 @@
 import { PrismaClient } from "@prisma/client";
 import { readFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
-import { EDGE_VOICE } from "../src/lib/celpip/dialogue";
+import { EDGE_VOICE, edgeVoiceFor } from "../src/lib/celpip/dialogue";
 
 const SELF_TEST = process.argv.includes("--self-test");
 let pass = 0, fail = 0;
@@ -151,8 +151,12 @@ async function main() {
     console.log("\nA. COVERAGE");
     const active = await db.celpipItem.count({ where: { subTest: "LISTENING", active: true } });
     try {
-      const covered = await db.celpipItem.count({ where: { subTest: "LISTENING", active: true, audioUrl: { not: null } } });
-      check(`every active Listening item has a stored clip  (${covered}/${active})`, active > 0 && covered === active);
+      const withUrl = await db.celpipItem.count({ where: { subTest: "LISTENING", active: true, audioUrl: { not: null } } });
+      // RR-418: a full test's Part 1 plays in 3 sections, each with its own stored clip (payload.sections), and has no single audioUrl
+      const sectioned = (await db.celpipItem.findMany({ where: { subTest: "LISTENING", active: true, audioUrl: null }, select: { payload: true } }))
+        .filter((r) => { const s = (r.payload as { sections?: { audioUrl?: string }[] } | null)?.sections; return Array.isArray(s) && s.length > 0 && s.every((x) => typeof x.audioUrl === "string" && x.audioUrl.length > 0); }).length;
+      const covered = withUrl + sectioned;
+      check(`every active Listening item has a stored clip  (${covered}/${active}${sectioned ? `, ${sectioned} in sections` : ""})`, active > 0 && covered === active);
     } catch (e) {
       // A missing column IS the defect on a red run, so it is reported as a failed
       // check rather than crashing the file — a stack trace cannot tell you WHICH
@@ -166,7 +170,8 @@ async function main() {
     const rows = await db.celpipItem.findMany({ where: { subTest: "LISTENING" }, select: { payload: true } });
     const used = new Set<string>();
     for (const r of rows) for (const s of ((r.payload as { speakers?: { voice: string }[] }).speakers ?? [])) used.add(s.voice);
-    const unmapped = [...used].filter((v) => !EDGE_VOICE[v]);
+    // RR-418: the same rule as the renderer and the speaker gate (a full test stores the Edge voice itself; any other name is unmapped)
+    const unmapped = [...used].filter((v) => !edgeVoiceFor(v));
     check(`every bank voice maps to an edge-tts voice  (${used.size} voices in use)`,
       unmapped.length === 0, `unmapped: ${unmapped.join(", ")}`);
   } finally {

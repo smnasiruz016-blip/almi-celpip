@@ -11,6 +11,7 @@ import type { ClbEstimate as ClbEstimateValue } from "@/lib/celpip/scale";
 import { ClbEstimate, ESTIMATE_DISCLAIMER } from "@/components/celpip/ClbEstimate";
 import { buildObjectiveReview } from "@/lib/celpip/review";
 import { ModelAnswers } from "@/components/celpip/ModelAnswers";
+import { WhyBox } from "@/components/celpip/WhyBox";
 
 function ObjectiveReview({ def, item, attempt }: { def: TaskDef; item: CelpipItem; attempt: CelpipAttempt }) {
   const review = buildObjectiveReview(def.taskType, item.payload, attempt.response);
@@ -37,6 +38,7 @@ function ObjectiveReview({ def, item, attempt }: { def: TaskDef; item: CelpipIte
                 Correct: <span className="font-medium text-almi-ink">{r.correct}</span>
               </p>
             )}
+            <WhyBox text={r.why} />
           </li>
         ))}
       </ul>
@@ -155,7 +157,7 @@ export function CelpipResult({
         </section>
       )}
 
-      <ModelAnswers taskType={item.taskType} title={item.title} />
+      <ModelAnswers taskType={item.taskType} title={item.title} itemId={item.id} />
 
       {variant === "single" && (
         <>

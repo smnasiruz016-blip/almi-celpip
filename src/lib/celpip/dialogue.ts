@@ -62,5 +62,13 @@ export const FALLBACK_EDGE_VOICE = "en-CA-ClaraNeural";
 /** Every OpenAI voice present in the bank must have a mapping, or a speaker silently
  *  collapses onto the fallback and two characters end up sounding identical. */
 export function edgeVoiceFor(openAiVoice: string): string | null {
-  return EDGE_VOICE[openAiVoice] ?? null;
+  return EDGE_VOICE[openAiVoice] ?? (EDGE_VOICES_BY_NAME.has(openAiVoice) ? openAiVoice : null);
 }
+
+/** RR-418 · the full tests store the Edge voice itself (en-CA where the script says en-CA, the speaker's gender kept). Only these names
+ *  are accepted as themselves; any other unknown name still maps to nothing, so a typo still turns the speaker gates RED. */
+export const EDGE_VOICES_BY_NAME = new Set([
+  "en-CA-ClaraNeural", "en-CA-LiamNeural",
+  "en-US-JennyNeural", "en-US-AriaNeural", "en-US-EmmaNeural", "en-US-MichelleNeural",
+  "en-US-GuyNeural", "en-US-ChristopherNeural", "en-US-AndrewNeural", "en-US-EricNeural",
+]);

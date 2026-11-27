@@ -11,15 +11,20 @@ export { objectiveResponseSchema };
 
 const optionSchema = z.object({ id: z.string(), text: z.string() });
 
+// RR-418 · two more kinds, from the full Reading tests: "blank" (a drop-down inline in the second text — the reply, email or comment —
+// at its [n] mark) and "paragraph" (which paragraph A–D holds the statement, or E = not given). Every kind is marked by option id.
 export const readingPayloadSchema = z.object({
-  passages: z.array(z.object({ id: z.string(), heading: z.string().optional(), body: z.string() })),
+  passages: z.array(z.object({ id: z.string(), heading: z.string().optional(), body: z.string(), kind: z.string().optional() })),
   questions: z.array(
     z.object({
       id: z.string(),
-      kind: z.enum(["mcq", "match"]),
+      kind: z.enum(["mcq", "match", "blank", "paragraph"]),
       stem: z.string(),
       options: z.array(optionSchema).optional(),
       answer: z.string(),
+      explanation: z.string().optional(),
+      blank: z.number().int().positive().optional(),
+      passage: z.string().optional(),
     }),
   ),
 });

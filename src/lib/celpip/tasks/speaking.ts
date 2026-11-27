@@ -15,6 +15,12 @@ export const speakingPayloadSchema = z.object({
   speakSeconds: z.number().int().nonnegative(),
   imageUrl: z.string().optional(),
   imageAlt: z.string().optional(),
+  // RR-418 · Task 5 (Comparing and Persuading) in the real two screens: Part 1 — choose A or B (chooseSeconds, no recording);
+  // Part 2 — the third option appears, prepSeconds to prepare, speakSeconds to speak.
+  chooseSeconds: z.number().int().nonnegative().optional(),
+  part1: z.string().optional(),
+  part2: z.string().optional(),
+  thirdOption: z.string().optional(),
 });
 export const speakingResponseSchema = z.object({ transcript: z.string() });
 export type SpeakingResponse = z.infer<typeof speakingResponseSchema>;

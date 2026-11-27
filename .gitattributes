@@ -1,0 +1,6 @@
+
+# RR-418: md5-checked inputs and byte-compared generated files stay byte for byte (no CRLF conversion on a Windows checkout)
+src/content/factory/rr418/*.json -text
+scripts/factory/fixtures/rr418/*.json -text
+scripts/seed/rr418-overrides.ts -text
+public/audio/rr418/*.mp3 binary

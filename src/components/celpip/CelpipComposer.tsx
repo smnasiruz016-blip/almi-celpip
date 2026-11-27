@@ -9,7 +9,7 @@
 // The server passes a SANITIZED payload (answer keys + audio scripts stripped).
 // Objective answers post as { answers: { [questionId]: value } }.
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { loadListeningAudio } from "@/lib/celpip/listening-audio";
@@ -19,6 +19,17 @@ const SUBMIT_BTN =
   "inline-flex min-h-[44px] items-center justify-center rounded-full bg-almi-coral px-6 py-3 text-sm font-semibold text-almi-ink hover:bg-almi-coral-deep disabled:opacity-60";
 const FIELD =
   "w-full rounded-lg border border-almi-bg-peach bg-almi-bg px-3 py-2 text-sm text-almi-ink";
+
+/** RR-418 · a full test's timer reached zero: the open Listening/Reading part submits what has been answered so far */
+function useTimeUp(onTimeUp: () => void) {
+  const ref = useRef(onTimeUp);
+  ref.current = onTimeUp;
+  useEffect(() => {
+    const h = () => ref.current();
+    window.addEventListener("celpip:time-up", h);
+    return () => window.removeEventListener("celpip:time-up", h);
+  }, []);
+}
 
 function useSubmit(attemptId: string) {
   const router = useRouter();
@@ -163,6 +174,86 @@ function ListeningAudio({ attemptId, audioUrl }: { attemptId: string; audioUrl: 
   );
 }
 
+// RR-418 · Listening Part 1 of a full test: three sections, each its own clip that plays once; a section's questions appear only after
+// its clip has played, and the next section can be played only after that (like the real test, where the questions come in between).
+type Section = { id: string; label: string; audioUrl: string };
+function SectionedListening({ attemptId, prompt, sections, questions }: { attemptId: string; prompt: string; sections: Section[]; questions: Question[] }) {
+  const { submit, submitting, error } = useSubmit(attemptId);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [at, setAt] = useState(0); // the section being played or answered
+  const [heard, setHeard] = useState<Record<string, boolean>>({});
+  useTimeUp(() => { if (!submitting) void submit({ answers }); });
+  const s = sections[at];
+  const mine = questions.filter((q) => (q as { section?: string }).section === s.id);
+  const last = at === sections.length - 1;
+  return (
+    <div className="space-y-5" data-sections={sections.length}>
+      <p className="text-sm text-almi-text">{prompt}</p>
+      <ol className="flex gap-2 text-xs font-semibold">
+        {sections.map((x, i) => (
+          <li key={x.id} className={`rounded-full px-3 py-1 ${i === at ? "bg-almi-teal text-white" : i < at ? "bg-almi-teal/15 text-almi-teal-text" : "bg-almi-bg-peach text-almi-text-muted"}`}>{x.label}</li>
+        ))}
+      </ol>
+      <SectionAudio key={s.id} label={s.label} audioUrl={s.audioUrl} onEnded={() => setHeard((h) => ({ ...h, [s.id]: true }))} />
+      {heard[s.id] ? (
+        <div className="space-y-3">
+          {mine.map((q) => (
+            <QuestionField key={q.id} q={q} value={answers[q.id] ?? ""} onChange={(v) => setAnswers((a) => ({ ...a, [q.id]: v }))} />
+          ))}
+        </div>
+      ) : (
+        <p className="rounded-xl border border-almi-bg-peach bg-almi-paper px-4 py-3 text-sm text-almi-text-muted">
+          The questions for {s.label.toLowerCase()} appear after you have heard it.
+        </p>
+      )}
+      {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
+      {heard[s.id] && !last && (
+        <button type="button" onClick={() => setAt(at + 1)} className={SUBMIT_BTN}>
+          Go to {sections[at + 1].label.toLowerCase()} →
+        </button>
+      )}
+      {heard[s.id] && last && (
+        <button type="button" onClick={() => submit({ answers })} disabled={submitting} className={SUBMIT_BTN}>
+          {submitting ? "Checking…" : "Submit answers"}
+        </button>
+      )}
+    </div>
+  );
+}
+
+function SectionAudio({ label, audioUrl, onEnded }: { label: string; audioUrl: string; onEnded: () => void }) {
+  const [state, setState] = useState<"idle" | "playing" | "done" | "error">("idle");
+  async function play() {
+    try {
+      const audio = new Audio(audioUrl);
+      audio.onended = () => { setState("done"); onEnded(); };
+      audio.onerror = () => setState("error");
+      await audio.play();
+      setState("playing");
+    } catch {
+      setState("error");
+    }
+  }
+  return (
+    <div className="rounded-xl border border-almi-teal/30 bg-almi-teal/5 px-4 py-4">
+      <div className="flex items-center gap-3">
+        <span aria-hidden className="text-xl">🎧</span>
+        <div className="flex-1">
+          <p className="text-sm font-semibold text-almi-ink">{label}</p>
+          <p className="text-xs text-almi-text-muted">Plays once, like the real test.</p>
+        </div>
+        <button type="button" onClick={play} disabled={state === "playing" || state === "done"} className="inline-flex min-h-[40px] items-center justify-center rounded-full bg-almi-teal px-4 py-2 text-sm font-semibold text-white hover:opacity-90 disabled:opacity-60">
+          {state === "idle" && "Play"}
+          {state === "playing" && "Playing…"}
+          {state === "done" && "Played"}
+          {state === "error" && "Retry"}
+        </button>
+      </div>
+      {state === "error" && <p className="mt-2 text-xs font-medium text-almi-coral-text">Audio could not be played. Press Retry.</p>}
+    </div>
+  );
+}
+
 function ListeningComposer({
   attemptId,
   prompt,
@@ -174,14 +265,22 @@ function ListeningComposer({
   payload: unknown;
   audioUrl: string | null;
 }) {
+  const p = (payload ?? {}) as { questions?: Question[]; sections?: Section[]; note?: string };
+  if (p.sections && p.sections.length > 0) return <SectionedListening attemptId={attemptId} prompt={prompt} sections={p.sections} questions={p.questions ?? []} />;
+  return <PlainListening attemptId={attemptId} prompt={prompt} payload={payload} audioUrl={audioUrl} />;
+}
+
+function PlainListening({ attemptId, prompt, payload, audioUrl }: { attemptId: string; prompt: string; payload: unknown; audioUrl: string | null }) {
   const { submit, submitting, error } = useSubmit(attemptId);
   const [answers, setAnswers] = useState<Record<string, string>>({});
-  const p = (payload ?? {}) as { questions?: Question[] };
+  useTimeUp(() => { if (!submitting) void submit({ answers }); });
+  const p = (payload ?? {}) as { questions?: Question[]; note?: string };
   const questions: Question[] = p.questions ?? [];
 
   return (
     <div className="space-y-5">
       <p className="text-sm text-almi-text">{prompt}</p>
+      {p.note && <p className="rounded-xl border border-almi-accent/40 bg-almi-accent/10 px-4 py-3 text-sm text-almi-ink">{p.note}</p>}
       <ListeningAudio attemptId={attemptId} audioUrl={audioUrl} />
       <div className="space-y-3">
         {questions.map((q) => (
@@ -217,7 +316,55 @@ function ElapsedTimer() {
   );
 }
 
-type ReadingText = { id: string; heading?: string; body: string };
+type ReadingText = { id: string; heading?: string; body: string; kind?: string };
+type RQuestion = Question & { kind?: string; blank?: number; passage?: string };
+
+/** a passage's body, with "| a | b |" lines shown as a table (the diagram) and every [n] mark of a blank shown as its drop-down */
+function PassageBody({ body, blanks, answers, onChange }: { body: string; blanks: RQuestion[]; answers: Record<string, string>; onChange: (id: string, v: string) => void }) {
+  const lines = body.split("\n");
+  const out: ReactNode[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (/^\s*\|/.test(lines[i])) {
+      const rows: string[][] = [];
+      while (i < lines.length && /^\s*\|/.test(lines[i])) { rows.push(lines[i].trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim())); i++; }
+      i--;
+      out.push(
+        <div key={`t${i}`} className="my-2 overflow-x-auto">
+          <table className="w-full border-collapse text-left text-xs">
+            <thead><tr>{rows[0].map((c, k) => <th key={k} className="border border-almi-bg-peach bg-almi-bg px-2 py-1 font-semibold text-almi-ink">{c}</th>)}</tr></thead>
+            <tbody>{rows.slice(1).map((r, j) => <tr key={j}>{r.map((c, k) => <td key={k} className="border border-almi-bg-peach px-2 py-1 align-top">{c}</td>)}</tr>)}</tbody>
+          </table>
+        </div>,
+      );
+      continue;
+    }
+    const parts = lines[i].split(/(\[\d+\])/g);
+    out.push(
+      <span key={`l${i}`}>
+        {parts.map((part, k) => {
+          const m = /^\[(\d+)\]$/.exec(part);
+          const q = m ? blanks.find((b) => b.blank === Number(m[1])) : undefined;
+          if (!q) return <span key={k}>{part}</span>;
+          return (
+            <select
+              key={k}
+              aria-label={`Blank ${q.blank}`}
+              data-blank={q.blank}
+              value={answers[q.id] ?? ""}
+              onChange={(e) => onChange(q.id, e.target.value)}
+              className="mx-1 inline-block max-w-[16rem] rounded-md border border-almi-accent bg-almi-bg px-1.5 py-0.5 text-sm text-almi-ink"
+            >
+              <option value="">{`(${q.blank}) choose…`}</option>
+              {(q.options ?? []).map((o) => <option key={o.id} value={o.id}>{o.text}</option>)}
+            </select>
+          );
+        })}
+        {i < lines.length - 1 ? "\n" : ""}
+      </span>,
+    );
+  }
+  return <div className="mt-1 whitespace-pre-wrap text-sm leading-7 text-almi-text">{out}</div>;
+}
 
 function ReadingComposer({
   attemptId,
@@ -232,10 +379,22 @@ function ReadingComposer({
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const p = (payload ?? {}) as {
     passages?: ReadingText[];
-    questions?: Question[];
+    questions?: RQuestion[];
   };
   const passages = p.passages ?? [];
-  const questions: Question[] = p.questions ?? [];
+  const questions: RQuestion[] = p.questions ?? [];
+  const blanks = questions.filter((q) => q.kind === "blank");
+  const set = (id: string, v: string) => setAnswers((a) => ({ ...a, [id]: v }));
+  useTimeUp(() => { if (!submitting) void submit({ answers }); });
+  // RR-418: a text with blanks (the reply, email or comment) comes AFTER the questions on the first text, as in the real test
+  const withBlanks = passages.filter((t) => blanks.some((b) => b.passage === t.id));
+  const first = passages.filter((t) => !withBlanks.includes(t));
+  const card = (t: ReadingText) => (
+    <div key={t.id} className="rounded-xl border border-almi-bg-peach bg-almi-paper px-4 py-3" data-passage={t.kind ?? t.id}>
+      {t.heading && <p className="text-xs font-bold uppercase tracking-wider text-almi-accent-deep">{t.heading}</p>}
+      <PassageBody body={t.body} blanks={blanks.filter((b) => b.passage === t.id)} answers={answers} onChange={set} />
+    </div>
+  );
 
   return (
     <div className="space-y-5">
@@ -244,29 +403,25 @@ function ReadingComposer({
         <ElapsedTimer />
       </div>
 
-      <div className="space-y-3">
-        {passages.map((t) => (
-          <div key={t.id} className="rounded-xl border border-almi-bg-peach bg-almi-paper px-4 py-3">
-            {t.heading && (
-              <p className="text-xs font-bold uppercase tracking-wider text-almi-accent-deep">
-                {t.heading}
-              </p>
-            )}
-            <p className="mt-1 whitespace-pre-wrap text-sm text-almi-text">{t.body}</p>
-          </div>
-        ))}
-      </div>
+      <div className="space-y-3">{first.map(card)}</div>
 
       <div className="space-y-3">
-        {questions.map((q) => (
+        {questions.filter((q) => q.kind !== "blank").map((q) => (
           <QuestionField
             key={q.id}
             q={q}
             value={answers[q.id] ?? ""}
-            onChange={(v) => setAnswers((a) => ({ ...a, [q.id]: v }))}
+            onChange={(v) => set(q.id, v)}
           />
         ))}
       </div>
+
+      {withBlanks.length > 0 && (
+        <div className="space-y-3">
+          <p className="text-xs font-bold uppercase tracking-wider text-almi-text-muted">Choose the best option for each blank</p>
+          {withBlanks.map(card)}
+        </div>
+      )}
       {error && <p className="text-sm font-medium text-almi-coral-text">{error}</p>}
       <button type="button" onClick={() => submit({ answers })} disabled={submitting} className={SUBMIT_BTN}>
         {submitting ? "Checking…" : "Submit answers"}
@@ -335,8 +490,75 @@ function WritingComposer({ attemptId, prompt, payload }: { attemptId: string; pr
   );
 }
 
+// ---- RR-418 · a countdown that calls onDone once at zero ----
+function useCountdown(seconds: number, running: boolean, onDone: () => void) {
+  const [left, setLeft] = useState(seconds);
+  const done = useRef(false);
+  useEffect(() => {
+    if (!running) return;
+    const t = setInterval(() => setLeft((s) => Math.max(0, s - 1)), 1000);
+    return () => clearInterval(t);
+  }, [running]);
+  useEffect(() => {
+    if (running && left === 0 && !done.current) { done.current = true; onDone(); }
+  }, [left, running, onDone]);
+  return left;
+}
+/** the stored Part 1 / Part 2 texts start mid-sentence ("choose Option A, …"): shown with a capital first letter */
+const capFirst = (s: string) => (s ? s[0].toUpperCase() + s.slice(1) : s);
+const mmss = (s: number) => `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
+
+// ---- RR-418 · Speaking Task 5, screen 1 of 2: choose Option A or B. No recording here. ----
+function ChooseScreen({ text, seconds, onChosen }: { text: string; seconds: number; onChosen: (c: "A" | "B" | null) => void }) {
+  const left = useCountdown(seconds, true, () => onChosen(null));
+  return (
+    <div className="space-y-4" data-screen="choose">
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-xs font-bold uppercase tracking-wider text-almi-accent-deep">Part 1 of 2 · Choose</p>
+        <span className="rounded-full bg-almi-bg-peach px-3 py-1 text-xs font-semibold text-almi-text-muted">⏱ {mmss(left)}</span>
+      </div>
+      <div className="rounded-xl border border-almi-bg-peach bg-almi-paper p-4">
+        <p className="text-sm text-almi-text">{capFirst(text)}</p>
+        <p className="mt-3 text-xs text-almi-text-muted">You do not speak on this screen. Choose one option; the next screen gives you 60 seconds to prepare and 60 seconds to speak.</p>
+      </div>
+      <div className="flex flex-wrap gap-3">
+        <button type="button" onClick={() => onChosen("A")} className={SUBMIT_BTN}>Option A</button>
+        <button type="button" onClick={() => onChosen("B")} className={SUBMIT_BTN}>Option B</button>
+      </div>
+    </div>
+  );
+}
+
+function PrepClock({ seconds }: { seconds: number }) {
+  const [over, setOver] = useState(false);
+  const left = useCountdown(seconds, !over, () => setOver(true));
+  return (
+    <p className="text-xs font-semibold text-almi-text-muted" data-prep={seconds}>
+      {over ? "Preparation time is over — start speaking." : `Prepare: ${mmss(left)}`}
+    </p>
+  );
+}
+
 // ---- Speaking: read the prompt (+ optional image) → record → Whisper → AI grade ----
 function SpeakingComposer({ attemptId, prompt, payload }: { attemptId: string; prompt: string; payload: unknown }) {
+  const p = payload as {
+    taskPrompt?: string;
+    prepSeconds?: number;
+    speakSeconds?: number;
+    imageUrl?: string;
+    imageAlt?: string;
+    chooseSeconds?: number;
+    part1?: string;
+    part2?: string;
+    thirdOption?: string;
+  };
+  const twoScreens = Boolean(p.part1 && p.part2 && p.chooseSeconds);
+  const [choice, setChoice] = useState<"A" | "B" | null | undefined>(undefined);
+  if (twoScreens && choice === undefined) return <ChooseScreen text={p.part1!} seconds={p.chooseSeconds!} onChosen={(c) => setChoice(c)} />;
+  return <SpeakingRecorder attemptId={attemptId} prompt={prompt} payload={p} screen2={twoScreens ? { text: p.part2!, choice: choice ?? null } : null} />;
+}
+
+function SpeakingRecorder({ attemptId, prompt, payload, screen2 }: { attemptId: string; prompt: string; payload: unknown; screen2: { text: string; choice: "A" | "B" | null } | null }) {
   const router = useRouter();
   const p = payload as {
     taskPrompt?: string;
@@ -460,8 +682,17 @@ function SpeakingComposer({ attemptId, prompt, payload }: { attemptId: string; p
   return (
     <div className="space-y-5">
       <p className="text-sm text-almi-text">{prompt}</p>
-      <div className="rounded-xl border border-almi-bg-peach bg-almi-paper p-4">
-        {p.taskPrompt && <p className="text-sm text-almi-text">{p.taskPrompt}</p>}
+      <div className="rounded-xl border border-almi-bg-peach bg-almi-paper p-4" data-screen={screen2 ? "speak" : undefined}>
+        {screen2 ? (
+          <>
+            <p className="text-xs font-bold uppercase tracking-wider text-almi-accent-deep">Part 2 of 2 · Persuade</p>
+            <p className="mt-1 text-sm font-semibold text-almi-ink">{screen2.choice ? `You chose Option ${screen2.choice}.` : "You did not choose in time: pick the option you prefer now."}</p>
+            <p className="mt-2 text-sm text-almi-text">{capFirst(screen2.text)}</p>
+            <div className="mt-2"><PrepClock seconds={p.prepSeconds ?? 60} /></div>
+          </>
+        ) : (
+          p.taskPrompt && <p className="text-sm text-almi-text">{p.taskPrompt}</p>
+        )}
         {p.imageUrl ? (
           <div className="mt-3 overflow-hidden rounded-lg border border-almi-bg-peach">
             <Image
