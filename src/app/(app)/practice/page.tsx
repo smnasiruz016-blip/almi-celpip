@@ -81,6 +81,21 @@ export default async function PracticePage() {
       })}
 
       <Link
+        href="/practice/full-test"
+        className="block rounded-2xl border border-almi-teal/40 bg-almi-teal/5 p-6 shadow-sm transition hover:border-almi-teal"
+      >
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h2 className="text-lg font-semibold text-almi-ink">Full Listening test · Full Reading test</h2>
+            <p className="mt-2 max-w-xl text-sm text-almi-text">
+              The real length and format: 38 questions each, in the official parts, timed. Auto-marked, with a &quot;Why&quot; for every answer.
+            </p>
+          </div>
+          <span className="text-sm font-semibold text-almi-teal-text">Choose a full test →</span>
+        </div>
+      </Link>
+
+      <Link
         href="/practice/mock"
         className="block rounded-2xl border border-almi-coral/40 bg-almi-coral/10 p-6 shadow-sm transition hover:border-almi-coral"
       >

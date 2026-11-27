@@ -119,7 +119,16 @@ const leaks = seedSrc.filter(({ s }) => /factory|celpip-model-answers/.test(s)).
 check("no file in scripts/seed reads the factory data", leaks.length === 0, leaks.join(", "));
 const append = readFileSync(join(seedDir, "append.ts"), "utf8");
 const imports = [...append.matchAll(/from "(\.[^"]+)"/g)].map((m) => m[1]).sort().join(",");
-check("append.ts imports only the five seed files", imports === "./batch1,./listening,./reading,./speaking,./writing", imports);
+// RR-418: + ./rr418-overrides, a GENERATED seed file (it does not read the factory data: the leak check above scans it too) that gives
+// changed items their new content. It may only change items already in the five files — never add one (checked next).
+check("append.ts imports only the five seed files (+ the generated RR-418 overrides)", imports === "./batch1,./listening,./reading,./rr418-overrides,./speaking,./writing", imports);
+{
+  const { RR418_OVERRIDES } = await import("../seed/rr418-overrides");
+  const { SEED_ITEMS } = await import("./existing-seed");
+  const seedKeys = new Set(SEED_ITEMS.map((it) => `${String(it.taskType)}::${it.title}`));
+  const extra = Object.keys(RR418_OVERRIDES).filter((k) => !seedKeys.has(k));
+  check("the RR-418 overrides only change items already in the seed (they add none)", extra.length === 0, extra.slice(0, 3).join("; "));
+}
 const seedKeys = new Set(existing.map((e) => `${e.taskType}::${e.title}`));
 const clash = committed.items.filter((i) => seedKeys.has(`${i.taskType}::${i.title}`)).map((i) => i.title);
 check("no seed title is a factory title (seed:prod adds nothing from this pack)", clash.length === 0, clash.join(", "));

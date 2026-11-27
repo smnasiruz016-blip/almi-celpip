@@ -15,8 +15,8 @@ function NoteText({ text }: { text: string }) {
   );
 }
 
-export function ModelAnswers({ taskType, title }: { taskType: string; title: string }) {
-  const item = modelAnswersFor(taskType, title);
+export function ModelAnswers({ taskType, title, itemId }: { taskType: string; title: string; itemId?: string }) {
+  const item = modelAnswersFor(taskType, title, itemId);
   if (!item) return null;
   return (
     <section className="rounded-2xl border border-almi-bg-peach bg-almi-bg p-5">

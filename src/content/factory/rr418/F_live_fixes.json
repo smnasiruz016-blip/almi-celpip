@@ -1,0 +1,400 @@
+{
+ "schema": 1,
+ "note": "RR-418 CELPIP Part F: live data fixes. Apply each only if the current value equals \"now\".",
+ "timing": [
+  {
+   "id": "cmqwuy2hy001qhze6gzgnmu3o",
+   "title": "Compare & Persuade — Two vacation ideas",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 120
+   },
+   "new": {
+    "chooseSeconds": 60,
+    "prepSeconds": 60,
+    "speakSeconds": 60,
+    "note": "real two-screen format: Part 1 choose (60 s, no speaking), Part 2 prepare 60 s, speak 60 s"
+   }
+  },
+  {
+   "id": "cmqwuy2hy001ihze6v3niow81",
+   "title": "Compare & Persuade — Two birthday gift ideas",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 120
+   },
+   "new": {
+    "chooseSeconds": 60,
+    "prepSeconds": 60,
+    "speakSeconds": 60,
+    "note": "real two-screen format: Part 1 choose (60 s, no speaking), Part 2 prepare 60 s, speak 60 s"
+   }
+  },
+  {
+   "id": "cmr2p0o4p0034hsbzgs49yuzs",
+   "title": "Compare and Persuade — Gym membership or home workout setup",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 120
+   },
+   "new": {
+    "chooseSeconds": 60,
+    "prepSeconds": 60,
+    "speakSeconds": 60,
+    "note": "real two-screen format: Part 1 choose (60 s, no speaking), Part 2 prepare 60 s, speak 60 s"
+   }
+  },
+  {
+   "id": "cmr2p0o4p0033hsbzjdirjdoy",
+   "title": "Compare and Persuade — Family road trip or flying for vacation",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 120
+   },
+   "new": {
+    "chooseSeconds": 60,
+    "prepSeconds": 60,
+    "speakSeconds": 60,
+    "note": "real two-screen format: Part 1 choose (60 s, no speaking), Part 2 prepare 60 s, speak 60 s"
+   }
+  },
+  {
+   "id": "cmr2p0o4p0035hsbzuei87v9b",
+   "title": "Compare and Persuade — Hosting a potluck or dining out for a celebration",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 120
+   },
+   "new": {
+    "chooseSeconds": 60,
+    "prepSeconds": 60,
+    "speakSeconds": 60,
+    "note": "real two-screen format: Part 1 choose (60 s, no speaking), Part 2 prepare 60 s, speak 60 s"
+   }
+  },
+  {
+   "id": "cmr2p0o4p0032hsbzm3myqkj1",
+   "title": "Compare and Persuade — House in the suburbs or condo downtown",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 120
+   },
+   "new": {
+    "chooseSeconds": 60,
+    "prepSeconds": 60,
+    "speakSeconds": 60,
+    "note": "real two-screen format: Part 1 choose (60 s, no speaking), Part 2 prepare 60 s, speak 60 s"
+   }
+  },
+  {
+   "id": "cmqwuy2hy001rhze6karvp03x",
+   "title": "Difficult Situation — A package sent to the wrong address",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 60,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmqwuy2hy001jhze6ugjtpegn",
+   "title": "Difficult Situation — A double-booked appointment",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 60,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p0039hsbzygo2ste2",
+   "title": "Difficult Situation — A manager assigning you a coworker's mistake",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 60,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p0036hsbzv5il0rxo",
+   "title": "Difficult Situation — A roommate who never cleans up",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 60,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p0037hsbzfpjm6ruq",
+   "title": "Difficult Situation — A friend who is always late",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 60,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p0038hsbzc94o4md2",
+   "title": "Difficult Situation — A returned item the store won't refund",
+   "now": {
+    "prepSeconds": 60,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 60,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmqwuy2hy001nhze6xg5jed99",
+   "title": "Personal Experience — A time you learned something new",
+   "now": {
+    "prepSeconds": 30,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 30,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmqwuy2hy001fhze6rkj4hpgw",
+   "title": "Personal Experience — A time you helped someone",
+   "now": {
+    "prepSeconds": 30,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 30,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p002rhsbzymycdb8n",
+   "title": "Personal Experience — A memorable meal you shared",
+   "now": {
+    "prepSeconds": 30,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 30,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p002qhsbzp5zss27b",
+   "title": "Personal Experience — A time you helped a stranger",
+   "now": {
+    "prepSeconds": 30,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 30,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p002shsbzneswwuto",
+   "title": "Personal Experience — A time you learned a new skill",
+   "now": {
+    "prepSeconds": 30,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 30,
+    "speakSeconds": 60
+   }
+  },
+  {
+   "id": "cmr2p0o4p002thsbzulo7y60q",
+   "title": "Personal Experience — A time a plan did not work out",
+   "now": {
+    "prepSeconds": 30,
+    "speakSeconds": 90
+   },
+   "new": {
+    "prepSeconds": 30,
+    "speakSeconds": 60
+   }
+  }
+ ],
+ "spelling": [
+  {
+   "id": "cmqwuy2hy0012hze6cjsr7vr4",
+   "title": "Email — Thanking a neighbour for their help",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmqwuy2hy000yhze66covcitu",
+   "title": "Email — A problem with an online order",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmqwuy2hy000zhze6hz02veqv",
+   "title": "Email — Requesting time off from a manager",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmqwuy2hy0016hze64b35dstf",
+   "title": "Email — Requesting a safety change from the city",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmqwuy2hy0013hze6pvx2n5vo",
+   "title": "Email — Rescheduling plans with a friend",
+   "now": "Apologise",
+   "new": "Apologize"
+  },
+  {
+   "id": "cmqwuy2hy0013hze6pvx2n5vo",
+   "title": "Email — Rescheduling plans with a friend",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmqwuy2hy0014hze6rh9vmltc",
+   "title": "Email — A broken heater in your apartment",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmqwuy2hy0017hze6s3i8vyvz",
+   "title": "Email — Responding to extra responsibilities at work",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmqwuy2hy0015hze6quldlfaj",
+   "title": "Email — Asking about a community class",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001qhsbz0tyzq245",
+   "title": "Email — Requesting a refund from a moving company",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o0025hsbzvwy7funq",
+   "title": "Email — Reporting a pothole to the city",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o0024hsbz57tng747",
+   "title": "Email — Recommending a former employee for a job",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o0023hsbzer8dd9mf",
+   "title": "Email — Cancelling a gym membership",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o0022hsbzbdjyi98o",
+   "title": "Email — Disputing an incorrect utility bill",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o0021hsbzbevs492g",
+   "title": "Email — Asking a friend to help you move apartments",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o0020hsbzdkqvmhpi",
+   "title": "Email — Suggesting an improvement to your workplace",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001zhsbzxujgwz65",
+   "title": "Email — Requesting a warranty repair for an appliance",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001yhsbzsbu44ll5",
+   "title": "Email — Declining a project invitation from a coworker",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001xhsbza1o1qc0y",
+   "title": "Email — Asking the community centre about swim lessons",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001thsbza4z8h2n6",
+   "title": "Email — Requesting a schedule change from your manager",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001shsbzrzk7fk4b",
+   "title": "Email — Inviting a neighbour to a community cleanup",
+   "now": "organising",
+   "new": "organizing"
+  },
+  {
+   "id": "cmr2p0o4o001shsbzrzk7fk4b",
+   "title": "Email — Inviting a neighbour to a community cleanup",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001rhsbz5qyrh0r3",
+   "title": "Email — Asking your landlord to fix the building heating",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001whsbzm2jelrd0",
+   "title": "Email — Reporting a damaged item to an online retailer",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001vhsbza6g61ojm",
+   "title": "Email — Thanking a colleague who covered your shifts",
+   "now": "organise",
+   "new": "organize"
+  },
+  {
+   "id": "cmr2p0o4o001uhsbzjzknohid",
+   "title": "Email — Complaining about noisy construction next door",
+   "now": "organise",
+   "new": "organize"
+  }
+ ],
+ "reading_stem": [
+  {
+   "id": "cmqwuy2hx000phze6cc07l0iq",
+   "q": "q1",
+   "now": "Priya must reach downtown before 9:00 am on a weekday. Which departure should she take?",
+   "new": "Priya must reach downtown before 9:00 am on a weekday. What is the latest departure she can take?"
+  }
+ ]
+}

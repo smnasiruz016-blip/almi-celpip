@@ -16,3 +16,6 @@ dist/
 # Locally rendered audio proofs — never committed.
 scripts/_audio-out/
 scripts/_tmp/
+
+# RR-418 local work files (jobs, render logs, demo database)
+scripts/factory/rr418/_work/

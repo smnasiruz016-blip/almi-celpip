@@ -1,0 +1,1155 @@
+{
+ "schema": 1,
+ "note": "RR-418 Part D audio: rendered with the free Edge voices from the frozen DE scripts; listen check with offline faster-whisper (scripts/factory/rr418/audio.ts).",
+ "clips": {
+  "L1-P1-S1": {
+   "key": "L1-P1-S1",
+   "url": "/audio/rr418/L1-P1-S1.mp3",
+   "bytes": 441740,
+   "sha256": "8c940d24e431011cd9ebd8507db88116185b04f080f46f5197c46849d22d0713",
+   "durationSec": 73.52,
+   "scriptSha": "17495cbf44972c271732ada375f0354baf83091dc0461e87866dc568b61a6c9d",
+   "voices": {
+    "Nadia": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Greg": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     8,
+     8
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L1-P1-S2": {
+   "key": "L1-P1-S2",
+   "url": "/audio/rr418/L1-P1-S2.mp3",
+   "bytes": 349292,
+   "sha256": "2dc9f6f489e363e25a8f7785667602198d72e24e00c70ae13c78fb99b31390fc",
+   "durationSec": 58.13,
+   "scriptSha": "2bcedda2103fa28ab79e43a236251f969a958c58b5af2abc624fa44fd6de4bb5",
+   "voices": {
+    "Greg": {
+     "voice": "en-CA-LiamNeural"
+    },
+    "Nadia": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L1-P1-S3": {
+   "key": "L1-P1-S3",
+   "url": "/audio/rr418/L1-P1-S3.mp3",
+   "bytes": 295292,
+   "sha256": "4454e0c67c16ed9785b2296024bac6ed88de530ab8dc3a2a9014c35f8a2b3129",
+   "durationSec": 49.12,
+   "scriptSha": "c39c0ddbe930842c54a64051489379e36e3d8b2f50eee30753fd8f686378fe03",
+   "voices": {
+    "Nadia": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Greg": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     2,
+     2
+    ],
+    "misses": []
+   }
+  },
+  "L1-P2": {
+   "key": "L1-P2",
+   "url": "/audio/rr418/L1-P2.mp3",
+   "bytes": 473132,
+   "sha256": "04f135677a1e87a93af376d5a7d7da096a7b861bdebc620c4cc7f4955e157315",
+   "durationSec": 78.76,
+   "scriptSha": "7d2b761554f5062450054246afbcaee0dcb094448a95f69f181bed98a3aa57ad",
+   "voices": {
+    "Tom": {
+     "voice": "en-CA-LiamNeural"
+    },
+    "Leila": {
+     "voice": "en-US-JennyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     11,
+     11
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L1-P3": {
+   "key": "L1-P3",
+   "url": "/audio/rr418/L1-P3.mp3",
+   "bytes": 635132,
+   "sha256": "4f59957f238299473e12c8db2108b9706373c6cf082e5a5ef738d2b69715d7eb",
+   "durationSec": 105.76,
+   "scriptSha": "18461741f9e616e9ec488b959dc3e7c1d357ce359582cd3e59263cc3f3f9d3d5",
+   "voices": {
+    "Caller": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Officer": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     14,
+     14
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L1-P4": {
+   "key": "L1-P4",
+   "url": "/audio/rr418/L1-P4.mp3",
+   "bytes": 451244,
+   "sha256": "7bd259b3456ac3112588978b60c14bde675d28e9da32624e845b808d4e08e9ac",
+   "durationSec": 75.12,
+   "scriptSha": "f041ba1f251b453c20252b3eb1f2ffe798d9e8df5b8dcdeafc34050170411c74",
+   "voices": {
+    "Reporter": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L1-P5": {
+   "key": "L1-P5",
+   "url": "/audio/rr418/L1-P5.mp3",
+   "bytes": 800012,
+   "sha256": "14075babb9dc7d78e0f4c15b7a2886dce917d9730aa646db1c9754a7763e8fdf",
+   "durationSec": 133.25,
+   "scriptSha": "6935bbe7d30118c4ce8c4a8cf095aa8d0fbce1a98209ff75e014869d10c0bb22",
+   "voices": {
+    "Ms. Dhillon": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Paul": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Hiroko": {
+     "voice": "en-US-JennyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     13,
+     13
+    ],
+    "facts": [
+     8,
+     8
+    ],
+    "misses": []
+   }
+  },
+  "L1-P6": {
+   "key": "L1-P6",
+   "url": "/audio/rr418/L1-P6.mp3",
+   "bytes": 604892,
+   "sha256": "6caa23aabd0020a7650df064aee9c4b9e02396c5642559bcd94efc504efe2d60",
+   "durationSec": 100.73,
+   "scriptSha": "53f1fbd51cc8833b4936179848c57b8825f53b6779e9965d54eacf24c6b7cfd5",
+   "voices": {
+    "Speaker": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L2-P1-S1": {
+   "key": "L2-P1-S1",
+   "url": "/audio/rr418/L2-P1-S1.mp3",
+   "bytes": 370892,
+   "sha256": "0d468622d78be092778822e80da06fa59115ed33c657bda005dcec4b39febe1b",
+   "durationSec": 61.72,
+   "scriptSha": "df5f75bb106b26609bbab3872038d2b63d2f6fd25a85d9e21bb4491335e2428a",
+   "voices": {
+    "Arjun": {
+     "voice": "en-CA-LiamNeural"
+    },
+    "Agent": {
+     "voice": "en-US-JennyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     7,
+     7
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L2-P1-S2": {
+   "key": "L2-P1-S2",
+   "url": "/audio/rr418/L2-P1-S2.mp3",
+   "bytes": 328268,
+   "sha256": "b9d79c0bec07ce81ab62f0095fd730a00cad6d18106159f5f9a11bbf4aba3f35",
+   "durationSec": 54.62,
+   "scriptSha": "359db817c6f0f0f0f7fff221d7d26e553cec682134d573c88fb0a27bc5d21752",
+   "voices": {
+    "Agent": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Arjun": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L2-P1-S3": {
+   "key": "L2-P1-S3",
+   "url": "/audio/rr418/L2-P1-S3.mp3",
+   "bytes": 253100,
+   "sha256": "d335f04b078af2e1cb3ec20788dcab1bb24f1e4e57c7b98833259daf9b8b7a3e",
+   "durationSec": 42.1,
+   "scriptSha": "c4c24f3a1d0cd2c01849dc00ef8871ae8d64ae22b3f4fca12fb608d36b2eff46",
+   "voices": {
+    "Arjun": {
+     "voice": "en-CA-LiamNeural"
+    },
+    "Agent": {
+     "voice": "en-US-JennyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     2,
+     2
+    ],
+    "misses": []
+   }
+  },
+  "L2-P2": {
+   "key": "L2-P2",
+   "url": "/audio/rr418/L2-P2.mp3",
+   "bytes": 399404,
+   "sha256": "bcac1d9214fe7513ec8e2fe10b0684637f47108d7e466d1a5919cf29bb0561c6",
+   "durationSec": 66.47,
+   "scriptSha": "8559d0a32f70153de3a720857d5babb409f3ee05f27447c3349657dd32077e63",
+   "voices": {
+    "Sara": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Mike": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     10,
+     10
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L2-P3": {
+   "key": "L2-P3",
+   "url": "/audio/rr418/L2-P3.mp3",
+   "bytes": 480476,
+   "sha256": "8b46a24f1bdc40fac67600d60684a6856ad97fb1e733acfc4771f6ceff46862f",
+   "durationSec": 79.97,
+   "scriptSha": "7482af9ccdafd430e080ab72b977274c1d2ade3172152206aa7730614d1bd556",
+   "voices": {
+    "Resident": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Clerk": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     12,
+     12
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L2-P4": {
+   "key": "L2-P4",
+   "url": "/audio/rr418/L2-P4.mp3",
+   "bytes": 356924,
+   "sha256": "30a40ef92c270097e71a6de50f98714f76070010055ad76b0300a1b35caef5ac",
+   "durationSec": 59.4,
+   "scriptSha": "88f8a195bc1f6997be64e591381523f1ca2acd7fe35d5e73b13edcc24ae05f0d",
+   "voices": {
+    "News reader": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L2-P5": {
+   "key": "L2-P5",
+   "url": "/audio/rr418/L2-P5.mp3",
+   "bytes": 733052,
+   "sha256": "f4595e85d728e1ac67ec55ed1c7486e2158768da336d78dd3bfe3fa780816c61",
+   "durationSec": 122.08,
+   "scriptSha": "928726d092fffa7e761038958b49486d0c2554b0511aab8d3608952c1ba8eb00",
+   "voices": {
+    "Aunt Rosa": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Daniel": {
+     "voice": "en-CA-LiamNeural"
+    },
+    "Priya": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     14,
+     14
+    ],
+    "facts": [
+     8,
+     8
+    ],
+    "misses": []
+   }
+  },
+  "L2-P6": {
+   "key": "L2-P6",
+   "url": "/audio/rr418/L2-P6.mp3",
+   "bytes": 624620,
+   "sha256": "ca2b36242da6ee6e5938c30e4da9f658eb9fe89352855e14ac253f8f51855115",
+   "durationSec": 104.01,
+   "scriptSha": "df01a566d1d3e63b6cf31198cdc46df8b47d8ebde3778cc5118805870c2837af",
+   "voices": {
+    "Speaker": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L3-P1-S1": {
+   "key": "L3-P1-S1",
+   "url": "/audio/rr418/L3-P1-S1.mp3",
+   "bytes": 368444,
+   "sha256": "6db609937d74b3c1ca9b70ec5709f67a5c93f4cd4bfd225505d6511a5e899a33",
+   "durationSec": 61.31,
+   "scriptSha": "9e3855dad12564f20e2e913486d18820160f7a4bd9b5f1c42bdc8a6bb2cf1769",
+   "voices": {
+    "Lucia": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Mark": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L3-P1-S2": {
+   "key": "L3-P1-S2",
+   "url": "/audio/rr418/L3-P1-S2.mp3",
+   "bytes": 319196,
+   "sha256": "7a02f607db48e2d75627079b712a01bed2c17cdcf35116db9531282f590beb65",
+   "durationSec": 53.11,
+   "scriptSha": "4d5a5f8c5c4d4962c801f14bdaab4dd917e5e55759b54658da2df15de2869c51",
+   "voices": {
+    "Lucia": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Mark": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L3-P1-S3": {
+   "key": "L3-P1-S3",
+   "url": "/audio/rr418/L3-P1-S3.mp3",
+   "bytes": 253964,
+   "sha256": "7218db4b88a3e0444b96b2f884dd829fdcfaae1e55e4aeebd3a682371cd64d3f",
+   "durationSec": 42.24,
+   "scriptSha": "dc38d5878cdd020723ff7e8c30d48b209c6282a4a8e7ada68ecca094e99f263f",
+   "voices": {
+    "Lucia": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Mark": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     2,
+     2
+    ],
+    "misses": []
+   }
+  },
+  "L3-P2": {
+   "key": "L3-P2",
+   "url": "/audio/rr418/L3-P2.mp3",
+   "bytes": 446924,
+   "sha256": "8fde1d71c9ce13a9a9bda37c3d0d8b02743c06ccc21f8e9830f39a0ba5eafc47",
+   "durationSec": 74.39,
+   "scriptSha": "b343f969d6314eb2e1f0214409f01d17fbc7b76910f646a33e2a450447e53fbe",
+   "voices": {
+    "Ines": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Jamal": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     10,
+     10
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L3-P3": {
+   "key": "L3-P3",
+   "url": "/audio/rr418/L3-P3.mp3",
+   "bytes": 614828,
+   "sha256": "d920ceffa060aa7475eee1e25884dab8fe19f8e48dccd3dfdcb4767cbbb33d02",
+   "durationSec": 102.37,
+   "scriptSha": "fa3df37d25617970a333a8652a31fe1550d43aafa9d481c218e42a1b5c290d13",
+   "voices": {
+    "Resident": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Coordinator": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     12,
+     12
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L3-P4": {
+   "key": "L3-P4",
+   "url": "/audio/rr418/L3-P4.mp3",
+   "bytes": 375068,
+   "sha256": "2d97c3e6f8f0acfd1dbb7ea6dd0545b7fcea577efd613dbc3099862f598827af",
+   "durationSec": 62.42,
+   "scriptSha": "c583d65775feb2b312e020b574a1269067cdaec4af1566ab8f2b13f0082b39d1",
+   "voices": {
+    "News reader": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L3-P5": {
+   "key": "L3-P5",
+   "url": "/audio/rr418/L3-P5.mp3",
+   "bytes": 724844,
+   "sha256": "9c5e0f5df921938b1bc343b4b1a0003d9a289af9458c9676074e6435ffe4d335",
+   "durationSec": 120.72,
+   "scriptSha": "cf9145dc60a5f506642a525d437113578155795156020e07840636ce10b17e69",
+   "voices": {
+    "Carmen": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Ben": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Aisha": {
+     "voice": "en-CA-ClaraNeural",
+     "pitch": "-12Hz"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     13,
+     13
+    ],
+    "facts": [
+     8,
+     8
+    ],
+    "misses": []
+   }
+  },
+  "L3-P6": {
+   "key": "L3-P6",
+   "url": "/audio/rr418/L3-P6.mp3",
+   "bytes": 602732,
+   "sha256": "057f56eceaa256b6a4bd081fdc6e0f31ad88df001033daad76e6b40e716f746e",
+   "durationSec": 100.37,
+   "scriptSha": "18f7bfa8a137818435b764d986ef4490f41992300b73f7c4cc4110568a5649e5",
+   "voices": {
+    "Speaker": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L4-P1-S1": {
+   "key": "L4-P1-S1",
+   "url": "/audio/rr418/L4-P1-S1.mp3",
+   "bytes": 382268,
+   "sha256": "4fae813c368d06ea85cfa2f55fb7edb4ac0f03fc4c40a3d12fb720ee06b9e252",
+   "durationSec": 63.62,
+   "scriptSha": "3cce7e829e98a852e3f71409bcd68bb55c9f5b90a71de701eeb85566047cb37c",
+   "voices": {
+    "Kenji": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Diane": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L4-P1-S2": {
+   "key": "L4-P1-S2",
+   "url": "/audio/rr418/L4-P1-S2.mp3",
+   "bytes": 314012,
+   "sha256": "e3516b1d7b9552abe6c8892c6ba6feb7ce1b49e5169d805cdd05b0476c1c1854",
+   "durationSec": 52.24,
+   "scriptSha": "1376f789b86d151d098a78a8b834e73ccec78ec8c95846ef984c7484023fc577",
+   "voices": {
+    "Diane": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Kenji": {
+     "voice": "en-US-GuyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     7,
+     7
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L4-P1-S3": {
+   "key": "L4-P1-S3",
+   "url": "/audio/rr418/L4-P1-S3.mp3",
+   "bytes": 240428,
+   "sha256": "3401011e20c8168f836c3a37bb0df08344a7c07f161b332ff2f1f6cc38d065a1",
+   "durationSec": 39.98,
+   "scriptSha": "9eba6b277ecd9427bb53ba7c47a1738b0f56c65fa3403dd7283a3a85808ff8ef",
+   "voices": {
+    "Kenji": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Diane": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": false,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     1,
+     2
+    ],
+    "misses": [
+     "fact of L4-P1-S3 question 1: 6/10 words"
+    ]
+   }
+  },
+  "L4-P2": {
+   "key": "L4-P2",
+   "url": "/audio/rr418/L4-P2.mp3",
+   "bytes": 429788,
+   "sha256": "08bad2dc1668bbaaaa08b24029841d27e16d14bdc13dd7bb0668d186b416feb5",
+   "durationSec": 71.54,
+   "scriptSha": "df1ff4bfe22df2f0b06a7522160a886929a5dce81126747006d27cde92cd9e0b",
+   "voices": {
+    "Olivia": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Raj": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     10,
+     10
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L4-P3": {
+   "key": "L4-P3",
+   "url": "/audio/rr418/L4-P3.mp3",
+   "bytes": 484364,
+   "sha256": "f34c8c115613579f36ee92ce10c27eeff40584094b9693cde8f118ab1377d97d",
+   "durationSec": 80.63,
+   "scriptSha": "4b0f57c93534226ffac669fb446466e29738bf2399e113c8d05bdc0e126ce036",
+   "voices": {
+    "Newcomer": {
+     "voice": "en-US-JennyNeural"
+    },
+    "Librarian": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     10,
+     10
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L4-P4": {
+   "key": "L4-P4",
+   "url": "/audio/rr418/L4-P4.mp3",
+   "bytes": 378668,
+   "sha256": "713f19b4b7691e6130f49086935b76f3d3ba1a8528676b555b6689cf00273945",
+   "durationSec": 63.02,
+   "scriptSha": "488cfcd108087b19e611cf229f1e5c839d31c6e8df068e3d25a5f2f0ef4ea58c",
+   "voices": {
+    "News reader": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L4-P5": {
+   "key": "L4-P5",
+   "url": "/audio/rr418/L4-P5.mp3",
+   "bytes": 709868,
+   "sha256": "04bc70635480b491f2b33c9c42751520dce118c3af0b32073f21b633c59236fb",
+   "durationSec": 118.22,
+   "scriptSha": "0b39b035223f32c5c05b0a0afa2ccff7e2c94a58729314da57bd8a86096470de",
+   "voices": {
+    "Natasha": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Colin": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Mei": {
+     "voice": "en-CA-ClaraNeural",
+     "pitch": "-12Hz"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     13,
+     13
+    ],
+    "facts": [
+     8,
+     8
+    ],
+    "misses": []
+   }
+  },
+  "L4-P6": {
+   "key": "L4-P6",
+   "url": "/audio/rr418/L4-P6.mp3",
+   "bytes": 632972,
+   "sha256": "d3ecc460f2e86a5a17c0f8d227a5a069f1fcc666e9d36760c1416cade030a172",
+   "durationSec": 105.41,
+   "scriptSha": "a13a40a028688bf9f102f367254466aed912a6840807908b89d25810c058baf5",
+   "voices": {
+    "Speaker": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L5-P1-S1": {
+   "key": "L5-P1-S1",
+   "url": "/audio/rr418/L5-P1-S1.mp3",
+   "bytes": 394796,
+   "sha256": "dbb55e1ce22a5ad08e42f4ac2889dd93fd15171282b95b9a5a351e16962beff1",
+   "durationSec": 65.69,
+   "scriptSha": "03b625b1feb5fd9d804eb1a82b39810ab1b474b5082e82925cda2d919a857514",
+   "voices": {
+    "Fatima": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Eric": {
+     "voice": "en-US-GuyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     8,
+     8
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L5-P1-S2": {
+   "key": "L5-P1-S2",
+   "url": "/audio/rr418/L5-P1-S2.mp3",
+   "bytes": 338348,
+   "sha256": "245a7a99d8dfcc96f4eeada38402f6f9a0bd9ddc5a9a3141c677f5a03d2c14bc",
+   "durationSec": 56.29,
+   "scriptSha": "7e18b06f6f3368f20054f2e344b1f96ae125bdf90aa6c4868138717f09fb878a",
+   "voices": {
+    "Eric": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Fatima": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     7,
+     7
+    ],
+    "facts": [
+     3,
+     3
+    ],
+    "misses": []
+   }
+  },
+  "L5-P1-S3": {
+   "key": "L5-P1-S3",
+   "url": "/audio/rr418/L5-P1-S3.mp3",
+   "bytes": 263756,
+   "sha256": "5d976248cfdb46d18b69f2e307416c88e3225677c85913e57214ae79422c9405",
+   "durationSec": 43.87,
+   "scriptSha": "1ff976f03bb91f6516e43557203c930d6311aee04812420425fc818bac6335a5",
+   "voices": {
+    "Eric": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Fatima": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     2,
+     2
+    ],
+    "misses": []
+   }
+  },
+  "L5-P2": {
+   "key": "L5-P2",
+   "url": "/audio/rr418/L5-P2.mp3",
+   "bytes": 447932,
+   "sha256": "63568a65a0a88cd4bc1b19baca36a043d96d030e398e2f6cf280fc4dd0c754b4",
+   "durationSec": 74.56,
+   "scriptSha": "be8bf6ec8ea49fc5d8eb53fa7848a5257fbfedef5410d640090714f542ea3842",
+   "voices": {
+    "Hana": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Victor": {
+     "voice": "en-US-GuyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     10,
+     10
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L5-P3": {
+   "key": "L5-P3",
+   "url": "/audio/rr418/L5-P3.mp3",
+   "bytes": 587900,
+   "sha256": "769860b2ac1beaa8d97cdb6a270caf17f891cab32b36447b8a9f13ca9c7f8f5e",
+   "durationSec": 97.88,
+   "scriptSha": "38a612101d681af125ce6644496762268274aa01d4921cc02b2215dae7afd7c5",
+   "voices": {
+    "Customer": {
+     "voice": "en-US-GuyNeural"
+    },
+    "Advisor": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     12,
+     12
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  },
+  "L5-P4": {
+   "key": "L5-P4",
+   "url": "/audio/rr418/L5-P4.mp3",
+   "bytes": 425900,
+   "sha256": "47878eac9ab0da493a77db124627f99346893270d91833933c201404aff6b1bf",
+   "durationSec": 70.9,
+   "scriptSha": "ff65cdd4f3e9a11996b81ee63c292350e523f75406f48e95d10af5986cc62f28",
+   "voices": {
+    "News reader": {
+     "voice": "en-CA-ClaraNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     5,
+     5
+    ],
+    "facts": [
+     5,
+     5
+    ],
+    "misses": []
+   }
+  },
+  "L5-P5": {
+   "key": "L5-P5",
+   "url": "/audio/rr418/L5-P5.mp3",
+   "bytes": 668828,
+   "sha256": "efbce1a34bd45ad72e49254e82ad475b0ec92009f7ad3af974869a439e237c11",
+   "durationSec": 111.37,
+   "scriptSha": "3ca79545f638d8de4f4cb3aad47c7b845ec82eaf71941f4151227ab9c64f6177",
+   "voices": {
+    "Leah": {
+     "voice": "en-CA-ClaraNeural"
+    },
+    "Omar": {
+     "voice": "en-CA-LiamNeural"
+    },
+    "Grace": {
+     "voice": "en-US-JennyNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     16,
+     16
+    ],
+    "facts": [
+     8,
+     8
+    ],
+    "misses": []
+   }
+  },
+  "L5-P6": {
+   "key": "L5-P6",
+   "url": "/audio/rr418/L5-P6.mp3",
+   "bytes": 559244,
+   "sha256": "b53e47c1602712165b361b3fe391a360b1e578839ee67ea1624890c584988007",
+   "durationSec": 93.11,
+   "scriptSha": "6ee41668b08d7bbe45b86843f4408d5ca07882b98e01f013c4aabfea9f048d32",
+   "voices": {
+    "Speaker": {
+     "voice": "en-CA-LiamNeural"
+    }
+   },
+   "listen": {
+    "ok": true,
+    "model": "faster-whisper small",
+    "lines": [
+     6,
+     6
+    ],
+    "facts": [
+     6,
+     6
+    ],
+    "misses": []
+   }
+  }
+ }
+}

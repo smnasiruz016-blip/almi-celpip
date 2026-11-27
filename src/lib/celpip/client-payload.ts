@@ -36,18 +36,42 @@ export type ComposerClientProps = {
 // Objective items (Listening, Reading) keep their questions but lose the `answer`
 // field; Listening audio scripts never go to the client. Writing/Speaking payloads
 // carry no objective answer key.
+// RR-418 · still an allowlist. New fields that may cross: a question's kind, blank number, passage, section; a passage's kind; Listening
+// Part 1's sections (label + clip URL), the Part 5 video note and the full-test position. The explanation ("Why") is like the key: it is
+// shown only after submit, from the server-rendered review, and never crosses here.
+type Q = { id: string; stem: string; options?: unknown[]; kind?: unknown; blank?: unknown; passage?: unknown; section?: unknown };
+const pick = (q: Q) => ({
+  id: q.id, stem: q.stem, options: q.options,
+  ...(typeof q.kind === "string" ? { kind: q.kind } : {}),
+  ...(typeof q.blank === "number" ? { blank: q.blank } : {}),
+  ...(typeof q.passage === "string" ? { passage: q.passage } : {}),
+  ...(typeof q.section === "string" ? { section: q.section } : {}),
+});
+const fullTestOf = (p: Record<string, unknown>) => {
+  const f = p.fullTest as { test?: unknown; part?: unknown; parts?: unknown; title?: unknown } | undefined;
+  return f && typeof f.test === "string" ? { fullTest: { test: f.test, part: Number(f.part), parts: Number(f.parts), title: String(f.title ?? "") } } : {};
+};
+
 export function sanitizePayload(taskType: CelpipTaskType, payload: unknown): unknown {
   const p = (payload ?? {}) as Record<string, unknown>;
   if (taskType.startsWith("LISTENING")) {
-    const questions = (p.questions as { id: string; stem: string; options: unknown[] }[] | undefined) ?? [];
-    // audioScript + answer stay server-side.
-    return { questions: questions.map((q) => ({ id: q.id, stem: q.stem, options: q.options })) };
+    const questions = (p.questions as Q[] | undefined) ?? [];
+    const sections = (p.sections as { id: string; label: string; audioUrl: string; audioDurationSec?: number | null }[] | undefined) ?? null;
+    // audioScript + answer + explanation stay server-side.
+    return {
+      questions: questions.map(pick),
+      ...(sections ? { sections: sections.map((s) => ({ id: s.id, label: s.label, audioUrl: s.audioUrl, audioDurationSec: s.audioDurationSec ?? null })) } : {}),
+      ...(typeof p.note === "string" ? { note: p.note } : {}),
+      ...fullTestOf(p),
+    };
   }
   if (taskType.startsWith("READING")) {
-    const questions = (p.questions as { id: string; stem: string; options?: unknown[] }[] | undefined) ?? [];
+    const questions = (p.questions as Q[] | undefined) ?? [];
+    const passages = (p.passages as { id: string; heading?: string; body: string; kind?: string }[] | undefined) ?? [];
     return {
-      passages: p.passages,
-      questions: questions.map((q) => ({ id: q.id, stem: q.stem, options: q.options })),
+      passages: passages.map((t) => ({ id: t.id, body: t.body, ...(t.heading ? { heading: t.heading } : {}), ...(t.kind ? { kind: t.kind } : {}) })),
+      questions: questions.map(pick),
+      ...fullTestOf(p),
     };
   }
   // Writing (Email/Survey) and Speaking carry no objective answer key.
