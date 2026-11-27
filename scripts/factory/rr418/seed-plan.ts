@@ -24,7 +24,7 @@ export function rr418Inputs(): { inp: Inputs; exportRows: LiveRow[] } {
   const X = json<{ items: LiveRow[] }>("scripts/factory/fixtures/rr418/DB_CELPIP_EXPORT.json");
   const promptNow: PromptNow = Object.fromEntries(X.items.map((r) => [r.id, { taskType: r.taskType, title: r.title, taskPrompt: String((r.payload as { taskPrompt?: string } | null)?.taskPrompt ?? "") }]));
   const dir = "src/content/factory/rr418";
-  return { inp: { ab: json(`${dir}/AB_model_answers.json`), c: json(`${dir}/C_live_LR_fixes.json`), f: json(`${dir}/F_live_fixes.json`), promptNow }, exportRows: X.items };
+  return { inp: { ab: json(`${dir}/AB_model_answers.json`), c: json(`${dir}/C_live_LR_fixes.json`), f: json(`${dir}/F_live_fixes.json`), promptNow, add: json(`${dir}/addendum_v1.json`) }, exportRows: X.items };
 }
 
 /** the seed source with RR-418 applied, and what happened to each change */

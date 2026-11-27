@@ -751,10 +751,10 @@
   "L4-P1-S3": {
    "key": "L4-P1-S3",
    "url": "/audio/rr418/L4-P1-S3.mp3",
-   "bytes": 240428,
-   "sha256": "3401011e20c8168f836c3a37bb0df08344a7c07f161b332ff2f1f6cc38d065a1",
-   "durationSec": 39.98,
-   "scriptSha": "9eba6b277ecd9427bb53ba7c47a1738b0f56c65fa3403dd7283a3a85808ff8ef",
+   "bytes": 244604,
+   "sha256": "5dd3079d933722367d8a5c6c43d53966172c2fa2f3606c9828162cdeb9faa218",
+   "durationSec": 40.68,
+   "scriptSha": "70cb3290b749847101755f1bfcd6d18178379dfaf0599831e776ce954c8658cc",
    "voices": {
     "Kenji": {
      "voice": "en-US-GuyNeural"
@@ -764,19 +764,17 @@
     }
    },
    "listen": {
-    "ok": false,
+    "ok": true,
     "model": "faster-whisper small",
     "lines": [
      5,
      5
     ],
     "facts": [
-     1,
+     2,
      2
     ],
-    "misses": [
-     "fact of L4-P1-S3 question 1: 6/10 words"
-    ]
+    "misses": []
    }
   },
   "L4-P2": {

@@ -10,6 +10,10 @@ import type { ModelData, ModelItem } from "@/lib/factory/import";
 const DATA = data as unknown as ModelData;
 type AbItem = Pick<ModelItem, "status" | "subTest" | "taskType" | "title" | "modelContext" | "answers"> & { id: string; itemId: string };
 const AB = (ab as unknown as { items: AbItem[] }).items;
+// RR-418 addendum v1 · 5 live Pack 1 Speaking items whose answers beta-g changed: looked up before anything else
+const OVR = (ab as unknown as { overrides?: AbItem[] }).overrides ?? [];
+const OVR_ID = new Map(OVR.map((i) => [i.itemId, i]));
+const OVR_KEY = new Map(OVR.map((i) => [`${i.taskType}::${i.title}`, i]));
 
 const BY_KEY = new Map<string, Pick<ModelItem, "id" | "title" | "taskType" | "modelContext" | "answers">>(DATA.items.filter((i) => i.status === "ready").map((i) => [`${i.taskType}::${i.title}`, i]));
 const BY_ID = new Map(AB.map((i) => [i.itemId, i]));
@@ -19,5 +23,5 @@ export const MODEL_LEVEL_LABEL = DATA.levelLabel;
 export const MODEL_TRADEMARK = DATA.trademark;
 
 export function modelAnswersFor(taskType: string, title: string, itemId?: string): Pick<ModelItem, "id" | "title" | "taskType" | "modelContext" | "answers"> | null {
-  return (itemId ? BY_ID.get(itemId) : undefined) ?? BY_KEY.get(`${taskType}::${title}`) ?? null;
+  return (itemId ? OVR_ID.get(itemId) ?? BY_ID.get(itemId) : undefined) ?? OVR_KEY.get(`${taskType}::${title}`) ?? BY_KEY.get(`${taskType}::${title}`) ?? null;
 }

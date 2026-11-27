@@ -1,6 +1,6 @@
 {
  "schema": 1,
- "note": "RR-418 Parts A + B, built from AB_model_answers.json by scripts/factory/rr418/build-model-answers.ts. Do not edit by hand.",
+ "note": "RR-418 Parts A + B, built from AB_model_answers.json, plus the addendum v1 overrides of 5 Pack 1 Speaking items, by scripts/factory/rr418/build-model-answers.ts. Do not edit by hand.",
  "items": [
   {
    "id": "rr418-cmqwuy2hy0012hze6cjsr7vr4",
@@ -9194,6 +9194,348 @@
       "At the bottom, there is a cold pocket for drinks and food. It costs one hundred sixty dollars. I think it is good for fishing."
      ],
      "wordCount": 63,
+     "notes": [
+      {
+       "criterion": "Content/Coherence",
+       "text": "the main features, briefly."
+      },
+      {
+       "criterion": "Vocabulary",
+       "text": "simple."
+      },
+      {
+       "criterion": "Listenability",
+       "text": "clear."
+      },
+      {
+       "criterion": "Task Fulfillment",
+       "text": "complete but less detailed."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    }
+   ]
+  }
+ ],
+ "overrides": [
+  {
+   "id": "celpip-p1-speaking-5",
+   "itemId": "cmw8fw7hb0005qo3sjx28ler2",
+   "packItem": "celpip-p1-speaking-5",
+   "source": "RR-418_addendum_v1.md",
+   "status": "ready",
+   "subTest": "SPEAKING",
+   "taskType": "SPEAKING_COMPARE_PERSUADE",
+   "title": "Compare and Persuade — Camping trip or city hotel",
+   "modelContext": null,
+   "answers": [
+    {
+     "level": "10+",
+     "label": "Level 10+",
+     "tier": "top",
+     "text": "I can see why the cottage sounds relaxing, but I really think the camping trip is the better choice for us this summer.\n\nFirst, the cost. The cottage is eleven hundred dollars, while camping is only six hundred, so we'd save five hundred dollars. That's enough for the kids' swimming lessons in the fall.\n\nSecond, the camping trip has so much more to do. At the cottage, we'd have one dock and a canoe, and the nearest shop is a long drive away. In the national park, there are guided hikes, a beach, canoe rentals and evening programs for children, so the kids won't get bored after two days.\n\nAnd honestly, the kids talk about sleeping in a tent all the time. Let's give them that adventure while they're still young enough to love it.",
+     "paragraphs": [
+      "I can see why the cottage sounds relaxing, but I really think the camping trip is the better choice for us this summer.",
+      "First, the cost. The cottage is eleven hundred dollars, while camping is only six hundred, so we'd save five hundred dollars. That's enough for the kids' swimming lessons in the fall.",
+      "Second, the camping trip has so much more to do. At the cottage, we'd have one dock and a canoe, and the nearest shop is a long drive away. In the national park, there are guided hikes, a beach, canoe rentals and evening programs for children, so the kids won't get bored after two days.",
+      "And honestly, the kids talk about sleeping in a tent all the time. Let's give them that adventure while they're still young enough to love it."
+     ],
+     "wordCount": 135,
+     "notes": [
+      {
+       "criterion": "Content/Coherence",
+       "text": "compares directly with the partner's option on cost and activities, with specific numbers, and ends with a personal reason."
+      },
+      {
+       "criterion": "Vocabulary",
+       "text": "natural (*guided hikes*, *evening programs*, *adventure*)."
+      },
+      {
+       "criterion": "Listenability",
+       "text": "fluent and warm."
+      },
+      {
+       "criterion": "Task Fulfillment",
+       "text": "persuades the partner, as the task asks."
+      }
+     ],
+     "aside": "Choosing A, camping",
+     "withMistakes": false
+    },
+    {
+     "level": "7",
+     "label": "Level 7",
+     "tier": "middle",
+     "text": "I think camping is better than the cottage. The cottage costs eleven hundred dollars, but camping is only six hundred, so we can save money.\n\nAlso, in the national park there are many activities, like hiking and the beach. At the cottage, there is only a dock and a canoe, and there are no shops near it.\n\nOur kids really want to sleep in a tent, so I think they will be very happy. Please, let's choose camping.",
+     "paragraphs": [
+      "I think camping is better than the cottage. The cottage costs eleven hundred dollars, but camping is only six hundred, so we can save money.",
+      "Also, in the national park there are many activities, like hiking and the beach. At the cottage, there is only a dock and a canoe, and there are no shops near it.",
+      "Our kids really want to sleep in a tent, so I think they will be very happy. Please, let's choose camping."
+     ],
+     "wordCount": 78,
+     "notes": [
+      {
+       "criterion": "Content/Coherence",
+       "text": "a clear comparison, briefly explained."
+      },
+      {
+       "criterion": "Vocabulary",
+       "text": "simple."
+      },
+      {
+       "criterion": "Listenability",
+       "text": "clear."
+      },
+      {
+       "criterion": "Task Fulfillment",
+       "text": "persuasive but basic."
+      }
+     ],
+     "aside": "Choosing A, camping",
+     "withMistakes": false
+    }
+   ]
+  },
+  {
+   "id": "celpip-p1-speaking-2",
+   "itemId": "cmw8fw7e20004qo3s870l1c2w",
+   "packItem": "celpip-p1-speaking-2",
+   "source": "RR-418_addendum_v1.md",
+   "status": "ready",
+   "subTest": "SPEAKING",
+   "taskType": "SPEAKING_PERSONAL_EXPERIENCE",
+   "title": "Personal Experience — Learning something new in three days",
+   "modelContext": null,
+   "answers": [
+    {
+     "level": "10+",
+     "label": "Level 10+",
+     "tier": "top",
+     "text": "A couple of years ago, my manager suddenly asked me to cover for a colleague who'd gone on medical leave, and part of her job was running our weekly payroll. I'd never done payroll before, and I had just three days to learn it.\n\nOn the first day, I sat with her replacement notes and the software manual, and I wrote my own step-by-step checklist. Then I asked our finance director if I could practise on last month's data, so I could compare my results with the real ones and spot any mistakes.\n\nThe first real payroll was stressful, I won't lie, but it went through without a single error. Looking back, the experience taught me that breaking a big task into small steps, and not being afraid to ask for help, makes almost anything manageable.",
+     "paragraphs": [
+      "A couple of years ago, my manager suddenly asked me to cover for a colleague who'd gone on medical leave, and part of her job was running our weekly payroll. I'd never done payroll before, and I had just three days to learn it.",
+      "On the first day, I sat with her replacement notes and the software manual, and I wrote my own step-by-step checklist. Then I asked our finance director if I could practise on last month's data, so I could compare my results with the real ones and spot any mistakes.",
+      "The first real payroll was stressful, I won't lie, but it went through without a single error. Looking back, the experience taught me that breaking a big task into small steps, and not being afraid to ask for help, makes almost anything manageable."
+     ],
+     "wordCount": 136,
+     "notes": [
+      {
+       "criterion": "Notes",
+       "text": "a clear situation, actions in order, the result and a reflection, all within 60 seconds."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    },
+    {
+     "level": "7",
+     "label": "Level 7",
+     "tier": "middle",
+     "text": "Two years ago, my manager asked me to do the payroll for my coworker, because she was sick. I never did payroll before, and I had only three days to learn.\n\nFirst, I read her notes and the software guide, and I made a checklist. Then I practised with old numbers. I also asked the finance manager to check my work.\n\nIn the end, the payroll was correct and everybody got paid on time. I was very proud, and I learned that I can learn fast when I am organized.",
+     "paragraphs": [
+      "Two years ago, my manager asked me to do the payroll for my coworker, because she was sick. I never did payroll before, and I had only three days to learn.",
+      "First, I read her notes and the software guide, and I made a checklist. Then I practised with old numbers. I also asked the finance manager to check my work.",
+      "In the end, the payroll was correct and everybody got paid on time. I was very proud, and I learned that I can learn fast when I am organized."
+     ],
+     "wordCount": 90,
+     "notes": [
+      {
+       "criterion": "Content/Coherence",
+       "text": "answers both parts of the question in a clear order."
+      },
+      {
+       "criterion": "Vocabulary",
+       "text": "simple."
+      },
+      {
+       "criterion": "Listenability",
+       "text": "clear; one past-tense slip on purpose (*I never did* instead of *I had never done*)."
+      },
+      {
+       "criterion": "Task Fulfillment",
+       "text": "complete but brief."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    }
+   ]
+  },
+  {
+   "id": "celpip-p1-speaking-6",
+   "itemId": "cmw8fw7kl0006qo3sp2nlmgdt",
+   "packItem": "celpip-p1-speaking-6",
+   "source": "RR-418_addendum_v1.md",
+   "status": "ready",
+   "subTest": "SPEAKING",
+   "taskType": "SPEAKING_DIFFICULT_SITUATION",
+   "title": "Difficult Situation — Moving day or an extra shift",
+   "modelContext": "talking to the friend.",
+   "answers": [
+    {
+     "level": "10+",
+     "label": "Level 10+",
+     "tier": "top",
+     "text": "Hi Sara, it's me. I'm really sorry to do this, but I have some bad news about Saturday. My manager just called. One of my coworkers is sick, and there's no one else who can cover the shift, so I have to work. I tried to get out of it, but it's a small team, and I couldn't say no.\n\nI feel awful, because I know you were counting on me. But I don't want to leave you without help. I can come over on Friday evening after work and help you pack all the boxes, so Saturday goes faster. And my brother has a truck. I've already asked him, and he's happy to help you on Saturday morning.\n\nWould that work for you? Again, I'm so sorry.",
+     "paragraphs": [
+      "Hi Sara, it's me. I'm really sorry to do this, but I have some bad news about Saturday. My manager just called. One of my coworkers is sick, and there's no one else who can cover the shift, so I have to work. I tried to get out of it, but it's a small team, and I couldn't say no.",
+      "I feel awful, because I know you were counting on me. But I don't want to leave you without help. I can come over on Friday evening after work and help you pack all the boxes, so Saturday goes faster. And my brother has a truck. I've already asked him, and he's happy to help you on Saturday morning.",
+      "Would that work for you? Again, I'm so sorry."
+     ],
+     "wordCount": 128,
+     "notes": [
+      {
+       "criterion": "Notes",
+       "text": "an apology, a clear reason, empathy, and practical solutions. The tone is suitable for a close friend."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    },
+    {
+     "level": "7",
+     "label": "Level 7",
+     "tier": "middle",
+     "text": "Hi Sara, I'm really sorry, but I have bad news. My manager called me, and I have to work on Saturday because my coworker is sick. Nobody else can do it.\n\nI know you need help with your move, and I feel very bad. Can I help you on Friday evening? I can pack your boxes and take some small things in my car. Also, I can ask my brother to help you on Saturday.\n\nAgain, I'm really sorry. I hope you understand.",
+     "paragraphs": [
+      "Hi Sara, I'm really sorry, but I have bad news. My manager called me, and I have to work on Saturday because my coworker is sick. Nobody else can do it.",
+      "I know you need help with your move, and I feel very bad. Can I help you on Friday evening? I can pack your boxes and take some small things in my car. Also, I can ask my brother to help you on Saturday.",
+      "Again, I'm really sorry. I hope you understand."
+     ],
+     "wordCount": 83,
+     "notes": [
+      {
+       "criterion": "Content/Coherence",
+       "text": "a clear explanation and two offers of help."
+      },
+      {
+       "criterion": "Vocabulary",
+       "text": "simple and polite."
+      },
+      {
+       "criterion": "Listenability",
+       "text": "clear."
+      },
+      {
+       "criterion": "Task Fulfillment",
+       "text": "complete but less detailed."
+      }
+     ],
+     "aside": "Calling the friend",
+     "withMistakes": false
+    }
+   ]
+  },
+  {
+   "id": "celpip-p1-speaking-7",
+   "itemId": "cmw8fw7nv0007qo3sa7bxbvlx",
+   "packItem": "celpip-p1-speaking-7",
+   "source": "RR-418_addendum_v1.md",
+   "status": "ready",
+   "subTest": "SPEAKING",
+   "taskType": "SPEAKING_OPINIONS",
+   "title": "Expressing Opinions — Music lessons in elementary school",
+   "modelContext": null,
+   "answers": [
+    {
+     "level": "10+",
+     "label": "Level 10+",
+     "tier": "top",
+     "text": "In my opinion, elementary schools should give every student the chance to learn an instrument, but I don't think it should be strictly required.\n\nOn the one hand, there are clear benefits. Learning an instrument teaches children patience and discipline, because they have to practise regularly to improve. Research has also linked music education with better memory and concentration. And playing in a school band or orchestra teaches teamwork in a way that few other subjects do.\n\nOn the other hand, making it compulsory could cause problems. Instruments can be expensive, and not every family can afford one. Some children simply aren't interested in music, and forcing them might make them dislike it, especially if they're struggling academically.\n\nSo I think the best approach is for schools to offer free introductory music classes and lend instruments to students who want them. Children could try a few different instruments for a semester, and those who enjoy it could continue. That way, every child gets the opportunity without the pressure. Overall, encouragement works better than obligation, especially at that age.",
+     "paragraphs": [
+      "In my opinion, elementary schools should give every student the chance to learn an instrument, but I don't think it should be strictly required.",
+      "On the one hand, there are clear benefits. Learning an instrument teaches children patience and discipline, because they have to practise regularly to improve. Research has also linked music education with better memory and concentration. And playing in a school band or orchestra teaches teamwork in a way that few other subjects do.",
+      "On the other hand, making it compulsory could cause problems. Instruments can be expensive, and not every family can afford one. Some children simply aren't interested in music, and forcing them might make them dislike it, especially if they're struggling academically.",
+      "So I think the best approach is for schools to offer free introductory music classes and lend instruments to students who want them. Children could try a few different instruments for a semester, and those who enjoy it could continue. That way, every child gets the opportunity without the pressure. Overall, encouragement works better than obligation, especially at that age."
+     ],
+     "wordCount": 178,
+     "notes": [
+      {
+       "criterion": "Notes",
+       "text": "a clear, balanced opinion with reasons on both sides and a practical solution, organized for 90 seconds."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    },
+    {
+     "level": "7",
+     "label": "Level 7",
+     "tier": "middle",
+     "text": "In my opinion, schools should give music lessons to all children, but it should not be a must.\n\nFirst, music is good for children. They learn to be patient, because they need to practise a lot. Also, some people say music helps children with memory and concentration.\n\nBut not every child likes music. If a child must learn an instrument and he doesn't like it, he will be unhappy and stressed. Some families also cannot buy an instrument.\n\nSo I think schools should offer free lessons and lend instruments, but children can choose. Maybe they can try for one year, and then decide.",
+     "paragraphs": [
+      "In my opinion, schools should give music lessons to all children, but it should not be a must.",
+      "First, music is good for children. They learn to be patient, because they need to practise a lot. Also, some people say music helps children with memory and concentration.",
+      "But not every child likes music. If a child must learn an instrument and he doesn't like it, he will be unhappy and stressed. Some families also cannot buy an instrument.",
+      "So I think schools should offer free lessons and lend instruments, but children can choose. Maybe they can try for one year, and then decide."
+     ],
+     "wordCount": 103,
+     "notes": [
+      {
+       "criterion": "Content/Coherence",
+       "text": "a clear opinion with reasons on both sides and a practical suggestion."
+      },
+      {
+       "criterion": "Vocabulary",
+       "text": "simple (*a must*)."
+      },
+      {
+       "criterion": "Listenability",
+       "text": "clear."
+      },
+      {
+       "criterion": "Task Fulfillment",
+       "text": "relevant but short for 90 seconds."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    }
+   ]
+  },
+  {
+   "id": "celpip-p1-speaking-8",
+   "itemId": "cmw8fw7r50008qo3stiu33ima",
+   "packItem": "celpip-p1-speaking-8",
+   "source": "RR-418_addendum_v1.md",
+   "status": "ready",
+   "subTest": "SPEAKING",
+   "taskType": "SPEAKING_UNUSUAL_SITUATION",
+   "title": "Unusual Situation — A cactus-shaped coffee mug",
+   "modelContext": null,
+   "answers": [
+    {
+     "level": "10+",
+     "label": "Level 10+",
+     "tier": "top",
+     "text": "Hey Tom, I'm at the gift shop downtown, and I've just found something perfect for your sister. It's a coffee mug, but it's shaped like a cactus. It's about as tall as a normal mug, maybe a bit taller, and it's bright green, with tiny white dots that look like the cactus spines, although they're smooth, so you won't hurt your hands.\n\nThe best part is the lid. It's shaped like a pink flower with five petals, and you lift it off by holding the yellow centre. It's made of ceramic, and the label says it's safe for the dishwasher.\n\nIt costs twenty-four dollars. Since she loves plants, I think she'd find it really funny. Do you want me to buy it for you?",
+     "paragraphs": [
+      "Hey Tom, I'm at the gift shop downtown, and I've just found something perfect for your sister. It's a coffee mug, but it's shaped like a cactus. It's about as tall as a normal mug, maybe a bit taller, and it's bright green, with tiny white dots that look like the cactus spines, although they're smooth, so you won't hurt your hands.",
+      "The best part is the lid. It's shaped like a pink flower with five petals, and you lift it off by holding the yellow centre. It's made of ceramic, and the label says it's safe for the dishwasher.",
+      "It costs twenty-four dollars. Since she loves plants, I think she'd find it really funny. Do you want me to buy it for you?"
+     ],
+     "wordCount": 124,
+     "notes": [
+      {
+       "criterion": "Notes",
+       "text": "a clear description of shape, size, colour, material and function, with a comparison to a normal mug, a practical detail (dishwasher-safe) and a question to the friend."
+      }
+     ],
+     "aside": null,
+     "withMistakes": false
+    },
+    {
+     "level": "7",
+     "label": "Level 7",
+     "tier": "middle",
+     "text": "Hi Tom, I am in a gift shop, and I see a very unusual coffee mug. It looks like a cactus. It is green, and it has small white dots like the cactus has.\n\nThe lid is very special. It looks like a pink flower. It is the same size as a normal mug, so you can use it every day.\n\nI think your sister will like it, because she loves plants. It costs about twenty dollars. Do you want me to buy it?",
+     "paragraphs": [
+      "Hi Tom, I am in a gift shop, and I see a very unusual coffee mug. It looks like a cactus. It is green, and it has small white dots like the cactus has.",
+      "The lid is very special. It looks like a pink flower. It is the same size as a normal mug, so you can use it every day.",
+      "I think your sister will like it, because she loves plants. It costs about twenty dollars. Do you want me to buy it?"
+     ],
+     "wordCount": 84,
      "notes": [
       {
        "criterion": "Content/Coherence",

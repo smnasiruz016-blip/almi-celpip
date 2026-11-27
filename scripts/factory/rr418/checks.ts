@@ -16,13 +16,13 @@ export const SPEAKING_TABLE: Record<string, { choose?: number; prep: number; spe
 };
 /** live Speaking items that no RR-418 input fixes and that therefore cannot match the table yet — each listed, with its exact current
  *  timing (so nothing else can hide behind this list), and reported as BLOCKED for an owner/beta-g decision */
-export const TIMING_NOT_FIXED: Record<string, { prep: number; speak: number; why: string }> = {
-  cmw8fw7hb0005qo3sjx28ler2: { prep: 120, speak: 60, why: "Pack 1 Task 5 (Camping trip or city hotel): no Part F timing and no two-screen prompt (it has no third option) in the RR-418 inputs" },
-};
+// Addendum v1 (27 Nov 2026) closed the one exception: Pack 1 Task 5 (Camping trip or city hotel) now has the two screens and 60/60/60.
+export const TIMING_NOT_FIXED: Record<string, { prep: number; speak: number; why: string }> = {};
 
-/** Pack 1 Speaking items (already live before RR-418) whose model answers have ONE level (10+): no CELPIP 7 answer exists in Pack 1 or in
- *  the RR-418 inputs. Listed by id with their exact levels, reported for beta-g; any other item must have the full set. */
-export const PACK1_TOP_ONLY = Object.freeze(["cmw8fw7hb0005qo3sjx28ler2", "cmw8fw7kl0006qo3sp2nlmgdt", "cmw8fw7nv0007qo3sa7bxbvlx", "cmw8fw7e20004qo3s870l1c2w", "cmw8fw7r50008qo3stiu33ima"]);
+/** Pack 1 Speaking items whose model answers have ONE level (10+). Addendum v1 gave the 5 live ones a CELPIP 7 answer: none is left. */
+export const PACK1_TOP_ONLY: readonly string[] = Object.freeze([]);
+/** the 5 live Pack 1 Speaking items addendum v1 touches (for the test) */
+export const ADDENDUM_PACK1 = Object.freeze({ task5: "cmw8fw7hb0005qo3sjx28ler2", gained7: ["cmw8fw7e20004qo3s870l1c2w", "cmw8fw7kl0006qo3sp2nlmgdt", "cmw8fw7nv0007qo3sa7bxbvlx", "cmw8fw7r50008qo3stiu33ima"] });
 
 export const applyAll = (rows: LiveRow[], inp: Inputs) => rows.map((r) => planRow(r, inp));
 

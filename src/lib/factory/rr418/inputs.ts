@@ -4,6 +4,8 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import type { DeData } from "./full-tests";
+import { withAddendumDe, type Addendum } from "./addendum";
 
 export const INPUT_DIR = join(process.cwd(), "src", "content", "factory", "rr418");
 
@@ -13,7 +15,15 @@ export const INPUT_MD5: Record<string, string> = Object.freeze({
   "C_live_LR_fixes.json": "39594b3cb3d29e643e2183bd3efc4cab",
   "DE_full_tests.json": "7a809eeca60da935d685836add674bfd",
   "F_live_fixes.json": "f25ce47296c47629593723c5fcdc85de",
+  // not in the command's table: beta-g's addendum v1 (27 Nov 2026), transcribed by CC from C:\Projects\_handoffs\RR-418_addendum_v1.md.
+  // Pinned the same way, so a changed override is caught like a changed input. The four inputs above keep their own md5.
+  "addendum_v1.json": "90c36eff11f54e08d34804572a24af0b",
 });
+
+/** the full tests as the product uses them: DE_full_tests.json (md5-checked, never edited) with the addendum's Listening changes */
+export function readDe(dir = INPUT_DIR): DeData {
+  return withAddendumDe(readInput<DeData>("DE_full_tests.json", dir), readInput<Addendum>("addendum_v1.json", dir));
+}
 
 export const md5Of = (buf: Buffer | string) => createHash("md5").update(buf).digest("hex");
 

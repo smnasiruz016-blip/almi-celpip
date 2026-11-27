@@ -9,7 +9,9 @@
 //   Part B   21 Speaking prompt fixes (the "now" is the owner's export of 27 Nov 2026): Task 5 becomes two screens, Task 6 shows its two
 //            options, 5 items get a new title.
 //   Part F   18 timings, 26 spellings, 1 Reading stem — each with its own "now".
+//   ADD      addendum v1: Pack 1 Speaking Task 5 (Camping trip or city hotel) becomes the real two screens with a third option, 60/60/60.
 // Pure: no database, no file system, no network.
+import type { Addendum } from "./addendum";
 
 export type Option = { id: string; text: string };
 export type LiveRow = {
@@ -35,9 +37,10 @@ export type FData = {
 };
 /** what each fixed prompt was written against: the owner's read-only export (title + taskPrompt per item id) */
 export type PromptNow = Record<string, { taskType: string; title: string; taskPrompt: string }>;
-export type Inputs = { ab: AbData; c: CData; f: FData; promptNow: PromptNow };
+export type Inputs = { ab: AbData; c: CData; f: FData; promptNow: PromptNow; add?: Addendum };
 
-export type Part = "B" | "C" | "F-timing" | "F-spelling" | "F-stem";
+/** "ADD": addendum v1 (beta-g, 27 Nov 2026) — Pack 1 Speaking Task 5 in the real two screens, only when the live row is still the old one */
+export type Part = "B" | "C" | "F-timing" | "F-spelling" | "F-stem" | "ADD";
 export type Status = "apply" | "already" | "blocked";
 export type Change = { part: Part; id: string; title: string; what: string; status: Status; reason?: string };
 
@@ -123,6 +126,17 @@ export function planRow(row: LiveRow, inp: Inputs): { next: LiveRow; changes: Ch
     }
   }
 
+  // addendum v1: Pack 1 Task 5 — the whole payload's prompt and timing, only when title, prompt and timing are still the old ones
+  for (const a of inp.add?.speaking.filter((x) => x.id === row.id) ?? []) {
+    const what = `Task 5 two screens (third option "${a.new.thirdOption}"), ${a.new.chooseSeconds} choose + ${a.new.prepSeconds}/${a.new.speakSeconds}`;
+    const want = a.new as unknown as Record<string, unknown>;
+    const isDone = row.title === a.title && Object.keys(want).every((k) => payload[k] === want[k]);
+    if (isDone) add("ADD", what, "already");
+    else if (row.title !== a.title || row.taskType !== a.taskType) add("ADD", what, "blocked", "now differs: the live title or task type is not the one the addendum was written against");
+    else if (payload.taskPrompt !== a.now.taskPrompt || payload.prepSeconds !== a.now.prepSeconds || payload.speakSeconds !== a.now.speakSeconds) add("ADD", what, "blocked", `now differs: live ${payload.prepSeconds}/${payload.speakSeconds} or its taskPrompt is not the old one`);
+    else { Object.assign(payload, clone(a.new)); add("ADD", what, "apply"); }
+  }
+
   // Part F: timings
   for (const t of inp.f.timing.filter((x) => x.id === row.id)) {
     const want = { prepSeconds: t.new.prepSeconds, speakSeconds: t.new.speakSeconds, ...(t.new.chooseSeconds !== undefined ? { chooseSeconds: t.new.chooseSeconds } : {}) };
@@ -170,6 +184,7 @@ export function namedIds(inp: Inputs): Record<Part, string[]> {
     "F-timing": inp.f.timing.map((t) => t.id),
     "F-spelling": [...new Set(inp.f.spelling.map((t) => t.id))],
     "F-stem": inp.f.reading_stem.map((t) => t.id),
+    ADD: (inp.add?.speaking ?? []).map((a) => a.id),
   };
 }
 

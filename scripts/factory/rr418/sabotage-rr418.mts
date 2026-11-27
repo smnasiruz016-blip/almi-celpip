@@ -6,7 +6,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import { join } from "node:path";
-import { readInput, inputProblems } from "../../../src/lib/factory/rr418/inputs";
+import { readDe, inputProblems } from "../../../src/lib/factory/rr418/inputs";
 import { fullTestShapeProblems } from "./checks";
 import type { DeData, Manifest } from "../../../src/lib/factory/rr418/full-tests";
 import { MANIFEST_FILE } from "./audio";
@@ -35,7 +35,7 @@ await fileSabotage("S1 one Part C now-mismatch", FIX, jsonEdit((j) => { const r 
 
 // 2 + 3. full tests: 37 questions; a blank whose key is not among its options (in memory, same check function)
 {
-  const de = readInput<DeData>("DE_full_tests.json"), m = existsSync(MANIFEST_FILE) ? (JSON.parse(readFileSync(MANIFEST_FILE, "utf8")) as Manifest) : null;
+  const de = readDe(), m = existsSync(MANIFEST_FILE) ? (JSON.parse(readFileSync(MANIFEST_FILE, "utf8")) as Manifest) : null;
   say(`S0 control: the real full tests → ${fullTestShapeProblems(de, m).length} problems`);
   const d37: DeData = JSON.parse(JSON.stringify(de)); d37.tests[0].parts[3].questions.pop();
   const p37 = fullTestShapeProblems(d37, m);
@@ -55,7 +55,7 @@ await fileSabotage("S5 a clip rendered from a different script (file)", "public/
 {
   // …and the listen check itself: Part 2's lines and facts against what Part 3's clip says
   const { listenResults } = await import("../../../src/lib/factory/rr418/listen-check");
-  const de = readInput<DeData>("DE_full_tests.json");
+  const de = readDe();
   const tr = JSON.parse(readFileSync("scripts/factory/rr418/transcripts.json", "utf8")) as { model: string; clips: Record<string, string> };
   const swapped = { ...tr.clips, "L1-P2": tr.clips["L1-P3"] };
   const r = listenResults(de, swapped, tr.model)["L1-P2"];

@@ -8,7 +8,7 @@
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
-import { checkInputs, readInput } from "../../../src/lib/factory/rr418/inputs";
+import { checkInputs, readDe } from "../../../src/lib/factory/rr418/inputs";
 import { clipsOf, parseSpeakers, scriptLines, sha, voicesFor, type DeData, type Manifest } from "../../../src/lib/factory/rr418/full-tests";
 import { listenResults } from "../../../src/lib/factory/rr418/listen-check";
 
@@ -36,7 +36,7 @@ export function jobs(de: DeData) {
 
 if (process.argv[1] && /audio\.ts$/.test(process.argv[1])) {
   checkInputs();
-  const de = readInput<DeData>("DE_full_tests.json");
+  const de = readDe();
   const step = process.argv[2];
   if (step === "jobs") {
     mkdirSync(WORK, { recursive: true });

@@ -9,7 +9,7 @@
 // seed:prod after the write (inserts nothing). Needs PostgreSQL binaries (PG_BIN, default C:\Program Files\PostgreSQL\18\bin).
 //   npx tsx scripts/factory/rr418/rr418-local-pg.test.ts
 import { spawnSync, spawn } from "node:child_process";
-import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync, mkdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import assert from "node:assert/strict";
@@ -88,6 +88,7 @@ let pass = 0, fail = 0;
       const c = owners(db);
       await t(`${label} — the DRY RUN over the owner's Neon adapter`, async () => {
         const r = await capture(() => run(c, { apply: false, yes: false }));
+        mkdirSync(join("scripts", "factory", "rr418", "_work"), { recursive: true }); writeFileSync(join("scripts", "factory", "rr418", "_work", `dryrun-${db}.txt`), r.out); // for the report (_work is not committed)
         assert.equal(r.code, 0, r.out);
         assert.match(r.out, /migration: none/);
         assert.match(r.out, /A\+B model answers: 107 of 107 live Writing\/Speaking items have them/);
@@ -95,6 +96,8 @@ let pass = 0, fail = 0;
         assert.match(r.out, drift ? /C listening\/reading questions: 285 to apply, 0 already applied, 1 blocked \(of 286\)/ : /C listening\/reading questions: 286 to apply, 0 already applied, 0 blocked \(of 286\)/);
         if (drift) assert.match(r.out, /BLOCKED C cmr2p0o4m0007hsbz4603uc7j .* q2: now differs/);
         assert.match(r.out, /F timings: 18 to apply/); assert.match(r.out, /F spellings: 26 to apply/); assert.match(r.out, /F reading stem: 1 to apply/);
+        assert.match(r.out, /Addendum v1: Pack 1 Task 5 two screens: 1 to apply, 0 already applied, 0 blocked \(of 1\)/);
+        assert.match(r.out, /\+ Full Listening Test 4 · Part 1: audio 3\/3 clips passed the listen check → ACTIVE/);
         assert.match(r.out, /D\+E full tests: 50 parts of 10 tests; to create 50, already there 0, there but different \(NOT changed\) 0/);
         assert.match(r.out, /total active: 203 → 2\d\d/);
         assert.match(r.out, /DRY RUN: nothing written\./);
@@ -107,7 +110,7 @@ let pass = 0, fail = 0;
       await t(`${label} — the WRITE with YES (one transaction) and the readback: left to do 0`, async () => {
         const r = await capture(() => run(c, { apply: true, yes: true }));
         assert.equal(r.code, 0, r.out);
-        assert.match(r.out, drift ? /WROTE in one transaction\. Readback: B 21, C 285, F 45 in place; full-test parts present 50 of 50 \(\d+ active\); model answers 107 of 107; blocked 1; left to do 0\./ : /WROTE in one transaction\. Readback: B 21, C 286, F 45 in place; full-test parts present 50 of 50 \(\d+ active\); model answers 107 of 107; blocked 0; left to do 0\./);
+        assert.match(r.out, drift ? /WROTE in one transaction\. Readback: B 21, C 285, F 45 in place; addendum 1 in place; full-test parts present 50 of 50 \(50 active\); model answers 107 of 107; blocked 1; left to do 0\./ : /WROTE in one transaction\. Readback: B 21, C 286, F 45 in place; addendum 1 in place; full-test parts present 50 of 50 \(50 active\); model answers 107 of 107; blocked 0; left to do 0\./);
       });
       await t(`${label} — a second dry run finds nothing to do`, async () => {
         const r = await capture(() => run(c, { apply: false, yes: false }));
@@ -115,6 +118,7 @@ let pass = 0, fail = 0;
         assert.match(r.out, /B speaking prompt fixes: 0 to apply, 21 already applied/);
         assert.match(r.out, drift ? /C listening\/reading questions: 0 to apply, 285 already applied, 1 blocked/ : /C listening\/reading questions: 0 to apply, 286 already applied, 0 blocked/);
         assert.match(r.out, /to create 0, already there 50, there but different \(NOT changed\) 0/);
+        assert.match(r.out, /Addendum v1: Pack 1 Task 5 two screens: 0 to apply, 1 already applied, 0 blocked/);
       });
       await t(`${label} — seed:prod AFTER the write inserts nothing (no duplicate of a renamed item or of a full test)`, async () => assert.deepEqual(await seedProdInserts(db, false), []));
       await t(`${label} — the database: 5 renamed titles, no old title left, the drifted question untouched`, async () => {
@@ -123,6 +127,7 @@ let pass = 0, fail = 0;
         assert.equal(psql(db, `SELECT count(*) FROM (SELECT "taskType", title FROM "CelpipItem" GROUP BY 1, 2 HAVING count(*) > 1) d`).trim(), "0");
         const q2 = psql(db, `SELECT jsonb_array_length(payload->'questions'->1->'options') FROM "CelpipItem" WHERE id = 'cmr2p0o4m0007hsbz4603uc7j'`).trim();
         assert.equal(q2, drift ? "3" : "4");
+        assert.equal(psql(db, `SELECT concat_ws('|', payload->>'chooseSeconds', payload->>'prepSeconds', payload->>'speakSeconds', payload->>'thirdOption') FROM "CelpipItem" WHERE id = 'cmw8fw7hb0005qo3sjx28ler2'`).trim(), "60|60|60|a lakeside cottage rental");
       });
       await c.$disconnect();
     }

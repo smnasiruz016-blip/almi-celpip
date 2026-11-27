@@ -5,7 +5,7 @@ import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { inputProblems, checkInputs, readInput, INPUT_DIR } from "../../../src/lib/factory/rr418/inputs";
+import { inputProblems, checkInputs, readDe, INPUT_DIR } from "../../../src/lib/factory/rr418/inputs";
 import { planBank, planRow, summarize, renames, canon } from "../../../src/lib/factory/rr418/plan";
 import { fullTestItems, clipsOf, clipOk, sha, type DeData, type Manifest } from "../../../src/lib/factory/rr418/full-tests";
 import { listenResults } from "../../../src/lib/factory/rr418/listen-check";
@@ -19,14 +19,14 @@ import { presentKeys, seedSkipReason, seedItems } from "../../seed/append";
 import { buildOverrides, OVERRIDES_FILE } from "./build-seed-overrides";
 import { buildModelFile, MODEL_FILE } from "./build-model-answers";
 import { MANIFEST_FILE, TRANSCRIPTS_FILE } from "./audio";
-import { timingProblems, keyProblems, fullTestShapeProblems, mismatchProblems, TIMING_NOT_FIXED, PACK1_TOP_ONLY } from "./checks";
+import { timingProblems, keyProblems, fullTestShapeProblems, mismatchProblems, TIMING_NOT_FIXED, PACK1_TOP_ONLY, ADDENDUM_PACK1 } from "./checks";
 
 let pass = 0, fail = 0;
 const check = (name: string, ok: boolean, detail = "") => { if (ok) { pass++; console.log(`  ok   ${name}`); } else { fail++; console.log(`  FAIL ${name}${detail ? ` — ${detail}` : ""}`); } };
 const none = (name: string, problems: string[]) => check(name, problems.length === 0, problems.slice(0, 6).join(" | "));
 
 // 1 · md5: any difference stops the run
-none("the four inputs are exactly the approved files (md5)", inputProblems());
+none("the four inputs and the addendum are exactly the approved files (md5)", inputProblems());
 {
   const tampered = (p: string) => { const b = readFileSync(p); return p.endsWith("DE_full_tests.json") ? Buffer.concat([b, Buffer.from(" ")]) : b; };
   const pr = inputProblems(INPUT_DIR, tampered);
@@ -36,7 +36,7 @@ none("the four inputs are exactly the approved files (md5)", inputProblems());
 }
 
 const { inp, exportRows } = rr418Inputs();
-const de = readInput<DeData>("DE_full_tests.json");
+const de = readDe();
 const manifest: Manifest | null = existsSync(MANIFEST_FILE) ? JSON.parse(readFileSync(MANIFEST_FILE, "utf8")) : null;
 const bank = planBank(exportRows, inp);
 const after = bank.rows.map((r) => r.next);
@@ -65,7 +65,29 @@ check("…also by taskType + final title (a database seeded from the seed source
   const lv = (r: { taskType: string; title: string; id: string }) => modelAnswersFor(r.taskType, r.title, r.id)!.answers.map((a) => a.level).join(",");
   const off = ws.filter((r) => !PACK1_TOP_ONLY.includes(r.id) && lv(r) !== (r.subTest === "WRITING" ? "10+,8,5" : "10+,7"));
   check("Writing items show CELPIP 10+, 8 and 5; Speaking items 10+ and 7", off.length === 0, off.map((r) => `${r.title}: ${lv(r)}`).slice(0, 3).join("; "));
-  check(`…except the ${PACK1_TOP_ONLY.length} listed Pack 1 Speaking items, which have exactly one level (10+) — reported, not hidden`, PACK1_TOP_ONLY.every((id) => { const r = ws.find((x) => x.id === id); return r && lv(r) === "10+"; }));
+  check(`no Speaking item is left with one level (exceptions: ${PACK1_TOP_ONLY.length})`, PACK1_TOP_ONLY.length === 0 && ws.filter((r) => r.subTest === "SPEAKING").every((r) => lv(r) === "10+,7"));
+  // addendum v1: Pack 1 Task 5's answers are replaced (camping against the COTTAGE); Tasks 2, 6, 7, 8 keep their own 10+ and gain a 7
+  const pack1 = (JSON.parse(readFileSync("src/content/factory/celpip-model-answers.json", "utf8")) as { items: { taskType: string; title: string; answers: { level: string; text: string }[] }[] }).items;
+  const t5 = after.find((r) => r.id === ADDENDUM_PACK1.task5)!, m5 = modelAnswersFor(t5.taskType, t5.title, t5.id)!;
+  check("addendum: Task 5's 10+ and 7 argue camping against the cottage; the old answer against the hotel is gone (by id and by title)", m5.answers.every((a) => /cottage/.test(a.text) && !/hotel package is fourteen hundred/.test(a.text)) && modelAnswersFor(t5.taskType, t5.title)!.answers.every((a) => /cottage/.test(a.text)));
+  const kept = ADDENDUM_PACK1.gained7.every((id) => {
+    const r = after.find((x) => x.id === id)!, m = modelAnswersFor(r.taskType, r.title, r.id)!;
+    const own = pack1.find((p) => p.taskType === r.taskType && p.title === r.title)!.answers.find((a) => a.level === "10+")!;
+    return m.answers.length === 2 && m.answers[0].text === own.text && m.answers[1].level === "7" && m.answers[1].label === "Level 7";
+  });
+  check("addendum: Pack 1 Tasks 2, 6, 7, 8 keep their own 10+ word for word and gain a CELPIP 7", kept);
+}
+{
+  const ab = summarize([...bank.rows.flatMap((r) => r.changes), ...bank.missing]).ADD;
+  check("addendum: Pack 1 Task 5 two screens to apply, 0 blocked", ab?.apply === 1 && !ab?.blocked, JSON.stringify(ab));
+  const p = after.find((r) => r.id === ADDENDUM_PACK1.task5)!.payload as Record<string, unknown>;
+  check("…after the write: 60 s choose, 60 prep, 60 speak, and the cottage as the third option on screen 2", p.chooseSeconds === 60 && p.prepSeconds === 60 && p.speakSeconds === 60 && String(p.part2).includes(String(p.thirdOption)) && /cottage/.test(String(p.thirdOption)) && /A, a camping trip/.test(String(p.part1)) && /B, a city hotel/.test(String(p.part1)));
+  const row = exportRows.find((r) => r.id === ADDENDUM_PACK1.task5)!, drift = JSON.parse(JSON.stringify(row)); drift.payload.prepSeconds = 90;
+  check("…and a live row that is no longer the old one is blocked, not changed", planRow(drift, inp).changes.find((c) => c.part === "ADD")?.status === "blocked" && canon(planRow(drift, inp).next.payload) === canon(drift.payload));
+  const L4 = de.tests.filter((t) => t.skill === "L")[3].parts[0], s3 = L4.texts.find((x) => x.kind === "SECTION 3")!.text;
+  check("addendum: Listening Test 4 Part 1 Section 3 has Kenji's new line (once), not the old one; question 7's Why follows it", s3.includes("Kenji: We have to move out of our current place on the thirty-first") && !/lease ends/.test(s3) && /move out of our current place/.test(L4.questions[6].why) && L4.questions[6].answer === "c");
+  const raw = JSON.parse(readFileSync("src/content/factory/rr418/DE_full_tests.json", "utf8")) as DeData;
+  check("…while DE_full_tests.json itself is unchanged (the addendum is applied in memory)", /lease ends/.test(raw.tests.filter((t) => t.skill === "L")[3].parts[0].texts[2].text));
 }
 check("the app's model-answer file is exactly the conversion of AB_model_answers.json (no drift)", readFileSync(MODEL_FILE, "utf8") === buildModelFile());
 
@@ -83,7 +105,7 @@ check('"Why" renders nothing when there is no text (empty, blank, missing)', htm
 
 // 7 · Task 5 two screens; every timing equals the official table
 none("every live Speaking timing equals the official table; Task 5 is two screens", timingProblems(after));
-check(`the one live item no input fixes is listed, not hidden (${Object.keys(TIMING_NOT_FIXED).length})`, Object.keys(TIMING_NOT_FIXED).every((id) => exportRows.some((r) => r.id === id)));
+check(`no live Speaking item is excused from the official timing table (exceptions: ${Object.keys(TIMING_NOT_FIXED).length})`, Object.keys(TIMING_NOT_FIXED).length === 0);
 
 // 8 · audio: every clip from THIS script and heard; a failing clip leaves its part inactive
 const clips = clipsOf(de);

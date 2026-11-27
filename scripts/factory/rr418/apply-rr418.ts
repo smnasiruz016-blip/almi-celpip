@@ -11,11 +11,13 @@
 //   D + E  the 10 full tests (50 stored parts), created if missing (key taskType + title); a Listening part whose clip has not passed the
 //          listen check is created INACTIVE.
 //   F      18 timings, 26 spellings, 1 Reading stem — each only if "now" matches.
+//   ADD    addendum v1: Pack 1 Speaking Task 5 (Camping trip or city hotel) → two screens, third option the cottage, 60/60/60 (if "now").
+//          Its Listening change (Test 4 Part 1 Section 3) is in the full tests themselves (readDe), and its model answers ship in the app.
 // No table changes (RR-418 has no migration). Nothing is deleted. A row that differs from what a change expects is listed as BLOCKED and
 // left as it is; the rest goes ahead.
 import { readFileSync } from "node:fs";
 import type { PrismaClient, Prisma } from "@prisma/client";
-import { checkInputs, readInput } from "../../../src/lib/factory/rr418/inputs";
+import { checkInputs, readDe } from "../../../src/lib/factory/rr418/inputs";
 import { planBank, summarize, canon, type Change, type LiveRow } from "../../../src/lib/factory/rr418/plan";
 import { fullTestItems, fullTestProblems, storedRow, FULL_TEST_TAG, type DeData, type Manifest } from "../../../src/lib/factory/rr418/full-tests";
 import { rr418Inputs } from "./seed-plan";
@@ -30,7 +32,7 @@ const key = (taskType: string, title: string) => `${taskType}::${title}`;
 
 export async function plan(db: Db) {
   checkInputs();
-  const de = readInput<DeData>("DE_full_tests.json");
+  const de = readDe();
   const problems = fullTestProblems(de);
   if (problems.length) throw new Error(`the full tests do not have the official shape:\n  ${problems.join("\n  ")}`);
   const manifest = JSON.parse(readFileSync(MANIFEST_FILE, "utf8")) as Manifest;
@@ -76,6 +78,7 @@ function report(r: Awaited<ReturnType<typeof plan>>) {
   line("F-timing", "F timings");
   line("F-spelling", "F spellings");
   line("F-stem", "F reading stem");
+  line("ADD", "Addendum v1: Pack 1 Task 5 two screens");
   for (const c of r.changes.filter((c) => c.status === "blocked")) console.log(`  BLOCKED ${c.part} ${c.id} ${c.title} · ${c.what}: ${c.reason}`);
   const n = (st: string) => r.ft.filter((x) => x.status === st).length;
   console.log(`D+E full tests: ${r.ft.length} parts of 10 tests; to create ${n("create")}, already there ${n("already")}, there but different (NOT changed) ${n("blocked")}`);
@@ -106,7 +109,7 @@ export async function run(db: PrismaClient, opts: { apply: boolean; yes: boolean
   const left = Object.values(s).reduce((a, x) => a + x.apply, 0) + back.ft.filter((x) => x.status === "create").length;
   const blocked = Object.values(s).reduce((a, x) => a + x.blocked, 0) + back.ft.filter((x) => x.status === "blocked").length;
   const fullActive = back.rows.filter((x) => x.topicTag === FULL_TEST_TAG && x.active).length;
-  console.log(`WROTE in one transaction. Readback: B ${s.B?.already ?? 0}, C ${s.C?.already ?? 0}, F ${(s["F-timing"]?.already ?? 0) + (s["F-spelling"]?.already ?? 0) + (s["F-stem"]?.already ?? 0)} in place; full-test parts present ${back.ft.length - back.ft.filter((x) => x.status === "create").length} of ${back.ft.length} (${fullActive} active); model answers ${back.withModels.length} of ${back.ws.length}; blocked ${blocked}; left to do ${left}.`);
+  console.log(`WROTE in one transaction. Readback: B ${s.B?.already ?? 0}, C ${s.C?.already ?? 0}, F ${(s["F-timing"]?.already ?? 0) + (s["F-spelling"]?.already ?? 0) + (s["F-stem"]?.already ?? 0)} in place; addendum ${s.ADD?.already ?? 0} in place; full-test parts present ${back.ft.length - back.ft.filter((x) => x.status === "create").length} of ${back.ft.length} (${fullActive} active); model answers ${back.withModels.length} of ${back.ws.length}; blocked ${blocked}; left to do ${left}.`);
   return left === 0 ? 0 : 1;
 }
 

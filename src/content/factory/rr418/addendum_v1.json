@@ -1,0 +1,136 @@
+{
+ "schema": 1,
+ "source": "C:\\Projects\\_handoffs\\RR-418_addendum_v1.md (beta-g, 27 Nov 2026). Overrides applied on top of the md5-checked inputs; the inputs themselves are never edited.",
+ "listening": [
+  {
+   "test": "L4",
+   "part": "P1",
+   "section": "SECTION 3",
+   "lineNow": "Kenji: Our current lease ends on the thirty-first, so we'd have nowhere to live for almost three weeks.",
+   "lineNew": "Kenji: We have to move out of our current place on the thirty-first, so we'd have nowhere to live for almost three weeks.",
+   "question": 7,
+   "whyNow": "\"Our current lease ends on the thirty-first, so we'd have nowhere to live for almost three weeks.\"",
+   "whyNew": "\"We have to move out of our current place on the thirty-first, so we'd have nowhere to live for almost three weeks.\""
+  }
+ ],
+ "speaking": [
+  {
+   "id": "cmw8fw7hb0005qo3sjx28ler2",
+   "packItem": "celpip-p1-speaking-5",
+   "taskType": "SPEAKING_COMPARE_PERSUADE",
+   "title": "Compare and Persuade — Camping trip or city hotel",
+   "now": {
+    "taskPrompt": "Your family is choosing a summer vacation. You prefer a camping trip to a national park. Your partner prefers a city hotel package. Persuade your partner to choose the camping trip. (Details: camping is $600 for a week and includes hiking and lake activities; the hotel is $1,400 for a week and is close to museums and restaurants.)",
+    "prepSeconds": 120,
+    "speakSeconds": 60
+   },
+   "new": {
+    "taskPrompt": "Part 1 — Your family is choosing a one-week summer vacation. Choose one: A, a camping trip to a national park ($600 for the week; hiking and lake activities); or B, a city hotel package ($1,400 for the week; close to museums and restaurants). Part 2 — Your partner prefers a different option: a lakeside cottage rental ($1,100 for the week; a kitchen, a private dock and a canoe, but a three-hour drive away, with no shops nearby). Persuade your partner that your choice is better.",
+    "part1": "Your family is choosing a one-week summer vacation. Choose one: A, a camping trip to a national park ($600 for the week; hiking and lake activities); or B, a city hotel package ($1,400 for the week; close to museums and restaurants).",
+    "part2": "Your partner prefers a different option: a lakeside cottage rental ($1,100 for the week; a kitchen, a private dock and a canoe, but a three-hour drive away, with no shops nearby). Persuade your partner that your choice is better.",
+    "thirdOption": "a lakeside cottage rental",
+    "chooseSeconds": 60,
+    "prepSeconds": 60,
+    "speakSeconds": 60
+   }
+  }
+ ],
+ "modelAnswers": [
+  {
+   "packItem": "celpip-p1-speaking-5",
+   "replace": true,
+   "levels": [
+    {
+     "level": "10+",
+     "text": "I can see why the cottage sounds relaxing, but I really think the camping trip is the better choice for us this summer.\n\nFirst, the cost. The cottage is eleven hundred dollars, while camping is only six hundred, so we'd save five hundred dollars. That's enough for the kids' swimming lessons in the fall.\n\nSecond, the camping trip has so much more to do. At the cottage, we'd have one dock and a canoe, and the nearest shop is a long drive away. In the national park, there are guided hikes, a beach, canoe rentals and evening programs for children, so the kids won't get bored after two days.\n\nAnd honestly, the kids talk about sleeping in a tent all the time. Let's give them that adventure while they're still young enough to love it.",
+     "aside": "Choosing A, camping",
+     "notes": [
+      "**Content/Coherence:** compares directly with the partner's option on cost and activities, with specific numbers, and ends with a personal reason.",
+      "**Vocabulary:** natural (*guided hikes*, *evening programs*, *adventure*).",
+      "**Listenability:** fluent and warm.",
+      "**Task Fulfillment:** persuades the partner, as the task asks."
+     ]
+    },
+    {
+     "level": "7",
+     "text": "I think camping is better than the cottage. The cottage costs eleven hundred dollars, but camping is only six hundred, so we can save money.\n\nAlso, in the national park there are many activities, like hiking and the beach. At the cottage, there is only a dock and a canoe, and there are no shops near it.\n\nOur kids really want to sleep in a tent, so I think they will be very happy. Please, let's choose camping.",
+     "aside": "Choosing A, camping",
+     "notes": [
+      "**Content/Coherence:** a clear comparison, briefly explained.",
+      "**Vocabulary:** simple.",
+      "**Listenability:** clear.",
+      "**Task Fulfillment:** persuasive but basic."
+     ]
+    }
+   ]
+  },
+  {
+   "packItem": "celpip-p1-speaking-2",
+   "replace": false,
+   "levels": [
+    {
+     "level": "7",
+     "text": "Two years ago, my manager asked me to do the payroll for my coworker, because she was sick. I never did payroll before, and I had only three days to learn.\n\nFirst, I read her notes and the software guide, and I made a checklist. Then I practised with old numbers. I also asked the finance manager to check my work.\n\nIn the end, the payroll was correct and everybody got paid on time. I was very proud, and I learned that I can learn fast when I am organized.",
+     "aside": null,
+     "notes": [
+      "**Content/Coherence:** answers both parts of the question in a clear order.",
+      "**Vocabulary:** simple.",
+      "**Listenability:** clear; one past-tense slip on purpose (*I never did* instead of *I had never done*).",
+      "**Task Fulfillment:** complete but brief."
+     ]
+    }
+   ]
+  },
+  {
+   "packItem": "celpip-p1-speaking-6",
+   "replace": false,
+   "levels": [
+    {
+     "level": "7",
+     "text": "Hi Sara, I'm really sorry, but I have bad news. My manager called me, and I have to work on Saturday because my coworker is sick. Nobody else can do it.\n\nI know you need help with your move, and I feel very bad. Can I help you on Friday evening? I can pack your boxes and take some small things in my car. Also, I can ask my brother to help you on Saturday.\n\nAgain, I'm really sorry. I hope you understand.",
+     "aside": "Calling the friend",
+     "notes": [
+      "**Content/Coherence:** a clear explanation and two offers of help.",
+      "**Vocabulary:** simple and polite.",
+      "**Listenability:** clear.",
+      "**Task Fulfillment:** complete but less detailed."
+     ]
+    }
+   ]
+  },
+  {
+   "packItem": "celpip-p1-speaking-7",
+   "replace": false,
+   "levels": [
+    {
+     "level": "7",
+     "text": "In my opinion, schools should give music lessons to all children, but it should not be a must.\n\nFirst, music is good for children. They learn to be patient, because they need to practise a lot. Also, some people say music helps children with memory and concentration.\n\nBut not every child likes music. If a child must learn an instrument and he doesn't like it, he will be unhappy and stressed. Some families also cannot buy an instrument.\n\nSo I think schools should offer free lessons and lend instruments, but children can choose. Maybe they can try for one year, and then decide.",
+     "aside": null,
+     "notes": [
+      "**Content/Coherence:** a clear opinion with reasons on both sides and a practical suggestion.",
+      "**Vocabulary:** simple (*a must*).",
+      "**Listenability:** clear.",
+      "**Task Fulfillment:** relevant but short for 90 seconds."
+     ]
+    }
+   ]
+  },
+  {
+   "packItem": "celpip-p1-speaking-8",
+   "replace": false,
+   "levels": [
+    {
+     "level": "7",
+     "text": "Hi Tom, I am in a gift shop, and I see a very unusual coffee mug. It looks like a cactus. It is green, and it has small white dots like the cactus has.\n\nThe lid is very special. It looks like a pink flower. It is the same size as a normal mug, so you can use it every day.\n\nI think your sister will like it, because she loves plants. It costs about twenty dollars. Do you want me to buy it?",
+     "aside": null,
+     "notes": [
+      "**Content/Coherence:** the main features, briefly.",
+      "**Vocabulary:** simple.",
+      "**Listenability:** clear.",
+      "**Task Fulfillment:** complete but less detailed."
+     ]
+    }
+   ]
+  }
+ ]
+}
